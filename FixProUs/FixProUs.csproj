@@ -61,15 +61,18 @@
 		<CreatePackage>false</CreatePackage>
 		<CodesignProvision>FixProUs Development Provisioning</CodesignProvision>
 		<CodesignKey>Apple Development: TAREK GABER (9RKU8MRSBH)</CodesignKey>
+		<CodesignEntitlements>Platforms\iOS\Entitlements.plist</CodesignEntitlements>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-ios|AnyCPU'">
 		<CreatePackage>false</CreatePackage>
 		<CodesignProvision>App Store FixProUs</CodesignProvision>
 		<CodesignKey>Apple Distribution: ENG PRO SOFT, LLC (YZWTVALFLW)</CodesignKey>
+		<CodesignEntitlements>Platforms\iOS\Entitlements.plist</CodesignEntitlements>
 	</PropertyGroup>
 
 	<ItemGroup>
 	  <None Remove="Resources\AppIcon\appicon.svg" />
+	  <None Remove="Resources\AppIcon\logoicon.svg" />
 	  <None Remove="Resources\Fonts\Almarai-Bold.ttf" />
 	  <None Remove="Resources\Fonts\Almarai-ExtraBold.ttf" />
 	  <None Remove="Resources\Fonts\Almarai-Light.ttf" />
