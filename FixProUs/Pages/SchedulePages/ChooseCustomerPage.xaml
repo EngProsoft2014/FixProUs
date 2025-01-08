@@ -57,7 +57,7 @@
                                        Text="{Binding PhoneView}" 
                                        Placeholder="Search by Phone or Address"
                                        HorizontalOptions="FillAndExpand"
-                                       FontSize="13" 
+                                       FontSize="13" TextColor="#333"
                                        Keyboard="Text"
                                        VerticalTextAlignment="Center"
                                        TextChanged="srchPhone_TextChanged">

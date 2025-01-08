@@ -31,7 +31,7 @@
                 <Entry x:Name="searchBar" 
                        Placeholder="Search"
                        FontFamily="AlmaraiRegular" 
-                       Keyboard="Text"
+                       Keyboard="Text" TextColor="#333"
                        ClearButtonVisibility="WhileEditing" 
                        TextChanged="searchBar_TextChanged"></Entry>
                 <ListView x:Name="lstMaterials" 

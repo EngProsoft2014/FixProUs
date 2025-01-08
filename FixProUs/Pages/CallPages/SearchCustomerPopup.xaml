@@ -39,7 +39,7 @@
                     <Entry x:Name="searchBar"
                        Placeholder="Search Customer By Phone"
                        FontFamily="AlmaraiRegular"
-                       Keyboard="Text"
+                       Keyboard="Text" TextColor="#333"
                        ClearButtonVisibility="WhileEditing"
                        TextChanged="SearchBar_OnTextChanged"></Entry>
 

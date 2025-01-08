@@ -85,7 +85,7 @@
                     <StackLayout Spacing="20">
                         <Frame Padding="{OnPlatform Android='10,0,10,0' ,iOS='10,5,10,5'}" CornerRadius="20" BackgroundColor="White" HasShadow="False" HorizontalOptions="FillAndExpand">
                             <Entry Placeholder="Username" 
-                                   FontSize="14"
+                                   FontSize="14" TextColor="#333"
                                    PlaceholderColor="Gray"
                                    Text="{Binding LoginModel.UserName}"
                                    xct:SetFocusOnEntryCompletedBehavior.NextElement="{x:Reference entPassword}">
@@ -100,7 +100,7 @@
                                 <StackLayout Orientation="Horizontal">
                                     <Entry x:Name="entPassword" 
                                            HorizontalOptions="FillAndExpand"
-                                           FontSize="14"
+                                           FontSize="14" TextColor="#333"
                                            Placeholder="Password" 
                                            IsPassword="True"
                                            Text="{Binding LoginModel.Password}"

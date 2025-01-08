@@ -24,7 +24,7 @@
             <StackLayout VerticalOptions="FillAndExpand">
                 <StackLayout>
                     <Frame BorderColor="LightGray" HasShadow="False" HorizontalOptions="FillAndExpand" CornerRadius="5" Padding="10,0,10,0" Margin="20,5,20,5">
-                        <Entry Placeholder="Enter Header" Text="{Binding HeaderNotify}" FontSize="13">
+                        <Entry Placeholder="Enter Header" TextColor="#333" Text="{Binding HeaderNotify}" FontSize="13">
 
                         </Entry>
                     </Frame>

@@ -27,7 +27,7 @@
                            Placeholder="Search"    
                            TextChanged="srcBarEmployee_TextChanged"
                            HorizontalOptions="FillAndExpand" 
-                           WidthRequest="265"
+                           WidthRequest="265" TextColor="#333"
                            Margin="5,0,5,0" 
                            FontSize="14"></SearchBar>
             </StackLayout>

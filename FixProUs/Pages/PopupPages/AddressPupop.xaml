@@ -22,7 +22,7 @@
             </StackLayout>
 
             <StackLayout Padding="20,0,20,0">
-                <Entry x:Name="searchBar" Placeholder="Enter Address" FontFamily="AlmaraiRegular" Keyboard="Text" ClearButtonVisibility="WhileEditing" TextChanged="SearchBar_OnTextChanged"></Entry>
+                <Entry x:Name="searchBar" Placeholder="Enter Address" TextColor="#333" FontFamily="AlmaraiRegular" Keyboard="Text" ClearButtonVisibility="WhileEditing" TextChanged="SearchBar_OnTextChanged"></Entry>
                 <ListView x:Name="countryListView" HorizontalOptions="FillAndExpand" IsVisible="False" CachingStrategy="RecycleElement" ItemTapped="ListView_OnItemTapped">
                     <ListView.RowHeight>
                         70
@@ -145,7 +145,7 @@
                                        Placeholder="Enter Postal Code"
                                        FontSize="14"
                                        Keyboard="Numeric"
-                                       >
+                                       TextColor="#333">
                                         </Entry>
                                     </Border>
 
@@ -155,9 +155,10 @@
                                     <Label Text="Country" TextTransform="Uppercase" TextColor="#b66dff" FontSize="13"></Label>
                                     <Border>
                                         <Entry x:Name="entryCountry"
-                                       Placeholder="Enter Country"
-                                       FontSize="14"
-                                       Keyboard="Text">
+                                               Placeholder="Enter Country"
+                                               FontSize="14"
+                                               Keyboard="Text"
+                                               TextColor="#333">
                                         </Entry>
                                     </Border>
 

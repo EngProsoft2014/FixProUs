@@ -437,7 +437,7 @@
                             <StackLayout>
                                 <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}" HorizontalOptions="FillAndExpand">
                                     <Entry  Text="{Binding ScheduleDetails.Title}"
-                                            FontSize="14"
+                                            FontSize="14" TextColor="#333"
                                             Placeholder="Enter Title"
                                             HorizontalOptions="FillAndExpand">
                                         <Entry.Triggers>
@@ -467,7 +467,7 @@
                             <StackLayout>
                                 <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}" HorizontalOptions="FillAndExpand">
                                     <Entry  Text="{Binding ScheduleDetails.Title}"
-                                            FontSize="14"
+                                            FontSize="14" TextColor="#333"
                                             Placeholder="Enter Title"
                                             HorizontalOptions="FillAndExpand">
                                         <Entry.Triggers>

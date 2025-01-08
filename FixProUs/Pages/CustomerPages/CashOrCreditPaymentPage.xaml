@@ -30,7 +30,7 @@
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
                     </Image.GestureRecognizers>
                 </Image>
-
+                
                 <Label x:Name="lblTitle" Text="Credit Card" HeightRequest="30"
                         VerticalOptions="FillAndExpand" Style="{StaticResource lblHeaderText}"
                         HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
@@ -134,7 +134,7 @@
                             <Entry x:Name="entryNewAmount"
                                    Text="{Binding OnePayment.Amount}"
                                    Placeholder="{Binding OneInvoice.Net}"
-                                   FontSize="12"
+                                   FontSize="12" TextColor="#333"
                                    Keyboard="Numeric"
                                    VerticalTextAlignment="Center"
                                    TextChanged="Entry_TextChanged"></Entry>
@@ -304,7 +304,7 @@
                             <Entry x:Name="entryCashNewAmount"
                                    Text="{Binding OnePayment.Amount}"
                                    Placeholder="{Binding OneInvoice.Net}"
-                                   FontSize="12"
+                                   FontSize="12" TextColor="#333"
                                    Keyboard="Numeric"
                                    VerticalTextAlignment="Center"
                                    TextChanged="Entry_TextChanged"></Entry>

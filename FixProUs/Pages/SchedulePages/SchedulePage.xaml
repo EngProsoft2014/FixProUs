@@ -185,8 +185,8 @@
                                    Placeholder="Search"
                                    HorizontalOptions="FillAndExpand"
                                    FontSize="{OnPlatform Android=13,iOS=18}" 
-                                   Keyboard="Text"
-                                   VerticalTextAlignment="Center"
+                                   Keyboard="Text" TextColor="#333"
+                                   VerticalTextAlignment="Center" 
                                    TextChanged="srchJobs_TextChanged">
                             <SearchBar.Behaviors>
                                 <xct:EventToCommandBehavior EventName="TextChanged"  Command="{Binding ChangeTextSearchJobsCommand}" CommandParameter="{Binding Text, Source={x:Reference srchJobs}}"></xct:EventToCommandBehavior>

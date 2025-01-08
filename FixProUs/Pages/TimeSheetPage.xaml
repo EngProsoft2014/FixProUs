@@ -194,7 +194,7 @@
             <Border BackgroundColor="White" HeightRequest="42" Margin="30,10,30,10" Padding="0" HorizontalOptions="FillAndExpand">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                     <SearchBar x:Name="srcBarEmployee"
-                        Placeholder="Search"    
+                        Placeholder="Search" TextColor="#333"   
                         TextChanged="srcBarEmployee_TextChanged"
                         HorizontalOptions="FillAndExpand" 
                         Margin="5,0,5,0" 

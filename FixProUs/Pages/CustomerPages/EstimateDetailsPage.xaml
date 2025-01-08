@@ -109,7 +109,7 @@
                                        Keyboard="Numeric"
                                        WidthRequest="60"
                                        Text="{Binding CustomerDetails.Discount}"
-                                       FontSize="12"
+                                       FontSize="12" TextColor="#333"
                                        TextChanged="entryDiscount_TextChanged">
                                     <Entry.Triggers>
                                         <DataTrigger TargetType="Entry" Binding="{Binding CustomerDetails.Discount}" Value="0">
