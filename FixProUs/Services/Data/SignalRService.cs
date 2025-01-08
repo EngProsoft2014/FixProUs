@@ -17,7 +17,6 @@ namespace FixPro.Services.Data
         public SignalRService()
         {
 
-            //_hubConnection = new HubConnection("https://api.fixprous.com/");
             _hubConnection = new HubConnection("https://fixproapi.engprosoft.net/");
             _hubProxy = _hubConnection.CreateHubProxy("ChatHub");
 
