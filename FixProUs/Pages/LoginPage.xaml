@@ -59,7 +59,7 @@
 
             <Border Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" BackgroundColor="White" Padding="0">
 
-                <Image Source="Logo.png" Aspect="Fill" Margin="25"></Image>
+                <Image Source="logoo.png" Aspect="Fill" Margin="25"></Image>
                 
                 <Border.Shadow>
                     <Shadow Brush="{OnPlatform Android=Gray, iOS=Gray}" Radius="{OnPlatform Android=15,iOS=15}"></Shadow>
