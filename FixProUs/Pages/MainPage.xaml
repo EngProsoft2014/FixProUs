@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Controls:CustomsPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="FixProUs.Pages.MainPage"
+                      xmlns:Controls="clr-namespace:FixProUs.Controls"
+                      xmlns:Helpers="clr-namespace:FixProUs.Helpers"
+                      xmlns:xct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+                      xmlns:vm="clr-namespace:FixProUs.ViewModels"
+                      xmlns:navigationdrawer="clr-namespace:Syncfusion.Maui.NavigationDrawer;assembly=Syncfusion.Maui.NavigationDrawer"
+                      xmlns:ff="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
+                      x:Name="page"
+
+                      BackgroundColor="White">
+
+    <Controls:CustomsPage.BindingContext>
+        <vm:HomeViewModel></vm:HomeViewModel>
+    </Controls:CustomsPage.BindingContext>
+
+    <navigationdrawer:SfNavigationDrawer x:Name="navigationDrawer">
+
+        <navigationdrawer:SfNavigationDrawer.DrawerSettings>
+            <navigationdrawer:DrawerSettings DrawerHeaderHeight="160"
+                                             DrawerWidth="300"
+                                             Position="Right">
+                <!--Menu Header Details-->
+                <navigationdrawer:DrawerSettings.DrawerHeaderView>
+
+                    <StackLayout Spacing="10" VerticalOptions="FillAndExpand" Margin="{OnPlatform Android='0,50,0,20',iOS='0,100,0,20'}" BackgroundColor="White">
+
+                        <Frame CornerRadius="{OnPlatform Android=100,iOS=50}" VerticalOptions="EndAndExpand" HasShadow="False" HorizontalOptions="CenterAndExpand" Padding="0" Margin="0" HeightRequest="80" WidthRequest="80">
+                            <Image x:Name="AccountImg" Source="{Binding AccountPhoto}" Aspect="AspectFill">
+
+                            </Image>
+
+                        </Frame>
+
+                        <StackLayout>
+                            <Label x:Name="lblLoginName"
+                                       Text="{Binding Login.UserName}"
+                                       Margin="0,0,0,0" 
+                                       HorizontalTextAlignment="Center" 
+                                       HorizontalOptions="CenterAndExpand" 
+                                       FontSize="14" FontAttributes="Bold"
+                                       TextColor="#b66dff"/>
+                            <Label x:Name="lblLoginPhone" 
+                                       Text="{Binding Login.Phone1}" 
+                                       HorizontalTextAlignment="Center" 
+                                       HorizontalOptions="CenterAndExpand" 
+                                       FontSize="14" Margin="0,0,0,0"
+                                       TextColor="#333"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                </navigationdrawer:DrawerSettings.DrawerHeaderView>
+
+                <!--Menu Content Details-->
+                <navigationdrawer:DrawerSettings.DrawerContentView>
+                    <StackLayout Padding="0,40,0,30" BackgroundColor="White">
+
+                        <Line  X1="400" HorizontalOptions="CenterAndExpand" BackgroundColor="LightGray"></Line>
+                        <StackLayout Spacing="0" BackgroundColor="White">
+
+                            <!--Account-->
+                            <StackLayout Orientation="Horizontal" Padding="20,30,0,0" Spacing="10">
+                                <Image>
+                                    <Image.Source>
+                                        <FontImageSource FontFamily="FontIconSolid" Color="#b66dff" Glyph="" Size="18"></FontImageSource>
+                                    </Image.Source>
+                                </Image>
+                                <Button Text="Account" 
+                                        TextTransform="None"
+                                        CornerRadius="10" 
+                                        TextColor="#333333"
+                                        FontSize="14"
+                                        BackgroundColor="White"
+                                        Command="{Binding SelectedAccountPageCommand}"></Button>
+                            </StackLayout>
+                            <!--All Employees-->
+                            <StackLayout Orientation="Horizontal" Padding="20,0,0,0" Spacing="10">
+                                <Image>
+                                    <Image.Source>
+                                        <FontImageSource FontFamily="FontIconSolid" Color="#b66dff" Glyph="" Size="18"></FontImageSource>
+                                    </Image.Source>
+                                </Image>
+                                <Button Text="All Employees" 
+                                        TextTransform="None" 
+                                        CornerRadius="10" 
+                                        TextColor="#333333" 
+                                        FontSize="14" 
+                                        BackgroundColor="White"
+                                        Command="{Binding SelectedAllEmployeesPageCommand}"></Button>
+                                <StackLayout.Triggers>
+                                    <DataTrigger TargetType="StackLayout" Binding="{Binding EmployeePermission.UserRole}" Value="1">
+                                        <Setter Property="IsEnabled" Value="False"></Setter>
+                                        <Setter Property="Opacity" Value=".5"></Setter>
+                                    </DataTrigger>
+                                </StackLayout.Triggers>
+                            </StackLayout>
+
+
+                            <!--Tracking-->
+                            <StackLayout Orientation="Horizontal" Padding="20,0,0,0" Spacing="10">
+                                <Image>
+                                    <Image.Source>
+                                        <FontImageSource FontFamily="FontIconSolid" Color="#b66dff" Glyph="" Size="18"></FontImageSource>
+                                    </Image.Source>
+                                </Image>
+                                <Button Text="Tracking" 
+                                        TextTransform="None" 
+                                        CornerRadius="10" 
+                                        TextColor="#333333"
+                                        FontSize="14" 
+                                        BackgroundColor="White"
+                                        Command="{Binding SelectedEmployeesWorkingPageCommand}" CommandParameter="Start"></Button>
+                                <StackLayout.Triggers>
+                                    <DataTrigger TargetType="StackLayout" Binding="{Binding EmployeePermission.UserRole}" Value="1">
+                                        <Setter Property="IsEnabled" Value="False"></Setter>
+                                        <Setter Property="Opacity" Value=".5"></Setter>
+                                    </DataTrigger>
+                                </StackLayout.Triggers>
+                            </StackLayout>
+
+
+                            <Line  X1="400" HorizontalOptions="CenterAndExpand" BackgroundColor="LightGray" Margin="0,30,0,10"></Line>
+
+                            <!--LogOut-->
+                            <StackLayout Orientation="Horizontal" Padding="20,0,0,0" Spacing="10" >
+                                <Image>
+                                    <Image.Source>
+                                        <FontImageSource FontFamily="FontIconSolid" Color="#b66dff" Glyph="" Size="18"></FontImageSource>
+                                    </Image.Source>
+                                </Image>
+                                <Button Text="Logout"
+                                        TextTransform="None"
+                                        CornerRadius="10" 
+                                        TextColor="#333333" 
+                                        FontSize="14" 
+                                        BackgroundColor="White" 
+                                        Clicked="Button_Clicked_1"></Button>
+                            </StackLayout>
+
+                            <!--<ActivityIndicator x:Name="actIndLoading" IsRunning="{Binding IsBusy}" IsVisible="False" PropertyChanged="actIndLoading_PropertyChanged">
+
+                            </ActivityIndicator>-->
+                        </StackLayout>
+
+                    </StackLayout>
+                </navigationdrawer:DrawerSettings.DrawerContentView>
+
+            </navigationdrawer:DrawerSettings>
+        </navigationdrawer:SfNavigationDrawer.DrawerSettings>
+
+        <!--MainPage Details-->
+        <navigationdrawer:SfNavigationDrawer.ContentView>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <!--Toolbar-->
+                <StackLayout Orientation="Horizontal" Padding="{OnPlatform iOS='20,55,20,10', Android='20,20,20,10'}">
+                    <Image HorizontalOptions="Start">
+                        <Image.Source>
+                            <FontImageSource FontFamily="FontIconSolid" Color="Black" Glyph="" Size="20"></FontImageSource>
+                        </Image.Source>
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image Source="logoo.png" Aspect="AspectFill" HeightRequest="30" WidthRequest="32" HorizontalOptions="CenterAndExpand"></Image>
+
+                    <!--Notification Alert-->
+                    <Grid HorizontalOptions="End">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"></RowDefinition>
+                            <RowDefinition Height="1*"></RowDefinition>
+                            <RowDefinition Height="1*"></RowDefinition>
+                            <RowDefinition Height="1*"></RowDefinition>
+                            <RowDefinition Height="1*"></RowDefinition>
+                            <RowDefinition Height=".5*"></RowDefinition>
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Row="0" 
+                               Grid.RowSpan="5"
+                               Grid.Column="1"
+                               Grid.ColumnSpan="6">
+                            <Image.Source>
+                                <FontImageSource FontFamily="FontIcon" Glyph="" Color="Black" Size="20"></FontImageSource>
+                            </Image.Source>
+                        </Image>
+
+                        <Frame  CornerRadius="{OnPlatform Android=20, iOS=30}" TranslationY="-10"
+                                BackgroundColor="#b66dff"
+                                HasShadow="False"
+                                HeightRequest="12"
+                                WidthRequest="12"
+                                Margin="0" 
+                                Padding="0"
+                                Grid.Column="4"
+                                Grid.ColumnSpan="4"
+                                Grid.Row="0"
+                                Grid.RowSpan="4">
+                            <Label x:Name="lblBadge"
+                                   Text="{Binding NumNotify}"
+                                   FontSize="11" 
+                                   VerticalTextAlignment="Center"
+                                   WidthRequest="10" 
+                                   HeightRequest="16" 
+                                   HorizontalTextAlignment="Center" 
+                                   TextColor="White" 
+                                   BackgroundColor="#b66dff">
+                            </Label>
+                            <Frame.Triggers>
+                                <DataTrigger TargetType="Frame" Binding="{Binding Source={x:Reference lblBadge},Path=Text}" Value="0">
+                                    <Setter Property="IsVisible" Value="False"></Setter>
+                                </DataTrigger>
+                            </Frame.Triggers>
+                        </Frame>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SelectedNotificationsPageCommand}"></TapGestureRecognizer>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                </StackLayout>
+
+                <!--Logo Big Photo-->
+                <Border x:Name="yumImgLogo" Margin="80,0,80,0" HeightRequest="70" Stroke="Transparent" StrokeThickness="0" BackgroundColor="Transparent" Padding="0">
+                    <Image Source="wordlogo.png" Aspect="Fill" Margin="10"></Image>
+                </Border>
+
+                <Grid Padding="20" VerticalOptions="FillAndExpand" RowSpacing="10" ColumnSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="65"></ColumnDefinition>
+                        <ColumnDefinition Width="65"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+
+                    <!--Time Sheets-->
+                    <Border x:Name="yumTimeSheet" Scale="1" Grid.ColumnSpan="4" Grid.RowSpan="3">
+                        <StackLayout Orientation="Vertical" TranslationX="-10" VerticalOptions="CenterAndExpand" Spacing="20">
+                            <Image>
+                                <Image.Source>
+                                    <FontImageSource FontFamily="FontIconSolid" Color="White" Glyph="" Size="20"></FontImageSource>
+                                </Image.Source>
+                            </Image>
+                            <Label Text="Time Sheets" TextColor="White" FontSize="18" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="AlmaraiSemiBold"></Label>
+
+                        </StackLayout>
+
+                        <Border.Shadow>
+                            <Shadow Brush="{OnPlatform Android=Gray, iOS=Gray}" Radius="10" ></Shadow>
+                        </Border.Shadow>
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="50,0,0,150"></RoundRectangle>
+                        </Border.StrokeShape>
+                        <Border.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#8f1fff" Offset="0.2"></GradientStop>
+                                <GradientStop Color="#b66dff" Offset="0.5"></GradientStop>
+                                <GradientStop Color="#c995fc" Offset="0.75"></GradientStop>
+                                <GradientStop Color="#e3c7ff" Offset="1.0"></GradientStop>
+                                <GradientStop Color="#fa89e0" Offset="0.75"></GradientStop>
+                                <GradientStop Color="#f7c1c1" Offset="1.0"></GradientStop>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SelectedTimeSheetPageCommand}"></TapGestureRecognizer>
+                        </Border.GestureRecognizers>
+                    </Border>
+
+                    <!--Customers-->
+                    <Border x:Name="yumCustomers" Scale="1" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="3">
+                        <StackLayout Orientation="Vertical" TranslationX="10" VerticalOptions="CenterAndExpand" Spacing="15">
+                            <Image>
+                                <Image.Source>
+                                    <FontImageSource FontFamily="FontIconSolid" Color="#8f1fff" Glyph="" Size="20"></FontImageSource>
+                                </Image.Source>
+                            </Image>
+
+                            <Label Text="Customers" TextColor="#8f1fff" FontSize="16" HorizontalTextAlignment="Center" FontFamily="AlmaraiSemiBold"></Label>
+
+                        </StackLayout>
+
+                        <Border.Shadow>
+                            <Shadow Brush="{OnPlatform Android=Gray, iOS=Gray}" Radius="10" ></Shadow>
+                        </Border.Shadow>
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="0,50,150,0" Stroke="#b66dff" StrokeThickness="2"></RoundRectangle>
+                        </Border.StrokeShape>
+                        <!--<yummy:PancakeView.Border>
+                            <yummy:Border Color="#9E2F2F" Thickness="2"></yummy:Border>
+                            <yummy:Border Color="#b66dff" Thickness="2"></yummy:Border>
+                        </yummy:PancakeView.Border>-->
+
+                        <Border.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#eedeff" Offset="0.1"></GradientStop>
+                                <GradientStop Color="#ffffff" Offset="1.5"></GradientStop>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SelectedCustomersPageCommand}"></TapGestureRecognizer>
+                        </Border.GestureRecognizers>
+                    </Border>
+
+                    <!--Schedules-->
+                    <Border x:Name="yumSchedules" Scale="1" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="3" Grid.RowSpan="3">
+                        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Spacing="20">
+                            <Image>
+                                <Image.Source>
+                                    <FontImageSource FontFamily="FontIconSolid" Color="#8f1fff" Glyph="" Size="20"></FontImageSource>
+                                </Image.Source>
+                            </Image>
+                            <StackLayout Spacing="0">
+                                <Label Text="Schedules" TextColor="#8f1fff" FontSize="16" HorizontalTextAlignment="Center" FontFamily="AlmaraiSemiBold"></Label>
+                                <Label IsVisible="False" Text="(Not Access)" TextColor="#8f1fff" FontSize="12" HorizontalTextAlignment="Center" FontFamily="AlmaraiSemiBold">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label" Binding="{Binding EmployeePermission.ActiveSchedule}" Value="False">
+                                            <Setter Property="IsVisible" Value="True"></Setter>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <Border.Shadow>
+                            <Shadow Brush="{OnPlatform Android=Gray, iOS=Gray}" Radius="10" ></Shadow>
+                        </Border.Shadow>
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="0,150,50,0" Stroke="#b66dff" StrokeThickness="2"></RoundRectangle>
+                        </Border.StrokeShape>
+                        <!--<yummy:PancakeView.Border>
+                            <yummy:Border Color="#9E2F2F" Thickness="2"></yummy:Border>
+                            <yummy:Border Color="#b66dff" Thickness="2"></yummy:Border>
+                        </yummy:PancakeView.Border>-->
+
+
+                        <Border.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#eedeff" Offset="0.1"></GradientStop>
+                                <GradientStop Color="#ffffff" Offset="1.5"></GradientStop>
+                            </LinearGradientBrush>
+                        </Border.Background>
+
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SelectedSchedulePageCommand}"></TapGestureRecognizer>
+                        </Border.GestureRecognizers>
+                        <Border.Triggers>
+                            <DataTrigger TargetType="Border" Binding="{Binding EmployeePermission.ActiveSchedule}" Value="False">
+                                <Setter Property="IsEnabled" Value="False"></Setter>
+                            </DataTrigger>
+                        </Border.Triggers>
+                    </Border>
+
+                    <!--Calls-->
+                    <Border x:Name="yumCalls" Scale="1" Grid.Column="4" Grid.ColumnSpan="4" Grid.Row="3" Grid.RowSpan="3">
+                        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Spacing="20">
+                            <Image>
+                                <Image.Source>
+                                    <FontImageSource FontFamily="FontIconSolid" Color="White" Glyph="" Size="20"></FontImageSource>
+                                </Image.Source>
+                            </Image>
+                            <Label Text="Calls" TextColor="White" FontSize="18" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="AlmaraiSemiBold"></Label>
+
+                        </StackLayout>
+
+                        <Border.Shadow>
+                            <Shadow Brush="{OnPlatform Android=Gray, iOS=Gray}" Radius="10" ></Shadow>
+                        </Border.Shadow>
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="150,0,0,50"></RoundRectangle>
+                        </Border.StrokeShape>
+                        <Border.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#8f1fff" Offset="0.2"></GradientStop>
+                                <GradientStop Color="#b66dff" Offset="0.5"></GradientStop>
+                                <GradientStop Color="#c995fc" Offset="0.75"></GradientStop>
+                                <GradientStop Color="#e3c7ff" Offset="1.0"></GradientStop>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SelectedCallsPageCommand}"></TapGestureRecognizer>
+                        </Border.GestureRecognizers>
+                    </Border>
+                </Grid>
+
+                <Border x:Name="imgWave" Stroke="Transparent" StrokeThickness="0" VerticalOptions="End" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" HeightRequest="{OnPlatform Android=50,iOS=70}" Padding="0">
+                    <Image Source="wavespurple.jpg" Aspect="Fill"></Image>
+                </Border>
+
+            </StackLayout>
+
+        </navigationdrawer:SfNavigationDrawer.ContentView>
+
+
+    </navigationdrawer:SfNavigationDrawer>
+
+</Controls:CustomsPage>

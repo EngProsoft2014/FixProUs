@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Controls:CustomsPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     x:Class="FixProUs.Pages.SchedulePages.CreateItemPage"
+                      xmlns:Controls="clr-namespace:FixProUs.Controls"
+                      xmlns:Helpers="clr-namespace:FixProUs.Helpers"
+                      xmlns:xct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+                      xmlns:vm="clr-namespace:FixProUs.ViewModels"
+                      BackgroundColor="White"
+                      x:Name="page">
+
+
+    <Controls:CustomsPage.BindingContext>
+        <vm:CreateItemViewModel></vm:CreateItemViewModel>
+    </Controls:CustomsPage.BindingContext>
+
+    <Grid Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Border x:Name="yummyAddItems" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout Padding="{OnPlatform iOS='20,60,20,10', Android=20}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <!--Header-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Image HorizontalOptions="Start">
+                        <Image.Source>
+                            <FontImageSource FontFamily="FontIconSolid" Color="#b66dff" Glyph="" Size="20"></FontImageSource>
+                        </Image.Source>
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Label Text="Add Item/Service" TextColor="#b66dff" FontSize="16" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" Padding="0,0,0,10"></Label>
+
+                </StackLayout>
+
+                <Line  X1="400" HorizontalOptions="CenterAndExpand" BackgroundColor="LightGray" Margin="0,0,0,20"></Line>
+
+
+                <StackLayout>
+
+                    <StackLayout Spacing="25">
+
+                        <!--Item/Service Name-->
+                        <StackLayout  HorizontalOptions="FillAndExpand">
+
+                            <Label Text="Name" FontSize="15" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+
+                            <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}" HorizontalOptions="FillAndExpand">
+
+                                <Entry 
+                                       Text="{Binding ItemDetails.Name}"  
+                                       TextColor="#8f1fff"
+                                       Placeholder="Select Material"
+                                       FontSize="15"
+                                       HorizontalOptions="FillAndExpand"
+                                       VerticalTextAlignment="Center">
+                                </Entry>
+
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                </Border.StrokeShape>
+                                <Border.Shadow>
+                                    <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                </Border.Shadow>
+                            </Border>
+                        </StackLayout>
+
+                        <!--Type-->
+                        <StackLayout  HorizontalOptions="FillAndExpand">
+
+                            <Label Text="Type" FontSize="15" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+
+                            <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}" HorizontalOptions="FillAndExpand">
+
+                                <Picker ItemsSource="{Binding LstItemsServicesTypes}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding OneItemsServicesType,Mode=TwoWay}" 
+                                            Title="Choose Type"
+                                        TextColor="#8f1fff"
+                                            FontSize="15"
+                                            HorizontalOptions="FillAndExpand">
+                                </Picker>
+
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                </Border.StrokeShape>
+                                <Border.Shadow>
+                                    <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                </Border.Shadow>
+                            </Border>
+                        </StackLayout>
+
+                        <!--Category-->
+                        <StackLayout  HorizontalOptions="FillAndExpand">
+
+                            <Label Text="Category" FontSize="15" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+
+                            <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}" HorizontalOptions="FillAndExpand">
+
+                                <Picker ItemsSource="{Binding LstItemsServicesCategories}" ItemDisplayBinding="{Binding CategoryName}" SelectedItem="{Binding OneItemsServicesCategory,Mode=TwoWay}" 
+                                        Title="Choose Category"
+                                        TextColor="#8f1fff"
+                                        FontSize="15"
+                                        HorizontalOptions="FillAndExpand">
+                                </Picker>
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                </Border.StrokeShape>
+                                <Border.Shadow>
+                                    <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                </Border.Shadow>
+                            </Border>
+                        </StackLayout>
+
+
+                        <!--Sub Category-->
+                        <StackLayout  HorizontalOptions="FillAndExpand">
+
+                            <Label Text="Sub Category" FontSize="15" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+
+                            <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}" HorizontalOptions="FillAndExpand">
+
+                                <Picker ItemsSource="{Binding LstItemsServicesSubCategories}" ItemDisplayBinding="{Binding ItemsServicesSubCategory}" SelectedItem="{Binding OneItemsServicesSubCategory,Mode=TwoWay}"
+                                        Title="Choose Sub Category"
+                                        TextColor="#8f1fff"
+                                        FontSize="15"
+                                        HorizontalOptions="FillAndExpand">
+                                </Picker>
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                </Border.StrokeShape>
+                                <Border.Shadow>
+                                    <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                </Border.Shadow>
+                            </Border>
+                        </StackLayout>
+
+                        <!--Qty-->
+                        <StackLayout HorizontalOptions="FillAndExpand" >
+                            <Label Text="Qty" FontSize="15" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+
+                            <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}">
+                                <Entry x:Name="entryQty"
+                                       Text="{Binding ItemDetails.QTYTime}"
+                                       Placeholder="Enter Qty"
+                                       TextColor="#8f1fff"
+                                       FontSize="15"
+                                       Keyboard="Numeric"
+                                       HorizontalOptions="FillAndExpand">
+                                </Entry>
+
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                </Border.StrokeShape>
+                                <Border.Shadow>
+                                    <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                </Border.Shadow>
+                            </Border>
+                        </StackLayout>
+
+                        <!--Price-->
+                        <StackLayout HorizontalOptions="FillAndExpand" >
+                            <Label Text="Price" FontSize="15" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+
+                            <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}">
+                                <Entry x:Name="entryCost"
+                                         Text="{Binding ItemDetails.CostperUnit}"
+                                         FontSize="15"
+                                         Placeholder="Enter Price"
+                                         TextColor="#8f1fff"
+                                         Keyboard="Numeric"
+                                         HorizontalOptions="FillAndExpand">
+                                    <Entry.Triggers>
+                                        <DataTrigger TargetType="Entry" Binding="{Binding EmployeePermission.ActiveEditPrice}" Value="False">
+                                            <Setter Property="IsReadOnly" Value="True"></Setter>
+                                        </DataTrigger>
+                                    </Entry.Triggers>
+                                </Entry>
+
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                </Border.StrokeShape>
+                                <Border.Shadow>
+                                    <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                </Border.Shadow>
+                            </Border>
+                        </StackLayout>
+
+                    </StackLayout>
+
+                </StackLayout>
+
+                <StackLayout x:Name="stkBtns" Orientation="Horizontal" Spacing="10" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Padding="{OnPlatform Android=10,iOS='10,10,10,50'}">
+
+                    <Button Text="Add"
+                            BackgroundColor="#b66dff"
+                            FontAttributes="Bold"
+                            FontSize="15" 
+                            CornerRadius="10"
+                            HeightRequest="40"
+                            WidthRequest="{OnPlatform Android=80, iOS=100}"
+                            TextColor="White" 
+                            x:Name="btnOk"
+                            Command="{Binding AddNewItemServiceCommand}" CommandParameter="{Binding ItemDetails}">
+                    </Button>
+                    <Button Text="Cancel" 
+                            TextTransform="None" 
+                            BackgroundColor="Transparent" 
+                            FontAttributes="Bold" 
+                            FontSize="15"
+                            WidthRequest="{OnPlatform Android=80, iOS=100}"
+                            CornerRadius="10"
+                            HeightRequest="40"
+                            BorderColor="#b66dff" 
+                            BorderWidth="1"
+                            TextColor="#b66dff" 
+                            Clicked="Button_Clicked"></Button>
+                </StackLayout>
+
+                <!--<ActivityIndicator x:Name="actIndLoading" IsRunning="{Binding IsBusy}" IsVisible="False" PropertyChanged="actIndLoading_PropertyChanged">
+
+                </ActivityIndicator>-->
+            </StackLayout>
+        </Border>
+
+    </Grid>
+</Controls:CustomsPage>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Controls:CustomsPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      x:Class="FixProUs.Pages.CreateNotificationsPage"
+                      xmlns:Controls="clr-namespace:FixProUs.Controls"
+                      xmlns:Helpers="clr-namespace:FixProUs.Helpers"
+                      xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+                      xmlns:vm="clr-namespace:FixProUs.ViewModels"
+                      x:Name="page"
+                      BackgroundColor="#f8f5fa">
+
+
+    <Controls:CustomsPage.BindingContext>
+        <vm:HomeViewModel></vm:HomeViewModel>
+    </Controls:CustomsPage.BindingContext>
+
+    <StackLayout VerticalOptions="FillAndExpand">
+        <!--Toolbar-->
+        <StackLayout>
+            <Controls:ToolBar Title="Create Notifications" HasBackButton="True" Margin="0,8,0,0"></Controls:ToolBar>
+        </StackLayout>
+
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <Frame BorderColor="LightGray" HasShadow="False" HorizontalOptions="FillAndExpand" CornerRadius="5" Padding="10,0,10,0" Margin="20,5,20,5">
+                        <Entry Placeholder="Enter Header" Text="{Binding HeaderNotify}" FontSize="13">
+
+                        </Entry>
+                    </Frame>
+
+                    <Frame BorderColor="LightGray" HorizontalOptions="FillAndExpand" HasShadow="False" CornerRadius="5" Padding="10" HeightRequest="150" Margin="20,10,20,0">
+                        <Editor Placeholder="Enter Content" Text="{Binding ContentNotify}" FontSize="13">
+
+                        </Editor>
+                    </Frame>
+
+
+                </StackLayout>
+
+
+                <StackLayout Padding="0" VerticalOptions="End" Margin="0,0,0,80">
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Margin="20,20,20,0">
+                        <Label Text="All Employees" VerticalTextAlignment="Center"></Label>
+                        <CheckBox x:Name="chBxAllEmployees" Scale="{OnPlatform Android=.9,iOS=1}" CheckedChanged="chBxAllEmployees_CheckedChanged">
+
+                        </CheckBox>
+                    </StackLayout>
+                    
+                    <Border 
+                               
+                            Padding="20,10,20,0"
+                            Margin="20,0,20,0" 
+                            BackgroundColor="White" 
+                            HorizontalOptions="FillAndExpand">
+                        <StackLayout>
+
+                            <CollectionView x:Name="lstEmployees" Margin="10" HeightRequest="400" ItemsSource="{Binding LstEmpInAccountId}" SelectionMode="None" VerticalScrollBarVisibility="Default">
+                                <CollectionView.ItemsLayout>
+                                    <GridItemsLayout Orientation="Vertical" Span="1" />
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="{Binding FirstName}" 
+                                                             FontSize="13" 
+                                                             HorizontalOptions="FillAndExpand" 
+                                                             VerticalTextAlignment="Center"></Label>
+                                                    <Label Text="{Binding LastName}" 
+                                                             FontSize="13" 
+                                                             HorizontalOptions="FillAndExpand" 
+                                                             VerticalTextAlignment="Center">
+                                                    </Label>
+                                                </StackLayout>
+
+                                                <CheckBox x:Name="chBxChooseEmployees" 
+                                                          HorizontalOptions="EndAndExpand" 
+                                                          IsChecked="{Binding IsChecked}" 
+                                                          Scale="{OnPlatform Android=.9,iOS=1}">
+                                                    <CheckBox.Triggers>
+                                                        <!--<DataTrigger TargetType="CheckBox" Binding="{Binding Source={x:Reference chBxAllEmployees}, Path=IsChecked}" Value="False">
+                                                <Setter Property="IsChecked" Value="False"></Setter>
+                                            </DataTrigger>-->
+                                                        <DataTrigger TargetType="CheckBox" Binding="{Binding Source={x:Reference chBxAllEmployees}, Path=IsChecked}" Value="True">
+                                                            <Setter Property="IsChecked" Value="True"></Setter>
+                                                        </DataTrigger>
+                                                    </CheckBox.Triggers>
+                                                </CheckBox>
+                                            </StackLayout>
+
+                                            <Line  X1="400" HorizontalOptions="CenterAndExpand" BackgroundColor="LightGray"></Line>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+
+                        </StackLayout>
+
+                        <Border.Shadow>
+                            <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                        </Border.Shadow>
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="5" Stroke="LightGray" StrokeThickness="2"></RoundRectangle>
+                        </Border.StrokeShape>
+                    </Border>
+                </StackLayout>
+
+                
+
+                <!--<ActivityIndicator x:Name="actIndLoading" IsRunning="{Binding IsBusy}" IsVisible="False" PropertyChanged="actIndLoading_PropertyChanged">
+
+                </ActivityIndicator>-->
+                
+            </StackLayout>
+        </ScrollView>
+
+        <Button Text="Send" Margin="{OnPlatform iOS='20,10,20,50', Android='20,10,20,20'}"
+                   HorizontalOptions="FillAndExpand"
+                HeightRequest="40" VerticalOptions="End"
+                   TextColor="White"
+                   BackgroundColor="#b66dff"
+                   CornerRadius="5"
+                   Command="{Binding SelectedSendNotificationsCommand}">
+        </Button>
+    </StackLayout>
+</Controls:CustomsPage>

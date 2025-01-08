@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Controls:CustomsPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     x:Class="FixProUs.Pages.SchedulePages.ChooseCustomerPage"
+                      xmlns:Controls="clr-namespace:FixProUs.Controls"
+                      xmlns:Helpers="clr-namespace:FixProUs.Helpers"
+                      xmlns:xct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+                      xmlns:vm="clr-namespace:FixProUs.ViewModels"
+                      BackgroundColor="White"
+                      x:Name="page">
+
+
+    <ContentPage.BindingContext>
+        <vm:CustomersViewModel></vm:CustomersViewModel>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <!--Toolbar-->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <!--<Controls:ToolBar Title="Customers" HasBackButton="True" TranslationX="20" HorizontalOptions="FillAndExpand"></Controls:ToolBar>-->
+
+            <StackLayout Orientation="Horizontal" Spacing="0" Padding="{OnPlatform iOS='15,50,15,10', Android='15,10,15,10'}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                <Image x:Name="imgBack">
+                    <Image.Source>
+                        <FontImageSource FontFamily="FontIconSolid" Color="#878686" Glyph="" Size="20"></FontImageSource>
+                    </Image.Source>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Label x:Name="lblTitle" Text="Customers" HeightRequest="30"
+                        VerticalOptions="FillAndExpand" Style="{StaticResource lblHeaderText}"
+                        HorizontalOptions="EndAndExpand" HorizontalTextAlignment="{OnPlatform Android=Center,iOS=End}" VerticalTextAlignment="Center"/>
+            </StackLayout>
+
+            <Label 
+                   Text="{Binding BranchName}" 
+                   TextColor="#b66dff"
+                   FontSize="13"
+                   Margin="{OnPlatform Android='0,0,20,0',iOS='0,40,20,0'}"
+                   VerticalTextAlignment="Center"
+                   HorizontalOptions="End"></Label>
+        </StackLayout>
+
+        <Line  X1="400" HorizontalOptions="CenterAndExpand" BackgroundColor="LightGray" Margin="0,0,0,10"></Line>
+
+        <Grid VerticalOptions="FillAndExpand">
+            <StackLayout>
+
+                <StackLayout Margin="30,0,30,0" Spacing="20">
+                    <!--search bar Phone or Address-->
+                    <Border BackgroundColor="White" HeightRequest="42" HorizontalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                            <SearchBar x:Name="srchPhoneOrAddress" 
+                                       Text="{Binding PhoneView}" 
+                                       Placeholder="Search by Phone or Address"
+                                       HorizontalOptions="FillAndExpand"
+                                       FontSize="13" 
+                                       Keyboard="Text"
+                                       VerticalTextAlignment="Center"
+                                       TextChanged="srchPhone_TextChanged">
+                            </SearchBar>
+                        </StackLayout>
+
+                        <Border.Shadow>
+                            <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                        </Border.Shadow>
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="{OnPlatform Android=25,iOS=20}" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                        </Border.StrokeShape>
+
+                    </Border>
+
+                </StackLayout>
+
+                <Line  X1="400" HorizontalOptions="CenterAndExpand" BackgroundColor="LightGray" Margin="0,10,0,10"></Line>
+
+                <ScrollView VerticalOptions="FillAndExpand" Padding="0,0,0,70">
+                    <StackLayout Padding="0,20,0,20">
+
+                        <CollectionView x:Name="lstCustomers" SelectionMode="None"
+                              ItemsSource="{Binding LstCustomers}"
+                              VerticalScrollBarVisibility="Never">
+                            <!--<CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="40"></GridItemsLayout>
+                        </CollectionView.ItemsLayout>-->
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+
+                                    <StackLayout Padding="20,15,20,15" Spacing="10">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Border BackgroundColor="#f1e3ff" HorizontalOptions="FillAndExpand">
+                                                <Label 
+                                                   FontAttributes="Bold"
+                                                   TextColor="Black" 
+                                                   HorizontalTextAlignment="Start"
+                                                   VerticalTextAlignment="Center"
+                                                   Padding="20,7,20,7">
+                                                    <Label.Text>
+                                                        <MultiBinding StringFormat="{}{0} {1}">
+                                                            <Binding Path="FirstName" />
+                                                            <Binding Path="LastName" />
+                                                        </MultiBinding>
+                                                    </Label.Text>
+                                                </Label>
+
+                                                <Border.Shadow>
+                                                    <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                                </Border.Shadow>
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="10" Stroke="#b66dff" StrokeThickness="2"></RoundRectangle>
+                                                </Border.StrokeShape>
+                                            </Border>
+
+                                            <Label Text="{Binding Phone1}" 
+                                                   FontSize="12" 
+                                                   Margin="50,0,0,0"
+                                                   FontAttributes="Bold"
+                                                   HorizontalOptions="End"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalTextAlignment="Center"></Label>
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Horizontal" Spacing="10" Padding="10,0,0,0">
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                                                <Image>
+                                                    <Image.Source>
+                                                        <FontImageSource FontFamily="FontIconSolid" Color="#debdff" Glyph="" Size="18"></FontImageSource>
+                                                    </Image.Source>
+                                                </Image>
+
+                                                <Label Text="{Binding Address}" FontAttributes="Italic" VerticalTextAlignment="Start" FontSize="14"></Label>
+
+                                            </StackLayout>
+                                            <Button Text="Select" 
+                                                BackgroundColor="#c285ff" 
+                                                TextColor="White"
+                                                CornerRadius="15"
+                                                TextTransform="None"
+                                                HeightRequest="40"
+                                                HorizontalOptions="End"
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CustomersViewModel}}, Path=CreateNewScheduleCommand}" CommandParameter="{Binding}"></Button>
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                            <CollectionView.Triggers>
+                                <DataTrigger TargetType="CollectionView" Binding="{Binding LstCustomers.Count}" Value="0">
+                                    <Setter Property="IsVisible" Value="False"></Setter>
+                                </DataTrigger>
+                            </CollectionView.Triggers>
+                        </CollectionView>
+
+                        <StackLayout.Triggers>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding Source={x:Reference stkNoData}, Path=IsVisible}" Value="True">
+                                <Setter Property="HeightRequest" Value="0"></Setter>
+                                <Setter Property="IsVisible" Value="False"></Setter>
+                            </DataTrigger>
+                        </StackLayout.Triggers>
+                    </StackLayout>
+                </ScrollView>
+
+                <!--No Data-->
+                <StackLayout x:Name="stkNoData" Padding="0,200,0,300" IsVisible="False" HeightRequest="100" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Image Source="noresult.png" Aspect="AspectFill" VerticalOptions="FillAndExpand"></Image>
+                    <StackLayout.Triggers>
+                        <MultiTrigger TargetType="StackLayout">
+                            <MultiTrigger.Conditions>
+                                <BindingCondition Binding="{Binding LstCustomers.Count}" Value="0" />
+                                <BindingCondition Binding="{Binding Source={x:Reference lstCustomers}, Path=ItemsSource}" Value="0" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="IsVisible" Value="True"></Setter>
+                        </MultiTrigger>
+                    </StackLayout.Triggers>
+                </StackLayout>
+            </StackLayout>
+            <Border 
+                               BackgroundColor="#8f1fff" 
+                               Padding="5" 
+                               VerticalOptions="End"
+                               HorizontalOptions="End" 
+                               Margin="{OnPlatform Android= 30, iOS='30,30,30,50'}"
+                               HeightRequest="50"
+                               WidthRequest="50">
+                <Label TranslationY="{OnPlatform Android=-8,iOS=-2}"
+                        VerticalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        Text="+"
+                        TextColor="White"
+                        FontSize="40"></Label>
+
+                <Border.Shadow>
+                    <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                </Border.Shadow>
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="{OnPlatform Android=100,iOS=25}" Stroke="LightGray" StrokeThickness="2"></RoundRectangle>
+                </Border.StrokeShape>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CreateNewCustomerCommand}" ></TapGestureRecognizer>
+                </Border.GestureRecognizers>
+            </Border>
+        </Grid>
+
+        <!--<ActivityIndicator x:Name="actIndLoading" IsRunning="{Binding IsBusy}" IsVisible="False" PropertyChanged="actIndLoading_PropertyChanged">
+
+        </ActivityIndicator>-->
+
+
+    </StackLayout>
+</Controls:CustomsPage>
