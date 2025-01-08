@@ -28,17 +28,40 @@ namespace FixPro.Services.Data
 
         public async Task StartAsync()
         {
-            await _hubConnection.Start();
+            try
+            {
+                await _hubConnection.Start();
+                Console.WriteLine("SignalR connected.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"SignalR connection failed: {ex.Message}");
+            }
         }
 
         public async Task Disconnect()
         {
-            _hubConnection.Stop();
+            try
+            {
+                _hubConnection.Stop();
+                Console.WriteLine("SignalR disconnected.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"SignalR disconnection failed: {ex.Message}");
+            }
         }
 
         public async Task SendMessage(string user, string message)
         {
-            await _hubProxy.Invoke("SendMessage", user, message);
+            try
+            {
+                await _hubProxy.Invoke("SendMessage", user, message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"SendMessage failed: {ex.Message}");
+            }
         }
     }
 }
