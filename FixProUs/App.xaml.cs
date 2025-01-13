@@ -197,7 +197,6 @@ namespace FixProUs
                 await SignalRservice();
                 await SignalRserviceChangeUserData();
 
-
                 await Controls.StartData.GetCom_Main();
             }
             else
