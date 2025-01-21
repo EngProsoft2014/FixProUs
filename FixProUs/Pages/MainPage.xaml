@@ -258,7 +258,7 @@
 
 
                     <!--Time Sheets-->
-                    <Border x:Name="yumTimeSheet" Scale="1" Grid.ColumnSpan="4" Grid.RowSpan="3">
+                    <Border x:Name="yumTimeSheet" Scale="1" Grid.ColumnSpan="4" Grid.RowSpan="3" BackgroundColor="#8f1fff">
                         <StackLayout Orientation="Vertical" TranslationX="-10" VerticalOptions="CenterAndExpand" Spacing="20">
                             <Image>
                                 <Image.Source>
@@ -275,7 +275,7 @@
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="50,0,0,150"></RoundRectangle>
                         </Border.StrokeShape>
-                        <Border.Background>
+                        <!--<Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop Color="#8f1fff" Offset="0.2"></GradientStop>
                                 <GradientStop Color="#b66dff" Offset="0.5"></GradientStop>
@@ -284,14 +284,14 @@
                                 <GradientStop Color="#fa89e0" Offset="0.75"></GradientStop>
                                 <GradientStop Color="#f7c1c1" Offset="1.0"></GradientStop>
                             </LinearGradientBrush>
-                        </Border.Background>
+                        </Border.Background>-->
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding SelectedTimeSheetPageCommand}"></TapGestureRecognizer>
                         </Border.GestureRecognizers>
                     </Border>
 
                     <!--Customers-->
-                    <Border x:Name="yumCustomers" Scale="1" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="3">
+                    <Border x:Name="yumCustomers" Scale="1" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="3" BackgroundColor="#eedeff">
                         <StackLayout Orientation="Vertical" TranslationX="10" VerticalOptions="CenterAndExpand" Spacing="15">
                             <Image>
                                 <Image.Source>
@@ -309,24 +309,20 @@
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="0,50,150,0" Stroke="#b66dff" StrokeThickness="2"></RoundRectangle>
                         </Border.StrokeShape>
-                        <!--<yummy:PancakeView.Border>
-                            <yummy:Border Color="#9E2F2F" Thickness="2"></yummy:Border>
-                            <yummy:Border Color="#b66dff" Thickness="2"></yummy:Border>
-                        </yummy:PancakeView.Border>-->
 
-                        <Border.Background>
+                        <!--<Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop Color="#eedeff" Offset="0.1"></GradientStop>
                                 <GradientStop Color="#ffffff" Offset="1.5"></GradientStop>
                             </LinearGradientBrush>
-                        </Border.Background>
+                        </Border.Background>-->
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding SelectedCustomersPageCommand}"></TapGestureRecognizer>
                         </Border.GestureRecognizers>
                     </Border>
 
                     <!--Schedules-->
-                    <Border x:Name="yumSchedules" Scale="1" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="3" Grid.RowSpan="3">
+                    <Border x:Name="yumSchedules" Scale="1" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="3" Grid.RowSpan="3" BackgroundColor="#eedeff">
                         <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Spacing="20">
                             <Image>
                                 <Image.Source>
@@ -351,18 +347,13 @@
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="0,150,50,0" Stroke="#b66dff" StrokeThickness="2"></RoundRectangle>
                         </Border.StrokeShape>
-                        <!--<yummy:PancakeView.Border>
-                            <yummy:Border Color="#9E2F2F" Thickness="2"></yummy:Border>
-                            <yummy:Border Color="#b66dff" Thickness="2"></yummy:Border>
-                        </yummy:PancakeView.Border>-->
 
-
-                        <Border.Background>
+                        <!--<Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop Color="#eedeff" Offset="0.1"></GradientStop>
                                 <GradientStop Color="#ffffff" Offset="1.5"></GradientStop>
                             </LinearGradientBrush>
-                        </Border.Background>
+                        </Border.Background>-->
 
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding SelectedSchedulePageCommand}"></TapGestureRecognizer>
@@ -375,7 +366,7 @@
                     </Border>
 
                     <!--Calls-->
-                    <Border x:Name="yumCalls" Scale="1" Grid.Column="4" Grid.ColumnSpan="4" Grid.Row="3" Grid.RowSpan="3">
+                    <Border x:Name="yumCalls" Scale="1" Grid.Column="4" Grid.ColumnSpan="4" Grid.Row="3" Grid.RowSpan="3" BackgroundColor="#8f1fff">
                         <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Spacing="20">
                             <Image>
                                 <Image.Source>
@@ -392,14 +383,14 @@
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="150,0,0,50"></RoundRectangle>
                         </Border.StrokeShape>
-                        <Border.Background>
+                        <!--<Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop Color="#8f1fff" Offset="0.2"></GradientStop>
                                 <GradientStop Color="#b66dff" Offset="0.5"></GradientStop>
                                 <GradientStop Color="#c995fc" Offset="0.75"></GradientStop>
                                 <GradientStop Color="#e3c7ff" Offset="1.0"></GradientStop>
                             </LinearGradientBrush>
-                        </Border.Background>
+                        </Border.Background>-->
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding SelectedCallsPageCommand}"></TapGestureRecognizer>
                         </Border.GestureRecognizers>
