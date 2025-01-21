@@ -58,7 +58,7 @@ namespace FixProUs.Services.Data
                     {
                         var loginModel = await ORep.GetLoginAsync<EmployeeModel>("api/Login/GetLogin?" + "UserName=" + Helpers.Settings.UserNameGet + "&" + "Password=" + Helpers.Settings.PasswordGet + "&" + "PlayerId=" + Helpers.Settings.PlayerIdGet);
 
-                        if (loginModel != null)
+                        if (loginModel != null && !string.IsNullOrEmpty(loginModel.GernToken))
                         {
                             MUserToken = loginModel.GernToken;
 

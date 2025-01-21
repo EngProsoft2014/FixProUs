@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FixProUs.Pages.NotificationsPage"
              xmlns:Controls="clr-namespace:FixProUs.Controls"
-             xmlns:Helpers="clr-namespace:FixProUs.Helpers"
-             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+             xmlns:Helpers="clr-namespace:FixProUs.Helpers" 
              xmlns:vm="clr-namespace:FixProUs.ViewModels"
              BackgroundColor="White"
              x:Name="page">
@@ -18,7 +17,7 @@
         <!--Toolbar-->
         <StackLayout>
 
-            <StackLayout Orientation="Horizontal" Spacing="0" Padding="{OnPlatform iOS='20,50,20,10', Android='15,15,15,10'}" VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" Spacing="0" Padding="{OnPlatform iOS='20,10,20,10', Android='15,15,15,10'}" VerticalOptions="FillAndExpand">
                 <Image x:Name="imgBack" HorizontalOptions="Start">
                     <Image.Source>
                         <FontImageSource FontFamily="FontIconSolid" Color="#878686" Glyph="" Size="20"></FontImageSource>
