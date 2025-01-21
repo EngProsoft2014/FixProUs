@@ -194,8 +194,10 @@ namespace FixProUs
                 string plyId = !string.IsNullOrEmpty(OneSignal.User.PushSubscription.Id) ? OneSignal.User.PushSubscription.Id : "";
                 Preferences.Default.Set(Helpers.Settings.PlayerId, plyId);
 
-                await SignalRservice();
-                await SignalRserviceChangeUserData();
+                //ObjCRuntime.Class.ThrowOnInitFailure = false;
+
+                //await SignalRservice();
+                //await SignalRserviceChangeUserData();
 
                 await Controls.StartData.GetCom_Main();
             }

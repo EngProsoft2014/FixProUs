@@ -276,7 +276,7 @@
                             <RoundRectangle CornerRadius="50,0,0,150"></RoundRectangle>
                         </Border.StrokeShape>
                         <Border.Background>
-                            <LinearGradientBrush>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop Color="#8f1fff" Offset="0.2"></GradientStop>
                                 <GradientStop Color="#b66dff" Offset="0.5"></GradientStop>
                                 <GradientStop Color="#c995fc" Offset="0.75"></GradientStop>
@@ -315,7 +315,7 @@
                         </yummy:PancakeView.Border>-->
 
                         <Border.Background>
-                            <LinearGradientBrush>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop Color="#eedeff" Offset="0.1"></GradientStop>
                                 <GradientStop Color="#ffffff" Offset="1.5"></GradientStop>
                             </LinearGradientBrush>
@@ -358,7 +358,7 @@
 
 
                         <Border.Background>
-                            <LinearGradientBrush>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop Color="#eedeff" Offset="0.1"></GradientStop>
                                 <GradientStop Color="#ffffff" Offset="1.5"></GradientStop>
                             </LinearGradientBrush>
@@ -393,7 +393,7 @@
                             <RoundRectangle CornerRadius="150,0,0,50"></RoundRectangle>
                         </Border.StrokeShape>
                         <Border.Background>
-                            <LinearGradientBrush>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop Color="#8f1fff" Offset="0.2"></GradientStop>
                                 <GradientStop Color="#b66dff" Offset="0.5"></GradientStop>
                                 <GradientStop Color="#c995fc" Offset="0.75"></GradientStop>
