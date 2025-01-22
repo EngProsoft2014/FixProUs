@@ -20,7 +20,7 @@
         <StackLayout x:Name="stkCredit" VerticalOptions="FillAndExpand" IsVisible="False">
 
             <!--Toolbar Credit Card-->
-            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="{OnPlatform iOS='15,50,15,10', Android='15,10,15,10'}">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="{OnPlatform iOS='15,10,15,10', Android='15,10,15,10'}">
 
                 <Image x:Name="imgback">
                     <Image.Source>
@@ -229,7 +229,7 @@
         <StackLayout x:Name="stkCash" IsVisible="False" VerticalOptions="FillAndExpand">
 
             <!--Toolbar Payment Cash-->
-            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="{OnPlatform iOS='15,50,15,10', Android='15,10,15,10'}">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="{OnPlatform iOS='15,10,15,10', Android='15,10,15,10'}">
 
                 <Image x:Name="imgBack2">
                     <Image.Source>

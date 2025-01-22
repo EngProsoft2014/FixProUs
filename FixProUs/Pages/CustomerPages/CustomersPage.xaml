@@ -18,7 +18,7 @@
         <!--Toolbar-->
         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 
-            <StackLayout Orientation="Horizontal" Spacing="0" Padding="{OnPlatform iOS='15,50,15,10', Android='15,10,15,10'}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" Spacing="0" Padding="{OnPlatform iOS='15,10,15,10', Android='15,10,15,10'}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
 
                 <Image x:Name="imgBack">
                     <Image.Source>
@@ -52,7 +52,7 @@
                     <Border BackgroundColor="White" HeightRequest="42" HorizontalOptions="FillAndExpand">
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                             <SearchBar x:Name="srchPhoneOrAddress" 
-                                   Text="{Binding PhoneView}" 
+                                   Text="{Binding PhoneView}" BackgroundColor="White"
                                    Placeholder="Search by Phone or Address"
                                    HorizontalOptions="FillAndExpand"
                                    FontSize="13" TextColor="#333"

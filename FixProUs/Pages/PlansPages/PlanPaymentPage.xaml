@@ -17,7 +17,7 @@
 
     <StackLayout>
         <!--Toolbar Credit Card-->
-        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="{OnPlatform iOS='15,50,15,10', Android='15,10,15,10'}">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="{OnPlatform iOS='15,10,15,10', Android='15,10,15,10'}">
 
             <Image x:Name="imgback">
                 <Image.Source>

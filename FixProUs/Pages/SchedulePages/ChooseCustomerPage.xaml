@@ -19,7 +19,7 @@
         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
             <!--<Controls:ToolBar Title="Customers" HasBackButton="True" TranslationX="20" HorizontalOptions="FillAndExpand"></Controls:ToolBar>-->
 
-            <StackLayout Orientation="Horizontal" Spacing="0" Padding="{OnPlatform iOS='15,50,15,10', Android='15,10,15,10'}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" Spacing="0" Padding="{OnPlatform iOS='15,10,15,10', Android='15,10,15,10'}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
 
                 <Image x:Name="imgBack">
                     <Image.Source>
