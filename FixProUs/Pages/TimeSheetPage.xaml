@@ -217,7 +217,7 @@
 
             <ListView x:Name="lstEmployeesIn" SelectionMode="None"
                        ItemsSource="{Binding LstEmployeesIn}"
-                       HasUnevenRows="True" HeightRequest="450"
+                       HasUnevenRows="True" HeightRequest="{OnPlatform Android=450}"
                        VerticalScrollBarVisibility="Never"
 
 >
