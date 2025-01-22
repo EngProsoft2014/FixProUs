@@ -346,7 +346,7 @@ namespace FixProUs.ViewModels
 
                             if (json != "Bad Request" && json != "api not responding")
                             {
-                                await App.Current!.MainPage!.DisplayAlert("Project Services", "Succes for Save Call.", "Ok");
+                                await App.Current!.MainPage!.DisplayAlert("FixPro", "Succes for Save Call.", "Ok");
 
                                 CallModel Call = JsonConvert.DeserializeObject<CallModel>(json)!;
 
@@ -392,7 +392,7 @@ namespace FixProUs.ViewModels
 
                     if (json != null && json != "api not responding")
                     {
-                        await App.Current!.MainPage!.DisplayAlert("Project Services", "Succes Delete Call.", "Ok");
+                        await App.Current!.MainPage!.DisplayAlert("FixPro", "Succes Delete Call.", "Ok");
                         await App.Current.MainPage.Navigation.PushAsync(new MainPage());
                     }
                     else

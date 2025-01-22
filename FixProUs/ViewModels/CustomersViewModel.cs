@@ -1063,7 +1063,7 @@ namespace FixProUs.ViewModels
 
                                 if (json != "Bad Request" && json != "api not responding" && json.Contains("Not_Enough") != true && json.Contains("This Invoice Already Exist") != true && json.Contains("Already Exist For This Schedule Date#") != true)
                                 {
-                                    await App.Current.MainPage.DisplayAlert("Project Services", "Succes Save Invoice.", "Ok");
+                                    await App.Current.MainPage.DisplayAlert("FixPro", "Succes Save Invoice.", "Ok");
                                     var ViewModel = new SchedulesViewModel(OneInvoice, CustomerDetails);
                                     var page = new Pages.PopupPages.PaymentMethodsPopup();
                                     page.BindingContext = ViewModel;
@@ -1145,7 +1145,7 @@ namespace FixProUs.ViewModels
 
                             if (json != "Bad Request" && json != "api not responding" && json.Contains("Already Exist For This Schedule Date#") != true)
                             {
-                                await App.Current.MainPage.DisplayAlert("Project Services", "Succes Save Estimate.", "Ok");
+                                await App.Current.MainPage.DisplayAlert("FixPro", "Succes Save Estimate.", "Ok");
 
                                 var ViewModel = new CustomersViewModel(CustomerDetails);
                                 var page = new Pages.CustomerPages.CustomersDetailsPage();
@@ -1285,7 +1285,7 @@ namespace FixProUs.ViewModels
 
                         if (json != null && json != "api not responding" && json.Contains("Not_Enough") != true && json.Contains("This Invoice Already Exist") != true)
                         {
-                            await App.Current.MainPage.DisplayAlert("Project Services", "Succes Convert To Inovice.", "Ok");
+                            await App.Current.MainPage.DisplayAlert("FixPro", "Succes Convert To Inovice.", "Ok");
                             OneInvoice.Id = int.Parse(json.Trim('"'));
 
                             var ViewModel = new CustomersViewModel(OneInvoice, CustomerDetails);
