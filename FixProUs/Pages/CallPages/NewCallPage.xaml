@@ -94,7 +94,7 @@
                         </Border>
 
                         <!--Add Job-->
-                        <Border x:Name="yumMkSch" HorizontalOptions="End" IsVisible="False" Padding="10">
+                        <Border x:Name="yumMkSch" HorizontalOptions="End" IsVisible="False" Padding="10" BackgroundColor="#b66dff">
                             <StackLayout Spacing="0" VerticalOptions="Center">
                                 <Label Text="Add Job" FontSize="12" TextColor="#333" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
 
@@ -107,12 +107,12 @@
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="10"></RoundRectangle>
                             </Border.StrokeShape>
-                            <Border.Background>
+                            <!--<Border.Background>
                                 <LinearGradientBrush>
                                     <GradientStop Color="#b66dff" Offset="0.1"></GradientStop>
                                     <GradientStop Color="#debdff" Offset="1.5"></GradientStop>
                                 </LinearGradientBrush>
-                            </Border.Background>
+                            </Border.Background>-->
                             <Border.Triggers>
                                 <DataTrigger TargetType="Border" Binding="{Binding IsShowBtnSch}" Value="1">
                                     <Setter Property="IsVisible" Value="True"></Setter>
@@ -124,7 +124,7 @@
                         </Border>
 
                         <!--Go Job-->
-                        <Border HorizontalOptions="End" IsVisible="False" Padding="10">
+                        <Border HorizontalOptions="End" IsVisible="False" Padding="10" BackgroundColor="#b66dff">
                             <StackLayout Spacing="0" VerticalOptions="Center">
                                 <Label Text="Go Job" FontSize="12" TextColor="#333" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
 
@@ -136,12 +136,12 @@
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="10"></RoundRectangle>
                             </Border.StrokeShape>
-                            <Border.Background>
+                            <!--<Border.Background>
                                 <LinearGradientBrush>
                                     <GradientStop Color="#b66dff" Offset="0.1"></GradientStop>
                                     <GradientStop Color="#debdff" Offset="1.5"></GradientStop>
                                 </LinearGradientBrush>
-                            </Border.Background>
+                            </Border.Background>-->
                             <Border.Triggers>
                                 <DataTrigger TargetType="Border" Binding="{Binding IsShowBtnSch}" Value="2">
                                     <Setter Property="IsVisible" Value="True"></Setter>

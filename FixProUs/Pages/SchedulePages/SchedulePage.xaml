@@ -181,7 +181,7 @@
                 <!--search bar-->
                 <Border BackgroundColor="White" HeightRequest="{OnPlatform Android=42, iOS=55}" HorizontalOptions="FillAndExpand">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
-                        <SearchBar x:Name="srchJobs"  
+                        <SearchBar x:Name="srchJobs" BackgroundColor="White"  
                                    Placeholder="Search"
                                    HorizontalOptions="FillAndExpand"
                                    FontSize="{OnPlatform Android=13,iOS=18}" 

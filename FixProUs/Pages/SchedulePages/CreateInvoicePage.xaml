@@ -39,7 +39,7 @@
                    Text="{Binding BranchName}" 
                    TextColor="#b66dff"
                    FontSize="13"
-                   Margin="{OnPlatform Android='0,0,20,0',iOS='0,40,10,0'}"
+                   Margin="{OnPlatform Android='0,0,20,0',iOS='0,0,10,0'}"
                    VerticalTextAlignment="Center"
                    HorizontalOptions="End">
             </Label>

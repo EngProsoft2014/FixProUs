@@ -45,6 +45,8 @@ namespace FixProUs
     		builder.Logging.AddDebug();
 #endif
 
+            CustomControls.ControlsBackground();
+
             return builder.Build();
         }
     }
