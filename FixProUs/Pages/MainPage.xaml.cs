@@ -1,7 +1,9 @@
-﻿using Controls.UserDialogs.Maui;
+﻿using Akavache;
+using Controls.UserDialogs.Maui;
 using FixProUs.Models;
 using FixProUs.ViewModels;
 using Newtonsoft.Json;
+using System.Reactive.Linq;
 
 namespace FixProUs.Pages
 {
@@ -100,7 +102,9 @@ namespace FixProUs.Pages
             Preferences.Default.Set(Helpers.Settings.BranchName, "");
             Preferences.Default.Set(Helpers.Settings.UserRole, "");
             Preferences.Default.Clear();
-            await App.Current.MainPage.Navigation.PushAsync(new LoginPage());
+            await BlobCache.LocalMachine.InvalidateAll();
+            await BlobCache.LocalMachine.Vacuum();
+            await App.Current!.MainPage!.Navigation.PushAsync(new LoginPage());
             Controls.StartData.IsRunning = false;
 
             UserDialogs.Instance.HideHud();
