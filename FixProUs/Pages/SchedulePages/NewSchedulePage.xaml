@@ -20,7 +20,7 @@
         <!--Header-->
         <StackLayout Orientation="Horizontal" Spacing="0">
 
-            <StackLayout Orientation="Horizontal" Spacing="0" Padding="{OnPlatform iOS='20,10,20,10', Android='15,10,15,10'}" HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" Spacing="0" Padding="{OnPlatform iOS='20,0,20,10', Android='15,10,15,10'}" HorizontalOptions="FillAndExpand">
 
                 <Image x:Name="imgBack">
                     <Image.Source>

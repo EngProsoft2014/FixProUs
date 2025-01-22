@@ -16,7 +16,7 @@
 
     <StackLayout VerticalOptions="FillAndExpand">
 
-        <StackLayout VerticalOptions="Start" HeightRequest="260" Padding="{OnPlatform iOS='0,10,0,0'}">
+        <StackLayout VerticalOptions="Start" HeightRequest="260" Padding="{OnPlatform iOS='0,0,0,0'}">
             <!--Toolbar-->
             <StackLayout>
 

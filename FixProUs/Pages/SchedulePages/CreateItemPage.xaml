@@ -16,7 +16,7 @@
 
     <Grid Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <Border x:Name="yummyAddItems" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <StackLayout Padding="{OnPlatform iOS='20,10,20,10', Android=20}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout Padding="{OnPlatform iOS='20,0,20,10', Android=20}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <!--Header-->
                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                     <Image HorizontalOptions="Start">

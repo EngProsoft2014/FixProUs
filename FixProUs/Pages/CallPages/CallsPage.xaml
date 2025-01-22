@@ -16,7 +16,7 @@
 
     <StackLayout>
         <!--Toolbar-->
-        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="{OnPlatform iOS='20,10,20,10', Android='20,10,20,10'}">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="{OnPlatform iOS='20,0,20,10', Android='20,10,20,10'}">
 
             <Image x:Name="imgBack">
                 <Image.Source>

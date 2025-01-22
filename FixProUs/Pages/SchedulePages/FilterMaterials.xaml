@@ -14,7 +14,7 @@
         <vm:ScheduleItemsServicesViewModel></vm:ScheduleItemsServicesViewModel>
     </Controls:CustomsPage.BindingContext>
 
-    <Border Margin="{OnPlatform iOS='0,10,0,0'}" BackgroundColor="#FFFFFF" VerticalOptions="FillAndExpand">
+    <Border Margin="{OnPlatform iOS='0,0,0,0'}" BackgroundColor="#FFFFFF" VerticalOptions="FillAndExpand">
         <StackLayout>
             <StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="20">
                 <Image HorizontalOptions="End" VerticalOptions="Center">

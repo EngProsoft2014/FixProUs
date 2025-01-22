@@ -17,7 +17,7 @@
         <!--Toolbar-->
         <StackLayout>
 
-            <StackLayout Orientation="Horizontal" Spacing="0" Padding="{OnPlatform iOS='20,10,20,10', Android='15,15,15,10'}" VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" Spacing="0" Padding="{OnPlatform iOS='20,0,20,10', Android='15,15,15,10'}" VerticalOptions="FillAndExpand">
                 <Image x:Name="imgBack" HorizontalOptions="Start">
                     <Image.Source>
                         <FontImageSource FontFamily="FontIconSolid" Color="#878686" Glyph="" Size="20"></FontImageSource>

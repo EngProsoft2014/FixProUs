@@ -154,7 +154,7 @@
         <navigationdrawer:SfNavigationDrawer.ContentView>
             <StackLayout VerticalOptions="FillAndExpand">
                 <!--Toolbar-->
-                <StackLayout Orientation="Horizontal" Padding="{OnPlatform iOS='20,10,20,10', Android='20,20,20,10'}">
+                <StackLayout Orientation="Horizontal" Padding="{OnPlatform iOS='20,0,20,10', Android='20,20,20,10'}">
                     <Image HorizontalOptions="Start">
                         <Image.Source>
                             <FontImageSource FontFamily="FontIconSolid" Color="Black" Glyph="" Size="20"></FontImageSource>
