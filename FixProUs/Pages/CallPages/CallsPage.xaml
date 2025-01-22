@@ -86,12 +86,12 @@
                                                       Margin="12">
                                             </Label>
 
-                                            <Border.Background>
+                                            <!--<Border.Background>
                                                 <LinearGradientBrush>
                                                     <GradientStop Color="#b66dff" Offset="0.1"></GradientStop>
                                                     <GradientStop Color="#debdff" Offset="1.5"></GradientStop>
                                                 </LinearGradientBrush>
-                                            </Border.Background>
+                                            </Border.Background>-->
                                             <Border.Shadow>
                                                 <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
                                             </Border.Shadow>
