@@ -46,6 +46,14 @@ public partial class EmployeesPopup : Mopups.Pages.PopupPage
             await App.Current!.MainPage!.DisplayAlert("Warning", "Please Choose Empolyee !!", "OK");
         }
         this.IsEnabled = true;
-        await MopupService.Instance.PopAsync();
+
+        MainThread.BeginInvokeOnMainThread(async () =>
+        {
+            if (MopupService.Instance.PopupStack.Count > 0)
+            {
+                await MopupService.Instance.PopAsync();
+            }
+        });
+        //await MopupService.Instance.PopAsync();
     }
 }
