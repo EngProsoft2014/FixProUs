@@ -47,13 +47,6 @@ public partial class EmployeesPopup : Mopups.Pages.PopupPage
         }
         this.IsEnabled = true;
 
-        MainThread.BeginInvokeOnMainThread(async () =>
-        {
-            if (MopupService.Instance.PopupStack.Count > 0)
-            {
-                await MopupService.Instance.PopAsync();
-            }
-        });
-        //await MopupService.Instance.PopAsync();
+        await MopupService.Instance.PopAsync();
     }
 }

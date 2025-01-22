@@ -418,7 +418,7 @@
                                                      ItemsSource="{Binding LstPriority}"
                                                      SelectedItem="{Binding OnePriorityModel,Mode=TwoWay}" 
                                                      FontSize="12" HeightRequest="40"
-                                                     Placeholder="Priority" TextColor="#333"
+                                                     Placeholder="Priority" TextColor="#333" PlaceholderColor="Grey"
                                                      MaxDropDownHeight="200" 
                                                      IsFilteringEnabled="False"
                                                      IsEditable="False"
