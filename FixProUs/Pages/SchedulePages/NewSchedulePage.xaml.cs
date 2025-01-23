@@ -51,12 +51,12 @@ public partial class NewSchedulePage : Controls.CustomsPage
 
     private async void Button_Clicked(object sender, EventArgs e)
     {
-        await App.Current.MainPage.Navigation.PopAsync();
+        await App.Current!.MainPage!.Navigation.PopAsync();
     }
 
     private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
     {
-        await App.Current.MainPage.Navigation.PopAsync();
+        await App.Current!.MainPage!.Navigation.PopAsync();
     }
 
 
@@ -92,8 +92,8 @@ public partial class NewSchedulePage : Controls.CustomsPage
         var popupView = new SchedulesViewModel(ViewModel.ScheduleDetails);
         var page = new Pages.SchedulePages.SchedulePicturesPage();
         page.BindingContext = popupView;
-        await App.Current.MainPage.Navigation.PushAsync(page);
-        //await App.Current.MainPage.Navigation.PushAsync(new SchedulePicturesPage());
+        await App.Current!.MainPage!.Navigation.PushAsync(page);
+        //await App.Current!.MainPage!.Navigation.PushAsync(new SchedulePicturesPage());
     }
 
 

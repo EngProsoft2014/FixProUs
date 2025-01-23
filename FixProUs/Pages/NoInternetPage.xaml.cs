@@ -70,10 +70,10 @@ public partial class NoInternetPage : Controls.CustomsPage
     public async Task GoAfterConnected()
     {
         UserDialogs.Instance.ShowLoading();
-        //await App.Current.MainPage.Navigation.PushAsync(Name);
+        //await App.Current!.MainPage!.Navigation.PushAsync(Name);
 
-        await App.Current.MainPage.Navigation.PopAsync();
-        //App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+        await App.Current!.MainPage!.Navigation.PopAsync();
+        //App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
 
         UserDialogs.Instance.HideHud();
     }

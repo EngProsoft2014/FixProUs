@@ -143,7 +143,7 @@ namespace FixProUs.Controls
                             Helpers.Utility.ServerUrl = Helpers.Utility.ServerUrlStatic;
                             await App.Current!.MainPage!.Navigation.PushAsync(new Pages.LoginPage());
                             Controls.StartData.IsRunning = false;
-                            await App.Current.MainPage.DisplayAlert("Alert", "You’ve been logged out.\r\n(account is changed username and password)\r\n", "Ok");
+                            await App.Current!.MainPage!.DisplayAlert("Alert", "You’ve been logged out.\r\n(account is changed username and password)\r\n", "Ok");
                         }
                         else
                         {

@@ -188,12 +188,12 @@ namespace FixProUs.ViewModels
 
                     //if (json != null && json != "api not responding")
                     //{
-                    //    await App.Current.MainPage.DisplayAlert("FixPro", "Payment completed successfully.", "Ok");
-                    //    await App.Current.MainPage.Navigation.PushAsync(new MainPage());
+                    //    await App.Current!.MainPage!.DisplayAlert("FixPro", "Payment completed successfully.", "Ok");
+                    //    await App.Current!.MainPage!.Navigation.PushAsync(new MainPage());
                     //}
                     //else
                     //{
-                    //    await App.Current.MainPage.DisplayAlert("FixPro", "Payment not accepted", "Ok");
+                    //    await App.Current!.MainPage!.DisplayAlert("FixPro", "Payment not accepted", "Ok");
                     //}
 
 
@@ -334,7 +334,7 @@ namespace FixProUs.ViewModels
                     if (json == null || json == "")
                     {
                         await App.Current!.MainPage!.DisplayAlert("FixPro", "Payment completed successfully.", "Ok");
-                        await App.Current.MainPage.Navigation.PushAsync(new LoginPage());
+                        await App.Current!.MainPage!.Navigation.PushAsync(new LoginPage());
                     }
                     else
                     {

@@ -165,9 +165,9 @@ namespace FixProUs.ViewModels
             }
             else
             {
-                await App.Current.MainPage.DisplayAlert("Alert", "Please Complete All Fields.", "Ok");
+                await App.Current!.MainPage!.DisplayAlert("Alert", "Please Complete All Fields.", "Ok");
             }
-            await App.Current.MainPage.Navigation.PopAsync();
+            await App.Current!.MainPage!.Navigation.PopAsync();
             IsBusy = false;
         }
 

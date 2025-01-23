@@ -17,11 +17,11 @@ public partial class CreateItemPage : Controls.CustomsPage
 
     private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
     {
-        await App.Current.MainPage.Navigation.PopAsync();
+        await App.Current!.MainPage!.Navigation.PopAsync();
     }
 
     private async void Button_Clicked(object sender, EventArgs e)
     {
-        await App.Current.MainPage.Navigation.PopAsync();
+        await App.Current!.MainPage!.Navigation.PopAsync();
     }
 }

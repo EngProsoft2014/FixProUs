@@ -35,7 +35,7 @@ namespace FixProUs.ViewModels
 
             NoteClose.Invoke(note);
            
-            await App.Current.MainPage.Navigation.PopAsync();
+            await App.Current!.MainPage!.Navigation.PopAsync();
             IsBusy = false;
         }
 

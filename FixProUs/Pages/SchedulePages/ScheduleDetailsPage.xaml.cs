@@ -99,7 +99,7 @@ public partial class ScheduleDetailsPage : Controls.CustomsPage
         var page = new Pages.SchedulePages.SchedulePicturesPage();
         page.BindingContext = popupView;
         await App.Current!.MainPage!.Navigation.PushAsync(page);
-        //await App.Current.MainPage.Navigation.PushAsync(new SchedulePicturesPage());
+        //await App.Current!.MainPage!.Navigation.PushAsync(new SchedulePicturesPage());
     }
 
     private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
@@ -120,7 +120,6 @@ public partial class ScheduleDetailsPage : Controls.CustomsPage
                     var page = new MapTypePopup();
                     page.MapTypeDelegteClose += async (map) =>
                     {
-                        UserDialogs.Instance.ShowLoading();
 
                         var location = new Location(double.Parse(ViewModel?.CustomerDetails?.locationlatitude!), double.Parse(ViewModel?.CustomerDetails?.locationlongitude!));
 
@@ -135,7 +134,6 @@ public partial class ScheduleDetailsPage : Controls.CustomsPage
                         {
                             await Launcher.OpenAsync($"http://maps.apple.com/?q={Uri.EscapeDataString(ViewModel?.CustomerDetails?.Address!)}");
                         }
-                        UserDialogs.Instance.HideHud();
                     };
 
                     await MopupService.Instance.PushAsync(page);

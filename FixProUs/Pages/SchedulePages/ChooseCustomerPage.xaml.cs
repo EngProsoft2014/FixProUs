@@ -24,7 +24,7 @@ public partial class ChooseCustomerPage : Controls.CustomsPage
 
     private async void Button_Clicked(object sender, EventArgs e)
     {
-        await App.Current.MainPage.Navigation.PushAsync(new Pages.SchedulePages.NewSchedulePage());
+        await App.Current!.MainPage!.Navigation.PushAsync(new Pages.SchedulePages.NewSchedulePage());
     }
 
     private void srchPhone_TextChanged(object sender, TextChangedEventArgs e)

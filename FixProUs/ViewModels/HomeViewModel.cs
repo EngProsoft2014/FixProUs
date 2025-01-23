@@ -208,7 +208,7 @@ namespace FixProUs.ViewModels
 
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
-                await App.Current.MainPage.DisplayAlert("Alert", "No Internet Avialable !!", "OK");
+                await App.Current!.MainPage!.DisplayAlert("Alert", "No Internet Avialable !!", "OK");
                 return;
             }
             else
@@ -225,15 +225,15 @@ namespace FixProUs.ViewModels
 
                 if (string.IsNullOrEmpty(strEmployees))
                 {
-                    await App.Current.MainPage.DisplayAlert("Alert", $"Please Complete This Field Required : Choose Employees.", "Ok");
+                    await App.Current!.MainPage!.DisplayAlert("Alert", $"Please Complete This Field Required : Choose Employees.", "Ok");
                 }
                 else if (string.IsNullOrEmpty(HeaderNotify))
                 {
-                    await App.Current.MainPage.DisplayAlert("Alert", $"Please Complete This Field Required : Header of Notify.", "Ok");
+                    await App.Current!.MainPage!.DisplayAlert("Alert", $"Please Complete This Field Required : Header of Notify.", "Ok");
                 }
                 else if (string.IsNullOrEmpty(ContentNotify))
                 {
-                    await App.Current.MainPage.DisplayAlert("Alert", $"Please Complete This Field Required : Content of Notify.", "Ok");
+                    await App.Current!.MainPage!.DisplayAlert("Alert", $"Please Complete This Field Required : Content of Notify.", "Ok");
                 }
                 else
                 {
@@ -263,12 +263,12 @@ namespace FixProUs.ViewModels
 
                     if (!string.IsNullOrEmpty(json))
                     {
-                        await App.Current.MainPage.DisplayAlert("FixPro", "Succes for Send Notifications.", "Ok");
+                        await App.Current!.MainPage!.DisplayAlert("FixPro", "Succes for Send Notifications.", "Ok");
                         await App.Current!.MainPage!.Navigation.PushAsync(new MainPage());
                     }
                     else
                     {
-                        await App.Current.MainPage.DisplayAlert("Alert", "Faild for Send Notifications.", "Ok");
+                        await App.Current!.MainPage!.DisplayAlert("Alert", "Faild for Send Notifications.", "Ok");
                     }
                 }
             }
@@ -323,7 +323,7 @@ namespace FixProUs.ViewModels
             }
             catch (Exception)
             {
-                await App.Current.MainPage.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+                await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
                 //throw;
             }
 
@@ -336,7 +336,7 @@ namespace FixProUs.ViewModels
 
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
-                await App.Current.MainPage.DisplayAlert("Alert", "No Internet Avialable !!", "OK");
+                await App.Current!.MainPage!.DisplayAlert("Alert", "No Internet Avialable !!", "OK");
                 return;
             }
             else
@@ -345,7 +345,7 @@ namespace FixProUs.ViewModels
                 model.UpdateUser = int.Parse(Helpers.Settings.UserIdGet);
 
                 var exit = false;
-                exit = await App.Current.MainPage.DisplayAlert("FixPro", "Do you want to Deactive the notify?", "Yes", "No").ConfigureAwait(false);
+                exit = await App.Current!.MainPage!.DisplayAlert("FixPro", "Do you want to Deactive the notify?", "Yes", "No").ConfigureAwait(false);
                 if (exit)
                 {
                     IsBusy = true;

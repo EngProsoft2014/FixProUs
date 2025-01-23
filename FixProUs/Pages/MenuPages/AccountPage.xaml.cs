@@ -19,7 +19,7 @@ public partial class AccountPage : Controls.CustomsPage
         Device.BeginInvokeOnMainThread(async () =>
         {
             await Navigation.PushAsync(new MainPage());
-            App.Current!.MainPage!.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+            App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
         });
         return true;
     }

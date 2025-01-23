@@ -179,7 +179,7 @@ namespace FixProUs.ViewModels
             Controls.StaticMembers.FilterCallModel = model;
 
             CallClose.Invoke(model);
-            await App.Current.MainPage.Navigation.PopAsync();
+            await App.Current!.MainPage!.Navigation.PopAsync();
 
             IsBusy = false;
         }

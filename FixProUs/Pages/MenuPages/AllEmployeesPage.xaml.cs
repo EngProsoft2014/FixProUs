@@ -16,7 +16,7 @@ public partial class AllEmployeesPage : Controls.CustomsPage
         Device.BeginInvokeOnMainThread(async () =>
         {
             await Navigation.PushAsync(new MainPage());
-            App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+            App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
         });
         return true;
     }
@@ -24,7 +24,7 @@ public partial class AllEmployeesPage : Controls.CustomsPage
     private async void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new MainPage());
-        App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+        App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
     }
 
     private void srcBarEmployee_TextChanged(object sender, TextChangedEventArgs e)

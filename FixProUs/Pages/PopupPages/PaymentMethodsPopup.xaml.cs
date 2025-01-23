@@ -23,6 +23,6 @@ public partial class PaymentMethodsPopup : Mopups.Pages.PopupPage
     private async void Button_Clicked(object sender, EventArgs e)
     {
         await MopupService.Instance.PopAsync();
-        await App.Current.MainPage.Navigation.PushAsync(new MainPage());
+        await App.Current!.MainPage!.Navigation.PushAsync(new MainPage());
     }
 }

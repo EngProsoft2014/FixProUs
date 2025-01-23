@@ -132,13 +132,11 @@ namespace FixProUs.ViewModels
             var popupView = new Pages.PopupPages.DatePopup();
             popupView.RangeClose += (calendar) =>
             {
-                UserDialogs.Instance.ShowLoading();
 
                 GetCheckInOutEmployees(calendar.StartDate.Value.ToString("MM-dd-yyyy"));
 
                 Date = calendar.StartDate.Value.ToString("MM-dd-yyyy");
 
-                UserDialogs.Instance.HideHud();
             };
 
             await MopupService.Instance.PushAsync(popupView);
@@ -161,7 +159,6 @@ namespace FixProUs.ViewModels
                     var popupView = new Pages.PopupPages.CheckoutPopup(model.Id, model.HoursFrom);
                     popupView.TimeDidClose += async (time) =>
                     {
-                        UserDialogs.Instance.ShowLoading();
                         string UserToken = await _service.UserToken();
                         model.HoursFrom = string.Format(time.ToString(@"hh\:mm"));
                         model.Active = true;
@@ -171,10 +168,9 @@ namespace FixProUs.ViewModels
                         if (json != null)
                         {
                             await App.Current!.MainPage!.DisplayAlert("FixPro", "Succes Check In Time.", "Ok");
-                            await App.Current.MainPage.Navigation.PushAsync(new Pages.TimeSheetPage());
-                            App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+                            await App.Current!.MainPage!.Navigation.PushAsync(new Pages.TimeSheetPage());
+                            App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
                         }
-                        UserDialogs.Instance.HideHud();
                     };
 
                     await MopupService.Instance.PushAsync(popupView);
@@ -204,8 +200,6 @@ namespace FixProUs.ViewModels
                     var popupView = new Pages.PopupPages.CheckoutPopup(model.HoursFrom);
                     popupView.TimeDidClose += async (time) =>
                     {
-                        UserDialogs.Instance.ShowLoading();
-
                         if (time > TimeSpan.Parse(model.HoursFrom))
                         {
                             string UserToken = await _service.UserToken();
@@ -221,8 +215,6 @@ namespace FixProUs.ViewModels
                         {
                             await App.Current!.MainPage!.DisplayAlert("Alert", "Please Choose Time After Check In Time.", "Ok");
                         }
-
-                        UserDialogs.Instance.HideHud();
                     };
 
                     await MopupService.Instance.PushAsync(popupView);
@@ -267,8 +259,8 @@ namespace FixProUs.ViewModels
                     if (json != null && json.EmployeeId != 0 && json.EmployeeId != null)
                     {
                         await App.Current!.MainPage!.DisplayAlert("FixPro", "Succes Check In Time.", "Ok");
-                        await App.Current.MainPage.Navigation.PushAsync(new Pages.TimeSheetPage());
-                        App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+                        await App.Current!.MainPage!.Navigation.PushAsync(new Pages.TimeSheetPage());
+                        App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
                     }
                     else
                     {
@@ -317,8 +309,8 @@ namespace FixProUs.ViewModels
                         if (json != null)
                         {
                             await App.Current!.MainPage!.DisplayAlert("FixPro", "Succes Check Out Time.", "Ok");
-                            await App.Current.MainPage.Navigation.PushAsync(new Pages.TimeSheetPage());
-                            App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+                            await App.Current!.MainPage!.Navigation.PushAsync(new Pages.TimeSheetPage());
+                            App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
                         }
                     }
                     else

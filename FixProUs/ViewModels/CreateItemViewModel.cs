@@ -118,34 +118,34 @@ namespace FixProUs.ViewModels
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
                 {
-                    await App.Current.MainPage.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+                    await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
                     return;
                 }
                 else
                 {
                     if (string.IsNullOrEmpty(item.Name))
                     {
-                        await App.Current.MainPage.DisplayAlert("Alert", $"Please Complete This Field Required : Name.", "Ok");
+                        await App.Current!.MainPage!.DisplayAlert("Alert", $"Please Complete This Field Required : Name.", "Ok");
                     }
                     else if (OneItemsServicesType.Id == 0 || OneItemsServicesType == null)
                     {
-                        await App.Current.MainPage.DisplayAlert("Alert", $"Please Complete This Field Required : Type.", "Ok");
+                        await App.Current!.MainPage!.DisplayAlert("Alert", $"Please Complete This Field Required : Type.", "Ok");
                     }
                     else if (OneItemsServicesCategory.Id == 0 || OneItemsServicesCategory == null)
                     {
-                        await App.Current.MainPage.DisplayAlert("Alert", $"Please Complete This Field Required : Category.", "Ok");
+                        await App.Current!.MainPage!.DisplayAlert("Alert", $"Please Complete This Field Required : Category.", "Ok");
                     }
                     else if (OneItemsServicesSubCategory.Id == 0 || OneItemsServicesSubCategory == null)
                     {
-                        await App.Current.MainPage.DisplayAlert("Alert", $"Please Complete This Field Required : Sub Category.", "Ok");
+                        await App.Current!.MainPage!.DisplayAlert("Alert", $"Please Complete This Field Required : Sub Category.", "Ok");
                     }
                     else if (item.QTYTime == 0 || item.QTYTime == null)
                     {
-                        await App.Current.MainPage.DisplayAlert("Alert", $"Please Complete This Field Required : QTY.", "Ok");
+                        await App.Current!.MainPage!.DisplayAlert("Alert", $"Please Complete This Field Required : QTY.", "Ok");
                     }
                     else if (item.CostperUnit == 0 || item.CostperUnit == null)
                     {
-                        await App.Current.MainPage.DisplayAlert("Alert", $"Please Complete This Field Required : Price.", "Ok");
+                        await App.Current!.MainPage!.DisplayAlert("Alert", $"Please Complete This Field Required : Price.", "Ok");
                     }
                     else
                     {
@@ -169,14 +169,14 @@ namespace FixProUs.ViewModels
 
                             if (Json != "")
                             {
-                                await App.Current.MainPage.DisplayAlert("FixPro", "Succes for Add Item/Service.", "Ok");
+                                await App.Current!.MainPage!.DisplayAlert("FixPro", "Succes for Add Item/Service.", "Ok");
 
                                 var ReturnItem = JsonConvert.DeserializeObject<ItemsServicesModel>(Json);
                                 AddItemClose.Invoke(ReturnItem);
                             }
                             else
                             {
-                                await App.Current.MainPage.DisplayAlert("FixPro", "Failed for Add Item/Service.", "Ok");
+                                await App.Current!.MainPage!.DisplayAlert("FixPro", "Failed for Add Item/Service.", "Ok");
                             }
                         }
                     }
@@ -184,7 +184,7 @@ namespace FixProUs.ViewModels
             }
             catch (Exception ex)
             {
-                await App.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+                await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
             UserDialogs.Instance.HideHud();

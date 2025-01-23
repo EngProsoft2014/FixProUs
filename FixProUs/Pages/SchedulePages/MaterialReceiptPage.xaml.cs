@@ -55,18 +55,18 @@ public partial class MaterialReceiptPage : Controls.CustomsPage
 
     private async void Button_Clicked(object sender, EventArgs e)
     {
-        await App.Current.MainPage.Navigation.PopAsync();
+        await App.Current!.MainPage!.Navigation.PopAsync();
     }
 
 
     private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
     {
-        await App.Current.MainPage.Navigation.PopAsync();
+        await App.Current!.MainPage!.Navigation.PopAsync();
     }
 
     private async void Button_Clicked_1(object sender, EventArgs e)
     {
-        await App.Current.MainPage.Navigation.PushAsync(new AddSchedulePhotoPupop());
+        await App.Current!.MainPage!.Navigation.PushAsync(new AddSchedulePhotoPupop());
     }
 
     private void comxLstSuppliers_SelectedIndexChanged(object sender, EventArgs e)

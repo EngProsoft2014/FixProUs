@@ -92,7 +92,7 @@ namespace FixProUs.ViewModels
                             var ViewModel = new PlansViewModel();
                             var page = new Pages.PlansPages.ChoosePlanPage();
                             page.BindingContext = ViewModel;
-                            await App.Current.MainPage.Navigation.PushAsync(page);
+                            await App.Current!.MainPage!.Navigation.PushAsync(page);
                         }
                     }
                     else

@@ -208,7 +208,7 @@ namespace FixProUs.ViewModels
                             }
 
                             await App.Current!.MainPage!.Navigation.PushAsync(new AccountPage());
-                            App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+                            App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
 
                         }
 
@@ -299,7 +299,7 @@ namespace FixProUs.ViewModels
                             }
                            
                             await App.Current!.MainPage!.Navigation.PushAsync(new AccountPage());
-                            App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+                            App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
                         }         
                     }
                 }

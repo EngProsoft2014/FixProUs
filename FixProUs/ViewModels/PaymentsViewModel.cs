@@ -225,22 +225,22 @@ namespace FixProUs.ViewModels
 
                             if (json != null && json != "api not responding")
                             {
-                                await App.Current.MainPage.DisplayAlert("FixPro", "Succes Payment for This Job.", "Ok");
-                                await App.Current.MainPage.Navigation.PushAsync(new MainPage());
+                                await App.Current!.MainPage!.DisplayAlert("FixPro", "Succes Payment for This Job.", "Ok");
+                                await App.Current!.MainPage!.Navigation.PushAsync(new MainPage());
                             }
                             else
                             {
-                                await App.Current.MainPage.DisplayAlert("FixPro", "Field Payment for This Job.", "Ok");
+                                await App.Current!.MainPage!.DisplayAlert("FixPro", "Field Payment for This Job.", "Ok");
                             }
                         }
                         else
                         {
-                            await App.Current.MainPage.DisplayAlert("FixPro", "Please Enter Right Amount.", "Ok");
+                            await App.Current!.MainPage!.DisplayAlert("FixPro", "Please Enter Right Amount.", "Ok");
                         }
                     }   
                     else
                     {
-                        await App.Current.MainPage.DisplayAlert("FixPro", "Please Enter Signature.", "Ok");
+                        await App.Current!.MainPage!.DisplayAlert("FixPro", "Please Enter Signature.", "Ok");
                     }
                 }
             }

@@ -43,7 +43,7 @@ public partial class ScheduleDatesPopup : Mopups.Pages.PopupPage
         }
         else
         {
-            await App.Current.MainPage.DisplayAlert("Warning", "Please Choose Empolyee !!", "OK");
+            await App.Current!.MainPage!.DisplayAlert("Warning", "Please Choose Empolyee !!", "OK");
         }
         this.IsEnabled = true;
         await MopupService.Instance.PopAsync();

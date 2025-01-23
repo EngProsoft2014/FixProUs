@@ -22,8 +22,8 @@ public partial class SchedulePicturesPage : Controls.CustomsPage
             var page = new Pages.SchedulePages.NewSchedulePage();
             page.BindingContext = popupView;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
-            App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
-            App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+            App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
+            App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
             UserDialogs.Instance.HideHud();
             ViewModel.IsBusy = false;
         });

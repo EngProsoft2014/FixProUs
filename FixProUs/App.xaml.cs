@@ -67,9 +67,9 @@ namespace FixProUs
         //                Preferences.Default.Set(Helpers.Settings.BranchName, "");
         //                Preferences.Default.Set(Helpers.Settings.UserRole, "");
         //                Preferences.Default.Clear();
-        //                await App.Current.MainPage.Navigation.PushAsync(new LoginPage());
+        //                await App.Current!.MainPage!.Navigation.PushAsync(new LoginPage());
         //                Controls.StartData.IsRunning = false;
-        //                await App.Current.MainPage.DisplayAlert("Alert", "Sorry, for Logout, because the App is open from another device", "Ok");
+        //                await App.Current!.MainPage!.DisplayAlert("Alert", "Sorry, for Logout, because the App is open from another device", "Ok");
         //            }
         //        }
         //    }
@@ -251,7 +251,7 @@ namespace FixProUs
             if (Helpers.Settings.UserNameGet == "" && Helpers.Settings.PasswordGet == "")
             {
                 await App.Current!.MainPage!.Navigation.PushAsync(new Pages.LoginPage());
-                await App.Current.MainPage.DisplayAlert("Alert", "You’ve been logged out.\r\n(account is opened on another device)\r\n", "Ok");
+                await App.Current!.MainPage!.DisplayAlert("Alert", "You’ve been logged out.\r\n(account is opened on another device)\r\n", "Ok");
             }
 
             _signalRService.OnMessageReceived -= _signalRService_OnMessageReceivedInSleep;
@@ -327,7 +327,7 @@ namespace FixProUs
                         Helpers.Utility.ServerUrl = Helpers.Utility.ServerUrlStatic;
                         await App.Current!.MainPage!.Navigation.PushAsync(new Pages.LoginPage());
                         Controls.StartData.IsRunning = false;
-                        await App.Current.MainPage.DisplayAlert("Alert", "You’ve been logged out.\r\n(account is opened on another device)\r\n", "Ok");
+                        await App.Current!.MainPage!.DisplayAlert("Alert", "You’ve been logged out.\r\n(account is opened on another device)\r\n", "Ok");
                     }
                 }
             });
@@ -346,7 +346,7 @@ namespace FixProUs
                     Helpers.Utility.ServerUrl = Helpers.Utility.ServerUrlStatic;
                     await App.Current!.MainPage!.Navigation.PushAsync(new Pages.LoginPage());
                     Controls.StartData.IsRunning = false;
-                    await App.Current.MainPage.DisplayAlert("Alert", "You’ve been logged out.\r\n(account is changed username or password)\r\n", "Ok");
+                    await App.Current!.MainPage!.DisplayAlert("Alert", "You’ve been logged out.\r\n(account is changed username or password)\r\n", "Ok");
                 }
             });
 

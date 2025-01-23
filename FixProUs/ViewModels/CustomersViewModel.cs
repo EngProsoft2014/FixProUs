@@ -758,7 +758,7 @@ namespace FixProUs.ViewModels
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
                 {
-                    await App.Current.MainPage.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+                    await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
                     //return;
                 }
                 else
@@ -816,12 +816,12 @@ namespace FixProUs.ViewModels
 
                     var page = new Pages.SchedulePages.NewItemsServicesSchedulePage();
                     page.BindingContext = popupView;
-                    await App.Current.MainPage.Navigation.PushAsync(page);
+                    await App.Current!.MainPage!.Navigation.PushAsync(page);
                 }
             }
             catch (Exception)
             {
-                await App.Current.MainPage.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+                await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
                 //throw;
             }
 
@@ -848,7 +848,7 @@ namespace FixProUs.ViewModels
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
                 {
-                    await App.Current.MainPage.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+                    await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
                     //return;
                 }
                 else
@@ -904,12 +904,12 @@ namespace FixProUs.ViewModels
 
                     var page = new Pages.SchedulePages.NewItemsServicesSchedulePage();
                     page.BindingContext = popupView;
-                    await App.Current.MainPage.Navigation.PushAsync(page);
+                    await App.Current!.MainPage!.Navigation.PushAsync(page);
                 }
             }
             catch (Exception)
             {
-                await App.Current.MainPage.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+                await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
                 //throw;
             }
 
@@ -940,7 +940,7 @@ namespace FixProUs.ViewModels
                 ViewModel = new SchedulesViewModel(model);
                 var page = new Pages.SchedulePages.NewSchedulePage();
                 page.BindingContext = ViewModel;
-                await App.Current.MainPage.Navigation.PushAsync(page);
+                await App.Current!.MainPage!.Navigation.PushAsync(page);
             }
 
             UserDialogs.Instance.HideHud();
@@ -955,7 +955,7 @@ namespace FixProUs.ViewModels
             var ViewModel = new CustomersViewModel(model);
             var page = new Pages.CustomerPages.CustomersDetailsPage();
             page.BindingContext = ViewModel;
-            await App.Current.MainPage.Navigation.PushAsync(page);
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
             IsBusy = false;
         }
@@ -968,7 +968,7 @@ namespace FixProUs.ViewModels
             var ViewModel = new SchedulesViewModel(model.Id, model.ScheduleDateId);
             var page = new Pages.SchedulePages.ScheduleDetailsPage();
             page.BindingContext = ViewModel;
-            await App.Current.MainPage.Navigation.PushAsync(page);
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
             IsBusy = false;
         }
@@ -997,7 +997,7 @@ namespace FixProUs.ViewModels
             var ViewModel = new CustomersViewModel(model, CustomerDetails);
             var page = new Pages.CustomerPages.InvoiceDetailsPage();
             page.BindingContext = ViewModel;
-            await App.Current.MainPage.Navigation.PushAsync(page);
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
             IsBusy = false;
         }
@@ -1010,7 +1010,7 @@ namespace FixProUs.ViewModels
             var ViewModel = new CustomersViewModel(model, CustomerDetails);
             var page = new Pages.CustomerPages.EstimateDetailsPage();
             page.BindingContext = ViewModel;
-            await App.Current.MainPage.Navigation.PushAsync(page);
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
             IsBusy = false;
         }
@@ -1023,7 +1023,7 @@ namespace FixProUs.ViewModels
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
                 {
-                    await App.Current.MainPage.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+                    await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
                     //return;
                 }
                 else
@@ -1063,35 +1063,35 @@ namespace FixProUs.ViewModels
 
                                 if (json != "Bad Request" && json != "api not responding" && json.Contains("Not_Enough") != true && json.Contains("This Invoice Already Exist") != true && json.Contains("Already Exist For This Schedule Date#") != true)
                                 {
-                                    await App.Current.MainPage.DisplayAlert("FixPro", "Succes Save Invoice.", "Ok");
+                                    await App.Current!.MainPage!.DisplayAlert("FixPro", "Succes Save Invoice.", "Ok");
                                     var ViewModel = new SchedulesViewModel(OneInvoice, CustomerDetails);
                                     var page = new Pages.PopupPages.PaymentMethodsPopup();
                                     page.BindingContext = ViewModel;
                                     await MopupService.Instance.PushAsync(page);
-                                    //await App.Current.MainPage.Navigation.PushAsync(new MainPage());
-                                    //App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+                                    //await App.Current!.MainPage!.Navigation.PushAsync(new MainPage());
+                                    //App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
                                 }
                                 else
                                 {
-                                    await App.Current.MainPage.DisplayAlert("Alert", json, "Ok");
-                                    //await App.Current.MainPage.Navigation.PushAsync(new MainPage());
+                                    await App.Current!.MainPage!.DisplayAlert("Alert", json, "Ok");
+                                    //await App.Current!.MainPage!.Navigation.PushAsync(new MainPage());
                                 }
                             }
                             else
                             {
-                                await App.Current.MainPage.DisplayAlert("Alert", "Please Don't Check all Item-Service Out for this Invoice.", "Ok");
+                                await App.Current!.MainPage!.DisplayAlert("Alert", "Please Don't Check all Item-Service Out for this Invoice.", "Ok");
                             }
                         }
                         else
                         {
-                            await App.Current.MainPage.DisplayAlert("Alert", "Please Choose Item-Service for this Invoice.", "Ok");
+                            await App.Current!.MainPage!.DisplayAlert("Alert", "Please Choose Item-Service for this Invoice.", "Ok");
                         }
                     }
                 }
             }
             catch (Exception)
             {
-                await App.Current.MainPage.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+                await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
                 //throw;
             }
 
@@ -1106,7 +1106,7 @@ namespace FixProUs.ViewModels
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
                 {
-                    await App.Current.MainPage.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+                    await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
                     //return;
                 }
                 else
@@ -1145,14 +1145,14 @@ namespace FixProUs.ViewModels
 
                             if (json != "Bad Request" && json != "api not responding" && json.Contains("Already Exist For This Schedule Date#") != true)
                             {
-                                await App.Current.MainPage.DisplayAlert("FixPro", "Succes Save Estimate.", "Ok");
+                                await App.Current!.MainPage!.DisplayAlert("FixPro", "Succes Save Estimate.", "Ok");
 
                                 var ViewModel = new CustomersViewModel(CustomerDetails);
                                 var page = new Pages.CustomerPages.CustomersDetailsPage();
                                 page.BindingContext = ViewModel;
-                                await App.Current.MainPage.Navigation.PushAsync(page);
-                                App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
-                                App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+                                await App.Current!.MainPage!.Navigation.PushAsync(page);
+                                App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
+                                App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
 
                                 if (OneEstimate.Status == 1)//Status Accept
                                 {
@@ -1165,20 +1165,20 @@ namespace FixProUs.ViewModels
                             }
                             else
                             {
-                                await App.Current.MainPage.DisplayAlert("Alert", json, "Ok");
-                                //await App.Current.MainPage.DisplayAlert("Alert", "Faild Save Estimate.", "Ok");
+                                await App.Current!.MainPage!.DisplayAlert("Alert", json, "Ok");
+                                //await App.Current!.MainPage!.DisplayAlert("Alert", "Faild Save Estimate.", "Ok");
                             }
                         }
                         else
                         {
-                            await App.Current.MainPage.DisplayAlert("Alert", "Please Choose Item-Service for this Estimate.", "Ok");
+                            await App.Current!.MainPage!.DisplayAlert("Alert", "Please Choose Item-Service for this Estimate.", "Ok");
                         }
                     }
                 }
             }
             catch (Exception)
             {
-                await App.Current.MainPage.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+                await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
                 //throw;
             }
 
@@ -1194,7 +1194,7 @@ namespace FixProUs.ViewModels
             var ViewModel = new CustomersViewModel(OneInvoice, CustomerDetails);
             var page = new Pages.CustomerPages.InvoiceDetailsPage();
             page.BindingContext = ViewModel;
-            await App.Current.MainPage.Navigation.PushAsync(page);
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
             IsBusy = false;
         }
@@ -1207,7 +1207,7 @@ namespace FixProUs.ViewModels
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
                 {
-                    await App.Current.MainPage.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+                    await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
                     //return;
                 }
                 else
@@ -1285,27 +1285,27 @@ namespace FixProUs.ViewModels
 
                         if (json != null && json != "api not responding" && json.Contains("Not_Enough") != true && json.Contains("This Invoice Already Exist") != true)
                         {
-                            await App.Current.MainPage.DisplayAlert("FixPro", "Succes Convert To Inovice.", "Ok");
+                            await App.Current!.MainPage!.DisplayAlert("FixPro", "Succes Convert To Inovice.", "Ok");
                             OneInvoice.Id = int.Parse(json.Trim('"'));
 
                             var ViewModel = new CustomersViewModel(OneInvoice, CustomerDetails);
                             var page = new Pages.CustomerPages.InvoiceDetailsPage();
                             page.BindingContext = ViewModel;
-                            await App.Current.MainPage.Navigation.PushAsync(page);
-                            //await App.Current.MainPage.Navigation.PushAsync(new MainPage());
-                            App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
-                            App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+                            await App.Current!.MainPage!.Navigation.PushAsync(page);
+                            //await App.Current!.MainPage!.Navigation.PushAsync(new MainPage());
+                            App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
+                            App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
                         }
                         else
                         {
-                            await App.Current.MainPage.DisplayAlert("Alert", json, "Ok");
+                            await App.Current!.MainPage!.DisplayAlert("Alert", json, "Ok");
                         }
                     }
                 }
             }
             catch (Exception)
             {
-                await App.Current.MainPage.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+                await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
                 //throw;
             }
             IsBusy = false;
@@ -1411,7 +1411,7 @@ namespace FixProUs.ViewModels
             var ViewModel = new SchedulesViewModel(CustomerDetails);
             var page = new Pages.CreateEstimateWithoutSchedulePage();
             page.BindingContext = ViewModel;
-            await App.Current.MainPage.Navigation.PushAsync(page);
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
             IsBusy = false;
         }
@@ -1425,7 +1425,7 @@ namespace FixProUs.ViewModels
             var ViewModel = new SchedulesViewModel(CustomerDetails);
             var page = new Pages.CreateInvoiceWithoutSchedulePage();
             page.BindingContext = ViewModel;
-            await App.Current.MainPage.Navigation.PushAsync(page);
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
             IsBusy = false;
         }
@@ -1465,7 +1465,7 @@ namespace FixProUs.ViewModels
                     }
                     //else if (string.IsNullOrEmpty(model.Email))
                     //{
-                    //    await App.Current.MainPage.DisplayAlert("Alert", $"Please Complete This Field Required : Customer Email.", "Ok");
+                    //    await App.Current!.MainPage!.DisplayAlert("Alert", $"Please Complete This Field Required : Customer Email.", "Ok");
                     //}
                     else if (string.IsNullOrEmpty(model.Address))
                     {
@@ -1566,8 +1566,8 @@ namespace FixProUs.ViewModels
                                 var page = new Pages.CallPages.NewCallPage();
                                 page.BindingContext = ViewModel;
                                 await App.Current!.MainPage!.Navigation.PushAsync(page);
-                                App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
-                                App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+                                App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
+                                App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
                                 await MopupService.Instance.PopAsync();
                             }
                             else if (Controls.StaticMembers.WayCreateCust == 2) //From Schedule create new customer
@@ -1576,8 +1576,8 @@ namespace FixProUs.ViewModels
                                 var page = new Pages.SchedulePages.NewSchedulePage();
                                 page.BindingContext = ViewModel;
                                 await App.Current!.MainPage!.Navigation.PushAsync(page);
-                                App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
-                                App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+                                App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
+                                App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
                             }
                             else if (Controls.StaticMembers.WayCreateCust == 3) //From Schedule can edit customer and return schedule again
                             {
@@ -1585,15 +1585,15 @@ namespace FixProUs.ViewModels
                                 var page = new Pages.SchedulePages.ScheduleDetailsPage();
                                 page.BindingContext = ViewModel;
                                 await App.Current!.MainPage!.Navigation.PushAsync(page);
-                                App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
-                                App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+                                App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
+                                App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
                             }
                             else
                             {
                                 if (model.Id == 0) // new Customer
                                 {
                                     await App.Current!.MainPage!.DisplayAlert("FixPro", "Success Insert Customer.", "Ok");
-                                    await App.Current.MainPage.Navigation.PushAsync(new MainPage());
+                                    await App.Current!.MainPage!.Navigation.PushAsync(new MainPage());
                                 }
                                 else // Update Customer
                                 {
@@ -1601,9 +1601,9 @@ namespace FixProUs.ViewModels
                                     var VM = new CustomersViewModel();
                                     var page = new Pages.CustomerPages.CustomersPage();
                                     page.BindingContext = VM;
-                                    await App.Current.MainPage.Navigation.PushAsync(page);
-                                    App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
-                                    App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+                                    await App.Current!.MainPage!.Navigation.PushAsync(page);
+                                    App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
+                                    App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
 
                                 }
                             }
@@ -1645,7 +1645,7 @@ namespace FixProUs.ViewModels
             var ViewModel = new PaymentsViewModel(model, CustomerDetails);
             var page = new Pages.CustomerPages.CashOrCreditPaymentPage();
             page.BindingContext = ViewModel;
-            await App.Current.MainPage.Navigation.PushAsync(page);
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
             IsBusy = false;
         }
@@ -1659,7 +1659,7 @@ namespace FixProUs.ViewModels
             var ViewModel = new PaymentsViewModel(model, CustomerDetails);
             var page = new Pages.CustomerPages.CashOrCreditPaymentPage();
             page.BindingContext = ViewModel;
-            await App.Current.MainPage.Navigation.PushAsync(page);
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
             IsBusy = false;
         }
@@ -1672,7 +1672,7 @@ namespace FixProUs.ViewModels
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
                 {
-                    await App.Current.MainPage.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+                    await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
                     //return;
                 }
                 else
@@ -1684,27 +1684,27 @@ namespace FixProUs.ViewModels
 
                     if (json != null && json != "api not responding" && json.Contains("This Estimate Can`t Deleted") != true)
                     {
-                        await App.Current.MainPage.DisplayAlert("FixPro", "Success Delete Estimate.", "Ok");
-                        //await App.Current.MainPage.Navigation.PushAsync(new MainPage());
+                        await App.Current!.MainPage!.DisplayAlert("FixPro", "Success Delete Estimate.", "Ok");
+                        //await App.Current!.MainPage!.Navigation.PushAsync(new MainPage());
 
                         var ViewModel = new CustomersViewModel(CustomerDetails);
                         var page = new Pages.CustomerPages.CustomersDetailsPage();
                         page.BindingContext = ViewModel;
-                        await App.Current.MainPage.Navigation.PushAsync(page);
-                        App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+                        await App.Current!.MainPage!.Navigation.PushAsync(page);
+                        App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
 
                     }
                     else
                     {
-                        await App.Current.MainPage.DisplayAlert("Alert", json, "Ok");
-                        //await App.Current.MainPage.DisplayAlert("Alert", "Failed Delete Inovice.", "Ok");
+                        await App.Current!.MainPage!.DisplayAlert("Alert", json, "Ok");
+                        //await App.Current!.MainPage!.DisplayAlert("Alert", "Failed Delete Inovice.", "Ok");
                     }
                     UserDialogs.Instance.HideHud();
                 }
             }
             catch (Exception)
             {
-                await App.Current.MainPage.DisplayAlert("Error", "Failed for Deleted", "OK");
+                await App.Current!.MainPage!.DisplayAlert("Error", "Failed for Deleted", "OK");
                 //throw;
             }
 
@@ -1719,7 +1719,7 @@ namespace FixProUs.ViewModels
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
                 {
-                    await App.Current.MainPage.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+                    await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
                     //return;
                 }
                 else
@@ -1731,25 +1731,25 @@ namespace FixProUs.ViewModels
 
                     if (json != null && json != "api not responding" && json.Contains("Is Not Deleted") != true)
                     {
-                        await App.Current.MainPage.DisplayAlert("FixPro", "Success Delete Inovice.", "Ok");
-                        //await App.Current.MainPage.Navigation.PushAsync(new MainPage());
+                        await App.Current!.MainPage!.DisplayAlert("FixPro", "Success Delete Inovice.", "Ok");
+                        //await App.Current!.MainPage!.Navigation.PushAsync(new MainPage());
                         var ViewModel = new CustomersViewModel(CustomerDetails);
                         var page = new Pages.CustomerPages.CustomersDetailsPage();
                         page.BindingContext = ViewModel;
-                        await App.Current.MainPage.Navigation.PushAsync(page);
-                        App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+                        await App.Current!.MainPage!.Navigation.PushAsync(page);
+                        App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
                     }
                     else
                     {
-                        await App.Current.MainPage.DisplayAlert("Alert", json, "Ok");
-                        //await App.Current.MainPage.DisplayAlert("Alert", "Failed Delete Inovice.", "Ok");
+                        await App.Current!.MainPage!.DisplayAlert("Alert", json, "Ok");
+                        //await App.Current!.MainPage!.DisplayAlert("Alert", "Failed Delete Inovice.", "Ok");
                     }
                     UserDialogs.Instance.HideHud();
                 }
             }
             catch (Exception)
             {
-                await App.Current.MainPage.DisplayAlert("Error", "Failed for Deleted", "OK");
+                await App.Current!.MainPage!.DisplayAlert("Error", "Failed for Deleted", "OK");
                 //throw;
             }
 
@@ -1764,7 +1764,7 @@ namespace FixProUs.ViewModels
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
                 {
-                    await App.Current.MainPage.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+                    await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
                     //return;
                 }
                 else
@@ -1783,7 +1783,6 @@ namespace FixProUs.ViewModels
                     var popupView = new Pages.PopupPages.ScheduleDatesPopup(LstEstimateSchaduleDates);
                     popupView.DatesClose += (Dates) =>
                     {
-                        UserDialogs.Instance.ShowLoading();
 
                         if (Dates.Count != 0)
                         {
@@ -1811,8 +1810,6 @@ namespace FixProUs.ViewModels
                                 StrEstimateDates = str.Remove(0, 2);
                             }
                         }
-
-                        UserDialogs.Instance.HideHud();
                     };
 
                     await MopupService.Instance.PushAsync(popupView);
@@ -1820,7 +1817,7 @@ namespace FixProUs.ViewModels
             }
             catch (Exception ex)
             {
-                await App.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+                await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
                 //throw;
             }
 
@@ -1835,7 +1832,7 @@ namespace FixProUs.ViewModels
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
                 {
-                    await App.Current.MainPage.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+                    await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
                     //return;
                 }
                 else
@@ -1854,7 +1851,6 @@ namespace FixProUs.ViewModels
                     var popupView = new Pages.PopupPages.ScheduleDatesPopup(LstInvoiceSchaduleDates);
                     popupView.DatesClose += (Dates) =>
                     {
-                        UserDialogs.Instance.ShowLoading();
 
                         if (Dates.Count != 0)
                         {
@@ -1883,8 +1879,6 @@ namespace FixProUs.ViewModels
                                 StrInvoiceDates = str.Remove(0, 2);
                             }
                         }
-
-                        UserDialogs.Instance.HideHud();
                     };
 
                     await MopupService.Instance.PushAsync(popupView);
@@ -1892,7 +1886,7 @@ namespace FixProUs.ViewModels
             }
             catch (Exception ex)
             {
-                await App.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+                await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
                 //throw;
             }
 
@@ -1963,7 +1957,7 @@ namespace FixProUs.ViewModels
             IsBusy = true;
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
-                await App.Current.MainPage.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+                await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
                 //return;
             }
             else
@@ -1976,11 +1970,11 @@ namespace FixProUs.ViewModels
 
                 if (!string.IsNullOrEmpty(json) && json.Contains("Send Success") == true)
                 {
-                    await App.Current.MainPage.DisplayAlert("FixPro", "Succes Send Email to Customer.", "Ok");
+                    await App.Current!.MainPage!.DisplayAlert("FixPro", "Succes Send Email to Customer.", "Ok");
                 }
                 else
                 {
-                    await App.Current.MainPage.DisplayAlert("FixPro", "Field Send Email to Customer.", "Ok");
+                    await App.Current!.MainPage!.DisplayAlert("FixPro", "Field Send Email to Customer.", "Ok");
                 }
 
             }
@@ -1995,7 +1989,7 @@ namespace FixProUs.ViewModels
 
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
-                await App.Current.MainPage.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+                await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
                 //return;
             }
             else
@@ -2008,11 +2002,11 @@ namespace FixProUs.ViewModels
 
                 if (!string.IsNullOrEmpty(json) && json.Contains("Send Success") == true)
                 {
-                    await App.Current.MainPage.DisplayAlert("FixPro", "Succes Send Email to Customer.", "Ok");
+                    await App.Current!.MainPage!.DisplayAlert("FixPro", "Succes Send Email to Customer.", "Ok");
                 }
                 else
                 {
-                    await App.Current.MainPage.DisplayAlert("FixPro", "Field Send Email to Customer.", "Ok");
+                    await App.Current!.MainPage!.DisplayAlert("FixPro", "Field Send Email to Customer.", "Ok");
                 }
 
             }
@@ -2028,7 +2022,7 @@ namespace FixProUs.ViewModels
             var ViewModel = new CustomersViewModel(model, 2); // update Cust
             var page = new Pages.CustomerPages.CreateNewCustomerPage();
             page.BindingContext = ViewModel;
-            await App.Current.MainPage.Navigation.PushAsync(page);
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
             IsBusy = false;
         }

@@ -40,5 +40,7 @@
 	</array>
 	<key>OneSignal_suppress_launch_urls</key>
 	<true/>
+	<key>CFBundleVersion</key>
+	<string>1.0.0.2</string>
 </dict>
 </plist>

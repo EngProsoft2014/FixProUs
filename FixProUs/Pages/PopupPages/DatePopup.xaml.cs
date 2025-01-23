@@ -52,7 +52,7 @@ public partial class DatePopup : Mopups.Pages.PopupPage
         }
         else
         {
-            await App.Current.MainPage.DisplayAlert("Alert", "Please select a date", "Ok");
+            await App.Current!.MainPage!.DisplayAlert("Alert", "Please select a date", "Ok");
         }
 
         await MopupService.Instance.PopAsync();

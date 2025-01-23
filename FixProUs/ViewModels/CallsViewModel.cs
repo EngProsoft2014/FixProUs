@@ -353,8 +353,8 @@ namespace FixProUs.ViewModels
                                 var ViewModel = new CallsViewModel(Call);
                                 var page = new Pages.CallPages.NewCallPage();
                                 page.BindingContext = ViewModel;
-                                await App.Current.MainPage.Navigation.PushAsync(page);
-                                App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+                                await App.Current!.MainPage!.Navigation.PushAsync(page);
+                                App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
                             }
                             else
                             {
@@ -393,7 +393,7 @@ namespace FixProUs.ViewModels
                     if (json != null && json != "api not responding")
                     {
                         await App.Current!.MainPage!.DisplayAlert("FixPro", "Succes Delete Call.", "Ok");
-                        await App.Current.MainPage.Navigation.PushAsync(new MainPage());
+                        await App.Current!.MainPage!.Navigation.PushAsync(new MainPage());
                     }
                     else
                     {

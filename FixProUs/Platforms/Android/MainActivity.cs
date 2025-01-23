@@ -33,7 +33,7 @@ namespace FixProUs
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
                 {
-                    ////await App.Current.MainPage.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+                    ////await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
 
                     await App.Current!.MainPage!.Navigation.PushAsync(new NoInternetPage(new MainPage()));
                     return;

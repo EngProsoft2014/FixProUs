@@ -48,10 +48,10 @@ public partial class CheckoutPopup : Mopups.Pages.PopupPage
         }
         else
         {
-            await App.Current.MainPage.DisplayAlert("Alert", "Please select a time", "Ok");
+            await App.Current!.MainPage!.DisplayAlert("Alert", "Please select a time", "Ok");
         }
         await MopupService.Instance.PopAsync();
-        await App.Current.MainPage.Navigation.PushAsync(new TimeSheetPage());
-        App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+        await App.Current!.MainPage!.Navigation.PushAsync(new TimeSheetPage());
+        App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
     }
 }

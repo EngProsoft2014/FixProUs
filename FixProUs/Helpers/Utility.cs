@@ -160,13 +160,13 @@ namespace FixProUs.Helpers
             }
             catch (WebException ex)
             {
-                //await App.Current.MainPage.DisplayAlert("message from server", sResult, "");
+                //await App.Current!.MainPage!.DisplayAlert("message from server", sResult, "");
                 //Log.Report(ex);
                 throw ex;
             }
             catch (Exception ex)
             {
-                //await App.Current.MainPage.DisplayAlert("message from server", sResult, "");
+                //await App.Current!.MainPage!.DisplayAlert("message from server", sResult, "");
                 //Log.Report(ex);
             }
             finally
@@ -196,7 +196,7 @@ namespace FixProUs.Helpers
             }
             catch (WebException ex)
             {
-                //await App.Current.MainPage.DisplayAlert("message from server", sResult, "");
+                //await App.Current!.MainPage!.DisplayAlert("message from server", sResult, "");
                 //Log.Report(ex);
                 throw ex;
             }
@@ -239,13 +239,13 @@ namespace FixProUs.Helpers
             }
             catch (WebException ex)
             {
-                //await App.Current.MainPage.DisplayAlert("message from server", sResult, "");
+                //await App.Current!.MainPage!.DisplayAlert("message from server", sResult, "");
                 //Log.Report(ex);
                 throw ex;
             }
             catch (Exception ex)
             {
-                //await App.Current.MainPage.DisplayAlert("message from server", sResult, "");
+                //await App.Current!.MainPage!.DisplayAlert("message from server", sResult, "");
                 //Log.Report(ex);
             }
             finally

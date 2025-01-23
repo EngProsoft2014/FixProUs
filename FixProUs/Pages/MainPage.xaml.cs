@@ -177,7 +177,7 @@ namespace FixProUs.Pages
             }
             catch (Exception)
             {
-                await App.Current.MainPage.DisplayAlert("Alert", "Failed save your position for tracking !!", "OK");
+                await App.Current!.MainPage!.DisplayAlert("Alert", "Failed save your position for tracking !!", "OK");
             }
         }
     }

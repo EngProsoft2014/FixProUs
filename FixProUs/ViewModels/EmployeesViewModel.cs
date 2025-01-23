@@ -188,7 +188,7 @@ namespace FixProUs.ViewModels
             {
                 if (Connectivity.NetworkAccess != Microsoft.Maui.Networking.NetworkAccess.Internet)
                 {
-                    await App.Current.MainPage.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+                    await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
                     return;
                 }
                 else
@@ -221,7 +221,7 @@ namespace FixProUs.ViewModels
             }
             catch (Exception ex)
             {
-                await App.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+                await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
         }
 
@@ -234,7 +234,7 @@ namespace FixProUs.ViewModels
             {
                 if (Connectivity.NetworkAccess != Microsoft.Maui.Networking.NetworkAccess.Internet)
                 {
-                    await App.Current.MainPage.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+                    await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
                     return;
                 }
                 else
@@ -243,13 +243,13 @@ namespace FixProUs.ViewModels
                     var popupView = new EmployeesViewModel(employee);
                     var page = new Pages.MenuPages.TrckingMapPage(MapsModel);
                     page.BindingContext = popupView;
-                    await App.Current.MainPage.Navigation.PushAsync(page);
+                    await App.Current!.MainPage!.Navigation.PushAsync(page);
                     UserDialogs.Instance.HideHud();
                 }
             }
             catch (Exception ex)
             {
-                await App.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+                await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
             IsBusy = false;
