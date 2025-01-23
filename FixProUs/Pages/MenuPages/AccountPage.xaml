@@ -54,7 +54,7 @@
                                 <StackLayout Orientation="Horizontal" Padding="0">
                                     <Grid HorizontalOptions="CenterAndExpand">
 
-                                        <Frame CornerRadius="100" VerticalOptions="CenterAndExpand" HasShadow="False" HorizontalOptions="CenterAndExpand" Padding="0" Margin="0">
+                                        <Frame CornerRadius="100" BackgroundColor="White" VerticalOptions="CenterAndExpand" HasShadow="False" HorizontalOptions="CenterAndExpand" Padding="0" Margin="0">
                                             <ff:CachedImage x:Name="imgAccount" Source="{Binding AccountPhoto}" Aspect="AspectFill" LoadingPlaceholder="avatar.png" ErrorPlaceholder="avatar.png" HeightRequest="120" WidthRequest="120">
                                                 <ff:CachedImage.GestureRecognizers>
                                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>

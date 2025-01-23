@@ -19,7 +19,7 @@
         <Controls:ToolBar Title="Note" HasBackButton="True"></Controls:ToolBar>
 
         <StackLayout Margin="20" VerticalOptions="FillAndExpand" Spacing="25">
-            <Frame BorderColor="LightGray" HorizontalOptions="FillAndExpand" HasShadow="False" VerticalOptions="FillAndExpand" Padding="10" CornerRadius="15">
+            <Frame BorderColor="LightGray" BackgroundColor="White" HorizontalOptions="FillAndExpand" HasShadow="False" VerticalOptions="FillAndExpand" Padding="10" CornerRadius="15">
                 <Editor Text="{Binding Note}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" TextColor="#333">
 
                 </Editor>

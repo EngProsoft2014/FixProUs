@@ -152,7 +152,7 @@
 
                     <StackLayout Spacing="10">
                         <Label Text="Input Your Signature" TextColor="#333"/>
-                        <Frame BorderColor="Gray" HasShadow="True" Padding="2">
+                        <Frame BorderColor="Gray" HasShadow="True" Padding="2" BackgroundColor="White">
                             <StackLayout>
                                 <mct:DrawingView x:Name="DrawBoardCredit"
                                                    LineColor="Black"
@@ -322,7 +322,7 @@
 
                     <StackLayout Spacing="10">
                         <Label Text="Input Your Signature" TextColor="#333"/>
-                        <Frame BorderColor="Gray" HasShadow="True" Padding="2">
+                        <Frame BorderColor="Gray" HasShadow="True" Padding="2" BackgroundColor="White">
                             <StackLayout>
                                 <mct:DrawingView x:Name="DrawBoardCash"
                                                    LineColor="Black"

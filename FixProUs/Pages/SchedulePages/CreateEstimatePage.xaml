@@ -600,7 +600,7 @@
 
                 <Label Text="Note" FontSize="15" TextColor="#262626" Padding="20,0,20,10" FontAttributes="Bold" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
 
-                <Frame BorderColor="LightGray" HorizontalOptions="FillAndExpand" Padding="10" HasShadow="False" HeightRequest="60" Margin="20,0,20,20">
+                <Frame BorderColor="LightGray" BackgroundColor="White" HorizontalOptions="FillAndExpand" Padding="10" HasShadow="False" HeightRequest="60" Margin="20,0,20,20">
                     <Editor Placeholder="Enter Note" Text="{Binding ScheduleDetails.Notes}" FontSize="13" BackgroundColor="White" TextColor="#333"></Editor>
                 </Frame>
 
@@ -630,7 +630,7 @@
                         </Button>
                     </StackLayout>
 
-                    <Frame x:Name="frmSignature" IsVisible="False" HasShadow="False" BorderColor="Gray" Padding="2">
+                    <Frame x:Name="frmSignature" BackgroundColor="White" IsVisible="False" HasShadow="False" BorderColor="Gray" Padding="2">
                         <StackLayout>
                             <mct:DrawingView x:Name="DrawBoard"
                                                LineColor="Black"

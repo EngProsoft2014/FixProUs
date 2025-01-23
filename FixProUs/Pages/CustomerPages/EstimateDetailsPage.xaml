@@ -689,7 +689,7 @@
 
                     <Label Text="Note" FontSize="15" TextColor="#262626" Padding="20,0,20,10" FontAttributes="Bold" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
 
-                    <Frame BorderColor="LightGray" HorizontalOptions="FillAndExpand" HasShadow="False" Padding="10" HeightRequest="60" Margin="20,0,20,20">
+                    <Frame BorderColor="LightGray" BackgroundColor="White" HorizontalOptions="FillAndExpand" HasShadow="False" Padding="10" HeightRequest="60" Margin="20,0,20,20">
                         <Editor Placeholder="Enter Note" Text="{Binding OneEstimate.Notes}" FontSize="13" BackgroundColor="White" TextColor="#333">
                             <Editor.Triggers>
                                 <DataTrigger TargetType="Editor" Binding="{Binding OneEstimate.NotShowConvert}" Value="True">
@@ -712,7 +712,7 @@
 
                     <Label Text="Signature" FontSize="15" TextColor="#262626" Padding="20,0,20,10" FontAttributes="Bold" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
 
-                    <Frame x:Name="frmSignature" BorderColor="Gray" HasShadow="False" Margin="20,0,20,20">
+                    <Frame x:Name="frmSignature" BorderColor="Gray" BackgroundColor="White" HasShadow="False" Margin="20,0,20,20">
                         <Image Source="{Binding OneEstimate.SignatureDrawView}" HeightRequest="130" Aspect="AspectFit" Margin="15">
 
                         </Image>
@@ -723,7 +723,7 @@
                         </Frame.Triggers>
                     </Frame>
 
-                    <Frame x:Name="frmSignatureEdit" IsVisible="False" Margin="20,0,20,20" BorderColor="Gray" HasShadow="False" Padding="2">
+                    <Frame x:Name="frmSignatureEdit" BackgroundColor="White" IsVisible="False" Margin="20,0,20,20" BorderColor="Gray" HasShadow="False" Padding="2">
                         <StackLayout>
                             <mct:DrawingView x:Name="DrawBoard"
                                                LineColor="Black"
