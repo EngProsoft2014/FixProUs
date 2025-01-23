@@ -5,7 +5,6 @@
                       xmlns:Controls="clr-namespace:FixProUs.Controls"
                       xmlns:Helpers="clr-namespace:FixProUs.Helpers"
                       xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"
-                      xmlns:xct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
                       xmlns:vm="clr-namespace:FixProUs.ViewModels"
                       xmlns:sensors="clr-namespace:Microsoft.Maui.Devices.Sensors;assembly=Microsoft.Maui.Essentials"
                       Visual="Material"
