@@ -57,7 +57,7 @@
                     <StackLayout HorizontalOptions="FillAndExpand">
                         <Label Text="Start Date" TextColor="Black"></Label>
                         <Border Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}" BackgroundColor="#debdff" HorizontalOptions="FillAndExpand">
-                            <DatePicker x:Name="pkrStartDt" Date="{Binding StartDate}" FontSize="13" BackgroundColor="#debdff">
+                            <DatePicker x:Name="pkrStartDt" Date="{Binding StartDate}" TextColor="Black" FontSize="13" BackgroundColor="#debdff">
                             </DatePicker>
 
                             <Border.Shadow>
@@ -73,7 +73,7 @@
                     <StackLayout HorizontalOptions="FillAndExpand">
                         <Label Text="End Date" TextColor="Black"></Label>
                         <Border Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}" BackgroundColor="#debdff" HorizontalOptions="FillAndExpand">
-                            <DatePicker x:Name="pkrEndDt" Date="{Binding EndDate}" FontSize="13" BackgroundColor="#debdff">
+                            <DatePicker x:Name="pkrEndDt" Date="{Binding EndDate}" TextColor="Black" FontSize="13" BackgroundColor="#debdff">
                             </DatePicker>
 
                             <Border.Shadow>
@@ -127,7 +127,7 @@
                     <StackLayout>
                         <Label Text="Call Reason" TextColor="Black"></Label>
                         <Border Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}" BackgroundColor="#debdff" HorizontalOptions="FillAndExpand">
-                            <Picker x:Name="pkrReason" ItemsSource="{Binding LstReasons}" ItemDisplayBinding="{Binding Lable}" SelectedItem="{Binding OneReason,Mode=TwoWay}" BackgroundColor="#debdff" 
+                            <Picker x:Name="pkrReason" ItemsSource="{Binding LstReasons}" TextColor="Black" ItemDisplayBinding="{Binding Lable}" SelectedItem="{Binding OneReason,Mode=TwoWay}" BackgroundColor="#debdff" 
                                 Title="Select Reason" 
                                 FontFamily="AlmaraiRegular" FontSize="13" 
                                 TitleColor="#333">
@@ -144,7 +144,7 @@
                     <StackLayout>
                         <Label Text="Campaign" TextColor="Black"></Label>
                         <Border Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}" BackgroundColor="#debdff" HorizontalOptions="FillAndExpand">
-                            <Picker x:Name="pkrCampaign" ItemsSource="{Binding LstCampaigns}" ItemDisplayBinding="{Binding Lable}" SelectedItem="{Binding OneCampaign,Mode=TwoWay}" BackgroundColor="#debdff" 
+                            <Picker x:Name="pkrCampaign" ItemsSource="{Binding LstCampaigns}" TextColor="Black" ItemDisplayBinding="{Binding Lable}" SelectedItem="{Binding OneCampaign,Mode=TwoWay}" BackgroundColor="#debdff" 
                                 Title="Select Campaign" 
                                 FontFamily="AlmaraiRegular" 
                                 FontSize="13" 
@@ -162,7 +162,7 @@
                     <StackLayout>
                         <Label Text="Employee" TextColor="Black"></Label>
                         <Border Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}" BackgroundColor="#debdff" HorizontalOptions="FillAndExpand">
-                            <Picker x:Name="pkrEmployee" ItemsSource="{Binding LstEmployees}" ItemDisplayBinding="{Binding FullName}" SelectedItem="{Binding OneEmployee,Mode=TwoWay}" BackgroundColor="#debdff" 
+                            <Picker x:Name="pkrEmployee" ItemsSource="{Binding LstEmployees}" TextColor="Black" ItemDisplayBinding="{Binding FullName}" SelectedItem="{Binding OneEmployee,Mode=TwoWay}" BackgroundColor="#debdff" 
                                 Title="Select Employee" 
                                 FontFamily="AlmaraiRegular" 
                                 FontSize="13" 

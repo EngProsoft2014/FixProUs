@@ -408,45 +408,14 @@
                         <StackLayout HorizontalOptions="Start" WidthRequest="150">
                             <Label Text="Priority" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
 
-                            <combobox:SfComboBox x:Name="comboBox" 
-                                                     ItemsSource="{Binding LstPriority}"
-                                                     SelectedItem="{Binding OnePriorityModel,Mode=TwoWay}" 
-                                                     FontSize="12" HeightRequest="55" BackgroundColor="White"
-                                                     Placeholder="Priority" TextColor="#333" PlaceholderColor="Grey"
-                                                     MaxDropDownHeight="200" 
-                                                     IsFilteringEnabled="False"
-                                                     IsEditable="False"
-                                                     IsClearButtonVisible="False"
-                                                     FontAttributes="Bold"
-                                                     DisplayMemberPath="Name">
-                                <combobox:SfComboBox.Triggers>
-                                    <DataTrigger TargetType="combobox:SfComboBox" Binding="{Binding ScheduleDetails.IsStopUpdateSchedule}" Value="False">
-                                        <Setter Property="IsEnabled" Value="False"></Setter>
-                                    </DataTrigger>
-                                    <DataTrigger TargetType="combobox:SfComboBox" Binding="{Binding ScheduleDetails.Recurring}" Value="True">
-                                        <Setter Property="IsEnabled" Value="False"></Setter>
-                                    </DataTrigger>
-                                    <DataTrigger TargetType="combobox:SfComboBox" Binding="{Binding ScheduleDetails.OneScheduleDate.Status}" Value="0">
-                                        <Setter Property="IsEnabled" Value="False"></Setter>
-                                    </DataTrigger>
-                                    <DataTrigger TargetType="combobox:SfComboBox" Binding="{Binding ScheduleDetails.OneScheduleDate.Status}" Value="2">
-                                        <Setter Property="IsEnabled" Value="False"></Setter>
-                                    </DataTrigger>
-                                    <DataTrigger TargetType="combobox:SfComboBox" Binding="{Binding ScheduleDetails.ShowCheckBtn}" Value="2">
-                                        <Setter Property="IsEnabled" Value="False"></Setter>
-                                    </DataTrigger>
-                                </combobox:SfComboBox.Triggers>
-
-                            </combobox:SfComboBox>
-                            
-                            <!--<Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}">
-                                --><!--<Picker ItemsSource="{Binding LstPriority}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding OnePriorityModel,Mode=TwoWay}"
+                            <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}">
+                                <Picker ItemsSource="{Binding LstPriority}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding OnePriorityModel,Mode=TwoWay}"
                                   Title="Priority" 
                                   FontSize="12"
                                   HorizontalOptions="FillAndExpand">
-                                </Picker>--><!--
+                                </Picker>
 
-                                <combobox:SfComboBox x:Name="comboBox" 
+                                <!--<combobox:SfComboBox x:Name="comboBox" 
                                                      ItemsSource="{Binding LstPriority}"
                                                      SelectedItem="{Binding OnePriorityModel,Mode=TwoWay}" 
                                                      FontSize="12" HeightRequest="40"
@@ -458,7 +427,7 @@
                                                      FontAttributes="Bold"
                                                      DisplayMemberPath="Name">
 
-                                </combobox:SfComboBox>
+                                </combobox:SfComboBox>-->
 
 
                                 <Border.StrokeShape>
@@ -484,7 +453,7 @@
                                         <Setter Property="IsEnabled" Value="False"></Setter>
                                     </DataTrigger>
                                 </Border.Triggers>
-                            </Border>-->
+                            </Border>
                         </StackLayout>
 
                         <!--Job Date-->
