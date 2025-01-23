@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks>net8.0-ios;net8.0-android;net8.0-maccatalyst</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
@@ -40,7 +40,6 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" />
 		<MauiIcon Include="Resources\AppIcon\logoicon.svg" Color="White" ForegroundScale="0.65" />
 
 		<!-- Splash Screen -->
@@ -58,12 +57,14 @@
 	</ItemGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
+		<MtouchLink>None</MtouchLink>
 		<CreatePackage>false</CreatePackage>
 		<CodesignProvision>FixProUs Development Provisioning</CodesignProvision>
 		<CodesignKey>Apple Development: TAREK GABER (9RKU8MRSBH)</CodesignKey>
 		<CodesignEntitlements>Platforms\iOS\Entitlements.plist</CodesignEntitlements>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-ios|AnyCPU'">
+		<MtouchLink>SdkOnly</MtouchLink>
 		<CreatePackage>false</CreatePackage>
 		<CodesignProvision>App Store FixProUs</CodesignProvision>
 		<CodesignKey>Apple Distribution: ENG PRO SOFT, LLC (YZWTVALFLW)</CodesignKey>
@@ -102,7 +103,6 @@
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.93" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
 		<PackageReference Include="Microsoft.Maui.Controls.Maps" Version="8.0.93" />
-		<PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2849.39" />
 		<PackageReference Include="Mopups" Version="1.3.2" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="OneSignalSDK.DotNet" Version="5.1.0" />
@@ -119,6 +119,15 @@
 		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.2.0" />
 		<PackageReference Include="Twilio" Version="7.6.0" />
 	</ItemGroup>
+
+	<ItemGroup Condition="!$(TargetFramework.Contains('maccatalyst')) and !$(TargetFramework.Contains('ios')) and !$(TargetFramework.Contains('android'))">
+		<PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2957.106" />
+	</ItemGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-ios'">
+		<AOTMode>Full</AOTMode>
+		<EnableLLVM>true</EnableLLVM>
+	</PropertyGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
 	  <PackageReference Include="Xamarin.AndroidX.Collection">
