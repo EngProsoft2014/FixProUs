@@ -48,7 +48,7 @@
                             </Image.GestureRecognizers>
                         </Image>
 
-                        <Label Text="Scan Card" VerticalTextAlignment="Center"></Label>
+                        <Label Text="Scan Card" VerticalTextAlignment="Center" TextColor="#333"></Label>
                     </StackLayout>
 
                     <Border BackgroundColor="White" Padding="{OnPlatform Android='10,5,10,5',iOS=10}" HorizontalOptions="FillAndExpand">
@@ -151,7 +151,7 @@
                     </StackLayout>
 
                     <StackLayout Spacing="10">
-                        <Label Text="Input Your Signature"/>
+                        <Label Text="Input Your Signature" TextColor="#333"/>
                         <Frame BorderColor="Gray" HasShadow="True" Padding="2">
                             <StackLayout>
                                 <mct:DrawingView x:Name="DrawBoardCredit"
@@ -321,7 +321,7 @@
                     </StackLayout>
 
                     <StackLayout Spacing="10">
-                        <Label Text="Input Your Signature"/>
+                        <Label Text="Input Your Signature" TextColor="#333"/>
                         <Frame BorderColor="Gray" HasShadow="True" Padding="2">
                             <StackLayout>
                                 <mct:DrawingView x:Name="DrawBoardCash"

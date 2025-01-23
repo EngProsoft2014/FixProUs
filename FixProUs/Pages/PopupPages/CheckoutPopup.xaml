@@ -11,7 +11,7 @@
     <Grid Padding="0" Margin="40,200,40,150">
         <Border TranslationY="0" HeightRequest="220" VerticalOptions="CenterAndExpand" BackgroundColor="White">
             <StackLayout Padding="20,20,20,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                <Label Text="Time Picker:" FontSize="14" FontAttributes="Bold" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+                <Label Text="Time Picker:" FontSize="14" TextColor="#333" FontAttributes="Bold" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
 
                 <Border BackgroundColor="White" Padding="0" Margin="0,20,0,0" HorizontalOptions="FillAndExpand">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" HeightRequest="45">

@@ -22,7 +22,7 @@
     <Grid Padding="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="500" WidthRequest="300">
         <Border TranslationY="0" HeightRequest="120" VerticalOptions="Start" BackgroundColor="White">
             <StackLayout Padding="20,20,20,20" VerticalOptions="StartAndExpand" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                <Label Text="Use Range" FontSize="16" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+                <Label Text="Use Range" FontSize="16" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
 
                 <Switch x:Name="switchRangeDate" HorizontalOptions="EndAndExpand">
                     <Switch.Triggers>

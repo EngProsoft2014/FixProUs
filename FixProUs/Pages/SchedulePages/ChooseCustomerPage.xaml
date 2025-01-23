@@ -115,7 +115,7 @@
                                             </Border>
 
                                             <Label Text="{Binding Phone1}" 
-                                                   FontSize="12" 
+                                                   FontSize="12" TextColor="#333" 
                                                    Margin="50,0,0,0"
                                                    FontAttributes="Bold"
                                                    HorizontalOptions="End"
@@ -131,7 +131,7 @@
                                                     </Image.Source>
                                                 </Image>
 
-                                                <Label Text="{Binding Address}" FontAttributes="Italic" VerticalTextAlignment="Start" FontSize="14"></Label>
+                                                <Label Text="{Binding Address}" TextColor="#333" FontAttributes="Italic" VerticalTextAlignment="Start" FontSize="14"></Label>
 
                                             </StackLayout>
                                             <Button Text="Select" 

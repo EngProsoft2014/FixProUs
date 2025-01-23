@@ -47,7 +47,7 @@
 
             <ListView x:Name="lstPictures" SelectionMode="None"
                               ItemsSource="{Binding LstAllPictures}" 
-                              HasUnevenRows="True" 
+                              HasUnevenRows="True" BackgroundColor="White"
                               SeparatorVisibility="None"
                               VerticalScrollBarVisibility="Never">
                 <ListView.ItemTemplate>
@@ -110,8 +110,8 @@
                                         </StackLayout>
 
                                         <StackLayout VerticalOptions="Center">
-                                            <Label Text="{Binding ScheduleDate,StringFormat='{0:MM-dd-yyyy}'}"></Label>
-                                            <Label Text="{Binding CreateDate,StringFormat='{0:h:mm tt}'}"></Label>
+                                            <Label Text="{Binding ScheduleDate,StringFormat='{0:MM-dd-yyyy}'}" TextColor="#333"></Label>
+                                            <Label Text="{Binding CreateDate,StringFormat='{0:h:mm tt}'}" TextColor="#333"></Label>
                                         </StackLayout>
 
                                         <!--Image Delete-->

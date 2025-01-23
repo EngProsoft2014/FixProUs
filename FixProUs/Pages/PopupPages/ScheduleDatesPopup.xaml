@@ -25,7 +25,7 @@
                         HorizontalOptions="FillAndExpand">
                     <StackLayout>
 
-                        <ListView x:Name="lstDates" SelectionMode="None" HasUnevenRows="True" VerticalScrollBarVisibility="Never">
+                        <ListView x:Name="lstDates" BackgroundColor="White" SelectionMode="None" HasUnevenRows="True" VerticalScrollBarVisibility="Never">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
@@ -34,7 +34,7 @@
 
                                                 <StackLayout Orientation="Horizontal">
                                                     <Label Text="{Binding Date}" 
-                                                      FontSize="14" 
+                                                      FontSize="14" TextColor="#333" 
                                                       HorizontalOptions="FillAndExpand" 
                                                       VerticalTextAlignment="Center"></Label>
                                                 </StackLayout>

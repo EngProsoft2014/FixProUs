@@ -78,7 +78,7 @@
 
                     <ListView x:Name="lstCustomers" SelectionMode="None" 
                           ItemsSource="{Binding LstCustomers}"  
-                          HasUnevenRows="True" 
+                          HasUnevenRows="True" BackgroundColor="White"
                           VerticalScrollBarVisibility="Never">
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -115,7 +115,7 @@
                                                     </Image.Source>
                                                 </Image>
                                                 <Label Text="{Binding Phone1}" 
-                                                       FontSize="12" 
+                                                       FontSize="12" TextColor="#333" 
                                                        WidthRequest="100" 
                                                        FontAttributes="Bold" 
                                                        HorizontalTextAlignment="Center"
@@ -130,7 +130,7 @@
                                                     <FontImageSource FontFamily="FontIconSolid" Color="#debdff" Glyph="" Size="18"></FontImageSource>
                                                 </Image.Source>
                                             </Image>
-                                            <Label Text="{Binding Address}" FontAttributes="Italic" VerticalTextAlignment="Center" FontSize="14"></Label>
+                                            <Label Text="{Binding Address}" TextColor="#333" FontAttributes="Italic" VerticalTextAlignment="Center" FontSize="14"></Label>
 
                                         </StackLayout>
                                         <StackLayout.GestureRecognizers>

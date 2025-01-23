@@ -164,7 +164,7 @@
                                 <Label 
                                       Padding="5,10,5,10"
                                       Text="{Binding ScheduleDetails.Title}"
-                                      FontSize="14"
+                                      FontSize="14" TextColor="#333"
                                       HorizontalOptions="FillAndExpand">
                                 </Label>
 
@@ -210,7 +210,7 @@
                                     <StackLayout>
                                         <Label 
                                            Padding="10,12,10,12"
-                                           FontSize="13"
+                                           FontSize="13" TextColor="#333"
                                            Text="{Binding StrInvoiceDates}"
                                            HorizontalOptions="FillAndExpand">
                                         </Label>
@@ -235,7 +235,7 @@
 
                             <ListView x:Name="lstdts" SelectionMode="None"
                                       ItemsSource="{Binding LstInvoiceDates}" 
-                                      HasUnevenRows="True" 
+                                      HasUnevenRows="True" BackgroundColor="White" 
                                       HeightRequest="140" Margin="0,20,0,0"
                                       SeparatorVisibility="None"
                                       VerticalScrollBarVisibility="Never">
@@ -381,7 +381,7 @@
 
                         <ListView x:Name="lstItemsServices" SelectionMode="None"
                               ItemsSource="{Binding LstItems}" 
-                              HasUnevenRows="True" 
+                              HasUnevenRows="True" BackgroundColor="White" 
                               SeparatorVisibility="None"
                               VerticalScrollBarVisibility="Never">
                             <ListView.ItemTemplate>
@@ -392,7 +392,7 @@
 
                                                 <StackLayout HorizontalOptions="StartAndExpand" WidthRequest="120">
                                                     <Label Padding="10" VerticalTextAlignment="Center"
-                                                               FontSize="14" 
+                                                               FontSize="14" TextColor="#333"
                                                                Text="{Binding ItemsServicesName}"
                                                                HorizontalOptions="FillAndExpand">
                                                     </Label>
@@ -400,7 +400,7 @@
 
                                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="15">
                                                     <StackLayout>
-                                                        <Label Padding="10" 
+                                                        <Label Padding="10" TextColor="#333" 
                                                                    HorizontalTextAlignment="Start"
                                                                    WidthRequest="50"
                                                                    Text="{Binding Quantity}" VerticalTextAlignment="Center"
@@ -417,7 +417,7 @@
                                                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                                                     <Label Padding="10,10,2,10"
                                                                Text="{Binding CostRate,StringFormat='${0}'}"
-                                                               FontSize="14" 
+                                                               FontSize="14" TextColor="#333" 
                                                                HorizontalTextAlignment="Center" 
                                                                VerticalTextAlignment="Center"
                                                                HorizontalOptions="FillAndExpand">
@@ -630,7 +630,7 @@
                     <Label Text="Note" FontSize="15" TextColor="#262626" Padding="20,0,20,10" FontAttributes="Bold" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
 
                     <Frame BorderColor="LightGray" HorizontalOptions="FillAndExpand" HasShadow="False" Padding="10" HeightRequest="60" Margin="20,0,20,20">
-                        <Editor Placeholder="Enter Note" Text="{Binding ScheduleDetails.Notes}" FontSize="14"></Editor>
+                        <Editor Placeholder="Enter Note" Text="{Binding ScheduleDetails.Notes}" FontSize="14" TextColor="#333"></Editor>
                     </Frame>
 
                 </StackLayout>

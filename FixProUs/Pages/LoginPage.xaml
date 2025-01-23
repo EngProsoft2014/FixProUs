@@ -79,7 +79,7 @@
                                 <FontImageSource FontFamily="FontIconSolid" Color="Gray" Glyph="" Size="25"></FontImageSource>
                             </Image.Source>
                         </Image>
-                        <Label Text="Login" HorizontalOptions="CenterAndExpand" FontSize="16"></Label>
+                        <Label Text="Login" TextColor="#333" HorizontalOptions="CenterAndExpand" FontSize="16"></Label>
                     </StackLayout>
 
                     <StackLayout Spacing="20">

@@ -111,7 +111,7 @@
                                 <Entry x:Name="entryDiscount"
                                        Placeholder="Discount"
                                        WidthRequest="60"
-                                       Keyboard="Numeric"
+                                       Keyboard="Numeric" TextColor="#333"
                                        Text="{Binding CustomerDetails.Discount}"
                                        FontSize="12"
                                        TextChanged="entryDiscount_TextChanged">
@@ -216,7 +216,7 @@
 
                                                 <StackLayout HorizontalOptions="StartAndExpand" WidthRequest="120">
                                                     <Label Padding="10" VerticalTextAlignment="Center"
-                                                               FontSize="14" 
+                                                               FontSize="14" TextColor="#333" 
                                                                Text="{Binding ItemsServicesName}"
                                                                HorizontalOptions="FillAndExpand">
                                                     </Label>
@@ -224,7 +224,7 @@
 
                                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="15">
                                                     <StackLayout>
-                                                        <Label Padding="10" 
+                                                        <Label Padding="10" TextColor="#333"
                                                                    HorizontalTextAlignment="Start"
                                                                    WidthRequest="50"
                                                                    Text="{Binding Quantity}" VerticalTextAlignment="Center"
@@ -241,7 +241,7 @@
                                                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                                                     <Label Padding="10,10,2,10"
                                                                Text="{Binding CostRate,StringFormat='${0}'}"
-                                                               FontSize="14" 
+                                                               FontSize="14" TextColor="#333" 
                                                                HorizontalTextAlignment="Center" 
                                                                VerticalTextAlignment="Center"
                                                                HorizontalOptions="FillAndExpand">
@@ -454,7 +454,7 @@
                     <Label Text="Note" FontSize="15" TextColor="#262626" Padding="20,0,20,10" FontAttributes="Bold" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
 
                     <Frame BorderColor="LightGray" HorizontalOptions="FillAndExpand" HasShadow="False" Padding="10" HeightRequest="60" Margin="20,0,20,20">
-                        <Editor Placeholder="Enter Note" Text="{Binding OneInvoice.Notes}" FontSize="13"></Editor>
+                        <Editor Placeholder="Enter Note" Text="{Binding OneInvoice.Notes}" FontSize="13" TextColor="#333"></Editor>
                     </Frame>
 
                 </StackLayout>

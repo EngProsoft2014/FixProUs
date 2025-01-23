@@ -433,7 +433,7 @@
                         </Grid.ColumnDefinitions>
                         <!--Title-->
                         <StackLayout Grid.RowSpan="4" Grid.ColumnSpan="4" IsVisible="False" HorizontalOptions="FillAndExpand" Padding="20,0,20,10">
-                            <Label Text="Title" FontSize="14" FontAttributes="Bold" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+                            <Label Text="Title" TextColor="#333" FontSize="14" FontAttributes="Bold" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
                             <StackLayout>
                                 <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}" HorizontalOptions="FillAndExpand">
                                     <Entry  Text="{Binding ScheduleDetails.Title}"
@@ -463,7 +463,7 @@
                         </StackLayout>
 
                         <StackLayout Grid.RowSpan="4" Grid.ColumnSpan="5" IsVisible="False" HorizontalOptions="FillAndExpand" Padding="20,0,20,10">
-                            <Label Text="Title" FontSize="14" FontAttributes="Bold" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+                            <Label Text="Title" TextColor="#333" FontSize="14" FontAttributes="Bold" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
                             <StackLayout>
                                 <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}" HorizontalOptions="FillAndExpand">
                                     <Entry  Text="{Binding ScheduleDetails.Title}"
@@ -591,7 +591,7 @@
                                 <StackLayout Spacing="20">
                                     <!--Priority-->
                                     <StackLayout HorizontalOptions="Start" Orientation="Horizontal" Padding="20,20,20,0">
-                                        <Label Text="Priority : " FontSize="14" HorizontalOptions="Start" FontAttributes="Bold" VerticalTextAlignment="Center"></Label>
+                                        <Label Text="Priority : " FontSize="14" TextColor="#333" HorizontalOptions="Start" FontAttributes="Bold" VerticalTextAlignment="Center"></Label>
                                         <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}">
                                             <!--<Picker ItemsSource="{Binding LstPriority}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding OnePriorityModel,Mode=TwoWay}"
                                                    Title="Priority" 
@@ -655,7 +655,7 @@
 
                                     <!--First Create Services-->
                                     <StackLayout HorizontalOptions="EndAndExpand" Padding="20,0,20,20">
-                                        <Label Text="First create services : " FontSize="14" FontAttributes="Bold" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+                                        <Label Text="First create services : " FontSize="14" TextColor="#333" FontAttributes="Bold" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
                                         <Border BackgroundColor="White" Margin="0,10,0,10" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}">
 
                                             <!--<combobox:SfComboBox 
@@ -692,7 +692,7 @@
 
                                                 <ListView x:Name="lstFirstCreateServices" SelectionMode="None"
                                                            ItemsSource="{Binding ScheduleDetails.LstFirstCreateServices}"      
-                                                           HasUnevenRows="True" 
+                                                           HasUnevenRows="True" BackgroundColor="White" 
                                                            SeparatorVisibility="None"
                                                            VerticalScrollBarVisibility="Never">
                                                     <ListView.ItemTemplate>
@@ -904,7 +904,7 @@
 
                                     <!--Job Date-->
                                     <StackLayout HorizontalOptions="FillAndExpand">
-                                        <Label Text="Job Date" FontSize="13" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+                                        <Label Text="Job Date" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
                                         <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}">
 
                                             <StackLayout Orientation="Horizontal">
@@ -934,7 +934,7 @@
 
                                         <!--Start Time-->
                                         <StackLayout HorizontalOptions="StartAndExpand" WidthRequest="150">
-                                            <Label Text="Start Time" FontSize="13" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+                                            <Label Text="Start Time" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
                                             <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}">
 
                                                 <StackLayout Orientation="Horizontal">
@@ -961,7 +961,7 @@
 
                                         <!--End Time-->
                                         <StackLayout HorizontalOptions="EndAndExpand" WidthRequest="150">
-                                            <Label Text="End Time" FontSize="13" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+                                            <Label Text="End Time" FontSize="13" HorizontalOptions="Start" TextColor="#333" VerticalTextAlignment="Center"></Label>
                                             <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}">
 
                                                 <StackLayout Orientation="Horizontal">
@@ -1076,7 +1076,7 @@
 
                                         <!--Department-->
                                         <StackLayout HorizontalOptions="FillAndExpand">
-                                            <Label Text="Department" FontSize="13" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+                                            <Label Text="Department" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
                                             <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}">
 
 
@@ -1125,7 +1125,7 @@
 
                                             <StackLayout HorizontalOptions="FillAndExpand">
                                                 <StackLayout>
-                                                    <Label Text="Choose Technicians" FontSize="13" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+                                                    <Label Text="Choose Technicians" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
                                                     <Border BackgroundColor="White" HeightRequest="40" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}">
                                                         <StackLayout>
                                                             <Label 
@@ -1164,7 +1164,7 @@
 
                                                 <ListView x:Name="lstEmps" SelectionMode="None"
                                                             ItemsSource="{Binding LstEmps}" 
-                                                            HasUnevenRows="True" 
+                                                            HasUnevenRows="True" BackgroundColor="White" 
                                                             HeightRequest="140"
                                                             SeparatorVisibility="None"
                                                             VerticalScrollBarVisibility="Never">
@@ -1318,7 +1318,7 @@
                     <!--Tabs Header-->
                     <StackLayout Orientation="Horizontal" Padding="0,10,0,10" HorizontalOptions="CenterAndExpand">
                         <StackLayout WidthRequest="100" Spacing="10">
-                            <Label Text="Material" HorizontalTextAlignment="Center">
+                            <Label Text="Material" HorizontalTextAlignment="Center" TextColor="#333">
                                 <Label.Triggers>
                                     <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference frmMaterial},Path=IsVisible}" Value="True">
                                         <Setter Property="TextColor" Value="#3680f7"></Setter>
@@ -1338,7 +1338,7 @@
                         </StackLayout>
 
                         <StackLayout WidthRequest="150" Spacing="10">
-                            <Label Text="Material Receipt" HorizontalTextAlignment="Center">
+                            <Label Text="Material Receipt" HorizontalTextAlignment="Center" TextColor="#333">
                                 <Label.Triggers>
                                     <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference frmMaterialReceipt},Path=IsVisible}" Value="True">
                                         <Setter Property="TextColor" Value="#3680f7"></Setter>
@@ -1358,7 +1358,7 @@
                         </StackLayout>
 
                         <StackLayout WidthRequest="100" Spacing="10">
-                            <Label Text="Servies" HorizontalTextAlignment="Center">
+                            <Label Text="Servies" HorizontalTextAlignment="Center" TextColor="#333">
                                 <Label.Triggers>
                                     <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference frmServies},Path=IsVisible}" Value="True">
                                         <Setter Property="TextColor" Value="#3680f7"></Setter>
@@ -1390,7 +1390,7 @@
 
                                     <ListView x:Name="lstItemsServices" SelectionMode="None"
                                                                   ItemsSource="{Binding LstItems}"      
-                                                                  HasUnevenRows="True" 
+                                                                  HasUnevenRows="True" BackgroundColor="White" 
                                                                   SeparatorVisibility="None"
                                                                   VerticalScrollBarVisibility="Never">
                                         <ListView.ItemTemplate>
@@ -1536,7 +1536,7 @@
 
                                 <StackLayout x:Name="stkMaterialReceipt">
 
-                                    <ListView x:Name="lstMaterialReceipt" SelectionMode="None"
+                                    <ListView x:Name="lstMaterialReceipt" SelectionMode="None" BackgroundColor="White"
                                                                   ItemsSource="{Binding LstMaterialReceipt}" 
                                                                   HasUnevenRows="True" 
                                                                   SeparatorVisibility="None"
@@ -1702,7 +1702,7 @@
 
                                     <ListView x:Name="lstFreeServices" SelectionMode="None"
                                                                     ItemsSource="{Binding LstFreeServices}" 
-                                                                    HasUnevenRows="True" 
+                                                                    HasUnevenRows="True" BackgroundColor="White" 
                                                                     SeparatorVisibility="None"
                                                                     VerticalScrollBarVisibility="Never">
                                         <ListView.ItemTemplate>
@@ -1867,7 +1867,7 @@
                                         </CollectionView.ItemTemplate>
                                     </CollectionView>
 
-                                    <Label Text="{Binding PhotosCount,StringFormat='+ {0}'}" WidthRequest="100" FontSize="18" HorizontalOptions="StartAndExpand" VerticalOptions="Center"></Label>
+                                    <Label Text="{Binding PhotosCount,StringFormat='+ {0}'}" TextColor="#333" WidthRequest="100" FontSize="18" HorizontalOptions="StartAndExpand" VerticalOptions="Center"></Label>
                                     <StackLayout.Triggers>
                                         <DataTrigger TargetType="StackLayout" Binding="{Binding LstATwoPictures.Count}" Value="0">
                                             <Setter Property="IsVisible" Value="False"></Setter>
@@ -1939,7 +1939,7 @@
 
                             <Line  X1="400" HorizontalOptions="CenterAndExpand" BackgroundColor="LightGray"></Line>
 
-                            <Editor x:Name="edtNote" Placeholder="Enter Note" Text="{Binding ScheduleDetails.Notes}" Margin="10,0,10,0" HeightRequest="100" FontSize="13">
+                            <Editor x:Name="edtNote" Placeholder="Enter Note" TextColor="#333" Text="{Binding ScheduleDetails.Notes}" Margin="10,0,10,0" HeightRequest="100" FontSize="13">
                                 <Editor.Triggers>
                                     <DataTrigger TargetType="Editor" Binding="{Binding EmployeePermission.UserRole}" Value="1">
                                         <Setter Property="IsEnabled" Value="False"></Setter>

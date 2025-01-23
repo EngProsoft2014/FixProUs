@@ -70,15 +70,15 @@
 
             <StackLayout x:Name="stkListOrCalAndWeekOrDays" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                 <StackLayout Orientation="Horizontal" Spacing="2" Padding="10,0,10,0" HorizontalOptions="FillAndExpand" Margin="0,0,20,0">
-                    <Label Text="List" VerticalTextAlignment="Center"></Label>
+                    <Label Text="List" VerticalTextAlignment="Center" TextColor="#333"></Label>
                     <Switch x:Name="swchCalenderOrListView" Toggled="swchCalenderOrListView_Toggled"></Switch>
-                    <Label Text="Calendar" VerticalTextAlignment="Center"></Label>
+                    <Label Text="Calendar" VerticalTextAlignment="Center" TextColor="#333"></Label>
                 </StackLayout>
 
                 <StackLayout x:Name="stkSwtScheduleView" Orientation="Horizontal" IsVisible="False" Spacing="2" Padding="10,0,10,0" HorizontalOptions="End" Margin="0,0,20,0">
-                    <Label Text="Weeks" VerticalTextAlignment="Center"></Label>
+                    <Label Text="Weeks" TextColor="#333" VerticalTextAlignment="Center"></Label>
                     <Switch x:Name="swchCalenderView" Toggled="swchCalenderView_Toggled"></Switch>
-                    <Label Text="Days" VerticalTextAlignment="Center"></Label>
+                    <Label Text="Days" VerticalTextAlignment="Center" TextColor="#333"></Label>
                 </StackLayout>
             </StackLayout>
 
@@ -210,7 +210,7 @@
                             </Image.Source>
                         </Image>
 
-                        <Label Text="Search your jobs by:" HorizontalOptions="CenterAndExpand"></Label>
+                        <Label Text="Search your jobs by:" HorizontalOptions="CenterAndExpand" TextColor="#333"></Label>
                     </StackLayout>
 
                     <StackLayout Margin="20,0,0,0" Spacing="10">
@@ -220,7 +220,7 @@
                                     <FontImageSource FontFamily="FontIconSolid" Color="#878686" Glyph="" Size="8"></FontImageSource>
                                 </Image.Source>
                             </Image>
-                            <Label Text="Job Title"></Label>
+                            <Label Text="Job Title" TextColor="#333"></Label>
                         </StackLayout>
 
                         <StackLayout Orientation="Horizontal" Spacing="10">
@@ -229,7 +229,7 @@
                                     <FontImageSource FontFamily="FontIconSolid" Color="#878686" Glyph="" Size="8"></FontImageSource>
                                 </Image.Source>
                             </Image>
-                            <Label Text="Address"></Label>
+                            <Label Text="Address" TextColor="#333"></Label>
                         </StackLayout>
 
                         <StackLayout Orientation="Horizontal" Spacing="10">
@@ -238,7 +238,7 @@
                                     <FontImageSource FontFamily="FontIconSolid" Color="#878686" Glyph="" Size="8"></FontImageSource>
                                 </Image.Source>
                             </Image>
-                            <Label Text="Phone Number"></Label>
+                            <Label Text="Phone Number" TextColor="#333"></Label>
                         </StackLayout>
 
                         <StackLayout Orientation="Horizontal" Spacing="10">
@@ -247,7 +247,7 @@
                                     <FontImageSource FontFamily="FontIconSolid" Color="#878686" Glyph="" Size="8"></FontImageSource>
                                 </Image.Source>
                             </Image>
-                            <Label Text="Email"></Label>
+                            <Label Text="Email" TextColor="#333"></Label>
                         </StackLayout>
 
                         <StackLayout Orientation="Horizontal" Spacing="10">
@@ -256,7 +256,7 @@
                                     <FontImageSource FontFamily="FontIconSolid" Color="#878686" Glyph="" Size="8"></FontImageSource>
                                 </Image.Source>
                             </Image>
-                            <Label Text="Source"></Label>
+                            <Label Text="Source" TextColor="#333"></Label>
                         </StackLayout>
 
                         <StackLayout Orientation="Horizontal" Spacing="10">
@@ -265,7 +265,7 @@
                                     <FontImageSource FontFamily="FontIconSolid" Color="#878686" Glyph="" Size="8"></FontImageSource>
                                 </Image.Source>
                             </Image>
-                            <Label Text="Notes"></Label>
+                            <Label Text="Notes" TextColor="#333"></Label>
                         </StackLayout>
 
                     </StackLayout>

@@ -47,7 +47,7 @@
             <StackLayout>
                 <ListView x:Name="lstEmployees" 
                       ItemsSource="{Binding LstWorkingEmployees}"
-                      HasUnevenRows="True"
+                      HasUnevenRows="True" BackgroundColor="White"
                       SelectionMode="None"
                       VerticalScrollBarVisibility="Never">
                     <ListView.ItemTemplate>
@@ -81,8 +81,8 @@
                                                 <FontImageSource FontFamily="FontIconSolid" Color="Gray" Glyph="" Size="18"></FontImageSource>
                                             </Image.Source>
                                         </Image>
-                                        <Label Text="{Binding BranchName}" FontAttributes="Italic" VerticalTextAlignment="Center" FontSize="14"></Label>
-                                        <Label Text="{Binding TotalBranches,StringFormat='+{0}'}" FontAttributes="Italic" VerticalTextAlignment="Center" FontSize="14">
+                                        <Label Text="{Binding BranchName}" FontAttributes="Italic" TextColor="#333" VerticalTextAlignment="Center" FontSize="14"></Label>
+                                        <Label Text="{Binding TotalBranches,StringFormat='+{0}'}" TextColor="#333" FontAttributes="Italic" VerticalTextAlignment="Center" FontSize="14">
                                             <Label.Triggers>
                                                 <DataTrigger TargetType="Label" Binding="{Binding TotalBranches}" Value="0">
                                                     <Setter Property="IsVisible" Value="False"></Setter>

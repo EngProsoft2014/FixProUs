@@ -514,7 +514,7 @@
                                 <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20,0,20,0">
 
                                     <syncfusion:SfListView x:Name="lstCustomFields" 
-                                           SelectionMode="None"
+                                           SelectionMode="None" BackgroundColor="White"
                                            AllowGroupExpandCollapse="True"
                                            ItemSize="65"
                                            Padding="0"
@@ -589,7 +589,7 @@
                         <StackLayout Margin="0,20,0,20">
                             <ListView x:Name="lstSchedules" SelectionMode="None" 
                                       ItemsSource="{Binding LstSchedules}"
-                                      HasUnevenRows="True" 
+                                      HasUnevenRows="True" BackgroundColor="White"
                                       VerticalScrollBarVisibility="Never">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
@@ -613,7 +613,7 @@
                                                     </Border>
 
                                                     <Label Text="{Binding ScheduleDate,StringFormat='{0:MM-dd-yyyy}'}" 
-                                                           FontSize="12" 
+                                                           FontSize="12" TextColor="#333" 
                                                            Margin="50,0,0,0"
                                                            FontAttributes="Bold"
                                                            HorizontalOptions="End"
@@ -677,7 +677,7 @@
 
                             <ListView x:Name="lstEstimates" SelectionMode="None" 
                                       ItemsSource="{Binding LstEstimates}"
-                                      HasUnevenRows="True" 
+                                      HasUnevenRows="True" BackgroundColor="White" 
                                       VerticalScrollBarVisibility="Never">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
@@ -701,7 +701,7 @@
                                                             </Label>
 
                                                             <Label Text="{Binding CreateDate,StringFormat='{0:MM-dd-yyyy}'}" 
-                                                                   FontSize="10" 
+                                                                   FontSize="10" TextColor="#333" 
                                                                    Margin="0,0,0,0"
                                                                    FontAttributes="Bold"
                                                                    HorizontalOptions="EndAndExpand"
@@ -850,7 +850,7 @@
 
                             <ListView x:Name="lstInvoices" SelectionMode="None" 
                                       ItemsSource="{Binding LstInvoices}"
-                                      HasUnevenRows="True" 
+                                      HasUnevenRows="True" BackgroundColor="White" 
                                       VerticalScrollBarVisibility="Never">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>

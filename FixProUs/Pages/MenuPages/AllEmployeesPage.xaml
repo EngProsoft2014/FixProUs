@@ -58,7 +58,7 @@
 
             <syncfusion:SfListView x:Name="lstEmployees" 
                                    ItemsSource="{Binding LstEmployees}"
-                                   SelectionMode="None"
+                                   SelectionMode="None" BackgroundColor="White"
                                    AutoFitMode="Height"
                                    ScrollBarVisibility="Never" 
                                    QueryItemSize="lstEmployees_QueryItemSize">

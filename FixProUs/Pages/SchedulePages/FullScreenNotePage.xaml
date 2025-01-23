@@ -20,7 +20,7 @@
 
         <StackLayout Margin="20" VerticalOptions="FillAndExpand" Spacing="25">
             <Frame BorderColor="LightGray" HorizontalOptions="FillAndExpand" HasShadow="False" VerticalOptions="FillAndExpand" Padding="10" CornerRadius="15">
-                <Editor Text="{Binding Note}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Editor Text="{Binding Note}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" TextColor="#333">
 
                 </Editor>
             </Frame>

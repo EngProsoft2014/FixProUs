@@ -37,7 +37,7 @@
 
                             <Border BackgroundColor="White" Padding="10,0,10,0" HorizontalOptions="FillAndExpand">
                                 <Label 
-                                    Padding="10"
+                                    Padding="10" TextColor="#333"
                                        Text="{Binding ScheduleDetails.Title}"
                                        FontSize="13"
                                        HorizontalOptions="FillAndExpand">
@@ -58,7 +58,7 @@
                             <Border BackgroundColor="White" Padding="10,0,10,0" HorizontalOptions="FillAndExpand">
                                 <Label Padding="10"
                                        Text="{Binding ScheduleDate,StringFormat='{0:MM/dd/yyyy}'}"
-                                       FontSize="13"
+                                       FontSize="13" TextColor="#333"
                                        HorizontalOptions="FillAndExpand">
                                 </Label>
                                 <Border.Shadow>
@@ -73,7 +73,7 @@
 
                         <!--Add Job Date-->
                         <StackLayout x:Name="stkAddJobDate" IsVisible="False" HorizontalOptions="FillAndExpand">
-                            <Label Text="Job Date" FontSize="13" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+                            <Label Text="Job Date" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
                             <Border BackgroundColor="White" Padding="10,0,10,0" HorizontalOptions="FillAndExpand">
                                 <DatePicker 
                                      Date="{Binding ScheduleAddDate}"
@@ -98,7 +98,7 @@
 
                             <Border BackgroundColor="White" Padding="10,0,10,0" HorizontalOptions="FillAndExpand">
                                 <Label x:Name="lblStart" Text="{Binding StartTime}" 
-                                       Padding="10"
+                                       Padding="10" TextColor="#333"
                                        FontSize="13"
                                        HorizontalOptions="Start">
                                 </Label>
@@ -116,7 +116,7 @@
 
                             <Border BackgroundColor="White" Padding="10,0,10,0" HorizontalOptions="FillAndExpand">
                                 <Label x:Name="lblEnd" Text="{Binding EndTime}" 
-                                       Padding="10"
+                                       Padding="10" TextColor="#333"
                                        FontSize="13"
                                        HorizontalOptions="Start">
                                 </Label>
@@ -138,7 +138,7 @@
 
                             <Border BackgroundColor="White" Padding="10,0,10,0" HorizontalOptions="FillAndExpand">
                                 <Label x:Name="lblSpHours"
-                                       Padding="10"
+                                       Padding="10" TextColor="#333"
                                        Text="{Binding SpentHours}"
                                        FontSize="13"
                                        HorizontalOptions="FillAndExpand">
@@ -157,7 +157,7 @@
 
                             <Border BackgroundColor="White" Padding="10,0,10,0" HorizontalOptions="FillAndExpand">
                                 <Label x:Name="lblSpMins"
-                                       Padding="10"
+                                       Padding="10" TextColor="#333"
                                         Text="{Binding SpentMin}"
                                         FontSize="13"
                                         HorizontalOptions="FillAndExpand">
@@ -198,7 +198,7 @@
 
                         <!--Start Time-->
                         <StackLayout HorizontalOptions="FillAndExpand">
-                            <Label Text="Start Time" FontSize="13" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+                            <Label Text="Start Time" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
                             <Border BackgroundColor="White" Padding="10,0,10,0">
                                 <TimePicker 
                                     Time="{Binding TimeFromAddDate}"
@@ -217,7 +217,7 @@
 
                         <!--End Time-->
                         <StackLayout HorizontalOptions="FillAndExpand">
-                            <Label Text="End Time" FontSize="13" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+                            <Label Text="End Time" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
                             <Border BackgroundColor="White" Padding="10,0,10,0">
                                 <TimePicker 
                                          Time="{Binding TimeToAddDate}"
@@ -239,7 +239,7 @@
 
                         <!--Job Title-->
                         <StackLayout HorizontalOptions="FillAndExpand">
-                            <Label Text="Job Title" FontSize="13" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+                            <Label Text="Job Title" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
                             <Border BackgroundColor="White" Padding="10,0,10,0" HeightRequest="40">
                                 <combobox:SfComboBox 
                                            ItemsSource="{Binding LstEmpCategory}"
@@ -267,7 +267,7 @@
 
                         <StackLayout HorizontalOptions="EndAndExpand">
                             <StackLayout>
-                                <Label Text="Choose Technicions" FontSize="13" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+                                <Label Text="Choose Technicions" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
                                 <Border BackgroundColor="White" Padding="10,0,10,0">
                                     <StackLayout>
                                         <combobox:SfComboBox 

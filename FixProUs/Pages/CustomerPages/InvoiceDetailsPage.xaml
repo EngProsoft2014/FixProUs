@@ -176,7 +176,7 @@
                                     <Label IsVisible="False"
                                           Padding="5,13,5,13"
                                           Text="{Binding OneInvoice.ScheduleName}"
-                                          FontSize="13"
+                                          FontSize="13" TextColor="#333"
                                           HorizontalOptions="FillAndExpand">
                                         <Label.Triggers>
                                             <DataTrigger TargetType="Label" Binding="{Binding ShowScheduleName}" Value="True">
@@ -187,7 +187,7 @@
                                     <Label IsVisible="False"
                                           Padding="5,13,5,13"
                                           Text="Without Schedule"
-                                          FontSize="13"
+                                          FontSize="13" TextColor="#333"
                                           HorizontalOptions="FillAndExpand">
                                         <Label.Triggers>
                                             <DataTrigger TargetType="Label" Binding="{Binding ShowScheduleName}" Value="False">
@@ -258,7 +258,7 @@
                                         <StackLayout>
                                             <Label 
                                            Padding="10,12,10,12"
-                                           FontSize="13"
+                                           FontSize="13" TextColor="#333"
                                            Text="{Binding StrInvoiceDates}"
                                            HorizontalOptions="FillAndExpand">
                                             </Label>
@@ -304,7 +304,7 @@
 
                                 <ListView x:Name="lstdts" SelectionMode="None"
                                           ItemsSource="{Binding LstInvoiceDates}" 
-                                          HasUnevenRows="True" 
+                                          HasUnevenRows="True" BackgroundColor="White" 
                                           HeightRequest="140"
                                           SeparatorVisibility="None"
                                           VerticalScrollBarVisibility="Never">
@@ -443,7 +443,7 @@
 
                         <ListView x:Name="lstItemsServices" SelectionMode="None"
                                   ItemsSource="{Binding LstItemsInvoice}" 
-                                  HasUnevenRows="True" 
+                                  HasUnevenRows="True" BackgroundColor="White" 
                                   SeparatorVisibility="None"
                                   VerticalScrollBarVisibility="Never">
                             <ListView.ItemTemplate>
@@ -455,7 +455,7 @@
 
                                                 <StackLayout HorizontalOptions="StartAndExpand" WidthRequest="120">
                                                     <Label Padding="10" VerticalTextAlignment="Center"
-                                                           FontSize="14" 
+                                                           FontSize="14" TextColor="#333" 
                                                            Text="{Binding ItemsServicesName}"
                                                            HorizontalOptions="FillAndExpand">
                                                     </Label>
@@ -467,7 +467,7 @@
                                                                HorizontalTextAlignment="Start"
                                                                WidthRequest="50"
                                                                Text="{Binding Quantity}" VerticalTextAlignment="Center"
-                                                               FontSize="14" 
+                                                               FontSize="14" TextColor="#333" 
                                                                HorizontalOptions="FillAndExpand">
                                                         </Label>
                                                     </StackLayout>
@@ -480,7 +480,7 @@
                                                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                                                     <Label Padding="10,10,2,10"
                                                            Text="{Binding Price,StringFormat='${0}'}"
-                                                           FontSize="14" 
+                                                           FontSize="14" TextColor="#333" 
                                                            HorizontalTextAlignment="Center" 
                                                            VerticalTextAlignment="Center"
                                                            HorizontalOptions="FillAndExpand">
@@ -715,7 +715,7 @@
                     <Label Text="Note" FontSize="15" TextColor="#262626" Padding="20,0,20,10" FontAttributes="Bold" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
 
                     <Frame BorderColor="LightGray" HorizontalOptions="FillAndExpand" Padding="10" HeightRequest="60" Margin="20,0,20,20">
-                        <Editor Placeholder="Enter Note" Text="{Binding OneInvoice.Notes}" FontSize="13">
+                        <Editor Placeholder="Enter Note" Text="{Binding OneInvoice.Notes}" FontSize="13" TextColor="#333">
                             <Editor.Triggers>
                                 <DataTrigger TargetType="Editor" Binding="{Binding OneInvoice.Status}" Value="2">
                                     <Setter Property="IsEnabled" Value="False"></Setter>

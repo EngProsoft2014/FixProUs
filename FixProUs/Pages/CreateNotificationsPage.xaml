@@ -29,7 +29,7 @@
                     </Frame>
 
                     <Frame BorderColor="LightGray" HorizontalOptions="FillAndExpand" HasShadow="False" CornerRadius="5" Padding="10" HeightRequest="150" Margin="20,10,20,0">
-                        <Editor Placeholder="Enter Content" Text="{Binding ContentNotify}" FontSize="13">
+                        <Editor Placeholder="Enter Content" Text="{Binding ContentNotify}" FontSize="13" TextColor="#333">
 
                         </Editor>
                     </Frame>
@@ -41,7 +41,7 @@
                 <StackLayout Padding="0" VerticalOptions="End" Margin="0,0,0,80">
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Margin="20,20,20,0">
-                        <Label Text="All Employees" VerticalTextAlignment="Center"></Label>
+                        <Label Text="All Employees" TextColor="#333" VerticalTextAlignment="Center"></Label>
                         <CheckBox x:Name="chBxAllEmployees" Scale="{OnPlatform Android=.9,iOS=1}" CheckedChanged="chBxAllEmployees_CheckedChanged">
 
                         </CheckBox>
@@ -65,11 +65,11 @@
                                             <StackLayout Orientation="Horizontal">
                                                 <StackLayout Orientation="Horizontal">
                                                     <Label Text="{Binding FirstName}" 
-                                                             FontSize="13" 
+                                                             FontSize="13" TextColor="#333" 
                                                              HorizontalOptions="FillAndExpand" 
                                                              VerticalTextAlignment="Center"></Label>
                                                     <Label Text="{Binding LastName}" 
-                                                             FontSize="13" 
+                                                             FontSize="13" TextColor="#333" 
                                                              HorizontalOptions="FillAndExpand" 
                                                              VerticalTextAlignment="Center">
                                                     </Label>

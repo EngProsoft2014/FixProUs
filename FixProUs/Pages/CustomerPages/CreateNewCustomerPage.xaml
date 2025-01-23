@@ -438,7 +438,7 @@
                                 <StackLayout HorizontalOptions="FillAndExpand">
                                     <Label Text="Year Built" TextColor="Black" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
                                     <Border BackgroundColor="White" Padding="{OnPlatform Android=10, iOS=18}" HorizontalOptions="FillAndExpand">
-                                        <Label 
+                                        <Label TextColor="#333" 
                                              Text="{Binding YearBuilt}"      
                                              HorizontalOptions="FillAndExpand"
                                              FontSize="12"
@@ -464,7 +464,7 @@
                                     <Border BackgroundColor="White" Padding="{OnPlatform Android=10, iOS=18}" HorizontalOptions="FillAndExpand">
                                         <Label 
                                              Text="{Binding HouseValue}"            
-                                             FontSize="12"
+                                             FontSize="12" TextColor="#333"
                                              HorizontalOptions="FillAndExpand"
                                              VerticalTextAlignment="Center">
                                             <Label.Triggers>
@@ -487,7 +487,7 @@
                                     <Border BackgroundColor="White" Padding="{OnPlatform Android=10, iOS=18}" HorizontalOptions="FillAndExpand">
                                         <Label 
                                                Text="{Binding SquareFootage}"               
-                                               FontSize="12"
+                                               FontSize="12" TextColor="#333"
                                                HorizontalOptions="FillAndExpand"
                                                VerticalTextAlignment="Center">
                                             <Label.Triggers>
@@ -529,7 +529,7 @@
                         <syncfusion:SfListView x:Name="lstCustomFields" 
                                                SelectionMode="None"
                                                AllowGroupExpandCollapse="True"
-                                               ItemSize="75"
+                                               ItemSize="75" BackgroundColor="White"
                                                Padding="0"
                                                Margin="0" HorizontalOptions="CenterAndExpand"
                                                ScrollBarVisibility="Default"
@@ -715,7 +715,7 @@
                     <StackLayout x:Name="stkCustomFieldUpdate" Orientation="Horizontal" IsVisible="False" Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20,0,20,0">
 
                         <syncfusion:SfListView x:Name="lstCustomFieldsUpdate" 
-                                                SelectionMode="None"
+                                                SelectionMode="None" BackgroundColor="White"
                                                 AllowGroupExpandCollapse="True"
                                                 ItemSize="75"
                                                 Padding="0"

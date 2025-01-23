@@ -52,7 +52,7 @@
 
                     <Border BackgroundColor="White" HorizontalOptions="FillAndExpand" HeightRequest="60" Margin="50,0,50,0">
                         <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                            <Label x:Name="lblDate" Text="{Binding Date}" FontSize="16"></Label>
+                            <Label x:Name="lblDate" Text="{Binding Date}" TextColor="#333" FontSize="16"></Label>
                             <Image>
                                 <Image.Source>
                                     <FontImageSource FontFamily="FontIconSolid" Color="Gray" Glyph="" Size="16"></FontImageSource>
@@ -215,7 +215,7 @@
 
         <StackLayout x:Name="stkAllClock" VerticalOptions="FillAndExpand">
 
-            <ListView x:Name="lstEmployeesIn" SelectionMode="None"
+            <ListView x:Name="lstEmployeesIn" SelectionMode="None" BackgroundColor="White"
                        ItemsSource="{Binding LstEmployeesIn}"
                        HasUnevenRows="True" HeightRequest="{OnPlatform Android=450}"
                        VerticalScrollBarVisibility="Never"
@@ -250,7 +250,7 @@
                                     </Border>
 
                                     <Label Text="{Binding HoursFrom}" 
-                                            FontSize="12" 
+                                            FontSize="12" TextColor="#333" 
                                             Margin="50,0,0,0"
                                             FontAttributes="Bold"
                                             HorizontalOptions="End"
@@ -280,7 +280,7 @@
                                             </DataTrigger>
                                         </Image.Triggers>
                                     </Image>
-                                    <Label Text="{Binding BranchName}" FontAttributes="Italic" VerticalTextAlignment="Center" FontSize="14"></Label>
+                                    <Label Text="{Binding BranchName}" TextColor="#333" FontAttributes="Italic" VerticalTextAlignment="Center" FontSize="14"></Label>
 
                                     <StackLayout x:Name="stkBaseButton" IsVisible="False" Orientation="Horizontal" Spacing="10" HorizontalOptions="EndAndExpand">
                                         <Button Text="CheckIn" 
@@ -397,7 +397,7 @@
 
 
             <ListView x:Name="lstEmployeesOut" IsVisible="False" SelectionMode="None" 
-                       ItemsSource="{Binding LstEmployeesOut}"
+                       ItemsSource="{Binding LstEmployeesOut}" BackgroundColor="White"
                        HasUnevenRows="True" HeightRequest="450"
                        VerticalScrollBarVisibility="Never"
                        IsRefreshing="{Binding IsRefresh}"
@@ -463,7 +463,7 @@
                                             <FontImageSource FontFamily="FontIconSolid" Color="Gray" Glyph="" Size="18"></FontImageSource>
                                         </Image.Source>
                                     </Image>
-                                    <Label Text="{Binding BranchName}" FontAttributes="Italic" VerticalTextAlignment="Center" FontSize="14"></Label>
+                                    <Label Text="{Binding BranchName}" TextColor="#333" FontAttributes="Italic" VerticalTextAlignment="Center" FontSize="14"></Label>
 
                                 </StackLayout>
 

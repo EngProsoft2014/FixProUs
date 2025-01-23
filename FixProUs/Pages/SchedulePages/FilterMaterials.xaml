@@ -35,7 +35,7 @@
                        ClearButtonVisibility="WhileEditing" 
                        TextChanged="searchBar_TextChanged"></Entry>
                 <ListView x:Name="lstMaterials" 
-                          SelectionMode="None"
+                          SelectionMode="None" BackgroundColor="White"
                           HorizontalOptions="FillAndExpand" 
                           CachingStrategy="RecycleElement" 
                           ItemTapped="lstMaterials_ItemTapped">
