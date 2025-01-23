@@ -1922,7 +1922,7 @@
                     <Line  X1="400" HorizontalOptions="CenterAndExpand" BackgroundColor="LightGray"></Line>
 
                     <!--Note-->
-                    <Frame BorderColor="LightGray" HorizontalOptions="FillAndExpand" HasShadow="False" Padding="0" CornerRadius="15" Margin="20,20,20,50">
+                    <Frame BorderColor="LightGray" BackgroundColor="White" HorizontalOptions="FillAndExpand" HasShadow="False" Padding="0" CornerRadius="15" Margin="20,20,20,50">
                         <StackLayout Spacing="0">
                             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                 <Label Text="Note" FontSize="15" TextColor="#262626" Padding="5,10,5,5" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center"></Label>
