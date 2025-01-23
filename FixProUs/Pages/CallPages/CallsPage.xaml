@@ -68,7 +68,7 @@
 
                 <ListView x:Name="lstCalls" SelectionMode="None"
                           ItemsSource="{Binding LstCalls}"
-                          HasUnevenRows="True" 
+                          HasUnevenRows="True" BackgroundColor="White"
                           VerticalScrollBarVisibility="Never">
                     <ListView.ItemTemplate>
                         <DataTemplate>

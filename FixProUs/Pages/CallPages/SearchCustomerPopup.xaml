@@ -43,7 +43,7 @@
                        ClearButtonVisibility="WhileEditing"
                        TextChanged="SearchBar_OnTextChanged"></Entry>
 
-                    <ListView x:Name="costomersListView" HorizontalOptions="FillAndExpand" IsVisible="False" CachingStrategy="RecycleElement" ItemTapped="costomersListView_ItemTapped">
+                    <ListView x:Name="costomersListView" BackgroundColor="White" HorizontalOptions="FillAndExpand" IsVisible="False" CachingStrategy="RecycleElement" ItemTapped="costomersListView_ItemTapped">
                         <ListView.RowHeight>
                             70
                         </ListView.RowHeight>

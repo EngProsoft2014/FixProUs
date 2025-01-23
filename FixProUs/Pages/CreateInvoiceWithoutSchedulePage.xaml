@@ -205,7 +205,7 @@
 
                         <ListView x:Name="lstItemsServices" SelectionMode="None"
                               ItemsSource="{Binding LstItems}" 
-                              HasUnevenRows="True" 
+                              HasUnevenRows="True" BackgroundColor="White" 
                               SeparatorVisibility="None"
                               VerticalScrollBarVisibility="Never">
                             <ListView.ItemTemplate>
