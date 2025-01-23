@@ -157,7 +157,7 @@
                                 <Editor x:Name="edtDescription"
                                         Text="{Binding ItemDetails.Description}"
                                         Placeholder="Enter Description"
-                                        TextColor="#8f1fff"
+                                        TextColor="#8f1fff" BackgroundColor="White"
                                         FontSize="15" 
                                         HeightRequest="150"
                                         HorizontalOptions="FillAndExpand">

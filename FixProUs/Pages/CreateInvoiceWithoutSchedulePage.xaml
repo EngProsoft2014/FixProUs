@@ -454,7 +454,7 @@
                     <Label Text="Note" FontSize="15" TextColor="#262626" Padding="20,0,20,10" FontAttributes="Bold" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
 
                     <Frame BorderColor="LightGray" HorizontalOptions="FillAndExpand" HasShadow="False" Padding="10" HeightRequest="60" Margin="20,0,20,20">
-                        <Editor Placeholder="Enter Note" Text="{Binding OneInvoice.Notes}" FontSize="13" TextColor="#333"></Editor>
+                        <Editor Placeholder="Enter Note" Text="{Binding OneInvoice.Notes}" FontSize="13" BackgroundColor="White" TextColor="#333"></Editor>
                     </Frame>
 
                 </StackLayout>

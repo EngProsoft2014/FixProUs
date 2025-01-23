@@ -833,7 +833,7 @@
 
                             <Line  X1="400" HorizontalOptions="CenterAndExpand" BackgroundColor="LightGray"></Line>
 
-                            <Editor x:Name="edtNote" Placeholder="Enter Note" TextColor="Black" Text="{Binding ScheduleDetails.Notes}" Margin="10,0,10,0" HeightRequest="100" FontSize="13">
+                            <Editor x:Name="edtNote" Placeholder="Enter Note" BackgroundColor="White" TextColor="Black" Text="{Binding ScheduleDetails.Notes}" Margin="10,0,10,0" HeightRequest="100" FontSize="13">
                                 <Editor.Triggers>
                                     <DataTrigger TargetType="Editor" Binding="{Binding EmployeePermission.UserRole}" Value="1">
                                         <Setter Property="IsEnabled" Value="False"></Setter>

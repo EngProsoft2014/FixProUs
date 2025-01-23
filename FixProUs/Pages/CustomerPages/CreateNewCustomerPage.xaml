@@ -367,7 +367,7 @@
                                         Text="{Binding CustomerDetails.Notes}" 
                                         Placeholder="Notes"
                                         TextColor="#8f1fff"
-                                        FontSize="12"
+                                        FontSize="12" BackgroundColor="White"
                                         HorizontalOptions="FillAndExpand"
                                         HeightRequest="80">
                                         <Editor.Triggers>
@@ -570,7 +570,7 @@
 
                                                     <Border IsVisible="False" Padding="5,0,5,0">
                                                         <Editor Text="{Binding DefaultValue}"  
-                                                                TextColor="#8f1fff"
+                                                                TextColor="#8f1fff" BackgroundColor="White"
                                                                FontSize="12"
                                                                WidthRequest="100"
                                                                FontAttributes="Bold">

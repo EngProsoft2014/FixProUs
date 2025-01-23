@@ -29,7 +29,7 @@
                     </Frame>
 
                     <Frame BorderColor="LightGray" HorizontalOptions="FillAndExpand" HasShadow="False" CornerRadius="5" Padding="10" HeightRequest="150" Margin="20,10,20,0">
-                        <Editor Placeholder="Enter Content" Text="{Binding ContentNotify}" FontSize="13" TextColor="#333">
+                        <Editor Placeholder="Enter Content" Text="{Binding ContentNotify}" FontSize="13" BackgroundColor="White" TextColor="#333">
 
                         </Editor>
                     </Frame>

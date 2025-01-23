@@ -93,7 +93,7 @@
                                     <Editor x:Name="edtNotes"
                                             Text="{Binding MaterialReceipt.Notes}"
                                             Placeholder="Enter Description"
-                                            TextColor="#333"
+                                            TextColor="#333" BackgroundColor="White"
                                             FontSize="15" 
                                             HeightRequest="100"
                                             HorizontalOptions="FillAndExpand">

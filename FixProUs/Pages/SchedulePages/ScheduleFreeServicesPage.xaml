@@ -132,7 +132,7 @@
                                 <Editor x:Name="edtDescription"
                                     Text="{Binding ServiceDetails.Description}"
                                     Placeholder="Enter Description"
-                                    TextColor="#333"
+                                    TextColor="#333" BackgroundColor="White"
                                     FontSize="15" 
                                     HeightRequest="150"
                                     HorizontalOptions="FillAndExpand">

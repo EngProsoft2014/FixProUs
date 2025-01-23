@@ -178,7 +178,7 @@
 
                         <Border BackgroundColor="White" Padding="10,0,10,0" HeightRequest="130" HorizontalOptions="FillAndExpand">
                             <Editor x:Name="lblNotService" VerticalOptions="FillAndExpand"
-                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalOptions="FillAndExpand" BackgroundColor="White"
                                     Placeholder="Enter Reason"
                                     TextColor="#333"
                                     Text="{Binding ScheduleDetails.OneScheduleDate.Reasonnotserve}"
