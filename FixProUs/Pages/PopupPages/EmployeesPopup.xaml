@@ -44,6 +44,7 @@
                                                              VerticalTextAlignment="Center"></Label>
                                                 </StackLayout>
                                                 <CheckBox x:Name="chBxChooseEmployees" 
+                                                          Color="#333"
                                                              HorizontalOptions="EndAndExpand" 
                                                              IsChecked="{Binding IsChecked}" 
                                                              ScaleX="1" ScaleY="1"

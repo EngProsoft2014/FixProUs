@@ -375,7 +375,7 @@
                             <ColumnDefinition Width="100"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <!--Title-->
-                        <StackLayout Grid.RowSpan="4" Grid.ColumnSpan="4" IsVisible="False" HorizontalOptions="FillAndExpand" Padding="20,0,20,10">
+                        <StackLayout Grid.RowSpan="4" Grid.ColumnSpan="4" HorizontalOptions="FillAndExpand" Padding="20,0,20,10">
                             <Label Text="Title" TextColor="#333" FontSize="13" FontAttributes="Bold" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
                             <StackLayout>
                                 <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}" HorizontalOptions="FillAndExpand">
