@@ -190,10 +190,42 @@
 
                 <StackLayout Padding="20,0,20,0">
                     <Label Text="Estimate Status" FontSize="13" TextColor="#8f1fff" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
-                    <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="FillAndExpand">
+                    <!--<StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="FillAndExpand">
                         <RadioButton GroupName="Status1" TextColor="#333" Content="Pending" Scale="{OnPlatform Android=.8,iOS=.9}" IsChecked="{Binding Pending}" FontSize="{OnPlatform Android=16,iOS=15}"></RadioButton>
                         <RadioButton GroupName="Status1" TextColor="#333" Content="Accept" Scale="{OnPlatform Android=.8,iOS=.9}" IsChecked="{Binding Accept}" FontSize="{OnPlatform Android=16,iOS=15}"></RadioButton>
                         <RadioButton GroupName="Status1" TextColor="#333" Content="Declind" Scale="{OnPlatform Android=.8,iOS=.9}" IsChecked="{Binding Declind}" FontSize="{OnPlatform Android=16,iOS=15}"></RadioButton>
+                    </StackLayout>-->
+
+                    <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox x:Name="chkPending" Color="#333" IsChecked="{Binding Pending}">
+                                <CheckBox.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_Pending"></TapGestureRecognizer>
+                                </CheckBox.GestureRecognizers>
+                            </CheckBox>
+
+                            <Label Text="Pending" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" TextColor="#333" FontSize="{OnPlatform Android=16,iOS=15}" HorizontalOptions="StartAndExpand"></Label>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <CheckBox x:Name="chkAccept" Color="#333" IsChecked="{Binding Accept}">
+                                <CheckBox.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_Accept"></TapGestureRecognizer>
+                                </CheckBox.GestureRecognizers>
+                            </CheckBox>
+
+                            <Label Text="Accept" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" TextColor="#333" FontSize="{OnPlatform Android=16,iOS=15}" HorizontalOptions="StartAndExpand"></Label>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox x:Name="chkDeclind" Color="#333" IsChecked="{Binding Declind}">
+                                <CheckBox.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_Declind"></TapGestureRecognizer>
+                                </CheckBox.GestureRecognizers>
+                            </CheckBox>
+
+                            <Label Text="Declind" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" TextColor="#333" FontSize="{OnPlatform Android=16,iOS=15}" HorizontalOptions="StartAndExpand"></Label>
+                        </StackLayout>
                     </StackLayout>
                 </StackLayout>
 

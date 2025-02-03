@@ -72,4 +72,77 @@ public partial class EstimateDetailsPage : Controls.CustomsPage
         var toast = Toast.Make("Success for save your signature", CommunityToolkit.Maui.Core.ToastDuration.Long, 15);
         await toast.Show();
     }
+
+    private void TapGestureRecognizer_Tapped_Pending(object sender, TappedEventArgs e)
+    {
+        if (chkPending.IsChecked == false)
+        {
+            chkPending.IsChecked = true;
+            chkDeclind.Color = Color.FromHex("#333");
+            chkDeclind.IsChecked = false;
+            chkPending.Color = Color.FromHex("#b66dff");
+            chkAccept.Color = Color.FromHex("#333");
+            chkAccept.IsChecked = false;
+            //colRequests.ItemsSource = ViewModel.Responses.Where(a => a.TotalPriceAgentAccept > 0);
+        }
+        else
+        {
+            if (chkDeclind.IsChecked == true || chkAccept.IsChecked == true)
+            {
+                chkPending.IsChecked = false;
+            }
+            else
+            {
+                chkPending.IsChecked = true;
+            }
+        }
+    }
+
+    private void TapGestureRecognizer_Tapped_Accept(object sender, TappedEventArgs e)
+    {
+        if (chkAccept.IsChecked == false)
+        {
+            chkAccept.IsChecked = true;
+            chkDeclind.Color = Color.FromHex("#333");
+            chkDeclind.IsChecked = false;
+            chkPending.Color = Color.FromHex("#333");
+            chkPending.IsChecked = false;
+            chkAccept.Color = Color.FromHex("#b66dff");
+        }
+        else
+        {
+            if (chkDeclind.IsChecked == true || chkPending.IsChecked == true)
+            {
+                chkAccept.IsChecked = false;
+            }
+            else
+            {
+                chkAccept.IsChecked = true;
+            }
+        }
+    }
+
+    private void TapGestureRecognizer_Tapped_Declind(object sender, TappedEventArgs e)
+    {
+        if (chkDeclind.IsChecked == false)
+        {
+            chkDeclind.IsChecked = true;
+            chkDeclind.Color = Color.FromHex("#b66dff");
+            chkPending.Color = Color.FromHex("#333");
+            chkPending.IsChecked = false;
+            chkAccept.Color = Color.FromHex("#333");
+            chkAccept.IsChecked = false;
+        }
+        else
+        {
+            if (chkPending.IsChecked == true || chkAccept.IsChecked == true)
+            {
+                chkDeclind.IsChecked = false;
+            }
+            else
+            {
+                chkDeclind.IsChecked = true;
+            }
+        }
+    }
 }
