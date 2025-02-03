@@ -191,7 +191,7 @@ namespace FixProUs
 
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                //await GetPlayerIdFromOneSignal();
+                await GetPlayerIdFromOneSignal();
 
                 string plyId = !string.IsNullOrEmpty(OneSignal.User.PushSubscription.Id) ? OneSignal.User.PushSubscription.Id : "";
                 Preferences.Default.Set(Helpers.Settings.PlayerId, plyId);
@@ -270,7 +270,7 @@ namespace FixProUs
             //==============================================
         }
 
-        [Obsolete]
+
         public async Task GetPlayerIdFromOneSignal()
         {
             Device.StartTimer(new TimeSpan(0, 0, 1), () =>
