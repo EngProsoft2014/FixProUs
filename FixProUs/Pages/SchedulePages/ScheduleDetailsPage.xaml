@@ -492,7 +492,7 @@
                             </StackLayout.Triggers>
                         </StackLayout>
                         <!--Show Estimate-->
-                        <Border Grid.Row="0" Grid.RowSpan="4" IsVisible="False" Grid.Column="4" Margin="0,0,20,0" Padding="12" HorizontalOptions="End">
+                        <Border Grid.Row="0" Grid.RowSpan="4" IsVisible="False" Grid.Column="4" Margin="0,0,20,0" BackgroundColor="#8f1fff" Padding="12" HorizontalOptions="End">
                             <StackLayout Spacing="0" VerticalOptions="CenterAndExpand">
                                 <Label Text="Show" FontSize="12" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                                 <Label Text="Estimate" FontSize="12" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
@@ -503,12 +503,12 @@
                             <Border.Shadow>
                                 <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
                             </Border.Shadow>
-                            <Border.Background>
+                            <!--<Border.Background>
                                 <LinearGradientBrush>
                                     <GradientStop Color="#8f1fff" Offset="0.1"></GradientStop>
                                     <GradientStop Color="#debdff" Offset="1.5"></GradientStop>
                                 </LinearGradientBrush>
-                            </Border.Background>
+                            </Border.Background>-->
                             <Border.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding CreateScheduleEstimateCommand}" CommandParameter="{Binding ScheduleDetails}"></TapGestureRecognizer>
                             </Border.GestureRecognizers>

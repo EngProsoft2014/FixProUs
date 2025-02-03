@@ -40,15 +40,15 @@
                 <ColumnDefinition Width="1*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Border Grid.ColumnSpan="6" Grid.RowSpan="5">
+            <Border Grid.ColumnSpan="6" Grid.RowSpan="5" BackgroundColor="#8f1fff">
 
-                <Border.Background>
+                <!--<Border.Background>
                     <LinearGradientBrush>
                         <GradientStop Color="#8f1fff" Offset="0.1"></GradientStop>
                         <GradientStop Color="#b66dff" Offset="0.5"></GradientStop>
                         <GradientStop Color="#eedeff" Offset="1.0"></GradientStop>
                     </LinearGradientBrush>
-                </Border.Background>
+                </Border.Background>-->
                 <Border.Shadow>
                     <Shadow Brush="{OnPlatform Android=Gray, iOS=Gray}" Radius="{OnPlatform Android=15,iOS=15}"></Shadow>
                 </Border.Shadow>

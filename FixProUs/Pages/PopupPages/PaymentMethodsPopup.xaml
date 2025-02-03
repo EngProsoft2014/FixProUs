@@ -27,7 +27,7 @@
                 <Line  X1="400" HorizontalOptions="CenterAndExpand" BackgroundColor="LightGray" Margin="0,10,0,10"></Line>
 
 
-                <Border HeightRequest="160" Margin="30" Padding="0,10,0,10">
+                <Border HeightRequest="160" Margin="30" Padding="0,10,0,10" BackgroundColor="#8f1fff">
                     <StackLayout  Spacing="0">
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
                             <Label x:Name="lblPayCash" Text="{Binding OneInvoice.Net}" 
@@ -59,14 +59,14 @@
                                 FontFamily="AlmaraiRegular" 
                                 TextColor="#FFFFFF"></Label>
                     </StackLayout>
-                    <Border.Background>
+                    <!--<Border.Background>
                         <LinearGradientBrush>
                             <GradientStop Color="#8f1fff" Offset="0"></GradientStop>
                             <GradientStop Color="#b66dff" Offset="0.5"></GradientStop>
                             <GradientStop Color="#c995fc" Offset="1.0"></GradientStop>
                             <GradientStop Color="#e3c7ff" Offset="1.0"></GradientStop>
                         </LinearGradientBrush>
-                    </Border.Background>
+                    </Border.Background>-->
 
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="20"></RoundRectangle>

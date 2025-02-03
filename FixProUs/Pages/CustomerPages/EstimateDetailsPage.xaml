@@ -860,7 +860,7 @@
             </StackLayout>
 
             <!--Go Invoie-->
-            <Border VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" IsVisible="False" Margin="0,0,20,50" Padding="16,19,16,19">
+            <Border VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" IsVisible="False" Margin="0,0,20,50" Padding="16,19,16,19" BackgroundColor="#8f1fff">
                 <StackLayout Spacing="0" VerticalOptions="CenterAndExpand">
                     <Label Text="Go" FontSize="12" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                     <Label Text="Invoice" FontSize="12" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
@@ -871,12 +871,12 @@
                 <Border.Shadow>
                     <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
                 </Border.Shadow>
-                <Border.Background>
+                <!--<Border.Background>
                     <LinearGradientBrush>
                         <GradientStop Color="#8f1fff" Offset="0.1"></GradientStop>
                         <GradientStop Color="#c48efa" Offset="1.5"></GradientStop>
                     </LinearGradientBrush>
-                </Border.Background>
+                </Border.Background>-->
                 <Border.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding GoInvoiceCommand}" CommandParameter="{Binding OneEstimate.InvoiceId}"></TapGestureRecognizer>
                 </Border.GestureRecognizers>

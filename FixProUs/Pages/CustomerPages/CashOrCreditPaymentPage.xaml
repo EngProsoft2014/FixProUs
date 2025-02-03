@@ -192,14 +192,14 @@
                                  HorizontalOptions="CenterAndExpand"
                                  VerticalTextAlignment="Center">
                 </Label>
-                <Border.Background>
+                <!--<Border.Background>
                     <LinearGradientBrush>
                         <GradientStop Color="#8f1fff" Offset="0"></GradientStop>
                         <GradientStop Color="#b66dff" Offset="0.5"></GradientStop>
                         <GradientStop Color="#c995fc" Offset="1.0"></GradientStop>
                         <GradientStop Color="#e3c7ff" Offset="1.0"></GradientStop>
                     </LinearGradientBrush>
-                </Border.Background>
+                </Border.Background>-->
 
                 <Border.Shadow>
                     <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
@@ -246,7 +246,7 @@
 
             <ScrollView VerticalOptions="FillAndExpand">
                 <StackLayout Padding="{OnPlatform iOS='20,15,20,10', Android='20,50,20,10'}" VerticalOptions="FillAndExpand" Spacing="50">
-                    <Border HeightRequest="160" Padding="0,10,0,10">
+                    <Border HeightRequest="160" Padding="0,10,0,10" BackgroundColor="#8f1fff">
                         <StackLayout  Spacing="0">
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
                                 <Label x:Name="lblPayCash" Text="{Binding OneInvoice.Net}" 
@@ -279,14 +279,14 @@
                                    TextColor="#FFFFFF"></Label>
                         </StackLayout>
 
-                        <Border.Background>
+                        <!--<Border.Background>
                             <LinearGradientBrush>
                                 <GradientStop Color="#8f1fff" Offset="0"></GradientStop>
                                 <GradientStop Color="#b66dff" Offset="0.5"></GradientStop>
                                 <GradientStop Color="#c995fc" Offset="1.0"></GradientStop>
                                 <GradientStop Color="#e3c7ff" Offset="1.0"></GradientStop>
                             </LinearGradientBrush>
-                        </Border.Background>
+                        </Border.Background>-->
 
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="20"></RoundRectangle>
@@ -356,21 +356,21 @@
 
             </ScrollView>
 
-            <Border Padding="{OnPlatform Android='5,10,5,10',iOS='5,15,5,15'}" Margin="{OnPlatform Android=20,iOS='20,20,20,50'}" VerticalOptions="End" HorizontalOptions="FillAndExpand">
+            <Border Padding="{OnPlatform Android='5,10,5,10',iOS='5,15,5,15'}" Margin="{OnPlatform Android=20,iOS='20,20,20,50'}" BackgroundColor="#8f1fff" VerticalOptions="End" HorizontalOptions="FillAndExpand">
                 <Label x:Name="btnPayCash" Text="{Binding OneInvoice.Net,StringFormat='Pay USD ${0}'}"
                          TextColor="White"
                          FontSize="16"
                          HorizontalOptions="CenterAndExpand"
                          VerticalTextAlignment="Center">
                 </Label>
-                <Border.Background>
+                <!--<Border.Background>
                     <LinearGradientBrush>
                         <GradientStop Color="#8f1fff" Offset="0"></GradientStop>
                         <GradientStop Color="#b66dff" Offset="0.5"></GradientStop>
                         <GradientStop Color="#c995fc" Offset="1.0"></GradientStop>
                         <GradientStop Color="#e3c7ff" Offset="1.0"></GradientStop>
                     </LinearGradientBrush>
-                </Border.Background>
+                </Border.Background>-->
 
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="10"></RoundRectangle>
