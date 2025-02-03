@@ -721,7 +721,7 @@
                                                     </Border>
 
                                                     <!--Convert To Invoie-->
-                                                    <Border HorizontalOptions="End" IsVisible="False" WidthRequest="120" Padding="5,10,5,10">
+                                                        <Border HorizontalOptions="End" IsVisible="False" WidthRequest="120" Padding="5,10,5,10" BackgroundColor="#8f1fff">
                                                         <StackLayout Spacing="0" VerticalOptions="Center">
                                                             <Label Text="Convert to Invoice" FontSize="12" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                                                         </StackLayout>
@@ -731,12 +731,12 @@
                                                         <Border.StrokeShape>
                                                             <RoundRectangle CornerRadius="10"></RoundRectangle>
                                                         </Border.StrokeShape>
-                                                        <Border.Background>
+                                                        <!--<Border.Background>
                                                             <LinearGradientBrush>
                                                                 <GradientStop Color="#8f1fff" Offset="0.1"></GradientStop>
                                                                 <GradientStop Color="#b169fa" Offset="1.5"></GradientStop>
                                                             </LinearGradientBrush>
-                                                        </Border.Background>
+                                                        </Border.Background>-->
                                                         <Border.GestureRecognizers>
                                                             <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CustomersViewModel}}, Path=ConvertToInvoiceCommand}" CommandParameter="{Binding}"></TapGestureRecognizer>
                                                         </Border.GestureRecognizers>
