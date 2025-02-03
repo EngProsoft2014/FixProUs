@@ -197,8 +197,8 @@ namespace FixProUs
                 //ObjCRuntime.Class.ThrowOnInitFailure = false;
 
                 //==============================================
-                //await SignalRservice();
-                //await SignalRserviceChangeUserData();
+                await SignalRservice();
+                await SignalRserviceChangeUserData();
                 //==============================================
 
                 await Controls.StartData.GetCom_Main();
@@ -213,8 +213,8 @@ namespace FixProUs
         protected async override void OnSleep()
         {
             //==============================================
-            //await SignalRNotservice();
-            //await SignalRNotserviceChangeUserData();
+            await SignalRNotservice();
+            await SignalRNotserviceChangeUserData();
             //==============================================
 
             // Save the current page state
@@ -226,8 +226,8 @@ namespace FixProUs
             //MainThread();
 
             //==============================================
-            //_signalRService.OnMessageReceived += _signalRService_OnMessageReceivedInSleep;
-            //_signalRServiceChangeUserData.OnMessageReceived += _signalRService_OnMessageReceivedChangeUserDataInSleep;
+            _signalRService.OnMessageReceived += _signalRService_OnMessageReceivedInSleep;
+            _signalRServiceChangeUserData.OnMessageReceived += _signalRService_OnMessageReceivedChangeUserDataInSleep;
             //==============================================
 
             Connectivity.ConnectivityChanged -= Connectivity_ConnectivityChanged;
@@ -260,13 +260,13 @@ namespace FixProUs
             }
 
             //==============================================
-            //_signalRService.OnMessageReceived -= _signalRService_OnMessageReceivedInSleep;
-            //_signalRServiceChangeUserData.OnMessageReceived -= _signalRService_OnMessageReceivedChangeUserDataInSleep;
+            _signalRService.OnMessageReceived -= _signalRService_OnMessageReceivedInSleep;
+            _signalRServiceChangeUserData.OnMessageReceived -= _signalRService_OnMessageReceivedChangeUserDataInSleep;
             
 
 
-            //await SignalRservice();
-            //await SignalRserviceChangeUserData();
+            await SignalRservice();
+            await SignalRserviceChangeUserData();
             //==============================================
         }
 
