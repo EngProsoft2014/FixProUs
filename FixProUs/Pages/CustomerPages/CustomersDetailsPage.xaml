@@ -748,7 +748,7 @@
                                                     </Border>
 
                                                     <!--Go Invoice-->
-                                                    <Border HorizontalOptions="End" IsVisible="False" Padding="10">
+                                                        <Border HorizontalOptions="End" IsVisible="False" Padding="10" BackgroundColor="#8f1fff">
                                                         <StackLayout Spacing="0" VerticalOptions="Center">
                                                             <Label Text="Go Invoice" FontSize="12" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                                                         </StackLayout>
@@ -758,12 +758,12 @@
                                                         <Border.StrokeShape>
                                                             <RoundRectangle CornerRadius="10"></RoundRectangle>
                                                         </Border.StrokeShape>
-                                                        <Border.Background>
+                                                        <!--<Border.Background>
                                                             <LinearGradientBrush>
                                                                 <GradientStop Color="#8f1fff" Offset="0.1"></GradientStop>
                                                                 <GradientStop Color="#debdff" Offset="1.5"></GradientStop>
                                                             </LinearGradientBrush>
-                                                        </Border.Background>
+                                                        </Border.Background>-->
                                                         <Border.GestureRecognizers>
                                                             <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CustomersViewModel}}, Path=GoInvoiceCommand}" CommandParameter="{Binding InvoiceId}"></TapGestureRecognizer>
                                                         </Border.GestureRecognizers>
