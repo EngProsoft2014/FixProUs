@@ -77,7 +77,7 @@
                             <Border BackgroundColor="White" Padding="10,0,10,0" HorizontalOptions="FillAndExpand">
                                 <DatePicker 
                                      Date="{Binding ScheduleAddDate}"
-                                     FontSize="13"
+                                     FontSize="13" TextColor="#333"
                                      HorizontalOptions="FillAndExpand">
                                 </DatePicker>
                                 <Border.Shadow>

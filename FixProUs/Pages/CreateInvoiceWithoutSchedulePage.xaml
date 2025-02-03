@@ -39,7 +39,7 @@
                    TextColor="#b66dff"
                    FontSize="13"
                    Margin="{OnPlatform Android='0,0,20,0',iOS='0,0,10,0'}"
-                   VerticalTextAlignment="Center"
+                   VerticalTextAlignment="End"
                    HorizontalOptions="End"></Label>
         </StackLayout>
 
@@ -109,7 +109,7 @@
                             <Border Padding="5,0,5,0">
                                 <Entry x:Name="entryDiscount"
                                        Placeholder="Discount"
-                                       WidthRequest="60"
+                                       WidthRequest="70"
                                        Keyboard="Numeric" TextColor="#333"
                                        Text="{Binding CustomerDetails.Discount}"
                                        FontSize="12"
@@ -157,7 +157,7 @@
                             <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}">
                                 <DatePicker 
                                    Date="{Binding InvoiceDate}"
-                                   FontSize="13"
+                                   FontSize="13" TextColor="#333"
                                    HorizontalOptions="FillAndExpand">
                                 </DatePicker>
 

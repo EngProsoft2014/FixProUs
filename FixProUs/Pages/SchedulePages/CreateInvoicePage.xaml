@@ -111,7 +111,7 @@
                                 <Entry x:Name="entryDiscount"
                                        Placeholder="Discount"
                                        Keyboard="Numeric"
-                                       WidthRequest="60"
+                                       WidthRequest="70"
                                        Text="{Binding ScheduleDetails.CustomerDTO.Discount}"
                                        FontSize="12" TextColor="#333"
                                        TextChanged="entryDiscount_TextChanged">
@@ -182,7 +182,7 @@
                             <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}">
                                 <DatePicker 
                                    Date="{Binding InvoiceDate}"
-                                   FontSize="14"
+                                   FontSize="14" TextColor="#333"
                                    HorizontalOptions="FillAndExpand">
                                 </DatePicker>
 

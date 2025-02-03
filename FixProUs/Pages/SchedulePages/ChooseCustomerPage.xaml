@@ -31,7 +31,7 @@
 
                 <Label x:Name="lblTitle" Text="Customers" HeightRequest="30"
                         VerticalOptions="FillAndExpand" Style="{StaticResource lblHeaderText}"
-                        HorizontalOptions="EndAndExpand" HorizontalTextAlignment="{OnPlatform Android=Center,iOS=End}" VerticalTextAlignment="Center"/>
+                        HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="{OnPlatform Android=Center,iOS=End}" VerticalTextAlignment="Center"/>
             </StackLayout>
 
             <Label 
@@ -123,16 +123,20 @@
                                         </StackLayout>
 
                                         <StackLayout Orientation="Horizontal" Spacing="10" Padding="10,0,0,0">
-                                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
-                                                <Image>
-                                                    <Image.Source>
-                                                        <FontImageSource FontFamily="FontIconSolid" Color="#debdff" Glyph="" Size="18"></FontImageSource>
-                                                    </Image.Source>
-                                                </Image>
+                                            <ScrollView Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                                                <StackLayout Orientation="Horizontal" >
+                                                    <Image>
+                                                        <Image.Source>
+                                                            <FontImageSource FontFamily="FontIconSolid" Color="#debdff" Glyph="" Size="18"></FontImageSource>
+                                                        </Image.Source>
+                                                    </Image>
 
-                                                <Label Text="{Binding Address}" TextColor="#333" FontAttributes="Italic" VerticalTextAlignment="Start" FontSize="14"></Label>
 
-                                            </StackLayout>
+                                                    <Label Text="{Binding Address}" TextColor="#333" FontAttributes="Italic" VerticalTextAlignment="Start" FontSize="14"></Label>
+
+                                                </StackLayout>
+                                            </ScrollView>
+
                                             <Button Text="Select" 
                                                 BackgroundColor="#c285ff" 
                                                 TextColor="White"

@@ -110,7 +110,7 @@
                             <Entry x:Name="entryDiscount"
                                    Placeholder="Discount"
                                    Keyboard="Numeric"
-                                   WidthRequest="60" TextColor="#333"
+                                   WidthRequest="70" TextColor="#333"
                                    Text="{Binding CustomerDetails.Discount}"
                                    FontSize="12"
                                TextChanged="entryDiscount_TextChanged">
@@ -151,13 +151,13 @@
 
                 <StackLayout HorizontalOptions="FillAndExpand" Padding="20,0,20,10">
 
-                    <!--Invoice Date-->
+                    <!--Estimate Date-->
                     <StackLayout HorizontalOptions="Start" WidthRequest="150">
                         <Label Text="Estimate Date" FontSize="13" TextColor="#b66dff" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
                         <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}">
                             <DatePicker 
                                    Date="{Binding InvoiceDate}"
-                                   FontSize="13"
+                                   FontSize="13" TextColor="#333"
                                    HorizontalOptions="FillAndExpand">
                             </DatePicker>
 
@@ -175,9 +175,9 @@
                 <StackLayout Padding="20,0,20,0">
                     <Label Text="Estimate Status" FontSize="13" TextColor="#b66dff" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
                     <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="FillAndExpand">
-                        <RadioButton GroupName="Status1" Content="Pending" Scale="{OnPlatform Android=.8,iOS=.9}" IsChecked="{Binding Pending}" FontSize="{OnPlatform Android=16,iOS=15}"></RadioButton>
-                        <RadioButton GroupName="Status1" Content="Accept" Scale="{OnPlatform Android=.8,iOS=.9}" IsChecked="{Binding Accept}" FontSize="{OnPlatform Android=16,iOS=15}"></RadioButton>
-                        <RadioButton GroupName="Status1" Content="Declind" Scale="{OnPlatform Android=.8,iOS=.9}" IsChecked="{Binding Declind}" FontSize="{OnPlatform Android=16,iOS=15}"></RadioButton>
+                        <RadioButton GroupName="Status1" TextColor="#333" Content="Pending" Scale="{OnPlatform Android=.8,iOS=.9}" IsChecked="{Binding Pending}" FontSize="{OnPlatform Android=16,iOS=15}"></RadioButton>
+                        <RadioButton GroupName="Status1" TextColor="#333" Content="Accept" Scale="{OnPlatform Android=.8,iOS=.9}" IsChecked="{Binding Accept}" FontSize="{OnPlatform Android=16,iOS=15}"></RadioButton>
+                        <RadioButton GroupName="Status1" TextColor="#333" Content="Declind" Scale="{OnPlatform Android=.8,iOS=.9}" IsChecked="{Binding Declind}" FontSize="{OnPlatform Android=16,iOS=15}"></RadioButton>
                     </StackLayout>
                 </StackLayout>
 
@@ -238,7 +238,7 @@
                                                            HorizontalTextAlignment="Start"
                                                            WidthRequest="50"
                                                            Text="{Binding Quantity}" VerticalTextAlignment="Center"
-                                                           FontSize="14" 
+                                                           FontSize="14" TextColor="#333"
                                                            HorizontalOptions="FillAndExpand">
                                                     </Label>
                                                 </StackLayout>

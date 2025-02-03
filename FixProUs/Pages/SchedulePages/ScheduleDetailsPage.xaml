@@ -915,7 +915,7 @@
                                                 </Image>
                                                 <DatePicker 
                                                      Date="{Binding ScheduleDate}"
-                                                     FontSize="13"
+                                                     FontSize="13" TextColor="#333"
                                                      HorizontalOptions="FillAndExpand">
                                                 </DatePicker>
                                             </StackLayout>

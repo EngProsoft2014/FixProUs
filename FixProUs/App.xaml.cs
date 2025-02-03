@@ -194,8 +194,6 @@ namespace FixProUs
                 string plyId = !string.IsNullOrEmpty(OneSignal.User.PushSubscription.Id) ? OneSignal.User.PushSubscription.Id : "";
                 Preferences.Default.Set(Helpers.Settings.PlayerId, plyId);
 
-                //ObjCRuntime.Class.ThrowOnInitFailure = false;
-
                 //==============================================
                 await SignalRservice();
                 await SignalRserviceChangeUserData();
@@ -323,7 +321,6 @@ namespace FixProUs
             await _signalRServiceChangeUserData.StartAsync();
         }
 
-        [Obsolete]
         private async void _signalRService_OnMessageReceived(string arg1, string arg2, string arg3, string arg4)
         {
             Device.BeginInvokeOnMainThread(async () =>
@@ -343,7 +340,7 @@ namespace FixProUs
 
         }
 
-        [Obsolete]
+ 
         private async void _signalRService_OnMessageReceivedChangeUserData(string arg1, string arg2, string arg3, string arg4)
         {
             Device.BeginInvokeOnMainThread(async () =>
@@ -361,7 +358,7 @@ namespace FixProUs
 
         }
 
-        [Obsolete]
+
         private void _signalRService_OnMessageReceivedInSleep(string arg1, string arg2, string arg3, string arg4)
         {
             Device.BeginInvokeOnMainThread(async () =>
@@ -380,7 +377,6 @@ namespace FixProUs
             });
         }
 
-        [Obsolete]
         private void _signalRService_OnMessageReceivedChangeUserDataInSleep(string arg1, string arg2, string arg3, string arg4)
         {
             Device.BeginInvokeOnMainThread(async () =>
