@@ -103,7 +103,7 @@
 		<PackageReference Include="Microsoft.Maui.Controls.Maps" Version="8.0.93" />
 		<PackageReference Include="Mopups" Version="1.3.2" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-		<PackageReference Include="OneSignalSDK.DotNet" Version="5.1.0" />
+		<PackageReference Include="OneSignalSDK.DotNet" Version="5.2.1" />
 		<PackageReference Include="Onion.Maui.GoogleMaps" Version="6.0.1" />
 		<PackageReference Include="Polly" Version="8.4.2" />
 		<PackageReference Include="SkiaSharp" Version="2.88.8" />
