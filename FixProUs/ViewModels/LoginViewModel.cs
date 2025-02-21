@@ -103,36 +103,69 @@ namespace FixProUs.ViewModels
                             if (MLogin.ActiveMobileLogin == true)
                             {
                                 
-                                Preferences.Default.Set(Helpers.Settings.UserId, MLogin.Id.ToString());
+                                Preferences.Default.Set(Helpers.Settings.UserId, MLogin.Id.ToString()); 
+                                Helpers.Settings.UserIdGet = !string.IsNullOrEmpty(MLogin.Id.ToString()) ? MLogin.Id.ToString() : "" ;
+
                                 Preferences.Default.Set(Helpers.Settings.AccountId, MLogin.AccountId.ToString());
+                                Helpers.Settings.AccountIdGet = !string.IsNullOrEmpty(MLogin.AccountId.ToString()) ? MLogin.AccountId.ToString() : "";
+
                                 Preferences.Default.Set(Helpers.Settings.UserName, MLogin.UserName);
+                                Helpers.Settings.UserNameGet = !string.IsNullOrEmpty(MLogin.UserName.ToString()) ? MLogin.UserName.ToString() : "";
+
                                 Preferences.Default.Set(Helpers.Settings.Password, MLogin.Password);
+                                Helpers.Settings.PasswordGet = !string.IsNullOrEmpty(MLogin.Password.ToString()) ? MLogin.Password.ToString() : "";
+
                                 Preferences.Default.Set(Helpers.Settings.AccountName, MLogin.AccountName);
+                                Helpers.Settings.AccountNameGet = !string.IsNullOrEmpty(MLogin.AccountName.ToString()) ? MLogin.AccountName.ToString() : "";
+
                                 Preferences.Default.Set(Helpers.Settings.AccountDayExpired, DateTime.Now.ToString());
+                                Helpers.Settings.AccountDayExpiredGet = DateTime.Now.ToString();
+
                                 Preferences.Default.Set(Helpers.Settings.AccountNameWithSpace, MLogin.CompanyNameWithSpace.ToString());
-                                
+                                Helpers.Settings.AccountNameWithSpaceGet = !string.IsNullOrEmpty(MLogin.CompanyNameWithSpace.ToString()) ? MLogin.CompanyNameWithSpace.ToString() : "";
+
                                 Preferences.Default.Set(Helpers.Settings.UserFristName, MLogin.FirstName);
+                                Helpers.Settings.UserFristNameGet = !string.IsNullOrEmpty(MLogin.FirstName.ToString()) ? MLogin.FirstName.ToString() : "";
+
                                 Preferences.Default.Set(Helpers.Settings.UserLastName, MLogin.LastName);
+                                Helpers.Settings.UserLastNameGet = !string.IsNullOrEmpty(MLogin.LastName.ToString()) ? MLogin.LastName.ToString() : "";
+
                                 Preferences.Default.Set(Helpers.Settings.Email, MLogin.EmailUserName);
+                                Helpers.Settings.EmailGet = !string.IsNullOrEmpty(MLogin.EmailUserName.ToString()) ? MLogin.EmailUserName.ToString() : "";
+
                                 Preferences.Default.Set(Helpers.Settings.Phone, MLogin.Phone1);
-                                
+                                Helpers.Settings.PhoneGet = !string.IsNullOrEmpty(MLogin.Phone1.ToString()) ? MLogin.Phone1.ToString() : "";
+
                                 Preferences.Default.Set(Helpers.Settings.CreateDate, MLogin.CreateDate.ToString());
+                                Helpers.Settings.CreateDateGet = !string.IsNullOrEmpty(MLogin.CreateDate.ToString()) ? MLogin.CreateDate.ToString() : "";
+
                                 Preferences.Default.Set(Helpers.Settings.AccountId, MLogin.AccountId.ToString());
+                                Helpers.Settings.AccountIdGet = !string.IsNullOrEmpty(MLogin.AccountId.ToString()) ? MLogin.AccountId.ToString() : "";
+
                                 Preferences.Default.Set(Helpers.Settings.BranchId, MLogin.BrancheId.ToString());
+                                Helpers.Settings.BranchIdGet = !string.IsNullOrEmpty(MLogin.BrancheId.ToString()) ? MLogin.BrancheId.ToString() : "";
+
                                 Preferences.Default.Set(Helpers.Settings.BranchName, MLogin.BranchName);
+                                Helpers.Settings.BranchNameGet = !string.IsNullOrEmpty(MLogin.BranchName.ToString()) ? MLogin.BranchName.ToString() : "";
+
                                 Preferences.Default.Set(Helpers.Settings.UserRole, MLogin.UserRole.ToString());
+                                Helpers.Settings.UserRoleGet = !string.IsNullOrEmpty(MLogin.UserRole.ToString()) ? MLogin.UserRole.ToString() : "";
+
                                 Preferences.Default.Set(Helpers.Settings.UserEmployees, MLogin.Employees);
+                                Helpers.Settings.UserEmployeesGet = !string.IsNullOrEmpty(MLogin.Employees) ? MLogin.Employees.ToString() : "";
+
                                 Preferences.Default.Set(Helpers.Settings.TypeTrackingSch_Invo, MLogin.TypeTrackingSch_Invo.ToString());
+                                Helpers.Settings.TypeTrackingSch_InvoGet = !string.IsNullOrEmpty(MLogin.TypeTrackingSch_Invo.ToString()) ? MLogin.TypeTrackingSch_Invo.ToString() : "";
 
                                 Helpers.Utility.ServerUrl = !string.IsNullOrEmpty(MLogin.AccountSubdomainApiURL) ? MLogin.AccountSubdomainApiURL : Helpers.Utility.ServerUrl;
 
                                 await BlobCache.LocalMachine.InsertObject(ServicesService.UserTokenServiceKey, MLogin.GernToken, DateTimeOffset.Now.AddHours(24));
 
-                                Preferences.Default.Set(Helpers.Settings.UserPricture, (Helpers.Utility.PathServerProfileImages + Helpers.Settings.AccountName + "/" + MLogin.Picture));
+                                Preferences.Default.Set(Helpers.Settings.UserPricture, (Helpers.Utility.PathServerProfileImages + Helpers.Settings.AccountNameGet + "/" + MLogin.Picture));
+                                Helpers.Settings.UserPrictureGet = !string.IsNullOrEmpty(MLogin.Picture) ? (Helpers.Utility.PathServerProfileImages + Helpers.Settings.AccountNameGet + "/" + MLogin.Picture) : "";
 
                                 await App.Current!.MainPage!.Navigation.PushAsync(new MainPage());
-
-                               
+  
                             }
                             else
                             {

@@ -90,17 +90,6 @@ namespace FixProUs.Pages
         {
             UserDialogs.Instance.ShowLoading();
 
-            Preferences.Default.Set(Helpers.Settings.AccountId, "");
-            Preferences.Default.Set(Helpers.Settings.UserId, "");
-            Preferences.Default.Set(Helpers.Settings.UserName, "");
-            Preferences.Default.Set(Helpers.Settings.UserFristName, "");
-            Preferences.Default.Set(Helpers.Settings.Email, "");
-            Preferences.Default.Set(Helpers.Settings.Phone, "");
-            Preferences.Default.Set(Helpers.Settings.Password, "");
-            Preferences.Default.Set(Helpers.Settings.CreateDate, "");
-            Preferences.Default.Set(Helpers.Settings.BranchId, "");
-            Preferences.Default.Set(Helpers.Settings.BranchName, "");
-            Preferences.Default.Set(Helpers.Settings.UserRole, "");
             Preferences.Default.Clear();
             await BlobCache.LocalMachine.InvalidateAll();
             await BlobCache.LocalMachine.Vacuum();
