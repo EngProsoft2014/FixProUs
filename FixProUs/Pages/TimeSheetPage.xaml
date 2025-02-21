@@ -395,7 +395,7 @@
                 </ListView.Triggers>
             </ListView>
 
-            <StackLayout x:Name="stkNoDataIN" Margin="0,100,0,200" IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout x:Name="stkNoDataIN" Margin="0,100,0,200" IsVisible="{Binding IsShowNoDataIn}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <Image Source="noresult.png" Aspect="AspectFill" VerticalOptions="FillAndExpand"></Image>
                 <StackLayout.Triggers>
                     <DataTrigger TargetType="StackLayout" Binding="{Binding LstEmployeesIn.Count}" Value="0">
@@ -491,7 +491,7 @@
                 </ListView.Triggers>
             </ListView>
 
-            <StackLayout x:Name="stkNoDataOUT" Margin="0,100,0,200" IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout x:Name="stkNoDataOUT" Margin="0,100,0,200" IsVisible="{Binding IsShowNoDataOut}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <Image Source="noresult.png" Aspect="AspectFill" VerticalOptions="FillAndExpand"></Image>
                 <StackLayout.Triggers>
                     <DataTrigger TargetType="StackLayout" Binding="{Binding LstEmployeesOut.Count}" Value="0">

@@ -37,6 +37,12 @@ namespace FixProUs.ViewModels
         string numIn;
 
         [ObservableProperty]
+        bool isShowNoDataIn;
+
+        [ObservableProperty]
+        bool isShowNoDataOut;
+
+        [ObservableProperty]
         string numOut;
 
         DateTime dateDF;
@@ -85,6 +91,8 @@ namespace FixProUs.ViewModels
                 }
                 else
                 {
+                    IsShowNoDataIn = true;
+                    IsShowNoDataOut = true;
                     NumIn = "0";
                     NumOut = "0";
                 }
