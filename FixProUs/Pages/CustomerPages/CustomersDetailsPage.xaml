@@ -20,9 +20,9 @@
     <local:InvoicesCustomerPage IconImageSource="invoices.png" Title="Invoices"/>-->
 
     <StackLayout VerticalOptions="FillAndExpand">
-        
 
-    <StackLayout Orientation="Horizontal" Margin="20,15">
+
+        <StackLayout Orientation="Horizontal" Margin="{OnPlatform Android='20,15',iOS='20,0,20,10'}">
         <Image VerticalOptions="CenterAndExpand">
             <Image.Source>
                 <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="Gray" Size="25"></FontImageSource>

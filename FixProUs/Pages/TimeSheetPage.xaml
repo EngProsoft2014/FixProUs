@@ -15,11 +15,11 @@
 
     <StackLayout VerticalOptions="FillAndExpand">
 
-        <StackLayout VerticalOptions="Start" HeightRequest="280" Padding="{OnPlatform iOS='0,0,0,0'}">
+        <StackLayout VerticalOptions="Start" HeightRequest="{OnPlatform Android=280, iOS=260}" Padding="{OnPlatform iOS='0,0,0,0'}">
             <!--Toolbar-->
             <StackLayout>
 
-                <StackLayout Orientation="Horizontal" Spacing="0" Padding="15,15,15,10" VerticalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal" Spacing="0" Padding="{OnPlatform Android='15,15,15,10',iOS='15,0,15,10'}" VerticalOptions="FillAndExpand">
                     <Image x:Name="imgBack">
                         <Image.Source>
                             <FontImageSource FontFamily="FontIconSolid" Color="#878686" Glyph="" Size="20"></FontImageSource>
@@ -212,7 +212,7 @@
 
         </StackLayout>
 
-        <StackLayout x:Name="stkAllClock" VerticalOptions="FillAndExpand">
+        <StackLayout x:Name="stkClockIN" VerticalOptions="FillAndExpand">
 
             <ListView x:Name="lstEmployeesIn" SelectionMode="None" BackgroundColor="White"
                        ItemsSource="{Binding LstEmployeesIn}"
@@ -390,10 +390,23 @@
                 <ListView.Triggers>
                     <DataTrigger TargetType="ListView" Binding="{Binding LstEmployeesIn.Count}" Value="0">
                         <Setter Property="IsVisible" Value="False"></Setter>
+                        <Setter Property="HeightRequest" Value="0"></Setter>
                     </DataTrigger>
                 </ListView.Triggers>
             </ListView>
 
+            <StackLayout x:Name="stkNoDataIN" Margin="{OnPlatform Android='0,100,0,200'}" IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Image Source="noresult.png" Aspect="AspectFill" VerticalOptions="FillAndExpand"></Image>
+                <StackLayout.Triggers>
+                    <DataTrigger TargetType="StackLayout" Binding="{Binding LstEmployeesIn.Count}" Value="0">
+                        <Setter Property="IsVisible" Value="True"></Setter>
+                    </DataTrigger>
+                </StackLayout.Triggers>
+            </StackLayout>
+        </StackLayout>
+
+
+        <StackLayout x:Name="stkClockOUT" VerticalOptions="FillAndExpand" IsVisible="False">
 
             <ListView x:Name="lstEmployeesOut" IsVisible="False" SelectionMode="None" 
                        ItemsSource="{Binding LstEmployeesOut}" BackgroundColor="White"
@@ -473,19 +486,25 @@
                 <ListView.Triggers>
                     <DataTrigger TargetType="ListView" Binding="{Binding LstEmployeesOut.Count}" Value="0">
                         <Setter Property="IsVisible" Value="False"></Setter>
+                        <Setter Property="HeightRequest" Value="0"></Setter>
                     </DataTrigger>
                 </ListView.Triggers>
             </ListView>
 
-            <!--<StackLayout.Triggers>
-                <DataTrigger TargetType="StackLayout" Binding="{Binding Source={x:Reference stkNoData}, Path=IsVisible}" Value="True">
-                    <Setter Property="HeightRequest" Value="0"></Setter>
-                    <Setter Property="IsVisible" Value="False"></Setter>
-                </DataTrigger>
-            </StackLayout.Triggers>-->
+            <StackLayout x:Name="stkNoDataOUT" Margin="{OnPlatform Android='0,100,0,200'}" IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Image Source="noresult.png" Aspect="AspectFill" VerticalOptions="FillAndExpand"></Image>
+                <StackLayout.Triggers>
+                    <DataTrigger TargetType="StackLayout" Binding="{Binding LstEmployeesOut.Count}" Value="0">
+                        <Setter Property="IsVisible" Value="True"></Setter>
+                    </DataTrigger>
+                </StackLayout.Triggers>
+            </StackLayout>
         </StackLayout>
 
-        <!--No Data-->
+
+
+
+        <!--No Data--><!--
         <StackLayout x:Name="stkNoData" Margin="{OnPlatform Android='0,100,0,200'}" IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <Image Source="noresult.png" Aspect="AspectFill" VerticalOptions="FillAndExpand"></Image>
             <StackLayout.Triggers>
@@ -503,7 +522,7 @@
                     <Setter Property="IsVisible" Value="True"></Setter>
                 </MultiTrigger>
             </StackLayout.Triggers>
-        </StackLayout>
+        </StackLayout>-->
 
     </StackLayout>
 </Controls:CustomsPage>

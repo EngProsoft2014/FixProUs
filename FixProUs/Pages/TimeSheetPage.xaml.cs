@@ -12,7 +12,7 @@ public partial class TimeSheetPage : Controls.CustomsPage
 
         if (lstEmployeesIn.ItemsSource.Equals(0))
         {
-            stkNoData.IsVisible = true;
+            stkNoDataIN.IsVisible = true;
         }
 
     }
@@ -29,6 +29,8 @@ public partial class TimeSheetPage : Controls.CustomsPage
     //Employees In
     private void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
     {
+        stkClockIN.IsVisible = true;
+        stkClockOUT.IsVisible = false;
         lstEmployeesOut.IsVisible = false;
         lstEmployeesIn.IsVisible = true;
         yumCheckIn.BackgroundColor = Color.FromHex("#b66dff");
@@ -39,17 +41,21 @@ public partial class TimeSheetPage : Controls.CustomsPage
 
         if (ViewModel.LstEmployeesIn.Count == 0)
         {
-            stkNoData.IsVisible = true;
+            stkNoDataIN.IsVisible = true;
+            stkNoDataOUT.IsVisible = false;
         }
         else
         {
-            stkNoData.IsVisible = false;
+            stkNoDataIN.IsVisible = false;
+            stkNoDataOUT.IsVisible = true;
         }
     }
 
     //Employees Out
     private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
     {
+        stkClockIN.IsVisible = false;
+        stkClockOUT.IsVisible = true;
         lstEmployeesIn.IsVisible = false;
         lstEmployeesOut.IsVisible = true;
 
@@ -61,11 +67,13 @@ public partial class TimeSheetPage : Controls.CustomsPage
 
         if (ViewModel.LstEmployeesOut.Count == 0)
         {
-            stkNoData.IsVisible = true;
+            stkNoDataOUT.IsVisible = true;
+            stkNoDataIN.IsVisible = false;
         }
         else
         {
-            stkNoData.IsVisible = false;
+            stkNoDataOUT.IsVisible = false;
+            stkNoDataIN.IsVisible = true;
         }
     }
 
