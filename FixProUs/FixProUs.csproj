@@ -68,6 +68,7 @@
 		<CreatePackage>false</CreatePackage>
 		<CodesignProvision>App Store FixProUs</CodesignProvision>
 		<CodesignKey>Apple Distribution: ENG PRO SOFT, LLC (YZWTVALFLW)</CodesignKey>
+		<CodesignEntitlements>Platforms\iOS\Entitlements.plist</CodesignEntitlements>
 	</PropertyGroup>
 
 	<ItemGroup>
