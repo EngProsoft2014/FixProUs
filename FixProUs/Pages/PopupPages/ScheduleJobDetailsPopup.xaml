@@ -27,10 +27,10 @@
                 </StackLayout>
                 <Line  X1="400" HorizontalOptions="CenterAndExpand" BackgroundColor="LightGray" Margin="0,10,0,10"></Line>
 
-                <StackLayout Spacing="20" HorizontalOptions="CenterAndExpand">
+                <StackLayout Spacing="20" HorizontalOptions="FillAndExpand">
 
                     <!--Title&Date-->
-                    <StackLayout x:Name="stkMain" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20" Margin="20,0,20,0">
+                    <StackLayout x:Name="stkMain" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20" Margin="10,0,10,0">
                         <!--Title-->
                         <StackLayout HorizontalOptions="FillAndExpand">
                             <Label Text="Title" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
@@ -91,7 +91,7 @@
                     </StackLayout>
 
                     <!--Start&End Time-->
-                    <StackLayout x:Name="stkStEdTime" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20" Margin="20,0,20,0">
+                    <StackLayout x:Name="stkStEdTime" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20" Margin="10,0,10,0">
                         <!--Start Time-->
                         <StackLayout HorizontalOptions="FillAndExpand">
                             <Label Text="Start Time" TextColor="#333" FontSize="13" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
@@ -131,7 +131,7 @@
                     </StackLayout>
 
                     <!--SpentHours&SpentMin-->
-                    <StackLayout x:Name="stkSpHourMin" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20" Margin="20,0,20,0">
+                    <StackLayout x:Name="stkSpHourMin" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20" Margin="10,0,10,0">
                         <!--Spent Hours-->
                         <StackLayout HorizontalOptions="FillAndExpand">
                             <Label Text="Spent Hours" TextColor="#333" FontSize="13" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
@@ -194,7 +194,7 @@
                     </StackLayout>
 
 
-                    <StackLayout x:Name="stkAddJobTimes" IsVisible="False" Orientation="Horizontal" Spacing="20" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                    <StackLayout x:Name="stkAddJobTimes" IsVisible="False" Orientation="Horizontal" Spacing="20" HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
 
                         <!--Start Time-->
                         <StackLayout HorizontalOptions="FillAndExpand">
@@ -235,7 +235,7 @@
                         </StackLayout>
                     </StackLayout>
 
-                    <StackLayout x:Name="stkAddJobEmployee" IsVisible="False" Orientation="Vertical"  Spacing="20" HorizontalOptions="FillAndExpand" Margin="20,0,20,0">
+                    <StackLayout x:Name="stkAddJobEmployee" IsVisible="False" Orientation="Vertical"  Spacing="20" HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
 
                         <!--Job Title-->
                         <StackLayout HorizontalOptions="FillAndExpand">

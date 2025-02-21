@@ -22,7 +22,7 @@
     <StackLayout VerticalOptions="FillAndExpand">
         
 
-    <StackLayout Orientation="Horizontal" Margin="20,10">
+    <StackLayout Orientation="Horizontal" Margin="20,15">
         <Image VerticalOptions="CenterAndExpand">
             <Image.Source>
                 <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="Gray" Size="25"></FontImageSource>
@@ -39,7 +39,7 @@
                         <Binding Path="CustomerDetails.LastName" />
                     </MultiBinding>
                 </Label.Text>
-            </Label>
+        </Label>
     </StackLayout>
 
         <tabView:SfTabView IndicatorBackground="#9b5ff5" VerticalOptions="FillAndExpand" FlowDirection="LeftToRight" TabBarHeight="65">
@@ -688,8 +688,7 @@
                                                         <StackLayout Orientation="Horizontal" Spacing="5" Padding="10,8,10,8">
                                                             <Label Text="{Binding ScheduleName}"
                                                                    FontAttributes="Bold"
-                                                                   HorizontalOptions="Start"
-                                                                   TextColor="Black" WidthRequest="120"
+                                                                   TextColor="Black" HorizontalOptions="FillAndExpand"
                                                                    HorizontalTextAlignment="Start"
                                                                    VerticalTextAlignment="Center"
                                                                    >

@@ -13,11 +13,11 @@
         <vm:CustomersViewModel></vm:CustomersViewModel>
     </ContentPage.BindingContext>
 
-    <StackLayout>
+    <StackLayout VerticalOptions="FillAndExpand">
         <!--Toolbar-->
-        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="0">
 
-            <StackLayout Orientation="Horizontal" Spacing="0" Padding="{OnPlatform iOS='15,0,15,10', Android='15,10,15,10'}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" Spacing="0" Padding="{OnPlatform iOS='15,0,15,5', Android='15,10,15,5'}" VerticalOptions="FillAndExpand" HorizontalOptions="StartAndExpand">
 
                 <Image x:Name="imgBack">
                     <Image.Source>
@@ -46,7 +46,7 @@
 
         <Grid VerticalOptions="FillAndExpand">
             <StackLayout>
-                <StackLayout Margin="30,10,30,10">
+                <StackLayout Margin="30,15,30,10">
                     <!--search bar Phone or Address-->
                     <Border BackgroundColor="White" HeightRequest="42" HorizontalOptions="FillAndExpand">
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
@@ -156,7 +156,7 @@
                 </StackLayout>
 
                 <!--No Data-->
-                <StackLayout x:Name="stkNoData" Padding="0,150,0,300" IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout x:Name="stkNoData" Padding="0,120,0,300" IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <Image Source="noresult.png" Aspect="AspectFill" VerticalOptions="FillAndExpand"></Image>
                     <StackLayout.Triggers>
                         <MultiTrigger TargetType="StackLayout">

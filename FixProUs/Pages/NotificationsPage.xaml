@@ -57,7 +57,7 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout Orientation="Horizontal" Padding="10" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand">
-                                <Border BackgroundColor="#b66dff">
+                                <Border BackgroundColor="#b66dff" HorizontalOptions="FillAndExpand">
                                     <StackLayout Orientation="Horizontal" Spacing="0">
                                         <StackLayout HorizontalOptions="Start" VerticalOptions="Center">
                                             <Border Margin="15" Padding="8" HeightRequest="35" WidthRequest="35" BackgroundColor="white">

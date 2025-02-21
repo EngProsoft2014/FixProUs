@@ -16,21 +16,23 @@
 
     <StackLayout>
         <!--Toolbar-->
-        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="{OnPlatform iOS='20,0,10,10', Android='20,10,10,10'}">
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Padding="{OnPlatform iOS='20,0,10,10', Android='20,10,10,10'}">
 
-            <Image x:Name="imgBack">
-                <Image.Source>
-                    <FontImageSource FontFamily="FontIconSolid" Color="#878686" Glyph="" Size="20"></FontImageSource>
-                </Image.Source>
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
-                </Image.GestureRecognizers>
-            </Image>
+            <StackLayout Orientation="Horizontal">
+                <Image x:Name="imgBack">
+                    <Image.Source>
+                        <FontImageSource FontFamily="FontIconSolid" Color="#878686" Glyph="" Size="20"></FontImageSource>
+                    </Image.Source>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
 
-            <Label x:Name="lblTitle" Text="Invoice Details" HeightRequest="30"
+                <Label x:Name="lblTitle" Text="Invoice Details" HeightRequest="30"
                         VerticalOptions="FillAndExpand" Style="{StaticResource lblHeaderText}"
                         HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="{OnPlatform Android=Center,iOS=End}" VerticalTextAlignment="Center"/>
 
+            </StackLayout>
 
             <Label 
                    Text="{Binding BranchName}" 

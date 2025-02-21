@@ -15,7 +15,7 @@ public partial class LoginPage : Controls.CustomsPage
             exit = await this.DisplayAlert("FIXPRO", "Do you want to exit the program?", "Ok", "I want to stay").ConfigureAwait(false);
             if (exit)
             {
-                System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
+                Application.Current.Quit();
             }
         });
         return true;

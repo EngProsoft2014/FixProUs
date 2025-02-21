@@ -15,11 +15,11 @@
 
     <StackLayout VerticalOptions="FillAndExpand">
 
-        <StackLayout VerticalOptions="Start" HeightRequest="260" Padding="{OnPlatform iOS='0,0,0,0'}">
+        <StackLayout VerticalOptions="Start" HeightRequest="280" Padding="{OnPlatform iOS='0,0,0,0'}">
             <!--Toolbar-->
             <StackLayout>
 
-                <StackLayout Orientation="Horizontal" Spacing="0" Padding="15,5,15,10" VerticalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal" Spacing="0" Padding="15,15,15,10" VerticalOptions="FillAndExpand">
                     <Image x:Name="imgBack">
                         <Image.Source>
                             <FontImageSource FontFamily="FontIconSolid" Color="#878686" Glyph="" Size="20"></FontImageSource>
@@ -216,7 +216,7 @@
 
             <ListView x:Name="lstEmployeesIn" SelectionMode="None" BackgroundColor="White"
                        ItemsSource="{Binding LstEmployeesIn}"
-                       HasUnevenRows="True" HeightRequest="{OnPlatform Android=450}"
+                       HasUnevenRows="True" 
                        VerticalScrollBarVisibility="Never"
 
 >
@@ -397,7 +397,7 @@
 
             <ListView x:Name="lstEmployeesOut" IsVisible="False" SelectionMode="None" 
                        ItemsSource="{Binding LstEmployeesOut}" BackgroundColor="White"
-                       HasUnevenRows="True" HeightRequest="450"
+                       HasUnevenRows="True"
                        VerticalScrollBarVisibility="Never"
                        IsRefreshing="{Binding IsRefresh}"
                        RefreshCommand="{Binding Source={RelativeSource AncestorType={x:Type vm:TimeSheetViewModel}}, Path=RefreshLstEmployeesCommand}">

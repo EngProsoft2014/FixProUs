@@ -15,10 +15,10 @@
 
     <StackLayout>
         <!--Toolbar-->
-        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="0">
             <!--<Controls:ToolBar Title="Customers" HasBackButton="True" TranslationX="20" HorizontalOptions="FillAndExpand"></Controls:ToolBar>-->
 
-            <StackLayout Orientation="Horizontal" Spacing="0" Padding="{OnPlatform iOS='15,0,15,10', Android='15,10,15,10'}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" Spacing="0" Padding="{OnPlatform iOS='15,0,15,5', Android='15,10,15,5'}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
 
                 <Image x:Name="imgBack">
                     <Image.Source>
@@ -31,7 +31,7 @@
 
                 <Label x:Name="lblTitle" Text="Customers" HeightRequest="30"
                         VerticalOptions="FillAndExpand" Style="{StaticResource lblHeaderText}"
-                        HorizontalOptions="EndAndExpand" HorizontalTextAlignment="{OnPlatform Android=Center,iOS=End}" VerticalTextAlignment="Center"/>
+                        HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="{OnPlatform Android=Center,iOS=End}" VerticalTextAlignment="Center"/>
             </StackLayout>
 
             <Label 
@@ -48,7 +48,7 @@
         <Grid VerticalOptions="FillAndExpand">
             <StackLayout>
 
-                <StackLayout Margin="30,0,30,0" Spacing="20">
+                <StackLayout Margin="30,10,30,0" Spacing="20">
                     <!--search bar Phone or Address-->
                     <Border BackgroundColor="White" HeightRequest="42" HorizontalOptions="FillAndExpand">
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
@@ -77,7 +77,7 @@
                 <Line  X1="400" HorizontalOptions="CenterAndExpand" BackgroundColor="LightGray" Margin="0,10,0,10"></Line>
 
                 <ScrollView VerticalOptions="FillAndExpand" Padding="0,0,0,70">
-                    <StackLayout Padding="0,20,0,20">
+                    <StackLayout Padding="0,10,0,20">
 
                         <CollectionView x:Name="lstCustomers" SelectionMode="None"
                               ItemsSource="{Binding LstCustomers}"

@@ -17,9 +17,9 @@
 
     <StackLayout>
         <!--Toolbar-->
-        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
 
-            <StackLayout Orientation="Horizontal" Spacing="0" Padding="{OnPlatform iOS='15,0,15,10', Android='15,10,15,10'}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" Spacing="0" Padding="{OnPlatform iOS='15,10,15,10', Android='15,10,15,10'}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
 
                 <Image x:Name="imgBack">
                     <Image.Source>
@@ -40,12 +40,12 @@
                    Text="{Binding BranchName}" 
                    TextColor="#b66dff"
                    FontSize="13"
-                   Margin="{OnPlatform Android='0,0,20,0',iOS='0,40,10,0'}"
+                   Margin="{OnPlatform Android='0,0,20,0',iOS='0,0,10,0'}"
                    VerticalTextAlignment="Center"
                    HorizontalOptions="End"></Label>
         </StackLayout>
 
-        <ScrollView Margin="0,0,0,0" VerticalOptions="FillAndExpand">
+        <ScrollView Margin="0,10,0,0" VerticalOptions="FillAndExpand">
             <StackLayout HorizontalOptions="FillAndExpand">
                 <!--Customer Details-->
                 <StackLayout HorizontalOptions="CenterAndExpand" Spacing="2" Margin="0,5,0,20">
@@ -188,7 +188,7 @@
                                 </CheckBox.GestureRecognizers>
                             </CheckBox>
 
-                            <Label Text="Pending" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" TextColor="#333" FontSize="{OnPlatform Android=16,iOS=15}" HorizontalOptions="StartAndExpand"></Label>
+                            <Label Text="Pending" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" TextColor="#333" FontSize="{OnPlatform Android=13,iOS=14}" HorizontalOptions="StartAndExpand"></Label>
                         </StackLayout>
 
                         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
@@ -198,7 +198,7 @@
                                 </CheckBox.GestureRecognizers>
                             </CheckBox>
 
-                            <Label Text="Accept" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" TextColor="#333" FontSize="{OnPlatform Android=16,iOS=15}" HorizontalOptions="StartAndExpand"></Label>
+                            <Label Text="Accept" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" TextColor="#333" FontSize="{OnPlatform Android=13,iOS=14}" HorizontalOptions="StartAndExpand"></Label>
                         </StackLayout>
 
                         <StackLayout Orientation="Horizontal">
@@ -208,7 +208,7 @@
                                 </CheckBox.GestureRecognizers>
                             </CheckBox>
 
-                            <Label Text="Declind" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" TextColor="#333" FontSize="{OnPlatform Android=16,iOS=15}" HorizontalOptions="StartAndExpand"></Label>
+                            <Label Text="Declind" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" TextColor="#333" FontSize="{OnPlatform Android=13,iOS=14}" HorizontalOptions="StartAndExpand"></Label>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
