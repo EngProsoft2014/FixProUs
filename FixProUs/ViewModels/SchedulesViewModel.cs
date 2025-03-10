@@ -32,6 +32,7 @@ using Syncfusion.Maui.Calendar;
 using FixProUs.Pages.PopupPages;
 using CommunityToolkit.Maui.Alerts;
 using SkiaSharp;
+using FixProUs.Pages.SchedulePages;
 
 
 namespace FixProUs.ViewModels

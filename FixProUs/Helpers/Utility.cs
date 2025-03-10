@@ -33,15 +33,12 @@ namespace FixProUs.Helpers
         //#endif
         public static readonly string ServerUrlIIS = "http://192.168.1.4:8012/";
 
-        //public static readonly string ServerUrlDel = "https://localhost:44371/";
 
-        //public static readonly string PathServerImages = "https://localhost:44371/PJTest/";
+        public static readonly string PathServerImages = $"https://app.fixprous.com/ScheduleAttachments_{Settings.AccountNameWithSpaceGet}/";
 
-        public static readonly string PathServerImages = "https://fixpro.engprosoft.net/ScheduleAttachments/";
+        public static readonly string PathServerProfileImages = $"https://app.fixprous.com/EmployeePic_{Settings.AccountNameWithSpaceGet}/";
 
-        public static readonly string PathServerProfileImages = "https://fixpro.engprosoft.net/EmployeePic/";
-
-        public static readonly string PathServerEstimateSignture = "https://fixpro.engprosoft.net/EstimateSignture/";
+        public static readonly string PathServerEstimateSignture = $"https://app.fixprous.com/EstimateSignture_{Settings.AccountNameWithSpaceGet}/";
 
 
         //public static readonly string ServerUrl = "https://projectservicesapi.engprosoft.com/";

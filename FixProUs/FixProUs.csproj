@@ -106,7 +106,6 @@
 		<PackageReference Include="Mopups" Version="1.3.2" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="OneSignalSDK.DotNet" Version="5.2.1" />
-		<PackageReference Include="Onion.Maui.GoogleMaps" Version="6.0.1" />
 		<PackageReference Include="Polly" Version="8.4.2" />
 		<PackageReference Include="SkiaSharp" Version="2.88.8" />
 		<PackageReference Include="Stripe.net" Version="47.0.0" />
@@ -127,6 +126,10 @@
 	<PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-ios'">
 		<AOTMode>Full</AOTMode>
 		<EnableLLVM>true</EnableLLVM>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
 	</PropertyGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">

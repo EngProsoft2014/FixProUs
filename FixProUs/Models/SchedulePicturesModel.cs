@@ -14,7 +14,7 @@ namespace FixProUs.Models
         public int? BrancheId { get; set; }
         public int? ScheduleId { get; set; }
         public string FileName { get; set; }
-        public string FullFileName { get { return string.Format("https://FixProUs.engprosoft.net/ScheduleAttachments/{0}", FileName); } }
+        public string FullFileName { get { return $"https://app.fixprous.com/ScheduleAttachments_{Helpers.Settings.AccountNameWithSpaceGet}/{FileName}"; } }
         public bool? Active { get; set; }
         public int? CreateUser { get; set; }
         public DateTime? CreateDate { get; set; }

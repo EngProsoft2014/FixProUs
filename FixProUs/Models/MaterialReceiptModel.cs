@@ -22,7 +22,7 @@ namespace FixProUs.Models
         public string Notes { get; set; }
         public string ReceiptPhoto { get; set; }
 
-        public string ReceiptPhotoView { get { return string.Format("https://FixProUs.engprosoft.net/ScheduleMaterialReceipt/{0}", ReceiptPhoto); } }
+        public string ReceiptPhotoView { get { return $"https://app.fixprous.com/ScheduleMaterialReceipt_{Helpers.Settings.AccountNameWithSpaceGet}/{ReceiptPhoto}"; } }
         //public ImageSource ReceiptPhotoView { get; set; }
 
         public int? CreateUser { get; set; }
