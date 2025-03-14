@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,12 +72,14 @@ namespace FixProUs.ViewModels
                 OneFilter = Controls.StaticMembers.FilterCallModel;
                 if (string.IsNullOrEmpty(OneFilter.StartDate) != true)
                 {
-                    StartDate = DateTime.Parse(OneFilter.StartDate);
+                    bool IsExpireDate = DateTime.TryParseExact(OneFilter.StartDate, "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime startD);
+                    StartDate = startD;
                     WithDate = true;
                 }
                 if (string.IsNullOrEmpty(OneFilter.EndDate) != true)
                 {
-                    EndDate = DateTime.Parse(OneFilter.EndDate);
+                    bool IsExpireDate = DateTime.TryParseExact(OneFilter.EndDate, "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime EndD);
+                    EndDate = EndD;
                     WithDate = true;
                 }
             }   
@@ -99,9 +102,7 @@ namespace FixProUs.ViewModels
             WithDate = false;
 
             UserDialogs.Instance.ShowLoading();
-            await GetReasons();
-            await GetCampaigns();
-            await GetEmployeesInCall();
+            await Task.WhenAll(GetReasons(), GetCampaigns(), GetEmployeesInCall());
             UserDialogs.Instance.HideHud();
         }
 
