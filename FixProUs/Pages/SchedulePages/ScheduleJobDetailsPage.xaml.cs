@@ -1,14 +1,15 @@
 using FixProUs.ViewModels;
 using Mopups.Services;
 using Syncfusion.Maui.Inputs;
+using System.Threading.Tasks;
 
-namespace FixProUs.Pages.PopupPages;
+namespace FixProUs.Pages.SchedulePages;
 
-public partial class ScheduleJobDetailsPopup : Mopups.Pages.PopupPage
+public partial class ScheduleJobDetailsPage : Controls.CustomsPage
 {
     SchedulesViewModel ViewModel { get => BindingContext as SchedulesViewModel; set => BindingContext = value; }
 
-    public ScheduleJobDetailsPopup()
+    public ScheduleJobDetailsPage()
 	{
 		InitializeComponent();
 	}
@@ -24,7 +25,7 @@ public partial class ScheduleJobDetailsPopup : Mopups.Pages.PopupPage
     //Cancel
     private async void Button_Clicked(object sender, EventArgs e)
     {
-        await MopupService.Instance.PopAsync();
+        await Navigation.PopAsync();
     }
 
     private void SfComboBox_SelectionChanged(object sender, Syncfusion.Maui.Inputs.SelectionChangedEventArgs e)
@@ -87,6 +88,12 @@ public partial class ScheduleJobDetailsPopup : Mopups.Pages.PopupPage
         stkDate.IsVisible = false;
         stkAddJob.IsVisible = true;
         stkAddJobDateButtons.IsVisible = true;
+    }
+
+
+    private async void TapGestureRecognizer_Tapped_1(object sender, TappedEventArgs e)
+    {
+        await Navigation.PopAsync();
     }
 
     ////Not Serviced

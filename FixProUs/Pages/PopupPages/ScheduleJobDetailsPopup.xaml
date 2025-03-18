@@ -71,7 +71,7 @@
                         </StackLayout>
 
 
-                        <!--Add Job Date-->
+                        <!--Add Job Date--><!--
                         <StackLayout x:Name="stkAddJobDate" IsVisible="False" HorizontalOptions="FillAndExpand">
                             <Label Text="Job Date" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
                             <Border BackgroundColor="White" Padding="10,0,10,0" HorizontalOptions="FillAndExpand">
@@ -87,7 +87,7 @@
                                     <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
                                 </Border.StrokeShape>
                             </Border>
-                        </StackLayout>
+                        </StackLayout>-->
                     </StackLayout>
 
                     <!--Start&End Time-->
@@ -193,55 +193,75 @@
                         </Border>
                     </StackLayout>
 
+                    <!--Add Job Date-->
+                    <StackLayout x:Name="stkAddJob" IsVisible="False" Spacing="20" Margin="10,0,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-                    <StackLayout x:Name="stkAddJobTimes" IsVisible="False" Orientation="Horizontal" Spacing="20" HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
-
-                        <!--Start Time-->
+                        <!--Add Job Date-->
                         <StackLayout HorizontalOptions="FillAndExpand">
-                            <Label Text="Start Time" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
-                            <Border BackgroundColor="White" Padding="10,0,10,0">
-                                <TimePicker 
+                            <Label Text="Job Date" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+                            <Border BackgroundColor="White" Padding="10,0,10,0" HorizontalOptions="FillAndExpand">
+                                <DatePicker 
+                                     Date="{Binding ScheduleAddDate}"
+                                     FontSize="13" TextColor="#333"
+                                     HorizontalOptions="FillAndExpand">
+                                </DatePicker>
+                                <Border.Shadow>
+                                    <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                </Border.Shadow>
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                </Border.StrokeShape>
+                            </Border>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="FillAndExpand">
+
+                            <!--Start Time-->
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                <Label Text="Start Time" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+                                <Border BackgroundColor="White" Padding="10,0,10,0">
+                                    <TimePicker 
                                     Time="{Binding TimeFromAddDate}"
                                     FontSize="13"
                                     TextColor="#333"
                                     HorizontalOptions="FillAndExpand">
-                                </TimePicker>
-                                <Border.Shadow>
-                                    <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                </Border.Shadow>
-                                <Border.StrokeShape>
-                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
-                                </Border.StrokeShape>
-                            </Border>
-                        </StackLayout>
+                                    </TimePicker>
+                                    <Border.Shadow>
+                                        <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                    </Border.Shadow>
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                    </Border.StrokeShape>
+                                </Border>
+                            </StackLayout>
 
-                        <!--End Time-->
-                        <StackLayout HorizontalOptions="FillAndExpand">
-                            <Label Text="End Time" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
-                            <Border BackgroundColor="White" Padding="10,0,10,0">
-                                <TimePicker 
+                            <!--End Time-->
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                <Label Text="End Time" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+                                <Border BackgroundColor="White" Padding="10,0,10,0">
+                                    <TimePicker 
                                          Time="{Binding TimeToAddDate}"
                                          FontSize="13"
                                     TextColor="#333"
                                          HorizontalOptions="FillAndExpand">
-                                </TimePicker>
-                                <Border.Shadow>
-                                    <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                </Border.Shadow>
-                                <Border.StrokeShape>
-                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
-                                </Border.StrokeShape>
-                            </Border>
+                                    </TimePicker>
+                                    <Border.Shadow>
+                                        <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                    </Border.Shadow>
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                    </Border.StrokeShape>
+                                </Border>
+                            </StackLayout>
                         </StackLayout>
-                    </StackLayout>
 
-                    <StackLayout x:Name="stkAddJobEmployee" IsVisible="False" Orientation="Vertical"  Spacing="20" HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
+                        <StackLayout Orientation="Vertical"  Spacing="20" HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
 
-                        <!--Job Title-->
-                        <StackLayout HorizontalOptions="FillAndExpand">
-                            <Label Text="Job Title" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
-                            <Border BackgroundColor="White" Padding="10,0,10,0" HeightRequest="40">
-                                <combobox:SfComboBox 
+                            <!--Job Title-->
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                <Label Text="Job Title" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+                                <Border BackgroundColor="White" Padding="10,0,10,0" HeightRequest="40">
+                                    <combobox:SfComboBox 
                                            ItemsSource="{Binding LstEmpCategory}"
                                            Placeholder="Job Title"
                                            SelectedItem="{Binding SelectedCateory,Mode=TwoWay}" 
@@ -255,22 +275,22 @@
                                            IsClearButtonVisible="False"
                                            DisplayMemberPath="CategoryName">
 
-                                </combobox:SfComboBox>
-                                <Border.Shadow>
-                                    <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                </Border.Shadow>
-                                <Border.StrokeShape>
-                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
-                                </Border.StrokeShape>
-                            </Border>
-                        </StackLayout>
+                                    </combobox:SfComboBox>
+                                    <Border.Shadow>
+                                        <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                    </Border.Shadow>
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                    </Border.StrokeShape>
+                                </Border>
+                            </StackLayout>
 
-                        <StackLayout HorizontalOptions="EndAndExpand">
-                            <StackLayout>
-                                <Label Text="Choose Technicions" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
-                                <Border BackgroundColor="White" Padding="10,0,10,0">
-                                    <StackLayout>
-                                        <combobox:SfComboBox 
+                            <StackLayout HorizontalOptions="EndAndExpand">
+                                <StackLayout>
+                                    <Label Text="Choose Technicions" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
+                                    <Border BackgroundColor="White" Padding="10,0,10,0">
+                                        <StackLayout>
+                                            <combobox:SfComboBox 
                                                ItemsSource="{Binding LstEmpInOneCategory}"
                                                Placeholder="Select Technicion"
                                                SelectedItem="{Binding SelectedEmployeeAddDate,Mode=TwoWay}" 
@@ -282,16 +302,18 @@
                                                IsEditable="False"
                                                IsClearButtonVisible="False"
                                                DisplayMemberPath="FullName">
-                                        </combobox:SfComboBox>
-                                    </StackLayout>
-                                    <Border.Shadow>
-                                        <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                    </Border.Shadow>
-                                    <Border.StrokeShape>
-                                        <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
-                                    </Border.StrokeShape>
-                                </Border>
+                                            </combobox:SfComboBox>
+                                        </StackLayout>
+                                        <Border.Shadow>
+                                            <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                        </Border.Shadow>
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                        </Border.StrokeShape>
+                                    </Border>
+                                </StackLayout>
                             </StackLayout>
+
                         </StackLayout>
 
                     </StackLayout>

@@ -14,21 +14,25 @@ public partial class TrckingMapPage : Controls.CustomsPage
 		InitializeComponent();
 	}
 
-    public TrckingMapPage(DataMapsModel dataMap)
+    public TrckingMapPage(DataMapsModel? dataMap)
     {
         InitializeComponent();
 
-        Pin pin = new Pin
+        if(dataMap != null)
         {
-            Label = dataMap.Id.ToString(),
-            //Address = "The city with a boardwalk",
-            Type = PinType.Place,
-            Location = new Location(dataMap.MPosition)
-        };
-        myMap.Pins.Add(pin);
+            Pin pin = new Pin
+            {
+                Label = dataMap.Id.ToString(),
+                //Address = "The city with a boardwalk",
+                Type = PinType.Place,
+                Location = new Location(dataMap.MPosition)
+            };
+            myMap.Pins.Add(pin);
 
-        myMap.MoveToRegion(MapSpan.FromCenterAndRadius(
-               new Location(double.Parse(dataMap.Lat), double.Parse(dataMap.Long)), Distance.FromMeters(200)));
+            myMap.MoveToRegion(MapSpan.FromCenterAndRadius(
+                   new Location(double.Parse(dataMap.Lat), double.Parse(dataMap.Long)), Distance.FromMeters(200)));
+        }
+       
     }
 
     private void myMap_MapClicked(object sender, MapClickedEventArgs e)

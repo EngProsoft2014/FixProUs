@@ -181,7 +181,7 @@
                     </StackLayout.Triggers>
                 </StackLayout>
             </StackLayout>
-            <Border 
+            <Border  Stroke="Transparent"
                                BackgroundColor="#8f1fff" 
                                Padding="5" 
                                VerticalOptions="End"

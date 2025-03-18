@@ -25,15 +25,17 @@ namespace FixProUs.Platforms.Android
         {
             _cts = new CancellationTokenSource();
 
-            Notification notification = new NotificationHelper().GetServiceStartedNotification();
+            //===========================================================================================
+            //Notification notification = new NotificationHelper().GetServiceStartedNotification();
 
-            StartForeground(SERVICE_RUNNING_NOTIFICATION_ID, notification);
+            //StartForeground(SERVICE_RUNNING_NOTIFICATION_ID, notification);
+            //===========================================================================================
 
             Task.Run(() => {
                 try
                 {
                     var locShared = new GetLocationService();
-                    locShared.Run(_cts.Token).Wait();
+                    locShared.StartAsync(_cts.Token).Wait();
                 }
                 catch (System.OperationCanceledException)
                 {

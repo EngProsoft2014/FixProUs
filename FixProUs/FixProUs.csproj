@@ -145,6 +145,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Pages\FullScreenImagePage.xaml.cs">
+	    <DependentUpon>FullScreenImagePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\SchedulePages\ScheduleJobDetailsPage.xaml.cs">
+	    <DependentUpon>ScheduleJobDetailsPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Controls\BadgeNotifications.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -238,9 +247,6 @@
 	  <MauiXaml Update="Pages\PopupPages\EmployeesPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\PopupPages\FullScreenImagePopup.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Pages\PopupPages\MapTypePopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -287,6 +293,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\SchedulePages\ScheduleFreeServicesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\SchedulePages\ScheduleJobDetailsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\SchedulePages\SchedulePage.xaml">

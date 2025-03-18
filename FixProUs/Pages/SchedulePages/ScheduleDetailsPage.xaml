@@ -2009,7 +2009,7 @@
 
 
             <!--After Insert Schedule-->
-            <Border 
+            <Border  Stroke="Transparent"
                                BackgroundColor="#8f1fff" 
                                Padding="5" 
                                VerticalOptions="End"
@@ -2123,7 +2123,7 @@
                     <RoundRectangle CornerRadius="{OnPlatform Android=100, iOS=23}"></RoundRectangle>
                 </Border.StrokeShape>
                 <Border.Shadow>
-                    <Shadow Offset="1,2" Brush="{OnPlatform Android=Black, iOS=Gray}" Radius="5" Opacity="1"></Shadow>
+                    <Shadow Offset="1,2" Brush="{OnPlatform Android=Gray, iOS=Gray}" Radius="5" Opacity="1"></Shadow>
                 </Border.Shadow>
                 <Border.Triggers>
                     <DataTrigger TargetType="Border" Binding="{Binding EmployeePermission.UserRole}" Value="1">

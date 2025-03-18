@@ -257,6 +257,7 @@
                                             VerticalTextAlignment="Center"></Label>
                                 </StackLayout>
 
+
                                 <StackLayout Orientation="Horizontal" Spacing="10" Padding="10,0,0,0">
                                     <Image>
                                         <Image.Source>
@@ -279,74 +280,80 @@
                                             </DataTrigger>
                                         </Image.Triggers>
                                     </Image>
-                                    <Label Text="{Binding BranchName}" TextColor="#333" FontAttributes="Italic" VerticalTextAlignment="Center" FontSize="14"></Label>
+                                    <Grid HorizontalOptions="FillAndExpand">
 
-                                    <StackLayout x:Name="stkBaseButton" IsVisible="False" Orientation="Horizontal" Spacing="10" HorizontalOptions="EndAndExpand">
-                                        <Button Text="CheckIn" 
-                                             FontSize="11" 
-                                             WidthRequest="{OnPlatform iOS=70}"
-                                             TextTransform="None"
-                                             FontAttributes="Bold"
-                                             CornerRadius="{OnPlatform Android=25,iOS=18}"                  
-                                             HeightRequest="35" 
-                                             TextColor="White"
-                                             BorderColor="#b66dff"
-                                             BorderWidth="1"
-                                             BackgroundColor="#b66dff" 
-                                             HorizontalOptions="Start"
-                                             Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TimeSheetViewModel}}, Path=SelectedTimeInCommand}" CommandParameter="{Binding}">
-                                            <!--<Button.Triggers>
-                                             <DataTrigger TargetType="Button" Binding="{Binding MytimeSheet}" Value="2">
-                                                 <Setter Property="BackgroundColor" Value="#a80724"></Setter>
-                                                 <Setter Property="BorderColor" Value="#a80724"></Setter>
-                                             </DataTrigger>
-                                         </Button.Triggers>-->
-                                        </Button>
+                                        <ScrollView Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalScrollBarVisibility="Never">
+                                            <Label Text="{Binding BranchName}" TextColor="#333" FontAttributes="Italic" FontSize="14"></Label>
+                                        </ScrollView>
+                                    </Grid>
+                                    <Grid>
+                                        <StackLayout x:Name="stkBaseButton" IsVisible="False" Orientation="Horizontal" Spacing="5" HorizontalOptions="EndAndExpand">
+                                            <Button Text="CheckIn" 
+                                                 FontSize="11" 
+                                                 WidthRequest="{OnPlatform iOS=70}"
+                                                 TextTransform="None"
+                                                 FontAttributes="Bold"
+                                                 CornerRadius="{OnPlatform Android=25,iOS=18}"                  
+                                                 HeightRequest="35" 
+                                                 TextColor="White"
+                                                 BorderColor="#b66dff"
+                                                 BorderWidth="1"
+                                                 BackgroundColor="#b66dff" 
+                                                 HorizontalOptions="Start"
+                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TimeSheetViewModel}}, Path=SelectedTimeInCommand}" CommandParameter="{Binding}">
+                                                <!--<Button.Triggers>
+                                                 <DataTrigger TargetType="Button" Binding="{Binding MytimeSheet}" Value="2">
+                                                     <Setter Property="BackgroundColor" Value="#a80724"></Setter>
+                                                     <Setter Property="BorderColor" Value="#a80724"></Setter>
+                                                 </DataTrigger>
+                                             </Button.Triggers>-->
+                                            </Button>
 
-                                        <Button Text="Checkout"
-                                             FontSize="11" 
-                                             WidthRequest="{OnPlatform iOS=70}"
-                                             TextTransform="None"
-                                             FontAttributes="Bold"
-                                             CornerRadius="{OnPlatform Android=25,iOS=18}" 
-                                             HeightRequest="35" 
-                                             TextColor="Black"
-                                             BorderColor="#b66dff"
-                                             BorderWidth="1"
-                                             BackgroundColor="#eedeff" 
-                                             HorizontalOptions="EndAndExpand"
-                                             Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TimeSheetViewModel}}, Path=SelectedTimeOutCommand}" CommandParameter="{Binding}">
-                                            <Button.Triggers>
-                                                <DataTrigger TargetType="Button" Binding="{Binding Id}" Value="0">
-                                                    <Setter Property="IsVisible" Value="False"></Setter>
+                                            <Button Text="Checkout"
+                                                     FontSize="11" 
+                                                     WidthRequest="{OnPlatform iOS=70}"
+                                                     TextTransform="None"
+                                                     FontAttributes="Bold"
+                                                     CornerRadius="{OnPlatform Android=25,iOS=18}" 
+                                                     HeightRequest="35" 
+                                                     TextColor="Black"
+                                                     BorderColor="#b66dff"
+                                                     BorderWidth="1"
+                                                     BackgroundColor="#eedeff" 
+                                                     HorizontalOptions="EndAndExpand"
+                                                     Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TimeSheetViewModel}}, Path=SelectedTimeOutCommand}" CommandParameter="{Binding}">
+                                                <Button.Triggers>
+                                                    <DataTrigger TargetType="Button" Binding="{Binding Id}" Value="0">
+                                                        <Setter Property="IsVisible" Value="False"></Setter>
+                                                    </DataTrigger>
+                                                </Button.Triggers>
+                                            </Button>
+                                            <StackLayout.Triggers>
+                                                <DataTrigger TargetType="StackLayout" Binding="{Binding MytimeSheet}" Value="0">
+                                                    <Setter Property="IsVisible" Value="True"></Setter>
                                                 </DataTrigger>
-                                            </Button.Triggers>
-                                        </Button>
-                                        <StackLayout.Triggers>
-                                            <DataTrigger TargetType="StackLayout" Binding="{Binding MytimeSheet}" Value="0">
-                                                <Setter Property="IsVisible" Value="True"></Setter>
-                                            </DataTrigger>
-                                        </StackLayout.Triggers>
-                                        <!--<StackLayout.Triggers>
-                                         <DataTrigger TargetType="StackLayout" Binding="{Binding Source={x:Reference stkMyButton},Path=IsVisible}" Value="True">
-                                             <Setter Property="IsVisible" Value="False"></Setter>
-                                         </DataTrigger>
-                                     </StackLayout.Triggers>-->
-                                    </StackLayout>
+                                            </StackLayout.Triggers>
+                                            <!--<StackLayout.Triggers>
+                                                 <DataTrigger TargetType="StackLayout" Binding="{Binding Source={x:Reference stkMyButton},Path=IsVisible}" Value="True">
+                                                     <Setter Property="IsVisible" Value="False"></Setter>
+                                                 </DataTrigger>
+                                             </StackLayout.Triggers>-->
+                                        </StackLayout>
+                                    </Grid>
 
-                                    <StackLayout x:Name="stkMyButton" IsVisible="False" Orientation="Horizontal" Spacing="10" HorizontalOptions="EndAndExpand">
+                                    <StackLayout x:Name="stkMyButton" IsVisible="False" Orientation="Horizontal" Spacing="5" HorizontalOptions="EndAndExpand">
                                         <Button Text="CheckIn" 
-                                             FontSize="11" IsVisible="False"
-                                             WidthRequest="{OnPlatform iOS=70}"
-                                             TextTransform="None"
-                                             FontAttributes="Bold"
-                                             CornerRadius="{OnPlatform Android=25,iOS=18}"                  
-                                             HeightRequest="35" 
-                                             TextColor="White"
-                                             BorderColor="#8f1fff"
-                                             BorderWidth="1"
-                                             BackgroundColor="#8f1fff" 
-                                             Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TimeSheetViewModel}}, Path=SelectedTimeMyStartCommand}" CommandParameter="{Binding}">
+                                                     FontSize="11" IsVisible="False"
+                                                     WidthRequest="{OnPlatform iOS=70}"
+                                                     TextTransform="None"
+                                                     FontAttributes="Bold"
+                                                     CornerRadius="{OnPlatform Android=25,iOS=18}"                  
+                                                     HeightRequest="35" 
+                                                     TextColor="White"
+                                                     BorderColor="#8f1fff"
+                                                     BorderWidth="1"
+                                                     BackgroundColor="#8f1fff" 
+                                                     Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TimeSheetViewModel}}, Path=SelectedTimeMyStartCommand}" CommandParameter="{Binding}">
 
                                             <Button.Triggers>
                                                 <DataTrigger TargetType="Button" Binding="{Binding ShowEndTimeBtn}" Value="0">
@@ -356,17 +363,17 @@
                                         </Button>
 
                                         <Button Text="CheckOut" 
-                                             FontSize="11" IsVisible="False"
-                                             WidthRequest="{OnPlatform iOS=70}"
-                                             TextTransform="None"
-                                             FontAttributes="Bold"
-                                             CornerRadius="{OnPlatform Android=25,iOS=18}"                  
-                                             HeightRequest="35" 
-                                             TextColor="White"
-                                             BorderColor="#8f1fff"
-                                             BorderWidth="1"
-                                             BackgroundColor="#8f1fff" 
-                                             Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TimeSheetViewModel}}, Path=SelectedTimeMyEndCommand}" CommandParameter="{Binding}">
+                                                     FontSize="11" IsVisible="False"
+                                                     WidthRequest="{OnPlatform iOS=70}"
+                                                     TextTransform="None"
+                                                     FontAttributes="Bold"
+                                                     CornerRadius="{OnPlatform Android=25,iOS=18}"                  
+                                                     HeightRequest="35" 
+                                                     TextColor="White"
+                                                     BorderColor="#8f1fff"
+                                                     BorderWidth="1"
+                                                     BackgroundColor="#8f1fff" 
+                                                     Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TimeSheetViewModel}}, Path=SelectedTimeMyEndCommand}" CommandParameter="{Binding}">
                                             <Button.Triggers>
                                                 <DataTrigger TargetType="Button" Binding="{Binding ShowEndTimeBtn}" Value="1">
                                                     <Setter Property="IsVisible" Value="True"></Setter>
@@ -382,6 +389,8 @@
                                     </StackLayout>
 
                                 </StackLayout>
+
+
 
                             </StackLayout>
                         </ViewCell>
@@ -504,7 +513,8 @@
 
 
 
-        <!--No Data--><!--
+        <!--No Data-->
+        <!--
         <StackLayout x:Name="stkNoData" Margin="{OnPlatform Android='0,100,0,200'}" IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <Image Source="noresult.png" Aspect="AspectFill" VerticalOptions="FillAndExpand"></Image>
             <StackLayout.Triggers>

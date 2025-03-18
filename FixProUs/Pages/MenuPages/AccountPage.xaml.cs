@@ -34,7 +34,7 @@ public partial class AccountPage : Controls.CustomsPage
 
     private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
     {
-        await MopupService.Instance.PushAsync(new PopupPages.FullScreenImagePopup(imgAccount.Source));
+        await App.Current!.MainPage!.Navigation.PushAsync(new FullScreenImagePage(imgAccount.Source));
     }
 
     private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)

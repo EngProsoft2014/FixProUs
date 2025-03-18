@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Controls.UserDialogs.Maui;
+using FixPro.Services.Data;
 using FixProUs.Models;
 using Newtonsoft.Json;
 using System;
@@ -70,6 +71,8 @@ namespace FixProUs.ViewModels
 
         Helpers.GenericRepository ORep = new Helpers.GenericRepository();
 
+        GetLocationService _signalRLocation = new GetLocationService();
+
         DataTable employeesTable;
 
         DataMapsModel CurrentTrack { get; set; }
@@ -92,7 +95,7 @@ namespace FixProUs.ViewModels
             LastListmap = new ObservableCollection<DataMapsModel>();
             CurrentTrack = new DataMapsModel();
             GetDataEmployee();
-            new Timer((Object stateInfo) => { GetDataEmployee(); }, new AutoResetEvent(false), 0, 3000);
+            //new Timer((Object stateInfo) => { GetDataEmployee(); }, new AutoResetEvent(false), 0, 3000);
         }
 
         //Employees Working Today Constructor
@@ -193,35 +196,58 @@ namespace FixProUs.ViewModels
                 }
                 else
                 {
-                    string uri = "https://fixpro.engprosoft.net/XMLData/" + OneEmployee.Id + ".xml";
+                    _signalRLocation.OnMessageReceivedLocation += _signalRLocation_OnMessageReceivedLocation;
 
-                    document = XDocument.Load(uri);
+                    //string uri = "https://fixpro.engprosoft.net/XMLData/" + OneEmployee.Id + ".xml";
 
-                    ds.Clear();
-                    ds.ReadXml(new XmlTextReader(new StringReader(document.ToString())));
+                    //document = XDocument.Load(uri);
 
-                    employeesTable = ds.Tables[0];
+                    //ds.Clear();
+                    //ds.ReadXml(new XmlTextReader(new StringReader(document.ToString())));
 
-                    CurrentTrack = (from DataRow dr in employeesTable.Rows
-                                    select new DataMapsModel()
-                                    {
-                                        Id = int.Parse(dr["Tracking_id"].ToString()),
-                                        EmployeeId = int.Parse(dr["EmployeeId"].ToString()),
-                                        Lat = dr["lat"].ToString(),
-                                        Long = dr["log"].ToString(),
-                                        Time = dr["time"].ToString(),
-                                        CreateDate = dr["date"].ToString(),
-                                        MPosition = new Location(double.Parse(dr["lat"].ToString()), double.Parse(dr["log"].ToString())),
-                                    }).FirstOrDefault();
+                    //employeesTable = ds.Tables[0];
 
-                    LastListmap.Clear();
-                    LastListmap.Add(CurrentTrack);
-                    MapsModel = CurrentTrack;
+                    //CurrentTrack = (from DataRow dr in employeesTable.Rows
+                    //                select new DataMapsModel()
+                    //                {
+                    //                    Id = int.Parse(dr["Tracking_id"].ToString()),
+                    //                    EmployeeId = int.Parse(dr["EmployeeId"].ToString()),
+                    //                    Lat = dr["lat"].ToString(),
+                    //                    Long = dr["log"].ToString(),
+                    //                    Time = dr["time"].ToString(),
+                    //                    CreateDate = dr["date"].ToString(),
+                    //                    MPosition = new Location(double.Parse(dr["lat"].ToString()), double.Parse(dr["log"].ToString())),
+                    //                }).FirstOrDefault();
+
+                    //LastListmap.Clear();
+                    //LastListmap.Add(CurrentTrack);
+                    //MapsModel = CurrentTrack;
                 }
             }
             catch (Exception ex)
             {
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
+            }
+        }
+
+        private void _signalRLocation_OnMessageReceivedLocation(DataMapsModel locationData)
+        {
+            if(locationData.EmployeeId ==  OneEmployee.Id)
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    // Update the UI with the latest location
+                    MapsModel = new DataMapsModel
+                    {
+                        Id = locationData.Id,
+                        EmployeeId = locationData.EmployeeId,
+                        Lat = locationData.Lat,
+                        Long = locationData.Long,
+                        Time = locationData.Time,
+                        CreateDate = locationData.CreateDate,
+                        MPosition = new Location(double.Parse(locationData.Lat), double.Parse(locationData.Long))
+                    };
+                });
             }
         }
 

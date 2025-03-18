@@ -2057,9 +2057,9 @@ namespace FixProUs.ViewModels
             IsBusy = true;
             UserDialogs.Instance.ShowLoading();
             var popupView = new SchedulesViewModel(model);
-            var page = new Pages.PopupPages.ScheduleJobDetailsPopup();
+            var page = new Pages.SchedulePages.ScheduleJobDetailsPage();
             page.BindingContext = popupView;
-            await MopupService.Instance.PushAsync(page);
+            await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
             IsBusy = false;
         }
@@ -2321,12 +2321,15 @@ namespace FixProUs.ViewModels
                             if (!string.IsNullOrEmpty(json))
                             {
                                 await App.Current!.MainPage!.DisplayAlert("FixPro", "Succes Add Another Date.", "Ok");
+
+                                await App.Current!.MainPage!.Navigation.PopAsync();
+
                                 var VM = new SchedulesViewModel();
                                 var page = new Pages.SchedulePages.SchedulePage();
                                 page.BindingContext = VM;
                                 await App.Current!.MainPage!.Navigation.PushAsync(page);
                                 App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
-
+                                App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
 
                                 if (model.Id == 0)
                                 {
@@ -2337,7 +2340,7 @@ namespace FixProUs.ViewModels
                                     {
                                         await App.Current!.MainPage!.DisplayAlert("Alert", "Succes for Save Schedule but Faild Send SMS to Customer.", "Ok");
                                     }
-                                }
+                                } 
                             }
                             else
                             {
@@ -2389,10 +2392,12 @@ namespace FixProUs.ViewModels
                         if (json != null)
                         {
                             await App.Current!.MainPage!.DisplayAlert("FixPro", "Save Respon Not Service.", "Ok");
+                            await App.Current!.MainPage!.Navigation.PopAsync();
                             var VM = new SchedulesViewModel(ScheduleDetails.Id, model.Id);
                             var page = new Pages.SchedulePages.ScheduleDetailsPage();
                             page.BindingContext = VM;
                             await App.Current!.MainPage!.Navigation.PushAsync(page);
+                            App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
                             App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
                         }
                         UserDialogs.Instance.HideHud();
@@ -2436,10 +2441,12 @@ namespace FixProUs.ViewModels
                         if (json != null)
                         {
                             await App.Current!.MainPage!.DisplayAlert("FixPro", "Success Re Open Service.", "Ok");
+                            await App.Current!.MainPage!.Navigation.PopAsync();
                             var VM = new SchedulesViewModel(ScheduleDetails.Id, model.Id);
                             var page = new Pages.SchedulePages.ScheduleDetailsPage();
                             page.BindingContext = VM;
                             await App.Current!.MainPage!.Navigation.PushAsync(page);
+                            App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
                             App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
                         }
                         UserDialogs.Instance.HideHud();
@@ -2509,10 +2516,12 @@ namespace FixProUs.ViewModels
                             }
 
                             await App.Current!.MainPage!.DisplayAlert("FixPro", "Succes for End schedule Date.", "Ok");
+                            await App.Current!.MainPage!.Navigation.PopAsync();
                             var VM = new SchedulesViewModel(ScheduleDetails.Id, model.Id);
                             var page = new Pages.SchedulePages.ScheduleDetailsPage();
                             page.BindingContext = VM;
                             await App.Current!.MainPage!.Navigation.PushAsync(page);
+                            App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
                             App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
                         }
                         else
@@ -3608,7 +3617,7 @@ namespace FixProUs.ViewModels
         {
             IsBusy = true;
             UserDialogs.Instance.ShowLoading();
-            await MopupService.Instance.PushAsync(new Pages.PopupPages.FullScreenImagePopup(ImageName));
+            await App.Current!.MainPage!.Navigation.PushAsync(new FullScreenImagePage(ImageName));
             UserDialogs.Instance.HideHud();
             IsBusy = false;
         }
@@ -3618,7 +3627,7 @@ namespace FixProUs.ViewModels
         {
             IsBusy = true;
             UserDialogs.Instance.ShowLoading();
-            await MopupService.Instance.PushAsync(new Pages.PopupPages.FullScreenImagePopup(ImageName));
+            await App.Current!.MainPage!.Navigation.PushAsync(new FullScreenImagePage(ImageName));
             UserDialogs.Instance.HideHud();
             IsBusy = false;
         }

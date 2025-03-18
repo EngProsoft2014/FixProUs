@@ -101,7 +101,6 @@ namespace FixProUs
 
         Helpers.GenericRepository ORep = new Helpers.GenericRepository();
         private SignalRService _signalRService;
-        private SignalRServiceChangeUserData _signalRServiceChangeUserData;
 
         readonly Services.Data.ServicesService _service = new Services.Data.ServicesService();
 
@@ -121,18 +120,29 @@ namespace FixProUs
             // We recommend removing the following code and instead using an In-App Message to prompt for notification permission (See step 5)
             OneSignal.Notifications.RequestPermissionAsync(true);
 
-            if (!string.IsNullOrEmpty(Helpers.Settings.UserNameGet) && !string.IsNullOrEmpty(Helpers.Settings.PasswordGet))
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
+
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
-                MainPage = new NavigationPage(new MainPage());
+                // Connection to internet is Not available
+                MainPage = new NavigationPage(new NoInternetPage());
+                return;
             }
             else
             {
-                MainPage = new NavigationPage(new LoginPage());
+                if (!string.IsNullOrEmpty(Helpers.Settings.UserNameGet) && !string.IsNullOrEmpty(Helpers.Settings.PasswordGet))
+                {
+                    MainPage = new NavigationPage(new MainPage());
+                }
+                else
+                {
+                    MainPage = new NavigationPage(new LoginPage());
+                }
+
             }
 
             //MainPage = new NavigationPage(new Pages.PlansPages.ChoosePlanPage());
-
-            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
+ 
             OneSignal.Notifications.Clicked += Notifications_Clicked;
         }
 
@@ -203,11 +213,6 @@ namespace FixProUs
 
                 await Controls.StartData.GetCom_Main();
             }
-            else
-            {
-                await App.Current!.MainPage!.Navigation.PushAsync(new NoInternetPage(new MainPage()));
-                return;
-            }
         }
 
         protected async override void OnSleep()
@@ -227,7 +232,7 @@ namespace FixProUs
 
             //==============================================
             _signalRService.OnMessageReceived += _signalRService_OnMessageReceivedInSleep;
-            _signalRServiceChangeUserData.OnMessageReceived += _signalRService_OnMessageReceivedChangeUserDataInSleep;
+            _signalRService.OnMessageReceivedUserData += _signalRService_OnMessageReceivedChangeUserDataInSleep;
             //==============================================
 
             Connectivity.ConnectivityChanged -= Connectivity_ConnectivityChanged;
@@ -261,7 +266,7 @@ namespace FixProUs
 
             //==============================================
             _signalRService.OnMessageReceived -= _signalRService_OnMessageReceivedInSleep;
-            _signalRServiceChangeUserData.OnMessageReceived -= _signalRService_OnMessageReceivedChangeUserDataInSleep;
+            _signalRService.OnMessageReceivedUserData -= _signalRService_OnMessageReceivedChangeUserDataInSleep;
             
 
 
@@ -311,16 +316,16 @@ namespace FixProUs
 
         public async Task SignalRNotserviceChangeUserData()
         {
-            _signalRServiceChangeUserData.OnMessageReceived -= _signalRService_OnMessageReceivedChangeUserData;
+            _signalRService.OnMessageReceivedUserData -= _signalRService_OnMessageReceivedChangeUserData;
         }
 
         public async Task SignalRserviceChangeUserData()
         {
-            _signalRServiceChangeUserData = new SignalRServiceChangeUserData();
+            _signalRService = new SignalRService();
 
-            _signalRServiceChangeUserData.OnMessageReceived += _signalRService_OnMessageReceivedChangeUserData;
+            _signalRService.OnMessageReceivedUserData += _signalRService_OnMessageReceivedChangeUserData;
 
-            await _signalRServiceChangeUserData.StartAsync();
+            await _signalRService.StartAsync();
         }
 
         private async void _signalRService_OnMessageReceived(string arg1, string arg2, string arg3, string arg4)

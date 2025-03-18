@@ -8,7 +8,7 @@ using FixProUs.Platforms.Android;
 
 namespace FixProUs
 {
-    [Activity(Theme = "@style/Maui.SplashTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize | ConfigChanges.Density)]
+    [Activity(Theme = "@style/Maui.SplashTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize | ConfigChanges.Density, ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : MauiAppCompatActivity
     {
         Intent serviceIntent;
@@ -29,76 +29,75 @@ namespace FixProUs
 
             int requestPermissions = 1;
 
-            try
-            {
-                if (Connectivity.NetworkAccess != NetworkAccess.Internet)
-                {
-                    ////await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
+            //try
+            //{
+            //    if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+            //    {
+            //        ////await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
 
-                    await App.Current!.MainPage!.Navigation.PushAsync(new NoInternetPage(new MainPage()));
-                    return;
-                }
-                else
-                {
+            //        await App.Current!.MainPage!.Navigation.PushAsync(new NoInternetPage(new MainPage()));
+            //        return;
+            //    }
+            //    else
+            //    {
 
-                    var statusLocation = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+            //        var statusLocation = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
 
-                    if (statusLocation == PermissionStatus.Granted)
-                    {
-                        StartService(new Intent(this, typeof(AndroidLocationService)));
-                        serviceIntent = new Intent(this, typeof(AndroidLocationService));
-                        SetServiceMethods();
-                    }
-                    
+            //        if (statusLocation == PermissionStatus.Granted)
+            //        {
+            //            StartService(new Intent(this, typeof(AndroidLocationService)));
+            //            serviceIntent = new Intent(this, typeof(AndroidLocationService));
+            //            SetServiceMethods();
+            //        }
 
 
-                    //StartService(new Intent(this, typeof(AndroidLocationService)));
-                    //serviceIntent = new Intent(this, typeof(AndroidLocationService));
-                    //SetServiceMethods();
-                }
-            }
-            catch (Exception ex)
-            {
-                await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
-            }
+            //        //StartService(new Intent(this, typeof(AndroidLocationService)));
+            //        //serviceIntent = new Intent(this, typeof(AndroidLocationService));
+            //        //SetServiceMethods();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
+            //}
         }
 
-        void SetServiceMethods()
-        {
-            MessagingCenter.Subscribe<StartServiceMessage>(this, "ServiceStarted", message =>
-            {
-                if (!IsServiceRunning(typeof(AndroidLocationService)))
-                {
-                    if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.O)
-                    {
-                        StartForegroundService(serviceIntent);
-                    }
-                    else
-                    {
-                        StartService(serviceIntent);
-                    }
-                }
-            });
+        //void SetServiceMethods()
+        //{
+        //    MessagingCenter.Subscribe<StartServiceMessage>(this, "ServiceStarted", message =>
+        //    {
+        //        if (!IsServiceRunning(typeof(AndroidLocationService)))
+        //        {
+        //            if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.O)
+        //            {
+        //                StartForegroundService(serviceIntent);
+        //            }
+        //            else
+        //            {
+        //                StartService(serviceIntent);
+        //            }
+        //        }
+        //    });
 
-            MessagingCenter.Subscribe<StopServiceMessage>(this, "ServiceStopped", message =>
-            {
-                if (IsServiceRunning(typeof(AndroidLocationService)))
-                    StopService(serviceIntent);
-            });
-        }
+        //    MessagingCenter.Subscribe<StopServiceMessage>(this, "ServiceStopped", message =>
+        //    {
+        //        if (IsServiceRunning(typeof(AndroidLocationService)))
+        //            StopService(serviceIntent);
+        //    });
+        //}
 
-        private bool IsServiceRunning(System.Type cls)
-        {
-            ActivityManager manager = (ActivityManager)GetSystemService(Context.ActivityService);
-            foreach (var service in manager.GetRunningServices(int.MaxValue))
-            {
-                if (service.Service.ClassName.Equals(Java.Lang.Class.FromType(cls).CanonicalName))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+        //private bool IsServiceRunning(System.Type cls)
+        //{
+        //    ActivityManager manager = (ActivityManager)GetSystemService(Context.ActivityService);
+        //    foreach (var service in manager.GetRunningServices(int.MaxValue))
+        //    {
+        //        if (service.Service.ClassName.Equals(Java.Lang.Class.FromType(cls).CanonicalName))
+        //        {
+        //            return true;
+        //        }
+        //    }
+        //    return false;
+        //}
 
         protected override void OnNewIntent(Intent intent)
         {
@@ -106,7 +105,11 @@ namespace FixProUs
         }
 
 
-
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
 
     }
 }

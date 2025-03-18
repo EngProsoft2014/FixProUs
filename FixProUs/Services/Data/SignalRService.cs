@@ -1,5 +1,6 @@
 ﻿
 //using Microsoft.AspNet.SignalR.Client;
+using FixProUs.Models;
 using Microsoft.AspNetCore.SignalR.Client;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace FixPro.Services.Data
         private readonly HubConnection _hubConnection;
 
         public event Action<string, string, string, string> OnMessageReceived;
+        public event Action<string, string, string, string> OnMessageReceivedUserData;
+        public event Action<DataMapsModel> OnMessageReceivedLocation;
 
         public SignalRService()
         {
@@ -25,6 +28,16 @@ namespace FixPro.Services.Data
             _hubConnection.On<string, string, string, string>("ReceiveMessage", (user, message, userFrom, userTo) =>
             {
                 OnMessageReceived?.Invoke(user, message, userFrom, userTo);
+            });
+
+            _hubConnection.On<string, string, string, string>("ChangeUserData", (user, message, userFrom, userTo) =>
+            {
+                OnMessageReceivedUserData?.Invoke(user, message, userFrom, userTo);
+            });
+
+            _hubConnection.On<DataMapsModel>("ReceiveLocation", (locationData) =>
+            {
+                OnMessageReceivedLocation?.Invoke(locationData);
             });
         }
 
@@ -51,6 +64,31 @@ namespace FixPro.Services.Data
             catch (Exception ex)
             {
                 Console.WriteLine($"SignalR disconnection failed: {ex.Message}");
+            }
+        }
+
+
+        public async Task SendLocation(DataMapsModel locationData)
+        {
+            try
+            {
+                if (_hubConnection.State != HubConnectionState.Connected)
+                {
+                    await StartAsync();
+                }
+
+                if (_hubConnection.State == HubConnectionState.Connected)
+                {
+                    await _hubConnection.InvokeAsync("UpdateLocation", locationData);
+                }
+                else
+                {
+                    Console.WriteLine("Failed to send location: SignalR connection is still not active.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"SendLocation failed: {ex.Message}");
             }
         }
 

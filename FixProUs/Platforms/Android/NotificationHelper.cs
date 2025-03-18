@@ -27,7 +27,7 @@ namespace FixProUs.Platforms.Android
             //var pendingIntent = PendingIntent.GetActivity(context, 0, intent, PendingIntentFlags.UpdateCurrent);
 
             var notificationBuilder = new NotificationCompat.Builder(context, foregroundChannelId)
-                .SetContentTitle("FIXPRO Background Tracking")
+                .SetContentTitle("FIXPROUS Background Tracking")
                 .SetContentText("Your location is being tracked")
                 .SetSmallIcon(Resource.Drawable.alert)
                 .SetOngoing(true)
