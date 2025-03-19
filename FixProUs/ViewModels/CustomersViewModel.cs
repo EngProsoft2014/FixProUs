@@ -1366,7 +1366,7 @@ namespace FixProUs.ViewModels
                     var popupView = new Pages.PopupPages.AddressPupop();
                     popupView.DidClose += async (str) =>
                     {
-
+                        IsBusy = false;
                         CustomerDetails.AddressModel = str;
                         Address = CustomerDetails.Address = str.FullAddress;
                         CustomerDetails.locationlatitude = str.Latitude.ToString();
@@ -1388,7 +1388,7 @@ namespace FixProUs.ViewModels
                         CustomerDetails.Squirefootage = SquareFootage;
 
                         CustomerDetails.YearEstimedValue = (!string.IsNullOrEmpty(oCust.YearEstimedValue) && oCust.YearEstimedValue != "None") ? oCust.YearEstimedValue : "None";
-
+                        IsBusy = true;
                     };
 
                     await MopupService.Instance.PushAsync(popupView);

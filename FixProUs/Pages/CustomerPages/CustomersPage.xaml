@@ -17,7 +17,7 @@
         <!--Toolbar-->
         <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="0">
 
-            <StackLayout Orientation="Horizontal" Spacing="0" Padding="{OnPlatform iOS='15,0,15,5', Android='15,10,15,5'}" VerticalOptions="FillAndExpand" HorizontalOptions="StartAndExpand">
+            <StackLayout Orientation="Horizontal" Spacing="0" Padding="{OnPlatform iOS='15,0,15,5', Android='15,10,15,5'}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
 
                 <Image x:Name="imgBack">
                     <Image.Source>
@@ -30,7 +30,7 @@
 
                 <Label x:Name="lblTitle" Text="Customers" HeightRequest="30"
                         VerticalOptions="FillAndExpand" Style="{StaticResource lblHeaderText}"
-                        HorizontalOptions="EndAndExpand" HorizontalTextAlignment="{OnPlatform Android=Center,iOS=End}" VerticalTextAlignment="Center"/>
+                        HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="{OnPlatform Android=Center,iOS=End}" VerticalTextAlignment="Center"/>
             </StackLayout>
 
             <Label 
@@ -176,13 +176,11 @@
                                Margin="{OnPlatform Android= 30, iOS='30,30,30,50'}"
                                HeightRequest="50"
                                WidthRequest="50">
-                <Label TranslationY="{OnPlatform Android=-8,iOS=-2}"
-                    VerticalOptions="Center"
-                    HorizontalTextAlignment="Center"
-                    VerticalTextAlignment="Center"
-                    Text="+"
-                    TextColor="White"
-                    FontSize="40"></Label>
+                <Image WidthRequest="25">
+                    <Image.Source>
+                        <FontImageSource Glyph="+" Color="White" FontFamily="FontIconSolid"></FontImageSource>
+                    </Image.Source>
+                </Image>
 
                 <Border.Shadow>
                     <Shadow Brush="{OnPlatform Android=Gray, iOS=Gray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>

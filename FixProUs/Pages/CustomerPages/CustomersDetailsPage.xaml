@@ -814,14 +814,12 @@
                                    VerticalOptions ="End"
                                    HeightRequest="50"
                                    WidthRequest="50">
-                            <Label TranslationY="{OnPlatform Android=-8,iOS=-2}"
-                            VerticalOptions="Center"
-                            HorizontalTextAlignment="Center"
-                            VerticalTextAlignment="Center"
-                            Text="+"
-                            TextColor="White"
-                            FontSize="40"></Label>
-                            <Border.StrokeShape>
+                                <Image WidthRequest="25">
+                                    <Image.Source>
+                                        <FontImageSource Glyph="+" Color="White" FontFamily="FontIconSolid"></FontImageSource>
+                                    </Image.Source>
+                                </Image>
+                                <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="{OnPlatform Android=100,iOS=25}"></RoundRectangle>
                             </Border.StrokeShape>
                             <Border.Shadow>
@@ -930,15 +928,13 @@
                                VerticalOptions="End"
                                HeightRequest="50"
                                WidthRequest="50">
-                                                <Label TranslationY="{OnPlatform Android=-8,iOS=-2}"
-                                    VerticalOptions="Center"
-                                    HorizontalTextAlignment="Center"
-                                    VerticalTextAlignment="Center"
-                                    Text="+"
-                                    TextColor="White"
-                                    FontSize="40"></Label>
+                                <Image WidthRequest="25">
+                                    <Image.Source>
+                                        <FontImageSource Glyph="+" Color="White" FontFamily="FontIconSolid"></FontImageSource>
+                                    </Image.Source>
+                                </Image>
 
-                            <Border.StrokeShape>
+                                <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="{OnPlatform Android=100,iOS=25}"></RoundRectangle>
                             </Border.StrokeShape>
                             <Border.Shadow>

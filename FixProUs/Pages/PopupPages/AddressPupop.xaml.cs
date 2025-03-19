@@ -239,6 +239,7 @@ public partial class AddressPupop : Mopups.Pages.PopupPage
 
     private async void Button_Clicked(object sender, EventArgs e)
     {
+        this.IsEnabled = false;
         SuggestionAddressModel Listed = new SuggestionAddressModel();
         Listed.Street = entryStreet.Text;
         Listed.City = entryCity.Text;
@@ -250,6 +251,7 @@ public partial class AddressPupop : Mopups.Pages.PopupPage
         DidClose?.Invoke(Listed);
 
         await MopupService.Instance.PopAsync();
+        this.IsEnabled = true;
     }
 
 }
