@@ -74,8 +74,8 @@
                 </Border>
 
 
-                <StackLayout Orientation="Horizontal" Spacing="10" Margin="0,20,0,20" VerticalOptions="CenterAndExpand">
-                    <Border BackgroundColor="White" Padding="20" WidthRequest="120" HeightRequest="100" HorizontalOptions="StartAndExpand">
+                <StackLayout Orientation="Horizontal" Spacing="20" Margin="0,20,0,20" VerticalOptions="CenterAndExpand">
+                    <Border BackgroundColor="White" Padding="20"  HorizontalOptions="FillAndExpand">
                         <StackLayout Spacing="20" VerticalOptions="CenterAndExpand">
                             <Image>
                                 <Image.Source>
@@ -96,7 +96,7 @@
                         </Border.GestureRecognizers>
                     </Border>
 
-                    <Border BackgroundColor="White" Padding="20" WidthRequest="100" HeightRequest="100" HorizontalOptions="FillAndExpand">
+                    <Border BackgroundColor="White" Padding="20" HorizontalOptions="FillAndExpand">
                         <StackLayout Spacing="20" VerticalOptions="CenterAndExpand">
                             <Image>
                                 <Image.Source>
@@ -121,10 +121,9 @@
                 <StackLayout VerticalOptions="EndAndExpand">
                     <Line X1="400" HorizontalOptions="CenterAndExpand" BackgroundColor="LightGray" Margin="0,0,0,10"></Line>
 
-                    <Button Text="Later"
+                    <Button Text="Later" HorizontalOptions="FillAndExpand"
                             TextTransform="None" 
                             CornerRadius="10"
-                            HorizontalOptions="Center"
                             BackgroundColor="White" 
                             FontAttributes="Bold"
                             FontSize="13"
