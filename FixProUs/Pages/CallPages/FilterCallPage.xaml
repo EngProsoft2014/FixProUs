@@ -186,7 +186,7 @@
                      FontAttributes="Bold"
                      TextTransform="None"
                      TextColor="White"
-                     WidthRequest="120"
+                     HorizontalOptions="FillAndExpand"
                      CornerRadius="20"
                      BackgroundColor="#8f1fff"
                      Command="{Binding ApplyFilterCallsCommand}" CommandParameter="{Binding OneFilter}"></Button>
