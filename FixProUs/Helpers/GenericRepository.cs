@@ -54,7 +54,6 @@ namespace FixProUs.Helpers
 
         public async Task<T> GetAsync<T>(string uri, string authToken = "")
         {
-
             try
             {
                 HttpClient httpClient = CreateHttpClient(Utility.ServerUrl + uri);

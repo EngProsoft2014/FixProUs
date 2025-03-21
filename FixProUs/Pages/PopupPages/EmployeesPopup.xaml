@@ -14,9 +14,8 @@
                        HorizontalOptions="CenterAndExpand"
                        VerticalOptions="CenterAndExpand">
         <!--Branches-->
-        <StackLayout Padding="10" VerticalOptions="Start">
+        <StackLayout Padding="10" VerticalOptions="FillAndExpand">
 
-            <StackLayout x:Name="stkBranches">
 
                 <Border 
                                VerticalOptions="FillAndExpand"    
@@ -59,7 +58,7 @@
                         </ListView>
 
                         <Button Text="Apply" 
-                                HorizontalOptions="CenterAndExpand"
+                                HorizontalOptions="FillAndExpand"
                                 WidthRequest="{OnPlatform iOS=100}"
                                 TextColor="White" Margin="0,20,0,0"
                                 BackgroundColor="#b66dff"
@@ -78,7 +77,6 @@
                         <vm:SchedulesViewModel></vm:SchedulesViewModel>
                     </ActivityIndicator.BindingContext>
                 </ActivityIndicator>-->
-            </StackLayout>
         </StackLayout>
 
 

@@ -860,19 +860,17 @@
 
             </ScrollView>
 
-            <StackLayout VerticalOptions="EndAndExpand" BackgroundColor="White" Margin="0,10,0,0" Padding="{OnPlatform Android='20,10,20,10', iOS='20,10,20,50'}" HorizontalOptions="FillAndExpand">
-                <StackLayout Orientation="Horizontal" Spacing="20" HeightRequest="40" HorizontalOptions="CenterAndExpand">
-                    <Button Text="Submit"
+            <StackLayout VerticalOptions="EndAndExpand" BackgroundColor="White" Margin="0,0,0,0" Padding="{OnPlatform Android='20,10,20,10', iOS='20,10,20,50'}" HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal" Spacing="20" HeightRequest="40" HorizontalOptions="FillAndExpand">
+                    <Button Text="Submit" HorizontalOptions="FillAndExpand"
                              FontSize="12"
                              FontAttributes="Bold"
                              TextTransform="None"
                              TextColor="White"
-                             WidthRequest="80"
                              CornerRadius="10"
                              BackgroundColor="#b66dff"
                              Command="{Binding SelectedSubmitScheduleCommand}" CommandParameter="{Binding ScheduleDetails}"></Button>
-                    <Button Text="Close" 
-                             WidthRequest="80"
+                    <Button Text="Close" HorizontalOptions="FillAndExpand"
                              FontSize="12" 
                              TextColor="#b66dff"
                              BorderColor="#b66dff"
