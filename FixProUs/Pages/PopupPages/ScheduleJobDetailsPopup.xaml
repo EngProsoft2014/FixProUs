@@ -6,7 +6,8 @@
                   xmlns:mopupsanim="clr-namespace:Mopups.Animations;assembly=Mopups"
                   xmlns:combobox="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
                   xmlns:vm="clr-namespace:FixProUs.ViewModels"
-                  BackgroundColor="#80000000">
+                  BackgroundColor="#80000000"
+                  IsEnabled="{Binding IsEnable}">
 
     <mopups:PopupPage.BindingContext>
         <vm:SchedulesViewModel></vm:SchedulesViewModel>

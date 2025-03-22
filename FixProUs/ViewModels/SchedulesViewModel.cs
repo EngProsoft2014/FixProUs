@@ -587,7 +587,12 @@ namespace FixProUs.ViewModels
         {
             if (!string.IsNullOrEmpty(model.YearEstimedValue))
             {
-                if (DateTime.Now.Year - int.Parse(model.YearEstimedValue) > 1)
+                //if (DateTime.Now.Year - int.Parse(model.YearEstimedValue) > 1)
+                //{
+                //    model = await Controls.StartData.GetAddressDetails(model);
+                //}
+
+                if (int.TryParse(model.YearEstimedValue, out int estimatedYear) && (DateTime.Now.Year - estimatedYear > 1))
                 {
                     model = await Controls.StartData.GetAddressDetails(model);
                 }

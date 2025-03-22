@@ -8,7 +8,8 @@
                       xmlns:vm="clr-namespace:FixProUs.ViewModels"
                       xmlns:ff="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
                       BackgroundColor="White"
-                      x:Name="page">
+                      x:Name="page"
+                      IsEnabled="{Binding IsEnable}">
 
     <ContentPage.BindingContext>
         <vm:SchedulesViewModel></vm:SchedulesViewModel>

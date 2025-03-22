@@ -7,7 +7,8 @@
                     xmlns:vm="clr-namespace:FixProUs.ViewModels"
                     x:Name="page"
                     BackgroundColor="White"
-                     Title="PlanPaymentPage">
+                     Title="PlanPaymentPage"
+                      IsEnabled="{Binding IsEnable}">
 
 
     <ContentPage.BindingContext>

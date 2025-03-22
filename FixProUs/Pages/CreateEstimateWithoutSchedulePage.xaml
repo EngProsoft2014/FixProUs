@@ -8,7 +8,8 @@
                       xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
                       xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
                       BackgroundColor="White"
-                      x:Name="page">
+                      x:Name="page"
+                      IsEnabled="{Binding IsEnable}">
 
 
     <ContentPage.BindingContext>

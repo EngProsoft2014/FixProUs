@@ -5,7 +5,8 @@
                   xmlns:mopups="clr-namespace:Mopups.Pages;assembly=Mopups"
                   xmlns:mopupsanim="clr-namespace:Mopups.Animations;assembly=Mopups"
                   xmlns:vm="clr-namespace:FixProUs.ViewModels"
-                  BackgroundColor="#80000000">
+                  BackgroundColor="#80000000"
+                  IsEnabled="{Binding IsEnable}">
 
 
     <mopups:PopupPage.BindingContext>

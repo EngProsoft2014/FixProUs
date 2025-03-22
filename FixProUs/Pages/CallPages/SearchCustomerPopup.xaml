@@ -6,7 +6,8 @@
                   xmlns:mopupsanim="clr-namespace:Mopups.Animations;assembly=Mopups"
                   xmlns:vm="clr-namespace:FixProUs.ViewModels"
                   BackgroundColor="#FFFFFF"
-                  CloseWhenBackgroundIsClicked="False">
+                  CloseWhenBackgroundIsClicked="False"
+                  IsEnabled="{Binding IsEnable}">
 
     <mopups:PopupPage.Animation>
         <mopupsanim:ScaleAnimation

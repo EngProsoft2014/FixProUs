@@ -5,7 +5,8 @@
                   xmlns:Controls="clr-namespace:FixProUs.Controls"
                   xmlns:vm="clr-namespace:FixProUs.ViewModels"
                   xmlns:local="clr-namespace:FixProUs"
-                  BackgroundColor="#FFFFFF">
+                  BackgroundColor="#FFFFFF"
+                  IsEnabled="{Binding IsEnable}">
 
     <Border BackgroundColor="#FFFFFF" VerticalOptions="FillAndExpand">
         <StackLayout>

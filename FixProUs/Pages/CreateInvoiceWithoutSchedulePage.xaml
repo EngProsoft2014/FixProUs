@@ -7,7 +7,8 @@
                       xmlns:vm="clr-namespace:FixProUs.ViewModels"
                       xmlns:schedule="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
                       BackgroundColor="White"
-                      x:Name="page">
+                      x:Name="page"
+                      IsEnabled="{Binding IsEnable}">
 
     <ContentPage.BindingContext>
         <vm:SchedulesViewModel></vm:SchedulesViewModel>

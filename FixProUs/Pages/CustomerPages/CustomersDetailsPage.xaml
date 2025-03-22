@@ -5,7 +5,8 @@
             xmlns:Controls="clr-namespace:FixProUs.Controls"
             xmlns:Helpers="clr-namespace:FixProUs.Helpers"
             xmlns:vm="clr-namespace:FixProUs.ViewModels"
-                      BackgroundColor="White"
+            BackgroundColor="White"
+            IsEnabled="{Binding IsEnable}"
             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView">
 

@@ -7,7 +7,8 @@
                       xmlns:vm="clr-namespace:FixProUs.ViewModels"
                       xmlns:combobox="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
                       BackgroundColor="White"
-                      x:Name="page">
+                      x:Name="page"
+                      IsEnabled="{Binding IsEnable}">
 
     
     <Controls:CustomsPage.BindingContext>

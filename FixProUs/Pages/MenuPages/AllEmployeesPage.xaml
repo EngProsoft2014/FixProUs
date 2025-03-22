@@ -7,7 +7,8 @@
                       xmlns:vm="clr-namespace:FixProUs.ViewModels"
                       xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
                       Visual="Material"
-                      BackgroundColor="White">
+                      BackgroundColor="White"
+                      IsEnabled="{Binding IsEnable}">
 
     <ContentPage.BindingContext>
         <vm:EmployeesViewModel></vm:EmployeesViewModel>

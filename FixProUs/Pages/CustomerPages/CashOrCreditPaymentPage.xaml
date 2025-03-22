@@ -7,7 +7,8 @@
                       xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
                       xmlns:vm="clr-namespace:FixProUs.ViewModels"
                       BackgroundColor="White"
-                      x:Name="page">
+                      x:Name="page"
+                      IsEnabled="{Binding IsEnable}">
 
     <ContentPage.BindingContext>
         <vm:PaymentsViewModel></vm:PaymentsViewModel>

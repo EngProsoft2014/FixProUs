@@ -6,7 +6,8 @@
                       xmlns:Helpers="clr-namespace:FixProUs.Helpers"
                       xmlns:vm="clr-namespace:FixProUs.ViewModels"
                       x:Name="page"
-                      BackgroundColor="#f8f5fa">
+                      BackgroundColor="#f8f5fa"
+                      IsEnabled="{Binding IsEnable}">
 
 
     <Controls:CustomsPage.BindingContext>

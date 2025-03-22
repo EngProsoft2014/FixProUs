@@ -4,7 +4,8 @@
                                  x:Class="FixProUs.Pages.SchedulePages.ScheduleJobDetailsPage"
                               xmlns:Controls="clr-namespace:FixProUs.Controls"
                               xmlns:combobox="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
-                              xmlns:vm="clr-namespace:FixProUs.ViewModels">
+                              xmlns:vm="clr-namespace:FixProUs.ViewModels"
+                      IsEnabled="{Binding IsEnable}">
 
     <Controls:CustomsPage.BindingContext>
         <vm:SchedulesViewModel></vm:SchedulesViewModel>

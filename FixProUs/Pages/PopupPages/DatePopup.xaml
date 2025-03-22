@@ -6,7 +6,8 @@
                   xmlns:mopupsanim="clr-namespace:Mopups.Animations;assembly=Mopups"
                   xmlns:vm="clr-namespace:FixProUs.ViewModels"
                   xmlns:calendar="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
-                  BackgroundColor="#80000000">
+                  BackgroundColor="#80000000"
+                  IsEnabled="{Binding IsEnable}">
 
     <mopups:PopupPage.Resources>
         <ResourceDictionary>

@@ -8,7 +8,8 @@
                       xmlns:vm="clr-namespace:FixProUs.ViewModels"
                       xmlns:sensors="clr-namespace:Microsoft.Maui.Devices.Sensors;assembly=Microsoft.Maui.Essentials"
                       Visual="Material"
-                      BackgroundColor="White">
+                      BackgroundColor="White"
+                      IsEnabled="{Binding IsEnable}">
 
     <ContentPage.BindingContext>
         <vm:EmployeesViewModel></vm:EmployeesViewModel>
