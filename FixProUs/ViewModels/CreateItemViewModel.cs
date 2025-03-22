@@ -3,15 +3,8 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Controls.UserDialogs.Maui;
 using FixProUs.Models;
-using GoogleApi.Entities.Translate.Common.Enums;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 
 
 namespace FixProUs.ViewModels
@@ -111,7 +104,7 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async void AddNewItemService(ItemsServicesModel item)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
 
             try
@@ -188,7 +181,7 @@ namespace FixProUs.ViewModels
             }
 
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
     }
 }

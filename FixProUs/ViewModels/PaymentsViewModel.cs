@@ -4,25 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using Controls.UserDialogs.Maui;
 using FixProUs.Models;
 using FixProUs.Pages;
-using FixProUs.ViewModels;
-using GoogleApi.Entities.Maps.StreetView.Request.Enums;
-using GoogleApi.Entities.Translate.Common.Enums;
-using Newtonsoft.Json;
 using Stripe;
-using Stripe.Issuing;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
-using System.Diagnostics.Contracts;
-using System.Dynamic;
-using System.Reactive.Concurrency;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
-using System.Windows.Input;
-using Twilio.Jwt.AccessToken;
 
 
 namespace FixProUs.ViewModels
@@ -123,7 +105,7 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async void CashPayNow(InvoiceModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -145,13 +127,13 @@ namespace FixProUs.ViewModels
             {
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async void CreditPayNow(InvoiceModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -177,7 +159,7 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", "Please Complate All informations !!!", "OK");
             }
 
-            IsBusy= false;
+            IsEnable= true;
         }
 
         public async Task InitiolizModel(InvoiceModel model)

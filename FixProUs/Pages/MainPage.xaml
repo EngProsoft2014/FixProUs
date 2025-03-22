@@ -8,7 +8,8 @@
                       xmlns:navigationdrawer="clr-namespace:Syncfusion.Maui.NavigationDrawer;assembly=Syncfusion.Maui.NavigationDrawer"
                       xmlns:ff="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
                       x:Name="page"
-                      BackgroundColor="White">
+                      BackgroundColor="White"
+                      IsEnabled="{Binding IsEnable}">
 
     <Controls:CustomsPage.BindingContext>
         <vm:HomeViewModel></vm:HomeViewModel>

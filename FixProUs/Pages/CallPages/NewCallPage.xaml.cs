@@ -50,10 +50,10 @@ public partial class NewCallPage : Controls.CustomsPage
     private void entryPhone_Unfocused(object sender, FocusEventArgs e)
     {
 
-        ViewModel.IsBusy = true;
+        ViewModel.IsEnable = false;
         var entry = (Entry)sender;
         entry.IsReadOnly = false;
-        ViewModel.IsBusy = false;
+        ViewModel.IsEnable = true;
         _isHandlingFocusPhone = false;
     }
 
@@ -62,7 +62,7 @@ public partial class NewCallPage : Controls.CustomsPage
         if (_isHandlingFocusPhone) return;
         _isHandlingFocusPhone = true;
 
-        ViewModel.IsBusy = false;
+        ViewModel.IsEnable = false;
 
         entryPhone.IsReadOnly = true;
 
@@ -106,7 +106,7 @@ public partial class NewCallPage : Controls.CustomsPage
             throw;
         }
 
-        ViewModel.IsBusy = true;
+        ViewModel.IsEnable = true;
 
         _isHandlingFocusPhone = false;
 
@@ -179,7 +179,7 @@ public partial class NewCallPage : Controls.CustomsPage
     //{
     //    if (e.IsFocused == true)
     //    {
-    //        ViewModel.IsBusy = true;
+    //        ViewModel.IsEnable = false;
     //        var entry = (Entry)sender;
     //        entry.IsEnabled = false;
 
@@ -217,7 +217,7 @@ public partial class NewCallPage : Controls.CustomsPage
     //                    await MopupService.Instance.PushAsync(popupView);
     //                }
 
-    //                ViewModel.IsBusy = false;
+    //                ViewModel.IsEnable = true;
     //            }
     //        }
 
@@ -232,9 +232,9 @@ public partial class NewCallPage : Controls.CustomsPage
 
     //private void entryNameGet_Unfocused(object sender, FocusEventArgs e)
     //{
-    //    ViewModel.IsBusy = true;
+    //    ViewModel.IsEnable = false;
     //    var entry = (Entry)sender;
     //    entry.IsEnabled = true;
-    //    ViewModel.IsBusy = false;
+    //    ViewModel.IsEnable = true;
     //}
 }

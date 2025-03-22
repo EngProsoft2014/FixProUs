@@ -1,28 +1,13 @@
 ﻿
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
-using System.Net;
-using System.Text;
-using System.Windows.Input;
-using Stripe;
-using System.Threading.Tasks;
 using System.Collections.ObjectModel;
-using System.Linq;
-using FixProUs.ViewModels;
 using FixProUs.Services.Data;
 using CommunityToolkit.Mvvm.ComponentModel;
 using FixProUs.Models;
 using FixProUs.Helpers;
 using CommunityToolkit.Mvvm.Input;
 using FixProUs.Controls;
-using Microsoft.Maui.Networking;
 using Controls.UserDialogs.Maui;
 using Mopups.Services;
-using System.Reflection;
-using Microsoft.Maui.Graphics.Platform;
 using SkiaSharp;
 using FixProUs.Pages.MenuPages;
 
@@ -101,7 +86,7 @@ namespace FixProUs.ViewModels
         //Get All Branches
         async Task GetBranches()
         {
-            IsBusy = true;
+            IsEnable = false;
 
             if (Connectivity.Current.NetworkAccess == Microsoft.Maui.Networking.NetworkAccess.Internet)
             {
@@ -119,17 +104,17 @@ namespace FixProUs.ViewModels
                 UserDialogs.Instance.HideHud();
             }
                
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         void SelectBranch(BranchesModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             OneBranches = model;
             Preferences.Default.Set(Settings.BranchId, model.Id.ToString());
             Preferences.Default.Set(Settings.BranchName, model.Name);
-            IsBusy = false;
+            IsEnable = true;
         }
 
         //Pick Photo

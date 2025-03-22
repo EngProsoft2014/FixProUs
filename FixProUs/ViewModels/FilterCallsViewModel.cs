@@ -163,7 +163,7 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async void ApplyFilterCalls(CallModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             model.PhoneNum = model.PhoneNum != null ? model.PhoneNum : "";
             model.ReasonId = OneReason?.Id;
@@ -182,7 +182,7 @@ namespace FixProUs.ViewModels
             CallClose.Invoke(model);
             await App.Current!.MainPage!.Navigation.PopAsync();
 
-            IsBusy = false;
+            IsEnable = true;
         }
     }
 }

@@ -114,29 +114,29 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         void NextDay()
         {
-            IsBusy = true;
+            IsEnable = false;
             dateDF = Controls.StaticMembers.SelectedDate;
             Date = dateDF.AddDays(1).ToString("MM-dd-yyyy") == DateTime.Now.ToString("MM-dd-yyyy") ? "Today" : dateDF.AddDays(1).ToString("MM-dd-yyyy");
             Controls.StaticMembers.SelectedDate = dateDF = dateDF.AddDays(1);
             RefreshLstEmployees();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         void BackDay()
         {
-            IsBusy = true;
+            IsEnable = false;
             dateDF = Controls.StaticMembers.SelectedDate;
             Date = dateDF.AddDays(-1).ToString("MM-dd-yyyy") == DateTime.Now.ToString("MM-dd-yyyy") ? "Today" : dateDF.AddDays(-1).ToString("MM-dd-yyyy");
             Controls.StaticMembers.SelectedDate = dateDF = dateDF.AddDays(-1);
             RefreshLstEmployees();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SelectedDate()
         {
-            IsBusy = true;
+            IsEnable = false;
             var popupView = new Pages.PopupPages.DatePopup();
             popupView.RangeClose += (calendar) =>
             {
@@ -148,13 +148,13 @@ namespace FixProUs.ViewModels
             };
 
             await MopupService.Instance.PushAsync(popupView);
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SelectedTimeIn(CheckInOutModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -189,13 +189,13 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SelectedTimeOut(CheckInOutModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -233,13 +233,13 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SelectedTimeMyStart(CheckInOutModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -282,13 +282,13 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");     
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SelectedTimeMyEnd(CheckInOutModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -334,7 +334,7 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
     }

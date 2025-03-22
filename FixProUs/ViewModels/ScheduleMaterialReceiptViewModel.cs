@@ -73,7 +73,7 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async Task Apply(ScheduleMaterialReceiptModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             if (model != null)
             {
@@ -87,15 +87,15 @@ namespace FixProUs.ViewModels
             }
             await App.Current!.MainPage!.Navigation.PopAsync();
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         void SelectSupplier(CustomersModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             OneSupplier = model;
-            IsBusy = false;
+            IsEnable = true;
         }
 
         //Pick Photo

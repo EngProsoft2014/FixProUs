@@ -106,7 +106,7 @@ public partial class ScheduleDetailsPage : Controls.CustomsPage
     {
         if (ViewModel?.ScheduleDetails?.Id != 0)
         {
-            ViewModel!.IsBusy = true;
+            ViewModel!.IsEnable = false;
 
             try
             {
@@ -144,7 +144,7 @@ public partial class ScheduleDetailsPage : Controls.CustomsPage
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            ViewModel.IsBusy = false;
+            ViewModel.IsEnable = true;
 
         }
     }

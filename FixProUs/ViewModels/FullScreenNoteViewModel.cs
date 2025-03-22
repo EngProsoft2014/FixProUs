@@ -31,12 +31,12 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async void ApplyNote(string note)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             NoteClose.Invoke(note);
            
             await App.Current!.MainPage!.Navigation.PopAsync();
-            IsBusy = false;
+            IsEnable = true;
         }
 
 

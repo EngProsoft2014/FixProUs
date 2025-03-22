@@ -156,7 +156,7 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async Task ApplyItems(ItemsServicesModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             //model.OneItemService = SelectedServiceCateory as ItemsServicesModel;
             if (model.CategoryId != null)
@@ -168,7 +168,7 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Alert", "Please Complete All Fields.", "Ok");
             }
             await App.Current!.MainPage!.Navigation.PopAsync();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
@@ -227,7 +227,7 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async Task CreateNewItem()
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -259,7 +259,7 @@ namespace FixProUs.ViewModels
             {
                 await App.Current!.MainPage!.DisplayAlert("Error", "Failed for Add item !!", "OK");
             }
-            IsBusy = false;
+            IsEnable = true;
         }
     }
 }

@@ -205,13 +205,14 @@ namespace FixProUs.ViewModels
 
         public CustomersViewModel()
         {
-            IsBusy = true;
+            IsEnable = false;
 
             BranchName = Helpers.Settings.BranchNameGet;
             BranchIdVM = int.Parse(Helpers.Settings.BranchIdGet);
             LstCustomers = new ObservableCollection<CustomersModel>();
 
             GetAllCustomers();
+            IsEnable = true;
         }
 
         //Feature Part To Create New Customer
@@ -753,7 +754,7 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async void SelecteNewItems(InvoiceModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -825,25 +826,25 @@ namespace FixProUs.ViewModels
                 //throw;
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         void RemoveItem(InvoiceItemServicesModel item)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             LstItemsInvoice.Remove(item);
             OneInvoice.LstInvoiceItemServices.Remove(item);
             TotalInvoice(OneInvoice);
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async void SelecteNewItemsEstimate(EstimateModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -913,25 +914,25 @@ namespace FixProUs.ViewModels
                 //throw;
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         void RemoveItemEstimate(EstimateItemServicesModel item)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             LstItemsEstimate.Remove(item);
             OneEstimate.LstEstimateItemServices.Remove(item);
             TotalEstimate(OneEstimate);
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async void CreateNewSchedule(CustomersModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
 
             SchedulesViewModel ViewModel;
@@ -942,35 +943,34 @@ namespace FixProUs.ViewModels
                 page.BindingContext = ViewModel;
                 await App.Current!.MainPage!.Navigation.PushAsync(page);
             }
-
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async void SelecteCustomerDetails(CustomersModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             var ViewModel = new CustomersViewModel(model);
             var page = new Pages.CustomerPages.CustomersDetailsPage();
             page.BindingContext = ViewModel;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         public async void SelecteScheduleDetails(SchedulesModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             var ViewModel = new SchedulesViewModel(model.Id, model.ScheduleDateId);
             var page = new Pages.SchedulePages.ScheduleDetailsPage();
             page.BindingContext = ViewModel;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
@@ -992,33 +992,33 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async void SelecteInvoiceDetails(InvoiceModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             var ViewModel = new CustomersViewModel(model, CustomerDetails);
             var page = new Pages.CustomerPages.InvoiceDetailsPage();
             page.BindingContext = ViewModel;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async void SelecteEstimateDetails(EstimateModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             var ViewModel = new CustomersViewModel(model, CustomerDetails);
             var page = new Pages.CustomerPages.EstimateDetailsPage();
             page.BindingContext = ViewModel;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async void SubmitInvoice(InvoiceModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -1095,13 +1095,13 @@ namespace FixProUs.ViewModels
                 //throw;
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async void SubmitEstimate(EstimateModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -1182,13 +1182,13 @@ namespace FixProUs.ViewModels
                 //throw;
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async void GoInvoice(int InvoiceId)
         {
-            IsBusy = true;
+            IsEnable = false;
             await GetOneInvoiceDetails(InvoiceId, null);
             UserDialogs.Instance.ShowLoading();
             var ViewModel = new CustomersViewModel(OneInvoice, CustomerDetails);
@@ -1196,13 +1196,13 @@ namespace FixProUs.ViewModels
             page.BindingContext = ViewModel;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async void ConvertToInvoice(EstimateModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -1308,13 +1308,13 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
                 //throw;
             }
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task CreateNewCustomer()
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             Controls.StaticMembers.WayCreateCust = 2; //From Schedule
             var ViewModel = new CustomersViewModel(true);
@@ -1322,7 +1322,7 @@ namespace FixProUs.ViewModels
             page.BindingContext = ViewModel;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
@@ -1353,7 +1353,7 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async Task SelecteAddress()
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -1366,7 +1366,7 @@ namespace FixProUs.ViewModels
                     var popupView = new Pages.PopupPages.AddressPupop();
                     popupView.DidClose += async (str) =>
                     {
-                        IsBusy = false;
+                        IsEnable = true;
                         CustomerDetails.AddressModel = str;
                         Address = CustomerDetails.Address = str.FullAddress;
                         CustomerDetails.locationlatitude = str.Latitude.ToString();
@@ -1388,7 +1388,7 @@ namespace FixProUs.ViewModels
                         CustomerDetails.Squirefootage = SquareFootage;
 
                         CustomerDetails.YearEstimedValue = (!string.IsNullOrEmpty(oCust.YearEstimedValue) && oCust.YearEstimedValue != "None") ? oCust.YearEstimedValue : "None";
-                        IsBusy = true;
+                        IsEnable = false;
                     };
 
                     await MopupService.Instance.PushAsync(popupView);
@@ -1399,13 +1399,13 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SelectCustToCreateEstimatePage()
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             Controls.StaticMembers.WayAfterChooseCust = 1; //Create Estimate 
             var ViewModel = new SchedulesViewModel(CustomerDetails);
@@ -1413,13 +1413,13 @@ namespace FixProUs.ViewModels
             page.BindingContext = ViewModel;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SelectCustToCreateInvoicePage()
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             Controls.StaticMembers.WayAfterChooseCust = 2; //Create Invoice 
             var ViewModel = new SchedulesViewModel(CustomerDetails);
@@ -1427,13 +1427,13 @@ namespace FixProUs.ViewModels
             page.BindingContext = ViewModel;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task InsertCustomer(CustomersModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -1633,13 +1633,13 @@ namespace FixProUs.ViewModels
                 //throw;
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async void CreditPayment(InvoiceModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             Controls.StaticMembers.PayCashOrCredit = 2;
             var ViewModel = new PaymentsViewModel(model, CustomerDetails);
@@ -1647,13 +1647,13 @@ namespace FixProUs.ViewModels
             page.BindingContext = ViewModel;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async void CashPayment(InvoiceModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             Controls.StaticMembers.PayCashOrCredit = 1;
             var ViewModel = new PaymentsViewModel(model, CustomerDetails);
@@ -1661,13 +1661,13 @@ namespace FixProUs.ViewModels
             page.BindingContext = ViewModel;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async void DeleteEstimate(int EstId)
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -1708,13 +1708,13 @@ namespace FixProUs.ViewModels
                 //throw;
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async void DeleteInvoice(int InvoiceId)
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -1753,13 +1753,13 @@ namespace FixProUs.ViewModels
                 //throw;
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async void OpenEstimateScheduleDates()
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -1821,13 +1821,13 @@ namespace FixProUs.ViewModels
                 //throw;
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async void OpenInvoiceScheduleDates()
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -1890,7 +1890,7 @@ namespace FixProUs.ViewModels
                 //throw;
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
@@ -1954,7 +1954,7 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async void SelectSendEmailInvoice(InvoiceModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
                 await App.Current!.MainPage!.DisplayAlert("Error", "No Internet Avialable !!!", "OK");
@@ -1979,13 +1979,13 @@ namespace FixProUs.ViewModels
 
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async void SelectSendEmailEstimate(EstimateModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
@@ -2011,20 +2011,20 @@ namespace FixProUs.ViewModels
 
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async void UpdateCustomer(CustomersModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             var ViewModel = new CustomersViewModel(model, 2); // update Cust
             var page = new Pages.CustomerPages.CreateNewCustomerPage();
             page.BindingContext = ViewModel;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
     }

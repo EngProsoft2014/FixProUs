@@ -10,11 +10,11 @@ namespace FixProUs.ViewModels
     public partial class BaseViewModel : ObservableObject
     {
         [ObservableProperty]
-        public bool isBusy;
+        public bool isEnable;
 
         public BaseViewModel()
         {
-            IsBusy = true;
+            IsEnable = true;
         }
     }
 }

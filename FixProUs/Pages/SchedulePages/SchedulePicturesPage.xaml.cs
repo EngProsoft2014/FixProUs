@@ -16,7 +16,7 @@ public partial class SchedulePicturesPage : Controls.CustomsPage
     {
         Device.BeginInvokeOnMainThread(async () =>
         {
-            ViewModel.IsBusy = true;
+            ViewModel.IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             var popupView = new SchedulesViewModel(ViewModel.ScheduleDetails.Id, ViewModel.ScheduleDetails.OneScheduleDate.Id);
             var page = new Pages.SchedulePages.NewSchedulePage();
@@ -25,7 +25,7 @@ public partial class SchedulePicturesPage : Controls.CustomsPage
             App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
             App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
             UserDialogs.Instance.HideHud();
-            ViewModel.IsBusy = false;
+            ViewModel.IsEnable = true;
         });
         return true;
     }

@@ -85,7 +85,7 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async Task CreditPayNow(PlansModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -144,7 +144,7 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", "Please complete all the payment fields", "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         public async Task InitiolizModel(PlansModel model)

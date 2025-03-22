@@ -2,27 +2,10 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Controls.UserDialogs.Maui;
-using FixPro.Services.Data;
 using FixProUs.Models;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Data;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Reactive;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using System.Xml;
 using System.Xml.Linq;
-using System.Xml.Serialization;
-
 
 namespace FixProUs.ViewModels
 {
@@ -254,7 +237,7 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async void SelectedEmployeeInMap(EmployeeModel employee)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -278,7 +261,7 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
     }
 }

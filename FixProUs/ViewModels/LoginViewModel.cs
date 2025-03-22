@@ -1,14 +1,4 @@
-﻿
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Windows.Input;
-using Akavache;
+﻿using Akavache;
 using System.Reactive.Linq;
 using FixProUs.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -57,7 +47,7 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async Task ClickLogin(EmployeeModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
@@ -182,7 +172,7 @@ namespace FixProUs.ViewModels
                 UserDialogs.Instance.HideHud();
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
     }

@@ -6,17 +6,7 @@ using FixProUs.Models;
 using FixProUs.Pages;
 using Mopups.Services;
 using Newtonsoft.Json;
-using Stripe;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Reactive.Concurrency;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-
 
 namespace FixProUs.ViewModels
 {
@@ -199,7 +189,7 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async Task SelectCallDetails(CallModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             Controls.StaticMembers.CreateOrDetailsCall = 1; //For Get Reasons and Campaigns
             var ViewModel = new CallsViewModel(model);
@@ -207,13 +197,13 @@ namespace FixProUs.ViewModels
             page.BindingContext = ViewModel;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task CreateNewCall()
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             Controls.StaticMembers.CreateOrDetailsCall = 1; //For Get Reasons and Campaigns
             var ViewModel = new CallsViewModel();
@@ -221,13 +211,13 @@ namespace FixProUs.ViewModels
             page.BindingContext = ViewModel;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task CreateNewCustomer()
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             Controls.StaticMembers.WayCreateCust = 1;
             var ViewModel = new CustomersViewModel(true);
@@ -236,13 +226,13 @@ namespace FixProUs.ViewModels
             await App.Current!.MainPage!.Navigation.PushAsync(page);
             await MopupService.Instance.PopAsync();
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task OpenFilterCalls()
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -281,13 +271,13 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SubmitCall(CallModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -369,13 +359,13 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task DeleteCall(int CallId)
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -407,26 +397,26 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SelectGoJob(CallModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             var ViewModel = new SchedulesViewModel(model.ScheduleId!.Value, model.ScheduleDateId!.Value);
             var page = new Pages.SchedulePages.ScheduleDetailsPage();
             page.BindingContext = ViewModel;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task CreateScheduleFromCall(CustomersModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             UserDialogs.Instance.ShowLoading();
 
@@ -449,13 +439,13 @@ namespace FixProUs.ViewModels
 
             UserDialogs.Instance.HideHud();
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task ResetCalls()
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -478,7 +468,7 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
     }
 }

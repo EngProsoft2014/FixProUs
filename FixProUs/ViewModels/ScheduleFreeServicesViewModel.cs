@@ -73,7 +73,7 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async Task ApplyService(ItemsServicesModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             //model.OneItemService = SelectedServiceCateory as ItemsServicesModel;
             if (model.CategoryId != null)
@@ -86,7 +86,7 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Alert", "Please Complete All Fields.", "Ok");
             }
             
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]

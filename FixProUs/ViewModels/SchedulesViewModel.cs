@@ -1051,7 +1051,7 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async Task SelectedDispatch(SchaduleDateModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 string UserToken = await _service.UserToken();
@@ -1070,13 +1070,13 @@ namespace FixProUs.ViewModels
                     await App.Current!.MainPage!.DisplayAlert("FixPro", "Failed for Dispatch Schedule.", "Ok");
                 }
             }
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task ReturnBackFromScheduleImages(SchedulesModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             var popupView = new SchedulesViewModel(model.Id, model.OneScheduleDate.Id);
             var page = new Pages.SchedulePages.ScheduleDetailsPage();
@@ -1085,13 +1085,13 @@ namespace FixProUs.ViewModels
             App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
             App.Current!.MainPage!.Navigation.RemovePage(App.Current!.MainPage!.Navigation.NavigationStack[App.Current!.MainPage!.Navigation.NavigationStack.Count - 2]);
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SelecteNewItemsEstimate(SchedulesModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -1161,25 +1161,25 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         void RemoveItemEstimate(ScheduleItemsServicesModel item)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             LstItemsEstimate.Remove(item);
 
             TotalEstimate(ScheduleDetails, CustomerDetails);
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SelecteNewItems(SchedulesModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -1279,14 +1279,14 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
 
         [RelayCommand]
         async Task SelecteNewFreeService(SchedulesModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -1367,18 +1367,18 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task MyWay(CustomersModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             var popupView = new OnMyWayViewModel(model);
             var page = new OnMyWayPopup();
             page.BindingContext = popupView;
             await MopupService.Instance.PushAsync(page);
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
@@ -1435,7 +1435,7 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async Task SelecteNewMaterialReceipt(SchedulesModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -1494,13 +1494,13 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task RemoveItem(ScheduleItemsServicesModel item)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
@@ -1535,13 +1535,13 @@ namespace FixProUs.ViewModels
                 UserDialogs.Instance.HideHud();
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task RemoveService(ScheduleItemsServicesModel service)
         {
-            IsBusy = true;
+            IsEnable = false;
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 UserDialogs.Instance.ShowLoading();
@@ -1563,7 +1563,7 @@ namespace FixProUs.ViewModels
                 UserDialogs.Instance.HideHud();
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
@@ -1582,7 +1582,7 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async Task RemoveMaterialReceipt(ScheduleMaterialReceiptModel item)
         {
-            IsBusy = true;
+            IsEnable = false;
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 UserDialogs.Instance.ShowLoading();
@@ -1605,7 +1605,7 @@ namespace FixProUs.ViewModels
                 UserDialogs.Instance.HideHud();
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
@@ -1629,7 +1629,7 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async Task OpenEstimateScheduleDates()
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -1678,13 +1678,13 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task OpenInvoiceScheduleDates()
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -1734,13 +1734,13 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task OpenEmployeesInOneCategory()
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -1795,7 +1795,7 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
@@ -1877,7 +1877,7 @@ namespace FixProUs.ViewModels
         async Task SelectedSubmitSchedule(SchedulesModel model)
         {
 
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -2016,7 +2016,7 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Alert", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         string SendSMS(string Phone, string Msg)
@@ -2054,20 +2054,20 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async Task SelectJobDetails(SchedulesModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             var popupView = new SchedulesViewModel(model);
             var page = new Pages.SchedulePages.ScheduleJobDetailsPage();
             page.BindingContext = popupView;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task OpenImages(SchedulesModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -2091,13 +2091,13 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task CreateScheduleInvoice(SchedulesModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             model.InvoiceOrEstimate = 1; //Invoice
             if (model.InvoiceDTO != null)
@@ -2116,13 +2116,13 @@ namespace FixProUs.ViewModels
             }
 
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task CreateScheduleEstimate(SchedulesModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
 
             if (model.EstimateDTO == null)
@@ -2142,7 +2142,7 @@ namespace FixProUs.ViewModels
             }
 
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
@@ -2163,20 +2163,20 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async Task OpenAddImagesPopup(SchedulesModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             var popupView = new SchedulesViewModel(model);
             var page = new Pages.PopupPages.AddSchedulePhotoPupop();
             page.BindingContext = popupView;
             await MopupService.Instance.PushAsync(page);
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task StartScheduleOutSide(SchedulesModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -2222,13 +2222,13 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task EndScheduleOutSide(SchedulesModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -2276,13 +2276,13 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task AddScheduleDate(SchedulesModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -2360,13 +2360,13 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SaveResponNotServiceScheduleDate(SchaduleDateModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -2413,13 +2413,13 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SaveReOpenScheduleDate(SchaduleDateModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -2462,13 +2462,13 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task DoneScheduleDate(SchaduleDateModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -2543,12 +2543,12 @@ namespace FixProUs.ViewModels
                 //throw;
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         async Task UploadPictures(List<SchedulePicturesModel> LstPhotos)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
@@ -2573,7 +2573,7 @@ namespace FixProUs.ViewModels
                 UserDialogs.Instance.HideHud();
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         //Pick Photo
@@ -2828,7 +2828,7 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async Task DonePictures(SchedulesModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -2872,7 +2872,7 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
@@ -2907,7 +2907,7 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async Task SubmitSchInvoiceOrEstimate(SchedulesModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -3210,14 +3210,14 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
 
         [RelayCommand]
         async Task SubmitCustInvoiceOrEstimate(CustomersModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -3508,14 +3508,14 @@ namespace FixProUs.ViewModels
                 await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
 
         [RelayCommand]
         async Task OpenCustomerDetails(CustomersModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             Controls.StaticMembers.WayCreateCust = 3;//From Schedule can edit customer and return schedule again
             Controls.StaticMembers.ScheduleIdStatic = ScheduleDetails.Id;
@@ -3525,13 +3525,13 @@ namespace FixProUs.ViewModels
             page.BindingContext = popupView;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task CreditPayment(InvoiceModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             Controls.StaticMembers.PayCashOrCredit = 2;
             await MopupService.Instance.PopAsync();
@@ -3540,13 +3540,13 @@ namespace FixProUs.ViewModels
             page.BindingContext = ViewModel;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task CashPayment(InvoiceModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             Controls.StaticMembers.PayCashOrCredit = 1;
             await MopupService.Instance.PopAsync();
@@ -3555,43 +3555,43 @@ namespace FixProUs.ViewModels
             page.BindingContext = ViewModel;
             await App.Current!.MainPage!.Navigation.PushAsync(page);
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task OpenMaterialDetails(ScheduleItemsServicesModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             await App.Current!.MainPage!.Navigation.PushAsync(new Pages.SchedulePages.NewItemsServicesSchedulePage(model));
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task OpenMaterialReceiptDetails(ScheduleMaterialReceiptModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             await App.Current!.MainPage!.Navigation.PushAsync(new Pages.SchedulePages.MaterialReceiptPage(model));
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task OpenServiceDetails(ScheduleItemsServicesModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             await App.Current!.MainPage!.Navigation.PushAsync(new Pages.SchedulePages.ScheduleFreeServicesPage(model));
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task OutScheduleImage(SchedulePicturesModel image)
         {
-            IsBusy = true;
+            IsEnable = false;
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 string UserToken = await _service.UserToken();
@@ -3609,27 +3609,27 @@ namespace FixProUs.ViewModels
                     await toast.Show();
                 }
             }
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task OpenFullScreenSchImage(string ImageName)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             await App.Current!.MainPage!.Navigation.PushAsync(new FullScreenImagePage(ImageName));
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task OpenFullScreenSchImageBeforeInsert(ImageSource ImageName)
         {
-            IsBusy = true;
+            IsEnable = false;
             UserDialogs.Instance.ShowLoading();
             await App.Current!.MainPage!.Navigation.PushAsync(new FullScreenImagePage(ImageName));
             UserDialogs.Instance.HideHud();
-            IsBusy = false;
+            IsEnable = true;
         }
     }
 }

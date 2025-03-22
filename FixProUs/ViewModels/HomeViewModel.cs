@@ -114,7 +114,7 @@ namespace FixProUs.ViewModels
 
         public HomeViewModel()
         {
-            IsBusy = true;
+            IsEnable = false;
 
             if (!string.IsNullOrEmpty(Helpers.Settings.UserRoleGet))
             {
@@ -124,6 +124,8 @@ namespace FixProUs.ViewModels
             Init();
             GetPerrmission();
             GetEmployeesInAccountId();
+
+            IsEnable = true;
         }
 
         //Get Perrmission for User
@@ -183,7 +185,7 @@ namespace FixProUs.ViewModels
         // Get Employees in Account Id
         public async Task GetEmployeesInAccountId(int AccountId)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
@@ -198,13 +200,13 @@ namespace FixProUs.ViewModels
 
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async void SelectedSendNotifications()
         {
-            IsBusy = true;
+            IsEnable = false;
 
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
@@ -273,13 +275,13 @@ namespace FixProUs.ViewModels
                 }
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async void SelectedNotificationsPage()
         {
-            IsBusy = true;
+            IsEnable = false;
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
                 await App.Current!.MainPage!.Navigation.PushAsync(new NoInternetPage(new MainPage()));
@@ -297,13 +299,13 @@ namespace FixProUs.ViewModels
                 UserDialogs.Instance.HideHud();
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async void SelectedCreateNotificationsPage()
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -327,7 +329,7 @@ namespace FixProUs.ViewModels
                 //throw;
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
@@ -348,12 +350,12 @@ namespace FixProUs.ViewModels
                 exit = await App.Current!.MainPage!.DisplayAlert("FixPro", "Do you want to Deactive the notify?", "Yes", "No").ConfigureAwait(false);
                 if (exit)
                 {
-                    IsBusy = true;
+                    IsEnable = false;
                     string UserToken = await _service.UserToken();
                     UserDialogs.Instance.ShowLoading();
                     var json = await ORep.PutAsync("api/Notifications/PutDeactiveNotify", model, UserToken);
                     UserDialogs.Instance.HideHud();
-                    IsBusy = false;
+                    IsEnable = true;
 
                     if (json.Active == false)
                     {
@@ -367,7 +369,7 @@ namespace FixProUs.ViewModels
         [RelayCommand]
         async Task SelectedNotificationDetails(NotificationsModel model)
         {
-            IsBusy = true;
+            IsEnable = false;
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
                 await App.Current!.MainPage!.Navigation.PushAsync(new NoInternetPage(new NotificationsPage()));
@@ -386,13 +388,13 @@ namespace FixProUs.ViewModels
                 UserDialogs.Instance.HideHud();
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SelectedEmployeesWorkingPage(string startTracking)
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -419,13 +421,13 @@ namespace FixProUs.ViewModels
                 //throw;
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SelectedCustomersPage()
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -450,13 +452,13 @@ namespace FixProUs.ViewModels
             }
 
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SelectedCallsPage()
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -480,13 +482,13 @@ namespace FixProUs.ViewModels
                 //throw;
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SelectedSchedulePage()
         {
-            IsBusy = true;
+            IsEnable = false;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -512,13 +514,13 @@ namespace FixProUs.ViewModels
                 //throw;
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SelectedAllEmployeesPage()
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -543,13 +545,13 @@ namespace FixProUs.ViewModels
                 //throw;
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SelectedTimeSheetPage()
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -572,43 +574,43 @@ namespace FixProUs.ViewModels
                 throw;
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SelectedLocationsPage()
         {
-            IsBusy = true;
+            IsEnable = false;
             //UserDialogs.Instance.ShowLoading();
             //await App.Current!.MainPage!.Navigation.PushAsync(new Pages.LocationPage());
             //UserDialogs.Instance.HideHud;
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SelectedReturnSalesPopup()
         {
-            IsBusy = true;
+            IsEnable = false;
             //UserDialogs.Instance.ShowLoading();
             //await PopupNavigation.Instance.PushAsync(new Pages.ReturnSalesPopup());
             //UserDialogs.Instance.HideHud;
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SelectedProductsPage()
         {
-            IsBusy = true;
+            IsEnable = false;
             //UserDialogs.Instance.ShowLoading();
             //await App.Current!.MainPage!.Navigation.PushAsync(new Pages.ProductsPage());
             //UserDialogs.Instance.HideHud;
-            IsBusy = false;
+            IsEnable = true;
         }
 
         [RelayCommand]
         async Task SelectedAccountPage()
         {
-            IsBusy = true;
+            IsEnable = false;
 
             try
             {
@@ -632,7 +634,7 @@ namespace FixProUs.ViewModels
                 //throw;
             }
 
-            IsBusy = false;
+            IsEnable = true;
         }
 
 
