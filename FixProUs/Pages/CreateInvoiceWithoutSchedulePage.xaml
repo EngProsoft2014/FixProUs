@@ -29,7 +29,7 @@
                     </Image.GestureRecognizers>
                 </Image>
 
-                <Label x:Name="lblTitle" HeightRequest="30" Text="Create Invoice" TranslationX="20"
+                <Label x:Name="lblTitle" HeightRequest="30" Text="Create Invoice" 
                        VerticalOptions="FillAndExpand" Style="{StaticResource lblHeaderText}"
                        HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="{OnPlatform Android=Center,iOS=End}" VerticalTextAlignment="Center">
                 </Label>
@@ -153,7 +153,7 @@
                     <StackLayout HorizontalOptions="FillAndExpand" Padding="20,0,20,10">
 
                         <!--Invoice Date-->
-                        <StackLayout HorizontalOptions="Start" WidthRequest="150">
+                        <StackLayout HorizontalOptions="Start" >
                             <Label Text="Invoice Date" FontSize="13" TextColor="#b66dff" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
                             <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}">
                                 <DatePicker 
@@ -461,21 +461,8 @@
             </ScrollView>
 
 
-            <StackLayout x:Name="stkResponButtons" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Padding="{OnPlatform Android=10,iOS='10,10,10,50'}">
-                <StackLayout Orientation="Horizontal" Spacing="35" HorizontalOptions="CenterAndExpand">
-
-                    <Button Text="Cancel"
-                            HeightRequest="40"
-                            BackgroundColor="White"
-                            FontAttributes="Bold"
-                            FontSize="13" 
-                            CornerRadius="10"
-                            WidthRequest="{OnPlatform iOS=100}"
-                            TextTransform="None"
-                            TextColor="Gray"
-                            BorderColor="Gray"
-                            BorderWidth="1"
-                            Clicked="Button_Clicked"></Button>
+            <StackLayout x:Name="stkResponButtons" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Padding="{OnPlatform Android=20,iOS='10,10,10,50'}">
+                <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="FillAndExpand">
 
                     <Button Text="Submit" 
                             HeightRequest="40"
@@ -483,10 +470,23 @@
                             FontAttributes="Bold"
                             FontSize="13" 
                             CornerRadius="10"
-                            WidthRequest="{OnPlatform iOS=100}"
+                            HorizontalOptions="FillAndExpand"
                             TextTransform="None"
                             TextColor="White"
                             Command="{Binding SubmitCustInvoiceOrEstimateCommand}" CommandParameter="{Binding CustomerDetails}"></Button>
+
+                    <Button Text="Cancel"
+        HeightRequest="40"
+        BackgroundColor="White"
+        FontAttributes="Bold"
+        FontSize="13" 
+        CornerRadius="10"
+        HorizontalOptions="FillAndExpand"
+        TextTransform="None"
+        TextColor="Gray"
+        BorderColor="Gray"
+        BorderWidth="1"
+        Clicked="Button_Clicked"></Button>
 
                 </StackLayout>
 

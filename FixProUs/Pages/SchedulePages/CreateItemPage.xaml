@@ -187,7 +187,8 @@
 
                 </StackLayout>
 
-                <StackLayout x:Name="stkBtns" Orientation="Horizontal" Spacing="10" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Padding="{OnPlatform Android=10,iOS='10,10,10,50'}">
+                <StackLayout x:Name="stkBtns" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"
+                             Padding="{OnPlatform Android=10,iOS='10,10,10,50'}" Spacing="20">
 
                     <Button Text="Add"
                             BackgroundColor="#b66dff"
@@ -195,7 +196,7 @@
                             FontSize="15" 
                             CornerRadius="10"
                             HeightRequest="40"
-                            WidthRequest="{OnPlatform Android=80, iOS=100}"
+                            HorizontalOptions="FillAndExpand"
                             TextColor="White" 
                             x:Name="btnOk"
                             Command="{Binding AddNewItemServiceCommand}" CommandParameter="{Binding ItemDetails}">
@@ -205,7 +206,7 @@
                             BackgroundColor="Transparent" 
                             FontAttributes="Bold" 
                             FontSize="15"
-                            WidthRequest="{OnPlatform Android=80, iOS=100}"
+                            HorizontalOptions="FillAndExpand"
                             CornerRadius="10"
                             HeightRequest="40"
                             BorderColor="#b66dff" 

@@ -45,7 +45,7 @@
 
                                 <Label Text="Supplier" FontSize="15" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
 
-                                <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}" HorizontalOptions="FillAndExpand">
+                                <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,0,0', iOS='10,0,0,0'}" HorizontalOptions="FillAndExpand">
 
                                     <Picker x:Name="comxLstSuppliers" ItemsSource="{Binding LstSuppliers}" ItemDisplayBinding="{Binding FullName}" SelectedItem="{Binding OneSupplier,Mode=TwoWay}" SelectedIndexChanged="comxLstSuppliers_SelectedIndexChanged"
                                             Title="Select Supplier"
@@ -179,7 +179,7 @@
 
                     </ActivityIndicator>-->
 
-                    <StackLayout x:Name="stkBtns" Orientation="Horizontal" Spacing="10" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Padding="{OnPlatform Android=10,iOS='10,10,10,80'}">
+                    <StackLayout x:Name="stkBtns" Orientation="Horizontal" Spacing="20" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Padding="{OnPlatform Android=20,iOS='10,10,10,80'}">
 
                         <Button Text="OK"
                                 BackgroundColor="#b66dff"
@@ -187,7 +187,7 @@
                                 FontSize="16" 
                                 CornerRadius="10"
                                 HeightRequest="40"
-                                WidthRequest="{OnPlatform Android=80, iOS=100}"
+                                HorizontalOptions="FillAndExpand"
                                 TextColor="White" 
                                 x:Name="btnOk"
                                 Command="{Binding ApplyCommand}" CommandParameter="{Binding MaterialReceipt}"></Button>
@@ -197,7 +197,7 @@
                                 FontAttributes="Bold" 
                                 FontSize="16"
                                 CornerRadius="10"
-                                WidthRequest="{OnPlatform Android=80, iOS=100}"
+                                HorizontalOptions="FillAndExpand"
                                 HeightRequest="40"
                                 BorderColor="#b66dff" 
                                 BorderWidth="1"
