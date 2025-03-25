@@ -54,7 +54,22 @@ namespace FixProUs.ViewModels
             GetSuppliers();
         }
 
-        public async void GetSuppliers()
+        public ScheduleMaterialReceiptViewModel(ScheduleMaterialReceiptModel model)
+        {
+
+            AccountIdVM = int.Parse(Helpers.Settings.AccountIdGet);
+            MaterialReceipt = new ScheduleMaterialReceiptModel();
+            LstSuppliers = new ObservableCollection<CustomersModel>();
+            OneSupplier = new CustomersModel();
+            ReceiptImage = "photodef.png";
+            Init(model);
+        }
+        async void Init(ScheduleMaterialReceiptModel model)
+        {
+            await GetSuppliers();
+            OneSupplier = LstSuppliers.FirstOrDefault(a => a.Id == model.SupplierId.Value);
+        }
+        public async Task GetSuppliers()
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
@@ -135,6 +150,7 @@ namespace FixProUs.ViewModels
                         data.SaveTo(memoryStream);
 
                         // Display the selected photo in the Image control
+                        ReceiptImage = ImageSource.FromStream(() => new MemoryStream(memoryStream.ToArray()));
                         MaterialReceipt.ReceiptPhoto = Convert.ToBase64String(memoryStream.ToArray()); 
                     }             
                 }
@@ -189,6 +205,7 @@ namespace FixProUs.ViewModels
                             data.SaveTo(memoryStream);
 
                             // Display the image
+                            ReceiptImage = ImageSource.FromStream(() => new MemoryStream(memoryStream.ToArray()));
                             MaterialReceipt.ReceiptPhoto = Convert.ToBase64String(memoryStream.ToArray());
                         }
                     }

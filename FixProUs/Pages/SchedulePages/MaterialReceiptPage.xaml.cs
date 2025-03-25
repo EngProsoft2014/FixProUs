@@ -14,18 +14,18 @@ public partial class MaterialReceiptPage : Controls.CustomsPage
         InitializeComponent();
     }
 
-    public MaterialReceiptPage(ScheduleMaterialReceiptModel model)
+    public MaterialReceiptPage(ScheduleMaterialReceiptModel model, ScheduleMaterialReceiptViewModel viewModel)
     {
         InitializeComponent();
-
-        ViewModel.OneSupplier.Id = model.SupplierId.Value;
-        ViewModel.OneSupplier.FirstName = model.SupplierName;
+        this.BindingContext = viewModel;
+        //ViewModel.OneSupplier.Id = ;
+        //ViewModel.OneSupplier.FirstName = model.SupplierName;
 
         //comxLstSuppliers.Text = model.SupplierName;
         comxLstSuppliers.SelectedItem = ViewModel.OneSupplier;
         entryCost.Text = model.Cost.ToString();
         edtNotes.Text = model.Notes;
-        imgReceipt.Source = model.ReceiptPhotoView;
+        imgReceipt.Source = ImageSource.FromUri(new Uri(model.ReceiptPhotoView));
 
         comxLstSuppliers.IsEnabled = false;
         entryCost.IsReadOnly = true;

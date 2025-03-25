@@ -73,6 +73,7 @@
                                          FontSize="15"
                                          TextColor="#333"
                                          Keyboard="Numeric"
+                                         Placeholder="Enter Price"
                                          HorizontalOptions="FillAndExpand">
                                     </Entry>
 

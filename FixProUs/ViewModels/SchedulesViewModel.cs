@@ -3559,7 +3559,7 @@ namespace FixProUs.ViewModels
         {
             IsEnable = false;
             UserDialogs.Instance.ShowLoading();
-            await App.Current!.MainPage!.Navigation.PushAsync(new Pages.SchedulePages.MaterialReceiptPage(model));
+            await App.Current!.MainPage!.Navigation.PushAsync(new Pages.SchedulePages.MaterialReceiptPage(model,new ScheduleMaterialReceiptViewModel(model)));
             UserDialogs.Instance.HideHud();
             IsEnable = true;
         }
