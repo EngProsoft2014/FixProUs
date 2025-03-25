@@ -52,9 +52,10 @@
             </StackLayout>
         </StackLayout>
 
-        <StackLayout>
-            <StackLayout>
-                <CollectionView x:Name="LstMassages" ItemsSource="{Binding Messages}" Margin="10,0,10,0" HorizontalOptions="CenterAndExpand">
+        <StackLayout VerticalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="FillAndExpand">
+                <CollectionView x:Name="LstMassages" ItemsSource="{Binding Messages}" Margin="10,0,10,0" HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="FillAndExpand">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout Orientation="Horizontal" Padding="10" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand">

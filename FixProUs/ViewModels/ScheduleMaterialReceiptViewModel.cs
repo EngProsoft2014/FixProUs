@@ -43,6 +43,7 @@ namespace FixProUs.ViewModels
 
         public ScheduleMaterialReceiptViewModel()
         {
+
             AccountIdVM = int.Parse(Helpers.Settings.AccountIdGet);
             MaterialReceipt = new ScheduleMaterialReceiptModel();
             LstSuppliers = new ObservableCollection<CustomersModel>();
