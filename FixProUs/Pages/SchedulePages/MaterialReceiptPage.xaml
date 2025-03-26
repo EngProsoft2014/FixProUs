@@ -48,7 +48,7 @@
                                 <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,0,0', iOS='10,0,0,0'}" HorizontalOptions="FillAndExpand">
 
                                     <Picker x:Name="comxLstSuppliers" ItemsSource="{Binding LstSuppliers}" ItemDisplayBinding="{Binding FullName}" SelectedItem="{Binding OneSupplier,Mode=TwoWay}" SelectedIndexChanged="comxLstSuppliers_SelectedIndexChanged"
-                                            Title="Select Supplier"
+                                            Title="Select Supplier" TitleColor="Gray" TextColor="#333"
                                             FontSize="12"
                                             HorizontalOptions="FillAndExpand">
                                     </Picker>

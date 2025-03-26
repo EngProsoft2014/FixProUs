@@ -124,7 +124,7 @@
                                         </StackLayout>
 
                                         <StackLayout Orientation="Horizontal" Spacing="10" Padding="10,0,0,0">
-                                            <ScrollView Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                                            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
                                                 <StackLayout Orientation="Horizontal" >
                                                     <Image>
                                                         <Image.Source>

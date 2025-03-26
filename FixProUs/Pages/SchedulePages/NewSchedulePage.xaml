@@ -410,7 +410,7 @@
 
                             <Border BackgroundColor="White" Padding="{OnPlatform Android='10,0,10,0', iOS='10,5,10,5'}">
                                 <Picker ItemsSource="{Binding LstPriority}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding OnePriorityModel,Mode=TwoWay}"
-                                  Title="Priority" 
+                                  Title="Priority" TitleColor="Gray"
                                   FontSize="12" TextColor="#333"
                                   HorizontalOptions="FillAndExpand">
                                 </Picker>
@@ -570,7 +570,7 @@
                                     </combobox:SfComboBox>-->
                                     <Picker ItemsSource="{Binding LstServices}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedService,Mode=TwoWay}"
                                             TextColor="Black"          
-                                            Title="Service"
+                                            Title="Service" TitleColor="Gray"
                                             FontSize="14"
                                             HorizontalOptions="FillAndExpand"
                                             VerticalTextAlignment="Center">
@@ -625,7 +625,7 @@
 
                                     <Picker ItemsSource="{Binding LstEmpCategory}" ItemDisplayBinding="{Binding CategoryName}" SelectedItem="{Binding SelectedCateory,Mode=TwoWay}" SelectedIndexChanged="Picker_SelectedIndexChanged"
                                             TextColor="Black"          
-                                            Title="Department"
+                                            Title="Department" TitleColor="Gray"
                                             FontSize="14"
                                             HorizontalOptions="FillAndExpand"
                                             VerticalTextAlignment="Center">

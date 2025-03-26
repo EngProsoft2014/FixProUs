@@ -24,15 +24,15 @@
 
 
         <StackLayout Orientation="Horizontal" Margin="{OnPlatform Android='20,15',iOS='20,0,20,10'}">
-        <Image VerticalOptions="CenterAndExpand">
-            <Image.Source>
-                <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="Gray" Size="25"></FontImageSource>
-            </Image.Source>
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
-            </Image.GestureRecognizers>
-        </Image>
-        <Label FontAutoScalingEnabled="False" FontSize="16" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" 
+            <Image VerticalOptions="CenterAndExpand">
+                <Image.Source>
+                    <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="Gray" Size="25"></FontImageSource>
+                </Image.Source>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label FontAutoScalingEnabled="False" FontSize="16" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" 
                 TextColor="Gray" VerticalOptions="CenterAndExpand">
                 <Label.Text>
                     <MultiBinding StringFormat="{}{0} {1}">
@@ -40,80 +40,80 @@
                         <Binding Path="CustomerDetails.LastName" />
                     </MultiBinding>
                 </Label.Text>
-        </Label>
-    </StackLayout>
+            </Label>
+        </StackLayout>
 
         <tabView:SfTabView IndicatorBackground="#9b5ff5" VerticalOptions="FillAndExpand" FlowDirection="LeftToRight" TabBarHeight="65">
-        <tabView:SfTabView.Items>
-            <!--Informations-->
-            <tabView:SfTabItem Header="Informations" TextColor="Black" FontSize="14" 
+            <tabView:SfTabView.Items>
+                <!--Informations-->
+                <tabView:SfTabItem Header="Informations" TextColor="Black" FontSize="14" 
                            FontFamily="Almarai-Regular" BackgroundColor="#f7f5fa">
-                <tabView:SfTabItem.ImageSource>
+                    <tabView:SfTabItem.ImageSource>
                         <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="Gray"></FontImageSource>
-                </tabView:SfTabItem.ImageSource>
-                <tabView:SfTabItem.Content>
-                    <ScrollView Padding="0,10,0,30" VerticalOptions="FillAndExpand">
-                        <StackLayout>
-                            <StackLayout Orientation="Horizontal" Margin="0,10,20,20">
-                                <Border BackgroundColor="White" HorizontalOptions="EndAndExpand" Padding="25,15,25,15">
-                                    <StackLayout>
-                                        <Image Source="avatar.png"
+                    </tabView:SfTabItem.ImageSource>
+                    <tabView:SfTabItem.Content>
+                        <ScrollView Padding="0,10,0,30" VerticalOptions="FillAndExpand">
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal" Margin="0,10,20,20">
+                                    <Border BackgroundColor="White" HorizontalOptions="EndAndExpand" Padding="25,15,25,15">
+                                        <StackLayout>
+                                            <Image Source="avatar.png"
                                                  Aspect="Fill" 
                                                  HeightRequest="100" 
                                                  WidthRequest="100"></Image>
-                                        <StackLayout HorizontalOptions="Center" Spacing="2">
+                                            <StackLayout HorizontalOptions="Center" Spacing="2">
 
-                                            <Label 
+                                                <Label 
                                                  FontAttributes="Bold" 
                                                  FontSize="14"
                                                  HorizontalTextAlignment="Center"
                                                  TextColor="#8f1fff">
-                                                <Label.Text>
-                                                    <MultiBinding StringFormat="{}{0} {1}">
-                                                        <Binding Path="CustomerDetails.FirstName" />
-                                                        <Binding Path="CustomerDetails.LastName" />
-                                                    </MultiBinding>
-                                                </Label.Text>
-                                            </Label>
+                                                    <Label.Text>
+                                                        <MultiBinding StringFormat="{}{0} {1}">
+                                                            <Binding Path="CustomerDetails.FirstName" />
+                                                            <Binding Path="CustomerDetails.LastName" />
+                                                        </MultiBinding>
+                                                    </Label.Text>
+                                                </Label>
 
-                                            <Label Text="{Binding CustomerDetails.CustomerCategory.CategoryName}"
+                                                <Label Text="{Binding CustomerDetails.CustomerCategory.CategoryName}"
                                                  FontSize="13"
                                                  HorizontalTextAlignment="Center"
                                                  TextColor="Black"></Label>
 
-                                            <Label Text="{Binding CustomerDetails.Email}"
+                                                <Label Text="{Binding CustomerDetails.Email}"
                                                      FontSize="10"
                                                      HorizontalTextAlignment="Center"
                                                      TextColor="Black"></Label>
 
-                                            <Label Text="{Binding Discount,StringFormat='Discount: %{0}'}"
+                                                <Label Text="{Binding Discount,StringFormat='Discount: %{0}'}"
                                                      FontSize="10"
                                                      HorizontalTextAlignment="Center"
                                                      TextColor="Black">
-                                                <Label.Triggers>
-                                                    <DataTrigger TargetType="Label" Binding="{Binding Discount}" Value="0">
-                                                        <Setter Property="IsVisible" Value="False"></Setter>
-                                                    </DataTrigger>
-                                                </Label.Triggers>
-                                            </Label>
+                                                    <Label.Triggers>
+                                                        <DataTrigger TargetType="Label" Binding="{Binding Discount}" Value="0">
+                                                            <Setter Property="IsVisible" Value="False"></Setter>
+                                                        </DataTrigger>
+                                                    </Label.Triggers>
+                                                </Label>
 
+                                            </StackLayout>
                                         </StackLayout>
-                                    </StackLayout>
 
-                                    <Border.Shadow>
-                                        <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                    </Border.Shadow>
-                                    <Border.StrokeShape>
-                                        <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
-                                    </Border.StrokeShape>
-                                    <Border.Triggers>
-                                        <DataTrigger TargetType="Border" Binding="{Binding Source={x:Reference btnEdit}, Path=IsVisible}" Value="False">
-                                            <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
-                                        </DataTrigger>
-                                    </Border.Triggers>
-                                </Border>
+                                        <Border.Shadow>
+                                            <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                        </Border.Shadow>
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                        </Border.StrokeShape>
+                                        <Border.Triggers>
+                                            <DataTrigger TargetType="Border" Binding="{Binding Source={x:Reference btnEdit}, Path=IsVisible}" Value="False">
+                                                <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+                                            </DataTrigger>
+                                        </Border.Triggers>
+                                    </Border>
 
-                                <Button Text="Edit" IsVisible="False" x:Name="btnEdit"
+                                    <Button Text="Edit" IsVisible="False" x:Name="btnEdit"
                                           HorizontalOptions="End"
                                           Padding="0,2,0,2"
                                           Margin="0,0,10,0" 
@@ -128,141 +128,115 @@
                                           HeightRequest="35"
                                           Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CustomersViewModel}}, Path=UpdateCustomerCommand}"
                                           CommandParameter="{Binding CustomerDetails}">
-                                    <Button.Triggers>
-                                        <DataTrigger TargetType="Button" Binding="{Binding EmployeePermission.ActiveEditCustomer}" Value="True">
-                                            <Setter Property="IsVisible" Value="True"></Setter>
-                                        </DataTrigger>
-                                    </Button.Triggers>
-                                </Button>
-                            </StackLayout>
+                                        <Button.Triggers>
+                                            <DataTrigger TargetType="Button" Binding="{Binding EmployeePermission.ActiveEditCustomer}" Value="True">
+                                                <Setter Property="IsVisible" Value="True"></Setter>
+                                            </DataTrigger>
+                                        </Button.Triggers>
+                                    </Button>
+                                </StackLayout>
 
-                            <StackLayout>
-                                <Label Text="Contact" TextColor="#b66dff" FontAttributes="Bold" HorizontalOptions="StartAndExpand" Padding="20,0,20,5"></Label>
+                                <StackLayout>
+                                    <Label Text="Contact" TextColor="#b66dff" FontAttributes="Bold" HorizontalOptions="StartAndExpand" Padding="20,0,20,5"></Label>
 
-                                <Border BackgroundColor="White" HorizontalOptions="FillAndExpand" Margin="20,0,20,20" Padding="20,10,20,10">
-                                    <Grid RowSpacing="10" Padding="5,10,5,10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="1*"></RowDefinition>
-                                            <RowDefinition Height="1*"></RowDefinition>
-                                            <RowDefinition Height="1*"></RowDefinition>
-                                            <RowDefinition Height="1*"></RowDefinition>
-                                            <RowDefinition Height="1*"></RowDefinition>
-                                            <RowDefinition Height="1*"></RowDefinition>
-                                        </Grid.RowDefinitions>
+                                    <Border BackgroundColor="White" HorizontalOptions="FillAndExpand" Margin="20,0,20,20" Padding="20,10,20,10">
+                                        <Grid RowSpacing="10" Padding="5,10,5,10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="1*"></RowDefinition>
+                                                <RowDefinition Height="1*"></RowDefinition>
+                                                <RowDefinition Height="1*"></RowDefinition>
+                                                <RowDefinition Height="1*"></RowDefinition>
+                                                <RowDefinition Height="1*"></RowDefinition>
+                                                <RowDefinition Height="1*"></RowDefinition>
+                                            </Grid.RowDefinitions>
 
-                                        <StackLayout HorizontalOptions="FillAndExpand">
-                                            <Label Text="Phone" TextColor="Black" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
-                                            <Border BackgroundColor="White" Padding="5,0,5,0" HorizontalOptions="FillAndExpand">
-                                                <StackLayout HorizontalOptions="FillAndExpand" Margin="5,12,5,12">
-                                                    <Label 
+                                            <StackLayout HorizontalOptions="FillAndExpand">
+                                                <Label Text="Phone" TextColor="Black" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
+                                                <Border BackgroundColor="White" Padding="5,0,5,0" HorizontalOptions="FillAndExpand">
+                                                    <StackLayout HorizontalOptions="FillAndExpand" Margin="5,12,5,12">
+                                                        <Label 
                                          Text="{Binding CustomerDetails.Phone1}" 
                                          TextColor="#8f1fff"
                                          FontSize="12"
                                          HorizontalOptions="Start"
                                          VerticalTextAlignment="Center">
-                                                    </Label>
+                                                        </Label>
 
-                                                </StackLayout>
+                                                    </StackLayout>
 
-                                                <Border.Shadow>
-                                                    <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                                </Border.Shadow>
-                                                <Border.StrokeShape>
-                                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
-                                                </Border.StrokeShape>
-                                            </Border>
-                                        </StackLayout>
+                                                    <Border.Shadow>
+                                                        <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                                    </Border.Shadow>
+                                                    <Border.StrokeShape>
+                                                        <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                                    </Border.StrokeShape>
+                                                </Border>
+                                            </StackLayout>
 
-                                        <StackLayout Grid.Row="1" HorizontalOptions="FillAndExpand">
-                                            <Label Text="Email" TextColor="Black" FontSize="12" HorizontalOptions="StartAndExpand"></Label>
-                                            <Border BackgroundColor="White" Padding="5,0,5,0" HorizontalOptions="FillAndExpand">
-                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
-                                                    <Label 
+                                            <StackLayout Grid.Row="1" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Email" TextColor="Black" FontSize="12" HorizontalOptions="StartAndExpand"></Label>
+                                                <Border BackgroundColor="White" Padding="5,0,5,0" HorizontalOptions="FillAndExpand">
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                                                        <Label 
                                          Text="{Binding CustomerDetails.Email}" 
                                          Margin="5,12,5,12"
                                          TextColor="#8f1fff"
                                          FontSize="12"
                                          HorizontalOptions="FillAndExpand"
                                          VerticalTextAlignment="Center"></Label>
-                                                </StackLayout>
+                                                    </StackLayout>
 
-                                                <Border.Shadow>
-                                                    <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                                </Border.Shadow>
-                                                <Border.StrokeShape>
-                                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
-                                                </Border.StrokeShape>
-                                            </Border>
-                                        </StackLayout>
+                                                    <Border.Shadow>
+                                                        <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                                    </Border.Shadow>
+                                                    <Border.StrokeShape>
+                                                        <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                                    </Border.StrokeShape>
+                                                </Border>
+                                            </StackLayout>
 
-                                        <StackLayout Grid.Row="2" HorizontalOptions="FillAndExpand">
-                                            <Label Text="Address" TextColor="Black" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
-                                            <Border BackgroundColor="White" Padding="5,0,5,0" HorizontalOptions="FillAndExpand">
-                                                <StackLayout HorizontalOptions="FillAndExpand" >
+                                            <StackLayout Grid.Row="2" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Address" TextColor="Black" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
+                                                <Border BackgroundColor="White" Padding="5,0,5,0" HorizontalOptions="FillAndExpand">
+                                                    <StackLayout HorizontalOptions="FillAndExpand" >
 
-                                                    <Label 
+                                                        <Label 
                                          Margin="5,12,5,12"
                                          Text="{Binding CustomerDetails.Address}" 
                                          TextColor="#8f1fff"
                                          FontSize="12"
                                          HorizontalOptions="FillAndExpand"
                                          VerticalTextAlignment="Center"></Label>
-                                                </StackLayout>
+                                                    </StackLayout>
 
-                                                <Border.Shadow>
-                                                    <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                                </Border.Shadow>
-                                                <Border.StrokeShape>
-                                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
-                                                </Border.StrokeShape>
-                                            </Border>
-                                        </StackLayout>
+                                                    <Border.Shadow>
+                                                        <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                                    </Border.Shadow>
+                                                    <Border.StrokeShape>
+                                                        <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                                    </Border.StrokeShape>
+                                                </Border>
+                                            </StackLayout>
 
 
-                                        <StackLayout Grid.Row="3" HorizontalOptions="FillAndExpand">
-                                            <Label Text="City/State" TextColor="Black" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
-                                            <Border BackgroundColor="White" Padding="5,0,5,0" HorizontalOptions="FillAndExpand">
-                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
-                                                    <Label 
+                                            <StackLayout Grid.Row="3" HorizontalOptions="FillAndExpand">
+                                                <Label Text="City/State" TextColor="Black" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
+                                                <Border BackgroundColor="White" Padding="5,0,5,0" HorizontalOptions="FillAndExpand">
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                                                        <Label 
                                          TextColor="#8f1fff"
                                          Margin="5,12,5,12"
                                          HorizontalOptions="FillAndExpand"
                                          FontSize="12"
                                          VerticalTextAlignment="Center">
-                                                        <Label.Text>
-                                                            <MultiBinding StringFormat="{}{0} / {1}">
-                                                                <Binding Path="CustomerDetails.City" />
-                                                                <Binding Path="CustomerDetails.State" />
-                                                            </MultiBinding>
-                                                        </Label.Text>
-                                                    </Label>
-                                                </StackLayout>
-
-                                                <Border.Shadow>
-                                                    <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                                </Border.Shadow>
-                                                <Border.StrokeShape>
-                                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
-                                                </Border.StrokeShape>
-                                            </Border>
-                                        </StackLayout>
-
-
-                                        <StackLayout Orientation="Horizontal" Grid.Row="4" Grid.Column="0" Spacing="5" Margin="5,12,5,12" HorizontalOptions="FillAndExpand">
-                                            <StackLayout HorizontalOptions="FillAndExpand">
-                                                <Label Text="Year Built" TextColor="Black" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
-                                                <Border BackgroundColor="White" Padding="10" HorizontalOptions="FillAndExpand">
-                                                    <Label 
-                                           TextColor="#8f1fff" Text="{Binding CustomerDetails.YearBuit}"      
-                                           HorizontalOptions="FillAndExpand"
-                                           FontSize="12"
-                                           VerticalTextAlignment="Center">
-                                                        <Label.Triggers>
-                                                            <DataTrigger TargetType="Label" Binding="{Binding CustomerDetails.YearBuit}" Value="0">
-                                                                <Setter Property="Text" Value=""></Setter>
-                                                            </DataTrigger>
-                                                        </Label.Triggers>
-                                                    </Label>
+                                                            <Label.Text>
+                                                                <MultiBinding StringFormat="{}{0} / {1}">
+                                                                    <Binding Path="CustomerDetails.City" />
+                                                                    <Binding Path="CustomerDetails.State" />
+                                                                </MultiBinding>
+                                                            </Label.Text>
+                                                        </Label>
+                                                    </StackLayout>
 
                                                     <Border.Shadow>
                                                         <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
@@ -273,248 +247,274 @@
                                                 </Border>
                                             </StackLayout>
 
-                                            <StackLayout HorizontalOptions="FillAndExpand">
-                                                <Label Text="Estimate Value" TextColor="Black" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
-                                                <Border BackgroundColor="White" Padding="10" HorizontalOptions="FillAndExpand">
-                                                    <Label 
+
+                                            <StackLayout Orientation="Horizontal" Grid.Row="4" Grid.Column="0" Spacing="5" Margin="5,12,5,12" HorizontalOptions="FillAndExpand">
+                                                <StackLayout HorizontalOptions="FillAndExpand">
+                                                    <Label Text="Year Built" TextColor="Black" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
+                                                    <Border BackgroundColor="White" Padding="10" HorizontalOptions="FillAndExpand">
+                                                        <Label 
+                                           TextColor="#8f1fff" Text="{Binding CustomerDetails.YearBuit}"      
+                                           HorizontalOptions="FillAndExpand"
+                                           FontSize="12"
+                                           VerticalTextAlignment="Center">
+                                                            <Label.Triggers>
+                                                                <DataTrigger TargetType="Label" Binding="{Binding CustomerDetails.YearBuit}" Value="0">
+                                                                    <Setter Property="Text" Value=""></Setter>
+                                                                </DataTrigger>
+                                                            </Label.Triggers>
+                                                        </Label>
+
+                                                        <Border.Shadow>
+                                                            <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                                        </Border.Shadow>
+                                                        <Border.StrokeShape>
+                                                            <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                                        </Border.StrokeShape>
+                                                    </Border>
+                                                </StackLayout>
+
+                                                <StackLayout HorizontalOptions="FillAndExpand">
+                                                    <Label Text="Estimate Value" TextColor="Black" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
+                                                    <Border BackgroundColor="White" Padding="10" HorizontalOptions="FillAndExpand">
+                                                        <Label 
                                            Text="{Binding CustomerDetails.EstimedValueView}"            
                                            TextColor="#8f1fff"
                                            FontSize="12"
                                            HorizontalOptions="FillAndExpand"
                                            VerticalTextAlignment="Center">
-                                                        <Label.Triggers>
-                                                            <DataTrigger TargetType="Label" Binding="{Binding CustomerDetails.EstimedValue}" Value="0">
-                                                                <Setter Property="Text" Value=""></Setter>
-                                                            </DataTrigger>
-                                                        </Label.Triggers>
-                                                    </Label>
-                                                    <Border.Shadow>
-                                                        <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                                    </Border.Shadow>
-                                                    <Border.StrokeShape>
-                                                        <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
-                                                    </Border.StrokeShape>
-                                                </Border>
-                                            </StackLayout>
+                                                            <Label.Triggers>
+                                                                <DataTrigger TargetType="Label" Binding="{Binding CustomerDetails.EstimedValue}" Value="0">
+                                                                    <Setter Property="Text" Value=""></Setter>
+                                                                </DataTrigger>
+                                                            </Label.Triggers>
+                                                        </Label>
+                                                        <Border.Shadow>
+                                                            <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                                        </Border.Shadow>
+                                                        <Border.StrokeShape>
+                                                            <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                                        </Border.StrokeShape>
+                                                    </Border>
+                                                </StackLayout>
 
-                                            <StackLayout HorizontalOptions="FillAndExpand">
-                                                <Label Text="Square Footage" TextColor="Black" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
-                                                <Border BackgroundColor="White" Padding="10" HorizontalOptions="FillAndExpand">
-                                                    <Label 
+                                                <StackLayout HorizontalOptions="FillAndExpand">
+                                                    <Label Text="Square Footage" TextColor="Black" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
+                                                    <Border BackgroundColor="White" Padding="10" HorizontalOptions="FillAndExpand">
+                                                        <Label 
                                              Text="{Binding CustomerDetails.Squirefootage}"               
                                              TextColor="#8f1fff"
                                              FontSize="12"
                                              HorizontalOptions="FillAndExpand"
                                              VerticalTextAlignment="Center">
-                                                        <Label.Triggers>
-                                                            <DataTrigger TargetType="Label" Binding="{Binding CustomerDetails.Squirefootage}" Value="0">
-                                                                <Setter Property="Text" Value=""></Setter>
-                                                            </DataTrigger>
-                                                        </Label.Triggers>
-                                                    </Label>
-                                                    <Border.Shadow>
-                                                        <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                                    </Border.Shadow>
-                                                    <Border.StrokeShape>
-                                                        <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
-                                                    </Border.StrokeShape>
-                                                </Border>
+                                                            <Label.Triggers>
+                                                                <DataTrigger TargetType="Label" Binding="{Binding CustomerDetails.Squirefootage}" Value="0">
+                                                                    <Setter Property="Text" Value=""></Setter>
+                                                                </DataTrigger>
+                                                            </Label.Triggers>
+                                                        </Label>
+                                                        <Border.Shadow>
+                                                            <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                                        </Border.Shadow>
+                                                        <Border.StrokeShape>
+                                                            <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                                        </Border.StrokeShape>
+                                                    </Border>
+                                                </StackLayout>
                                             </StackLayout>
-                                        </StackLayout>
 
 
-                                        <StackLayout Grid.Row="5" Margin="5,12,5,12" HorizontalOptions="FillAndExpand">
-                                            <Label Text="Notes" TextColor="Black" FontSize="12" HorizontalOptions="StartAndExpand"></Label>
-                                            <Border BackgroundColor="White" Padding="5,0,5,0" HorizontalOptions="FillAndExpand">
-                                                <StackLayout HorizontalOptions="FillAndExpand" >
-                                                    <Label 
+                                            <StackLayout Grid.Row="5" Margin="5,12,5,12" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Notes" TextColor="Black" FontSize="12" HorizontalOptions="StartAndExpand"></Label>
+                                                <Border BackgroundColor="White" Padding="5,0,5,0" HorizontalOptions="FillAndExpand">
+                                                    <StackLayout HorizontalOptions="FillAndExpand" >
+                                                        <Label 
                                          Text="{Binding CustomerDetails.Notes}" 
                                          TextColor="#8f1fff"
                                          Margin="5,12,5,12"
                                          HorizontalOptions="FillAndExpand"
                                          FontSize="12"
                                          VerticalTextAlignment="Center"></Label>
-                                                </StackLayout>
+                                                    </StackLayout>
 
-                                                <Border.Shadow>
-                                                    <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                                </Border.Shadow>
-                                                <Border.StrokeShape>
-                                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
-                                                </Border.StrokeShape>
-                                            </Border>
-                                        </StackLayout>
+                                                    <Border.Shadow>
+                                                        <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                                    </Border.Shadow>
+                                                    <Border.StrokeShape>
+                                                        <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                                    </Border.StrokeShape>
+                                                </Border>
+                                            </StackLayout>
 
-                                    </Grid>
+                                        </Grid>
 
-                                    <Border.Shadow>
-                                        <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                    </Border.Shadow>
-                                    <Border.StrokeShape>
-                                        <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
-                                    </Border.StrokeShape>
-                                </Border>
+                                        <Border.Shadow>
+                                            <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                        </Border.Shadow>
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                        </Border.StrokeShape>
+                                    </Border>
 
-                            </StackLayout>
+                                </StackLayout>
 
-                            <StackLayout>
-                                <Label Text="Details" TextColor="#b66dff" FontAttributes="Bold" HorizontalOptions="StartAndExpand" Padding="20,0,20,5"></Label>
+                                <StackLayout>
+                                    <Label Text="Details" TextColor="#b66dff" FontAttributes="Bold" HorizontalOptions="StartAndExpand" Padding="20,0,20,5"></Label>
 
-                                <Border BackgroundColor="White" HorizontalOptions="FillAndExpand" Margin="20,0,20,20" Padding="20,10,20,10">
-                                    <Grid RowSpacing="10" Padding="5,10,5,10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="1*"></RowDefinition>
-                                            <RowDefinition Height="1*"></RowDefinition>
-                                            <RowDefinition Height="1*"></RowDefinition>
-                                            <RowDefinition Height="1*"></RowDefinition>
-                                        </Grid.RowDefinitions>
+                                    <Border BackgroundColor="White" HorizontalOptions="FillAndExpand" Margin="20,0,20,20" Padding="20,10,20,10">
+                                        <Grid RowSpacing="10" Padding="5,10,5,10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="1*"></RowDefinition>
+                                                <RowDefinition Height="1*"></RowDefinition>
+                                                <RowDefinition Height="1*"></RowDefinition>
+                                                <RowDefinition Height="1*"></RowDefinition>
+                                            </Grid.RowDefinitions>
 
-                                        <StackLayout Grid.Column="0" HorizontalOptions="FillAndExpand">
-                                            <Label Text="Category" TextColor="Black" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
-                                            <Border BackgroundColor="White" Padding="5,0,5,0" HorizontalOptions="FillAndExpand">
-                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
-                                                    <Label 
+                                            <StackLayout Grid.Column="0" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Category" TextColor="Black" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
+                                                <Border BackgroundColor="White" Padding="5,0,5,0" HorizontalOptions="FillAndExpand">
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                                                        <Label 
                                          Text="{Binding CustomerDetails.CustomerCategory.CategoryName}" 
                                          TextColor="#8f1fff"
                                          FontSize="12"
                                          Margin="5,12,5,12"
                                          HorizontalOptions="FillAndExpand"
                                          VerticalTextAlignment="Center"></Label>
-                                                </StackLayout>
+                                                    </StackLayout>
 
-                                                <Border.Shadow>
-                                                    <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                                </Border.Shadow>
-                                                <Border.StrokeShape>
-                                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
-                                                </Border.StrokeShape>
-                                            </Border>
-                                        </StackLayout>
+                                                    <Border.Shadow>
+                                                        <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                                    </Border.Shadow>
+                                                    <Border.StrokeShape>
+                                                        <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                                    </Border.StrokeShape>
+                                                </Border>
+                                            </StackLayout>
 
-                                        <StackLayout Grid.Row="1" HorizontalOptions="FillAndExpand">
-                                            <Label Text="Member" TextColor="Black" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
-                                            <Border BackgroundColor="White" Padding="5,0,5,0" HorizontalOptions="FillAndExpand">
-                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="5,12,5,12">
-                                                    <Label x:Name="lblYesOrNo"
+                                            <StackLayout Grid.Row="1" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Member" TextColor="Black" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
+                                                <Border BackgroundColor="White" Padding="5,0,5,0" HorizontalOptions="FillAndExpand">
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="5,12,5,12">
+                                                        <Label x:Name="lblYesOrNo"
                                              TextColor="#8f1fff"
                                              FontSize="12"
                                              HorizontalOptions="Start"
                                              VerticalTextAlignment="Center">
-                                                        <Label.Triggers>
-                                                            <DataTrigger TargetType="Label" Binding="{Binding CustomerDetails.MemeberType}" Value="True">
-                                                                <Setter Property="Text" Value="Yes"></Setter>
-                                                            </DataTrigger>
-                                                            <DataTrigger TargetType="Label" Binding="{Binding CustomerDetails.MemeberType}" Value="False">
-                                                                <Setter Property="Text" Value="No"></Setter>
-                                                            </DataTrigger>
-                                                        </Label.Triggers>
-                                                    </Label>
+                                                            <Label.Triggers>
+                                                                <DataTrigger TargetType="Label" Binding="{Binding CustomerDetails.MemeberType}" Value="True">
+                                                                    <Setter Property="Text" Value="Yes"></Setter>
+                                                                </DataTrigger>
+                                                                <DataTrigger TargetType="Label" Binding="{Binding CustomerDetails.MemeberType}" Value="False">
+                                                                    <Setter Property="Text" Value="No"></Setter>
+                                                                </DataTrigger>
+                                                            </Label.Triggers>
+                                                        </Label>
 
-                                                    <Label 
+                                                        <Label 
                                          TextColor="#333"
                                          FontSize="12"
                                          HorizontalOptions="CenterAndExpand"
                                          VerticalTextAlignment="Center">
-                                                        <Label.Text>
-                                                            <MultiBinding StringFormat="{}{0} {1}">
-                                                                <Binding Path="CustomerDetails.MemberDTO.Name" />
-                                                                <Binding Path="CustomerDetails.MemberDTO.MemberValue" />
-                                                            </MultiBinding>
-                                                        </Label.Text>
-                                                    </Label>
+                                                            <Label.Text>
+                                                                <MultiBinding StringFormat="{}{0} {1}">
+                                                                    <Binding Path="CustomerDetails.MemberDTO.Name" />
+                                                                    <Binding Path="CustomerDetails.MemberDTO.MemberValue" />
+                                                                </MultiBinding>
+                                                            </Label.Text>
+                                                        </Label>
 
 
-                                                </StackLayout>
+                                                    </StackLayout>
 
-                                                <Border.Shadow>
-                                                    <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                                </Border.Shadow>
-                                                <Border.StrokeShape>
-                                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
-                                                </Border.StrokeShape>
-                                            </Border>
-                                        </StackLayout>
+                                                    <Border.Shadow>
+                                                        <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                                    </Border.Shadow>
+                                                    <Border.StrokeShape>
+                                                        <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                                    </Border.StrokeShape>
+                                                </Border>
+                                            </StackLayout>
 
 
-                                        <StackLayout Grid.Row="2" HorizontalOptions="FillAndExpand">
-                                            <Label Text="Texable" TextColor="Black" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
-                                            <Border BackgroundColor="White" Padding="5,0,5,0" HorizontalOptions="FillAndExpand">
+                                            <StackLayout Grid.Row="2" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Texable" TextColor="Black" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
+                                                <Border BackgroundColor="White" Padding="5,0,5,0" HorizontalOptions="FillAndExpand">
 
-                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="5,12,5,12">
-                                                    <Label
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="5,12,5,12">
+                                                        <Label
                                              TextColor="#8f1fff"
                                              FontSize="12"
                                              HorizontalOptions="Start"
                                              VerticalTextAlignment="Center">
-                                                        <Label.Triggers>
-                                                            <DataTrigger TargetType="Label" Binding="{Binding CustomerDetails.Taxable}" Value="True">
-                                                                <Setter Property="Text" Value="Yes"></Setter>
-                                                            </DataTrigger>
-                                                            <DataTrigger TargetType="Label" Binding="{Binding CustomerDetails.Taxable}" Value="False">
-                                                                <Setter Property="Text" Value="No"></Setter>
-                                                            </DataTrigger>
-                                                        </Label.Triggers>
-                                                    </Label>
+                                                            <Label.Triggers>
+                                                                <DataTrigger TargetType="Label" Binding="{Binding CustomerDetails.Taxable}" Value="True">
+                                                                    <Setter Property="Text" Value="Yes"></Setter>
+                                                                </DataTrigger>
+                                                                <DataTrigger TargetType="Label" Binding="{Binding CustomerDetails.Taxable}" Value="False">
+                                                                    <Setter Property="Text" Value="No"></Setter>
+                                                                </DataTrigger>
+                                                            </Label.Triggers>
+                                                        </Label>
 
-                                                    <Label Text="{Binding CustomerDetails.TaxDTO.Taxname}"
+                                                        <Label Text="{Binding CustomerDetails.TaxDTO.Taxname}"
                                          TextColor="#333"
                                          FontSize="12"
                                          HorizontalOptions="CenterAndExpand"
                                          VerticalTextAlignment="Center">
-                                                    </Label>
+                                                        </Label>
 
 
-                                                </StackLayout>
-                                                <Border.Shadow>
-                                                    <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                                </Border.Shadow>
-                                                <Border.StrokeShape>
-                                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
-                                                </Border.StrokeShape>
-                                            </Border>
-                                        </StackLayout>
+                                                    </StackLayout>
+                                                    <Border.Shadow>
+                                                        <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                                    </Border.Shadow>
+                                                    <Border.StrokeShape>
+                                                        <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                                    </Border.StrokeShape>
+                                                </Border>
+                                            </StackLayout>
 
-                                        <StackLayout Grid.Row="3" Grid.Column="0" HorizontalOptions="FillAndExpand">
-                                            <Label Text="Source" TextColor="Black" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
-                                            <Border BackgroundColor="White" Padding="5,0,5,0" HorizontalOptions="FillAndExpand">
-                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
-                                                    <Label Text="{Binding CustomerDetails.CampaignDTO.Lable}"
+                                            <StackLayout Grid.Row="3" Grid.Column="0" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Source" TextColor="Black" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
+                                                <Border BackgroundColor="White" Padding="5,0,5,0" HorizontalOptions="FillAndExpand">
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                                                        <Label Text="{Binding CustomerDetails.CampaignDTO.Lable}"
                                              TextColor="#8f1fff"
                                              FontSize="12"
                                              Margin="5,12,5,12"
                                              HorizontalOptions="FillAndExpand"
                                              VerticalTextAlignment="Center">
-                                                    </Label>
-                                                </StackLayout>
+                                                        </Label>
+                                                    </StackLayout>
 
-                                                <Border.Shadow>
-                                                    <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                                </Border.Shadow>
-                                                <Border.StrokeShape>
-                                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
-                                                </Border.StrokeShape>
-                                            </Border>
-                                        </StackLayout>
-                                    </Grid>
+                                                    <Border.Shadow>
+                                                        <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                                    </Border.Shadow>
+                                                    <Border.StrokeShape>
+                                                        <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                                    </Border.StrokeShape>
+                                                </Border>
+                                            </StackLayout>
+                                        </Grid>
 
-                                    <Border.Shadow>
-                                        <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                    </Border.Shadow>
-                                    <Border.StrokeShape>
-                                        <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
-                                    </Border.StrokeShape>
-                                </Border>
+                                        <Border.Shadow>
+                                            <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                        </Border.Shadow>
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                        </Border.StrokeShape>
+                                    </Border>
 
-                            </StackLayout>
+                                </StackLayout>
 
-                            <StackLayout>
-                                <Label Text="Custom Fields" TextColor="#b66dff" FontAttributes="Bold" HorizontalOptions="StartAndExpand" Padding="20,0,20,5"></Label>
+                                <StackLayout>
+                                    <Label Text="Custom Fields" TextColor="#b66dff" FontAttributes="Bold" HorizontalOptions="StartAndExpand" Padding="20,0,20,5"></Label>
 
-                                <!--<yummy:PancakeView BackgroundColor="White" CornerRadius="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="20,0,20,20" Padding="20,20,20,0">-->
+                                    <!--<yummy:PancakeView BackgroundColor="White" CornerRadius="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="20,0,20,20" Padding="20,20,20,0">-->
 
-                                <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20,0,20,0">
+                                    <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20,0,20,0">
 
-                                    <syncfusion:SfListView x:Name="lstCustomFields" 
+                                        <syncfusion:SfListView x:Name="lstCustomFields" 
                                            SelectionMode="None" BackgroundColor="White"
                                            AllowGroupExpandCollapse="True"
                                            ItemSize="65"
@@ -524,290 +524,289 @@
                                            ScrollBarVisibility="Default"
                                            ItemsSource="{Binding CustomerDetails.LstCustomersCustomField}"    
                                            AutoFitMode="None">
-                                        <syncfusion:SfListView.ItemTemplate>
-                                            <DataTemplate>
-                                                <ViewCell>
-                                                    <StackLayout>
+                                            <syncfusion:SfListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <ViewCell>
+                                                        <StackLayout>
 
-                                                        <Border BackgroundColor="White" Margin="0,0,0,10" Padding="5" HorizontalOptions="FillAndExpand">
-                                                            <StackLayout Orientation="Horizontal">
-                                                                <Label Text="{Binding CustomFieldName,StringFormat='{0} :'}"
+                                                            <Border BackgroundColor="White" Margin="0,0,0,10" Padding="5" HorizontalOptions="FillAndExpand">
+                                                                <StackLayout Orientation="Horizontal">
+                                                                    <Label Text="{Binding CustomFieldName,StringFormat='{0} :'}"
                                                          FontAttributes="Bold"
                                                          TextColor="Black" FontSize="12"
                                                          HorizontalTextAlignment="Start"
                                                          VerticalTextAlignment="Center"
                                                          Padding="20,7,20,7">
-                                                                </Label>
-                                                                <Label Text="{Binding DefaultValue}" 
+                                                                    </Label>
+                                                                    <Label Text="{Binding DefaultValue}" 
                                                          FontSize="12" 
                                                          TextColor="#8f1fff"
                                                          FontAttributes="Bold"
                                                          HorizontalTextAlignment="Start"
                                                          VerticalTextAlignment="Center"></Label>
 
-                                                            </StackLayout>
-                                                            <Border.Shadow>
-                                                                <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                                            </Border.Shadow>
-                                                            <Border.StrokeShape>
-                                                                <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
-                                                            </Border.StrokeShape>
-                                                        </Border>
+                                                                </StackLayout>
+                                                                <Border.Shadow>
+                                                                    <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                                                </Border.Shadow>
+                                                                <Border.StrokeShape>
+                                                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                                                </Border.StrokeShape>
+                                                            </Border>
 
-                                                    </StackLayout>
-                                                </ViewCell>
-                                            </DataTemplate>
-                                        </syncfusion:SfListView.ItemTemplate>
-                                        <syncfusion:SfListView.Triggers>
-                                            <DataTrigger TargetType="syncfusion:SfListView" Binding="{Binding CustomerDetails.LstCustomersCustomField.Count}" Value="0">
-                                                <Setter Property="IsVisible" Value="False"></Setter>
-                                                <Setter Property="HeightRequest" Value="0"></Setter>
-                                            </DataTrigger>
-                                        </syncfusion:SfListView.Triggers>
-                                    </syncfusion:SfListView>
+                                                        </StackLayout>
+                                                    </ViewCell>
+                                                </DataTemplate>
+                                            </syncfusion:SfListView.ItemTemplate>
+                                            <syncfusion:SfListView.Triggers>
+                                                <DataTrigger TargetType="syncfusion:SfListView" Binding="{Binding CustomerDetails.LstCustomersCustomField.Count}" Value="0">
+                                                    <Setter Property="IsVisible" Value="False"></Setter>
+                                                    <Setter Property="HeightRequest" Value="0"></Setter>
+                                                </DataTrigger>
+                                            </syncfusion:SfListView.Triggers>
+                                        </syncfusion:SfListView>
 
+                                    </StackLayout>
+
+                                    <StackLayout.Triggers>
+                                        <DataTrigger TargetType="StackLayout" Binding="{Binding CustomerDetails.LstCustomersCustomField.Count}" Value="0">
+                                            <Setter Property="IsVisible" Value="False"></Setter>
+                                        </DataTrigger>
+                                    </StackLayout.Triggers>
                                 </StackLayout>
 
-                                <StackLayout.Triggers>
-                                    <DataTrigger TargetType="StackLayout" Binding="{Binding CustomerDetails.LstCustomersCustomField.Count}" Value="0">
-                                        <Setter Property="IsVisible" Value="False"></Setter>
-                                    </DataTrigger>
-                                </StackLayout.Triggers>
                             </StackLayout>
-
-                        </StackLayout>
-                    </ScrollView>
-                </tabView:SfTabItem.Content>
-            </tabView:SfTabItem>
-            <!--Schedules-->
-            <tabView:SfTabItem Header="Schedules"  TextColor="Black" FontSize="14" 
+                        </ScrollView>
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+                <!--Schedules-->
+                <tabView:SfTabItem Header="Schedules"  TextColor="Black" FontSize="14" 
                            FontFamily="Almarai-Regular" BackgroundColor="#f7f5fa">
-                <tabView:SfTabItem.ImageSource>
+                    <tabView:SfTabItem.ImageSource>
                         <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="Gray"></FontImageSource>
-                </tabView:SfTabItem.ImageSource>
-                <tabView:SfTabItem.Content>
-                    <StackLayout>
-                        <StackLayout Margin="0,20,0,20">
-                            <ListView x:Name="lstSchedules" SelectionMode="None" 
+                    </tabView:SfTabItem.ImageSource>
+                    <tabView:SfTabItem.Content>
+                        <StackLayout>
+                            <ScrollView VerticalOptions="FillAndExpand">
+                                <StackLayout Margin="0,20,0,20">
+
+                                    <CollectionView x:Name="lstSchedules" SelectionMode="None" 
                                       ItemsSource="{Binding LstSchedules}"
-                                      HasUnevenRows="True" BackgroundColor="White"
+                                      BackgroundColor="White"
                                       VerticalScrollBarVisibility="Never">
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
-                                        <ViewCell>
-                                            <StackLayout Padding="20,10,20,10" Spacing="10">
-                                                <StackLayout Orientation="Horizontal">
-                                                    <Border BackgroundColor="#eedeff" HorizontalOptions="FillAndExpand">
-                                                        <Label Text="{Binding Title}"
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout Padding="20,10,20,10" Spacing="10">
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Border BackgroundColor="#eedeff" HorizontalOptions="FillAndExpand">
+                                                            <Label Text="{Binding Title}"
                                                                FontAttributes="Bold"
                                                                TextColor="Black" 
                                                                HorizontalTextAlignment="Start"
                                                                VerticalTextAlignment="Center"
                                                                Padding="20,7,20,7">
-                                                        </Label>
-                                                        <Border.Shadow>
-                                                            <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                                        </Border.Shadow>
-                                                        <Border.StrokeShape>
-                                                            <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="2"></RoundRectangle>
-                                                        </Border.StrokeShape>
-                                                    </Border>
+                                                            </Label>
+                                                            <Border.Shadow>
+                                                                <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                                            </Border.Shadow>
+                                                            <Border.StrokeShape>
+                                                                <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="2"></RoundRectangle>
+                                                            </Border.StrokeShape>
+                                                        </Border>
 
-                                                    <Label Text="{Binding ScheduleDate,StringFormat='{0:MM-dd-yyyy}'}" 
+                                                        <Label Text="{Binding ScheduleDate,StringFormat='{0:MM-dd-yyyy}'}" 
                                                            FontSize="12" TextColor="#333" 
                                                            Margin="50,0,0,0"
                                                            FontAttributes="Bold"
                                                            HorizontalOptions="End"
                                                            HorizontalTextAlignment="Center"
                                                            VerticalTextAlignment="Center"></Label>
+                                                    </StackLayout>
+
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CustomersViewModel}}, Path=SelecteScheduleDetailsCommand}" CommandParameter="{Binding}"></TapGestureRecognizer>
+                                                    </StackLayout.GestureRecognizers>
+
                                                 </StackLayout>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                        <CollectionView.Triggers>
+                                            <DataTrigger TargetType="CollectionView" Binding="{Binding LstSchedules.Count}" Value="0">
+                                                <Setter Property="IsVisible" Value="False"></Setter>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="CollectionView" Binding="{Binding EmployeePermission.ActiveSchedule}" Value="False">
+                                                <Setter Property="IsEnabled" Value="False"></Setter>
+                                                <Setter Property="Opacity" Value=".5"></Setter>
+                                            </DataTrigger>
+                                        </CollectionView.Triggers>
+                                    </CollectionView>
 
-                                                <StackLayout.GestureRecognizers>
-                                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CustomersViewModel}}, Path=SelecteScheduleDetailsCommand}" CommandParameter="{Binding}"></TapGestureRecognizer>
-                                                </StackLayout.GestureRecognizers>
-
-                                            </StackLayout>
-                                        </ViewCell>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                                <ListView.Triggers>
-                                    <DataTrigger TargetType="ListView" Binding="{Binding LstSchedules.Count}" Value="0">
-                                        <Setter Property="IsVisible" Value="False"></Setter>
-                                    </DataTrigger>
-                                    <DataTrigger TargetType="ListView" Binding="{Binding EmployeePermission.ActiveSchedule}" Value="False">
-                                        <Setter Property="IsEnabled" Value="False"></Setter>
-                                        <Setter Property="Opacity" Value=".5"></Setter>
-                                    </DataTrigger>
-                                </ListView.Triggers>
-                            </ListView>
-
-                            <StackLayout.Triggers>
-                                <DataTrigger TargetType="StackLayout" Binding="{Binding Source={x:Reference stkNoData2}, Path=IsVisible}" Value="True">
-                                    <Setter Property="HeightRequest" Value="0"></Setter>
-                                    <Setter Property="IsVisible" Value="False"></Setter>
-                                </DataTrigger>
-                            </StackLayout.Triggers>
+                                    <StackLayout.Triggers>
+                                        <DataTrigger TargetType="StackLayout" Binding="{Binding Source={x:Reference stkNoData2}, Path=IsVisible}" Value="True">
+                                            <Setter Property="HeightRequest" Value="0"></Setter>
+                                            <Setter Property="IsVisible" Value="False"></Setter>
+                                        </DataTrigger>
+                                    </StackLayout.Triggers>
+                                </StackLayout>
+                            </ScrollView>
+                            <!--No Data-->
+                            <StackLayout x:Name="stkNoData2" Padding="0,200,0,300" IsVisible="False" HeightRequest="100" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Image Source="noresult.png" Aspect="AspectFill" VerticalOptions="FillAndExpand"></Image>
+                                <StackLayout.Triggers>
+                                    <MultiTrigger TargetType="StackLayout">
+                                        <MultiTrigger.Conditions>
+                                            <BindingCondition Binding="{Binding LstSchedules.Count}" Value="0" />
+                                        </MultiTrigger.Conditions>
+                                        <Setter Property="IsVisible" Value="True"></Setter>
+                                    </MultiTrigger>
+                                </StackLayout.Triggers>
+                            </StackLayout>
                         </StackLayout>
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
 
-                        <!--No Data-->
-                        <StackLayout x:Name="stkNoData2" Padding="0,200,0,300" IsVisible="False" HeightRequest="100" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Image Source="noresult.png" Aspect="AspectFill" VerticalOptions="FillAndExpand"></Image>
-                            <StackLayout.Triggers>
-                                <MultiTrigger TargetType="StackLayout">
-                                    <MultiTrigger.Conditions>
-                                        <BindingCondition Binding="{Binding LstSchedules.Count}" Value="0" />
-                                    </MultiTrigger.Conditions>
-                                    <Setter Property="IsVisible" Value="True"></Setter>
-                                </MultiTrigger>
-                            </StackLayout.Triggers>
-                        </StackLayout>
-                    </StackLayout>
-                </tabView:SfTabItem.Content>
-            </tabView:SfTabItem>
-
-            <!--Estimates-->
-            <tabView:SfTabItem Header="Estimates"  TextColor="Black" FontSize="14" 
+                <!--Estimates-->
+                <tabView:SfTabItem Header="Estimates"  TextColor="Black" FontSize="14" 
                FontFamily="Almarai-Regular" BackgroundColor="#f7f5fa">
-                <tabView:SfTabItem.ImageSource>
+                    <tabView:SfTabItem.ImageSource>
                         <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="Gray"></FontImageSource>
-                </tabView:SfTabItem.ImageSource>
-                <tabView:SfTabItem.Content>
-                    <Grid VerticalOptions="FillAndExpand">
+                    </tabView:SfTabItem.ImageSource>
+                    <tabView:SfTabItem.Content>
+                        <Grid VerticalOptions="FillAndExpand">
 
-                        <StackLayout Margin="0,20,0,0">
+                            <ScrollView VerticalOptions="FillAndExpand">
+                                <StackLayout Margin="0,20,0,0">
 
-                            <ListView x:Name="lstEstimates" SelectionMode="None" 
+                                    <CollectionView x:Name="lstEstimates" SelectionMode="None" 
                                       ItemsSource="{Binding LstEstimates}"
-                                      HasUnevenRows="True" BackgroundColor="White" 
+                                      BackgroundColor="White" 
                                       VerticalScrollBarVisibility="Never">
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
-                                        <ViewCell>
-                                            <StackLayout Padding="20,12,20,12">
-                                                <StackLayout Orientation="Horizontal" Spacing="5">
-                                                    <Border BackgroundColor="#eedeff" HorizontalOptions="FillAndExpand">
-                                                        <StackLayout Orientation="Horizontal" Spacing="5" Padding="10,8,10,8">
-                                                            <Label Text="{Binding ScheduleName}"
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout Padding="20,12,20,12">
+                                                    <StackLayout Orientation="Horizontal" Spacing="5">
+                                                        <Border BackgroundColor="#eedeff" HorizontalOptions="FillAndExpand">
+                                                            <StackLayout Orientation="Horizontal" Spacing="5" Padding="10,8,10,8">
+                                                                <Label Text="{Binding ScheduleName}"
                                                                    FontAttributes="Bold"
                                                                    TextColor="Black" HorizontalOptions="FillAndExpand"
                                                                    HorizontalTextAlignment="Start"
                                                                    VerticalTextAlignment="Center"
                                                                    >
-                                                                <Label.Triggers>
-                                                                    <DataTrigger TargetType="Label" Binding="{Binding WhithoutSch}" Value="False">
-                                                                        <Setter Property="Text" Value="{Binding Id}"></Setter>
-                                                                    </DataTrigger>
-                                                                </Label.Triggers>
-                                                            </Label>
+                                                                    <Label.Triggers>
+                                                                        <DataTrigger TargetType="Label" Binding="{Binding WhithoutSch}" Value="False">
+                                                                            <Setter Property="Text" Value="{Binding Id}"></Setter>
+                                                                        </DataTrigger>
+                                                                    </Label.Triggers>
+                                                                </Label>
 
-                                                            <Label Text="{Binding CreateDate,StringFormat='{0:MM-dd-yyyy}'}" 
+                                                                <Label Text="{Binding CreateDate,StringFormat='{0:MM-dd-yyyy}'}" 
                                                                    FontSize="10" TextColor="#333" 
                                                                    Margin="0,0,0,0"
                                                                    FontAttributes="Bold"
                                                                    HorizontalOptions="EndAndExpand"
                                                                    HorizontalTextAlignment="Center"
                                                                    VerticalTextAlignment="Center"></Label>
-                                                        </StackLayout>
+                                                            </StackLayout>
 
-                                                        <Border.Shadow>
-                                                            <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                                        </Border.Shadow>
-                                                        <Border.StrokeShape>
-                                                            <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="2"></RoundRectangle>
-                                                        </Border.StrokeShape>
-                                                        <Border.GestureRecognizers>
-                                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CustomersViewModel}}, Path=SelecteEstimateDetailsCommand}" CommandParameter="{Binding}"></TapGestureRecognizer>
-                                                        </Border.GestureRecognizers>
-                                                    </Border>
+                                                            <Border.Shadow>
+                                                                <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                                            </Border.Shadow>
+                                                            <Border.StrokeShape>
+                                                                <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="2"></RoundRectangle>
+                                                            </Border.StrokeShape>
+                                                            <Border.GestureRecognizers>
+                                                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CustomersViewModel}}, Path=SelecteEstimateDetailsCommand}" CommandParameter="{Binding}"></TapGestureRecognizer>
+                                                            </Border.GestureRecognizers>
+                                                        </Border>
 
-                                                    <!--Convert To Invoie-->
+                                                        <!--Convert To Invoie-->
                                                         <Border HorizontalOptions="End" IsVisible="False" WidthRequest="120" Padding="5,10,5,10" BackgroundColor="#8f1fff">
-                                                        <StackLayout Spacing="0" VerticalOptions="Center">
-                                                            <Label Text="Convert to Invoice" FontSize="12" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                                                        </StackLayout>
-                                                        <Border.Shadow>
-                                                            <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                                        </Border.Shadow>
-                                                        <Border.StrokeShape>
-                                                            <RoundRectangle CornerRadius="10"></RoundRectangle>
-                                                        </Border.StrokeShape>
-                                                        <!--<Border.Background>
+                                                            <StackLayout Spacing="0" VerticalOptions="Center">
+                                                                <Label Text="Convert to Invoice" FontSize="12" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                                                            </StackLayout>
+                                                            <Border.Shadow>
+                                                                <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                                            </Border.Shadow>
+                                                            <Border.StrokeShape>
+                                                                <RoundRectangle CornerRadius="10"></RoundRectangle>
+                                                            </Border.StrokeShape>
+                                                            <!--<Border.Background>
                                                             <LinearGradientBrush>
                                                                 <GradientStop Color="#8f1fff" Offset="0.1"></GradientStop>
                                                                 <GradientStop Color="#b169fa" Offset="1.5"></GradientStop>
                                                             </LinearGradientBrush>
                                                         </Border.Background>-->
-                                                        <Border.GestureRecognizers>
-                                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CustomersViewModel}}, Path=ConvertToInvoiceCommand}" CommandParameter="{Binding}"></TapGestureRecognizer>
-                                                        </Border.GestureRecognizers>
-                                                        <Border.Triggers>
-                                                            <DataTrigger TargetType="Border" Binding="{Binding NotShowConvert}" Value="False">
-                                                                <Setter Property="IsVisible" Value="True"></Setter>
-                                                            </DataTrigger>
-                                                        </Border.Triggers>
-                                                    </Border>
+                                                            <Border.GestureRecognizers>
+                                                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CustomersViewModel}}, Path=ConvertToInvoiceCommand}" CommandParameter="{Binding}"></TapGestureRecognizer>
+                                                            </Border.GestureRecognizers>
+                                                            <Border.Triggers>
+                                                                <DataTrigger TargetType="Border" Binding="{Binding NotShowConvert}" Value="False">
+                                                                    <Setter Property="IsVisible" Value="True"></Setter>
+                                                                </DataTrigger>
+                                                            </Border.Triggers>
+                                                        </Border>
 
-                                                    <!--Go Invoice-->
+                                                        <!--Go Invoice-->
                                                         <Border HorizontalOptions="End" IsVisible="False" Padding="10" BackgroundColor="#8f1fff">
-                                                        <StackLayout Spacing="0" VerticalOptions="Center">
-                                                            <Label Text="Go Invoice" FontSize="12" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                                                        </StackLayout>
-                                                        <Border.Shadow>
-                                                            <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                                        </Border.Shadow>
-                                                        <Border.StrokeShape>
-                                                            <RoundRectangle CornerRadius="10"></RoundRectangle>
-                                                        </Border.StrokeShape>
-                                                        <!--<Border.Background>
+                                                            <StackLayout Spacing="0" VerticalOptions="Center">
+                                                                <Label Text="Go Invoice" FontSize="12" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                                                            </StackLayout>
+                                                            <Border.Shadow>
+                                                                <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                                            </Border.Shadow>
+                                                            <Border.StrokeShape>
+                                                                <RoundRectangle CornerRadius="10"></RoundRectangle>
+                                                            </Border.StrokeShape>
+                                                            <!--<Border.Background>
                                                             <LinearGradientBrush>
                                                                 <GradientStop Color="#8f1fff" Offset="0.1"></GradientStop>
                                                                 <GradientStop Color="#debdff" Offset="1.5"></GradientStop>
                                                             </LinearGradientBrush>
                                                         </Border.Background>-->
-                                                        <Border.GestureRecognizers>
-                                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CustomersViewModel}}, Path=GoInvoiceCommand}" CommandParameter="{Binding InvoiceId}"></TapGestureRecognizer>
-                                                        </Border.GestureRecognizers>
-                                                        <Border.Triggers>
-                                                            <DataTrigger TargetType="Border" Binding="{Binding GoToInvoice}" Value="True">
-                                                                <Setter Property="IsVisible" Value="True"></Setter>
-                                                            </DataTrigger>
-                                                        </Border.Triggers>
-                                                    </Border>
+                                                            <Border.GestureRecognizers>
+                                                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CustomersViewModel}}, Path=GoInvoiceCommand}" CommandParameter="{Binding InvoiceId}"></TapGestureRecognizer>
+                                                            </Border.GestureRecognizers>
+                                                            <Border.Triggers>
+                                                                <DataTrigger TargetType="Border" Binding="{Binding GoToInvoice}" Value="True">
+                                                                    <Setter Property="IsVisible" Value="True"></Setter>
+                                                                </DataTrigger>
+                                                            </Border.Triggers>
+                                                        </Border>
+                                                    </StackLayout>
+
                                                 </StackLayout>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                        <CollectionView.Triggers>
+                                            <DataTrigger TargetType="CollectionView" Binding="{Binding LstEstimates.Count}" Value="0">
+                                                <Setter Property="IsVisible" Value="False"></Setter>
+                                            </DataTrigger>
+                                        </CollectionView.Triggers>
+                                    </CollectionView>
 
-                                            </StackLayout>
-                                        </ViewCell>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                                <ListView.Triggers>
-                                    <DataTrigger TargetType="ListView" Binding="{Binding LstEstimates.Count}" Value="0">
-                                        <Setter Property="IsVisible" Value="False"></Setter>
-                                    </DataTrigger>
-                                </ListView.Triggers>
-                            </ListView>
+                                    <StackLayout.Triggers>
+                                        <DataTrigger TargetType="StackLayout" Binding="{Binding Source={x:Reference stkNoData3}, Path=IsVisible}" Value="True">
+                                            <Setter Property="HeightRequest" Value="0"></Setter>
+                                            <Setter Property="IsVisible" Value="False"></Setter>
+                                        </DataTrigger>
+                                    </StackLayout.Triggers>
+                                </StackLayout>
+                            </ScrollView>
+                            <!--No Data-->
+                            <StackLayout x:Name="stkNoData3" Padding="0,200,0,300" IsVisible="False" HeightRequest="100" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Image Source="noresult.png" Aspect="AspectFill" VerticalOptions="FillAndExpand"></Image>
+                                <StackLayout.Triggers>
+                                    <MultiTrigger TargetType="StackLayout">
+                                        <MultiTrigger.Conditions>
+                                            <BindingCondition Binding="{Binding LstEstimates.Count}" Value="0" />
+                                        </MultiTrigger.Conditions>
+                                        <Setter Property="IsVisible" Value="True"></Setter>
+                                    </MultiTrigger>
+                                </StackLayout.Triggers>
+                            </StackLayout>
 
-                            <StackLayout.Triggers>
-                                <DataTrigger TargetType="StackLayout" Binding="{Binding Source={x:Reference stkNoData3}, Path=IsVisible}" Value="True">
-                                    <Setter Property="HeightRequest" Value="0"></Setter>
-                                    <Setter Property="IsVisible" Value="False"></Setter>
-                                </DataTrigger>
-                            </StackLayout.Triggers>
-                        </StackLayout>
-
-                        <!--No Data-->
-                        <StackLayout x:Name="stkNoData3" Padding="0,200,0,300" IsVisible="False" HeightRequest="100" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Image Source="noresult.png" Aspect="AspectFill" VerticalOptions="FillAndExpand"></Image>
-                            <StackLayout.Triggers>
-                                <MultiTrigger TargetType="StackLayout">
-                                    <MultiTrigger.Conditions>
-                                        <BindingCondition Binding="{Binding LstEstimates.Count}" Value="0" />
-                                    </MultiTrigger.Conditions>
-                                    <Setter Property="IsVisible" Value="True"></Setter>
-                                </MultiTrigger>
-                            </StackLayout.Triggers>
-                        </StackLayout>
-
-                        <Border 
+                            <Border 
                                    BackgroundColor="#8f1fff" 
                                    Padding="5" 
                                    HorizontalOptions="End" 
@@ -821,107 +820,106 @@
                                     </Image.Source>
                                 </Image>
                                 <Border.StrokeShape>
-                                <RoundRectangle CornerRadius="{OnPlatform Android=100,iOS=25}"></RoundRectangle>
-                            </Border.StrokeShape>
-                            <Border.Shadow>
-                                <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                            </Border.Shadow>
-                            <Border.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding SelectCustToCreateEstimatePageCommand}" ></TapGestureRecognizer>
-                            </Border.GestureRecognizers>
-                        </Border>
+                                    <RoundRectangle CornerRadius="{OnPlatform Android=100,iOS=25}"></RoundRectangle>
+                                </Border.StrokeShape>
+                                <Border.Shadow>
+                                    <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                </Border.Shadow>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectCustToCreateEstimatePageCommand}" ></TapGestureRecognizer>
+                                </Border.GestureRecognizers>
+                            </Border>
 
-                    </Grid>
-                </tabView:SfTabItem.Content>
-            </tabView:SfTabItem>
+                        </Grid>
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
 
-            <!--Invoices-->
-            <tabView:SfTabItem Header="Invoices"  TextColor="Black" FontSize="14" 
+                <!--Invoices-->
+                <tabView:SfTabItem Header="Invoices"  TextColor="Black" FontSize="14" 
                            FontFamily="Almarai-Regular" BackgroundColor="#f7f5fa">
-                <tabView:SfTabItem.ImageSource>
+                    <tabView:SfTabItem.ImageSource>
                         <FontImageSource Glyph="" FontFamily="FontIconSolid" Color="Gray"></FontImageSource>
-                </tabView:SfTabItem.ImageSource>
-                <tabView:SfTabItem.Content>
-                    <Grid VerticalOptions="FillAndExpand">
+                    </tabView:SfTabItem.ImageSource>
+                    <tabView:SfTabItem.Content>
+                        <Grid VerticalOptions="FillAndExpand">
 
-                        <StackLayout Margin="0,20,0,0">
+                            <ScrollView VerticalOptions="FillAndExpand">
+                                <StackLayout Margin="0,20,0,0">
 
-                            <ListView x:Name="lstInvoices" SelectionMode="None" 
-                                      ItemsSource="{Binding LstInvoices}"
-                                      HasUnevenRows="True" BackgroundColor="White" 
-                                      VerticalScrollBarVisibility="Never">
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
-                                        <ViewCell>
-                                            <StackLayout Padding="20,10,20,10" Spacing="10">
-                                                <StackLayout Orientation="Horizontal">
-                                                    <Border BackgroundColor="#eedeff" HorizontalOptions="FillAndExpand">
-                                                        <Label Text="{Binding ScheduleName}"
+                                    <CollectionView x:Name="lstInvoices" SelectionMode="None" 
+                                                  ItemsSource="{Binding LstInvoices}"
+                                                  BackgroundColor="White" 
+                                                  VerticalScrollBarVisibility="Never">
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                    <StackLayout Padding="20,10,20,10" Spacing="10">
+                                                        <StackLayout Orientation="Horizontal">
+                                                            <Border BackgroundColor="#eedeff" HorizontalOptions="FillAndExpand">
+                                                                <Label Text="{Binding ScheduleName}"
                                                                FontAttributes="Bold"
                                                                TextColor="Black" 
                                                                HorizontalTextAlignment="Start"
                                                                VerticalTextAlignment="Center"
                                                                Padding="20,7,20,7">
-                                                            <Label.Triggers>
-                                                                <DataTrigger TargetType="Label" Binding="{Binding WhithoutSch}" Value="False">
-                                                                    <Setter Property="Text" Value="{Binding Id}"></Setter>
-                                                                </DataTrigger>
-                                                            </Label.Triggers>
-                                                        </Label>
-                                                        <Border.StrokeShape>
-                                                            <RoundRectangle CornerRadius="10" Stroke="#b66dff" StrokeThickness="2"></RoundRectangle>
-                                                        </Border.StrokeShape>
-                                                        <Border.Shadow>
-                                                            <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                                        </Border.Shadow>
-                                                    </Border>
+                                                                    <Label.Triggers>
+                                                                        <DataTrigger TargetType="Label" Binding="{Binding WhithoutSch}" Value="False">
+                                                                            <Setter Property="Text" Value="{Binding Id}"></Setter>
+                                                                        </DataTrigger>
+                                                                    </Label.Triggers>
+                                                                </Label>
+                                                                <Border.StrokeShape>
+                                                                    <RoundRectangle CornerRadius="10" Stroke="#b66dff" StrokeThickness="2"></RoundRectangle>
+                                                                </Border.StrokeShape>
+                                                                <Border.Shadow>
+                                                                    <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                                                </Border.Shadow>
+                                                            </Border>
 
-                                                    <Label Text="{Binding CreateDate,StringFormat='{0:MM-dd-yyyy}'}" 
+                                                            <Label Text="{Binding CreateDate,StringFormat='{0:MM-dd-yyyy}'}" 
                                                            FontSize="12" 
                                                            Margin="50,0,0,0"
                                                            FontAttributes="Bold"
                                                            HorizontalOptions="End"
                                                            HorizontalTextAlignment="Center"
                                                            VerticalTextAlignment="Center"></Label>
-                                                </StackLayout>
+                                                        </StackLayout>
 
-                                                <StackLayout.GestureRecognizers>
-                                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CustomersViewModel}}, Path=SelecteInvoiceDetailsCommand}" CommandParameter="{Binding}"></TapGestureRecognizer>
-                                                </StackLayout.GestureRecognizers>
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CustomersViewModel}}, Path=SelecteInvoiceDetailsCommand}" CommandParameter="{Binding}"></TapGestureRecognizer>
+                                                        </StackLayout.GestureRecognizers>
 
-                                            </StackLayout>
-                                        </ViewCell>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                                <ListView.Triggers>
-                                    <DataTrigger TargetType="ListView" Binding="{Binding LstInvoices.Count}" Value="0">
-                                        <Setter Property="IsVisible" Value="False"></Setter>
-                                    </DataTrigger>
-                                </ListView.Triggers>
-                            </ListView>
+                                                    </StackLayout>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                        <CollectionView.Triggers>
+                                            <DataTrigger TargetType="CollectionView" Binding="{Binding LstInvoices.Count}" Value="0">
+                                                <Setter Property="IsVisible" Value="False"></Setter>
+                                            </DataTrigger>
+                                        </CollectionView.Triggers>
+                                    </CollectionView>
 
-                            <StackLayout.Triggers>
-                                <DataTrigger TargetType="StackLayout" Binding="{Binding Source={x:Reference stkNoData4}, Path=IsVisible}" Value="True">
-                                    <Setter Property="HeightRequest" Value="0"></Setter>
-                                    <Setter Property="IsVisible" Value="False"></Setter>
-                                </DataTrigger>
-                            </StackLayout.Triggers>
-                        </StackLayout>
+                                    <StackLayout.Triggers>
+                                        <DataTrigger TargetType="StackLayout" Binding="{Binding Source={x:Reference stkNoData4}, Path=IsVisible}" Value="True">
+                                            <Setter Property="HeightRequest" Value="0"></Setter>
+                                            <Setter Property="IsVisible" Value="False"></Setter>
+                                        </DataTrigger>
+                                    </StackLayout.Triggers>
+                                </StackLayout>
+                            </ScrollView>
+                            <!--No Data-->
+                            <StackLayout x:Name="stkNoData4" Padding="0,200,0,300" IsVisible="False" HeightRequest="100" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Image Source="noresult.png" Aspect="AspectFill" VerticalOptions="FillAndExpand"></Image>
+                                <StackLayout.Triggers>
+                                    <MultiTrigger TargetType="StackLayout">
+                                        <MultiTrigger.Conditions>
+                                            <BindingCondition Binding="{Binding LstInvoices.Count}" Value="0" />
+                                        </MultiTrigger.Conditions>
+                                        <Setter Property="IsVisible" Value="True"></Setter>
+                                    </MultiTrigger>
+                                </StackLayout.Triggers>
+                            </StackLayout>
 
-                        <!--No Data-->
-                        <StackLayout x:Name="stkNoData4" Padding="0,200,0,300" IsVisible="False" HeightRequest="100" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                            <Image Source="noresult.png" Aspect="AspectFill" VerticalOptions="FillAndExpand"></Image>
-                            <StackLayout.Triggers>
-                                <MultiTrigger TargetType="StackLayout">
-                                    <MultiTrigger.Conditions>
-                                        <BindingCondition Binding="{Binding LstInvoices.Count}" Value="0" />
-                                    </MultiTrigger.Conditions>
-                                    <Setter Property="IsVisible" Value="True"></Setter>
-                                </MultiTrigger>
-                            </StackLayout.Triggers>
-                        </StackLayout>
-
-                        <Border 
+                            <Border 
                                BackgroundColor="#8f1fff" 
                                Padding="5" 
                                HorizontalOptions="End" 
@@ -936,22 +934,22 @@
                                 </Image>
 
                                 <Border.StrokeShape>
-                                <RoundRectangle CornerRadius="{OnPlatform Android=100,iOS=25}"></RoundRectangle>
-                            </Border.StrokeShape>
-                            <Border.Shadow>
-                                <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                            </Border.Shadow>
+                                    <RoundRectangle CornerRadius="{OnPlatform Android=100,iOS=25}"></RoundRectangle>
+                                </Border.StrokeShape>
+                                <Border.Shadow>
+                                    <Shadow Brush="{OnPlatform Android=LightGray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                </Border.Shadow>
 
-                            <Border.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CustomersViewModel}}, Path=SelectCustToCreateInvoicePageCommand}" ></TapGestureRecognizer>
-                            </Border.GestureRecognizers>
-                        </Border>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CustomersViewModel}}, Path=SelectCustToCreateInvoicePageCommand}" ></TapGestureRecognizer>
+                                </Border.GestureRecognizers>
+                            </Border>
 
-                    </Grid>
-                </tabView:SfTabItem.Content>
-            </tabView:SfTabItem>
-        </tabView:SfTabView.Items>
-    </tabView:SfTabView>
+                        </Grid>
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+            </tabView:SfTabView.Items>
+        </tabView:SfTabView>
 
     </StackLayout>
     <!--<TabBar>
@@ -976,8 +974,8 @@
                           ContentTemplate="{DataTemplate local:InvoicesCustomerPage}" />
         </Tab>
     </TabBar>-->
-    
-    
+
+
 
 
 
@@ -986,7 +984,9 @@
         <StackLayout Spacing="0" VerticalOptions="FillAndExpand">
             <Controls:ToolBar Title="Customer Details" HasBackButton="True" Margin="0" Padding="0"></Controls:ToolBar>
 
-            --><!--TabWidth="{OnPlatform Android=90,iOS=100}"--><!--
+            -->
+    <!--TabWidth="{OnPlatform Android=90,iOS=100}"-->
+    <!--
             <tabView:SfTabView x:Name="MainTabs" TabWidthMode="Default"
                                
                                IndicatorPlacement="Top" 
@@ -999,7 +999,9 @@
 
                 <tabView:SfTabView.Items>
 
-                    --><!--Information Tab--><!--
+                    -->
+    <!--Information Tab-->
+    <!--
                     <tabView:SfTabItem Header="Info"
                                        TextColor="#b66dff" 
                                        ImageSource="informations.png"
@@ -1465,7 +1467,9 @@
                                         <StackLayout>
                                             <Label Text="Custom Fields" TextColor="#b66dff" FontAttributes="Bold" HorizontalOptions="StartAndExpand" Padding="20,0,20,5"></Label>
 
-                                            --><!--<yummy:PancakeView BackgroundColor="White" CornerRadius="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="20,0,20,20" Padding="20,20,20,0">--><!--
+                                            -->
+    <!--<yummy:PancakeView BackgroundColor="White" CornerRadius="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="20,0,20,20" Padding="20,20,20,0">-->
+    <!--
 
                                             <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20,0,20,0">
 
@@ -1536,7 +1540,9 @@
                         </tabView:SfTabItem.Content>
                     </tabView:SfTabItem>
 
-                    --><!--Schedules Tab--><!--
+                    -->
+    <!--Schedules Tab-->
+    <!--
                     <tabView:SfTabItem Header="Schedules"
                                        TextColor="#b66dff" 
                                        ImageSource="schedules.png"
@@ -1610,7 +1616,9 @@
                                         </StackLayout.Triggers>
                                     </StackLayout>
 
-                                    --><!--No Data--><!--
+                                    -->
+    <!--No Data-->
+    <!--
                                     <StackLayout x:Name="stkNoData2" Padding="0,200,0,300" IsVisible="False" HeightRequest="100" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                         <Image Source="noresult.png" Aspect="AspectFill" VerticalOptions="FillAndExpand"></Image>
                                         <StackLayout.Triggers>
@@ -1627,7 +1635,9 @@
                         </tabView:SfTabItem.Content>
                     </tabView:SfTabItem>
 
-                    --><!--Estimates Tab--><!--
+                    -->
+    <!--Estimates Tab-->
+    <!--
                     <tabView:SfTabItem Header="Estimates"
                                        TextColor="#b66dff" 
                                        ImageSource="estimates.png"
@@ -1685,7 +1695,9 @@
                                                                     </Border.GestureRecognizers>
                                                                 </Border>
 
-                                                                --><!--Convert To Invoie--><!--
+                                                                -->
+    <!--Convert To Invoie-->
+    <!--
                                                                 <Border HorizontalOptions="End" IsVisible="False" WidthRequest="120" Padding="5,10,5,10">
                                                                     <StackLayout Spacing="0" VerticalOptions="Center">
                                                                         <Label Text="Convert to Invoice" FontSize="12" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
@@ -1712,7 +1724,9 @@
                                                                     </Border.Triggers>
                                                                 </Border>
 
-                                                                --><!--Go Invoice--><!--
+                                                                -->
+    <!--Go Invoice-->
+    <!--
                                                                 <Border HorizontalOptions="End" IsVisible="False" Padding="10">
                                                                     <StackLayout Spacing="0" VerticalOptions="Center">
                                                                         <Label Text="Go Invoice" FontSize="12" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
@@ -1759,7 +1773,9 @@
                                         </StackLayout.Triggers>
                                     </StackLayout>
 
-                                    --><!--No Data--><!--
+                                    -->
+    <!--No Data-->
+    <!--
                                     <StackLayout x:Name="stkNoData3" Padding="0,200,0,300" IsVisible="False" HeightRequest="100" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                         <Image Source="noresult.png" Aspect="AspectFill" VerticalOptions="FillAndExpand"></Image>
                                         <StackLayout.Triggers>
@@ -1805,7 +1821,9 @@
 
                     </tabView:SfTabItem>
 
-                    --><!--Invoices Tab--><!--
+                    -->
+    <!--Invoices Tab-->
+    <!--
                     <tabView:SfTabItem Header="Invoices"
                                        TextColor="#b66dff" 
                                        ImageSource="invoices.png"
@@ -1880,7 +1898,9 @@
                                         </StackLayout.Triggers>
                                     </StackLayout>
 
-                                    --><!--No Data--><!--
+                                    -->
+    <!--No Data-->
+    <!--
                                     <StackLayout x:Name="stkNoData4" Padding="0,200,0,300" IsVisible="False" HeightRequest="100" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                         <Image Source="noresult.png" Aspect="AspectFill" VerticalOptions="FillAndExpand"></Image>
                                         <StackLayout.Triggers>
@@ -1930,9 +1950,11 @@
 
             </tabView:SfTabView>
 
-            --><!--<ActivityIndicator x:Name="actIndLoading" IsRunning="{Binding IsBusy}" IsVisible="False" PropertyChanged="actIndLoading_PropertyChanged">
+            -->
+    <!--<ActivityIndicator x:Name="actIndLoading" IsRunning="{Binding IsBusy}" IsVisible="False" PropertyChanged="actIndLoading_PropertyChanged">
 
-            </ActivityIndicator>--><!--
+            </ActivityIndicator>-->
+    <!--
         </StackLayout>
     </Controls:CustomsPage.Content>-->
 </Controls:CustomsPage>

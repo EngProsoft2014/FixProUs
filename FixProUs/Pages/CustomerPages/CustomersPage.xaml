@@ -76,77 +76,75 @@
 
                 <StackLayout Margin="0,0,0,20">
 
-                    <ListView x:Name="lstCustomers" SelectionMode="None" 
+                    <CollectionView x:Name="lstCustomers" SelectionMode="None" 
                           ItemsSource="{Binding LstCustomers}"  
-                          HasUnevenRows="True" BackgroundColor="White"
+                          BackgroundColor="White"
                           VerticalScrollBarVisibility="Never">
-                        <ListView.ItemTemplate>
+                        <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout Padding="20,10,20,10" Spacing="10">
-                                        <StackLayout Orientation="Horizontal">
-                                            <Border BackgroundColor="#f1e3ff" HorizontalOptions="FillAndExpand">
-                                                <Label 
+                                <StackLayout Padding="20,10,20,10" Spacing="10">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Border BackgroundColor="#f1e3ff" HorizontalOptions="FillAndExpand">
+                                            <Label 
                                                        FontAttributes="Bold"
                                                        TextColor="Black" 
                                                        HorizontalTextAlignment="Start"
                                                        VerticalTextAlignment="Center"
                                                        Padding="20,7,20,7">
-                                                    <Label.Text>
-                                                        <MultiBinding StringFormat="{}{0} {1}">
-                                                            <Binding Path="FirstName" />
-                                                            <Binding Path="LastName" />
-                                                        </MultiBinding>
-                                                    </Label.Text>
-                                                </Label>
+                                                <Label.Text>
+                                                    <MultiBinding StringFormat="{}{0} {1}">
+                                                        <Binding Path="FirstName" />
+                                                        <Binding Path="LastName" />
+                                                    </MultiBinding>
+                                                </Label.Text>
+                                            </Label>
 
-                                                <Border.Shadow>
-                                                    <Shadow Brush="{OnPlatform Android=Gray, iOS=Gray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                                </Border.Shadow>
-                                                <Border.StrokeShape>
-                                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="2"></RoundRectangle>
-                                                </Border.StrokeShape>
-                                            </Border>
+                                            <Border.Shadow>
+                                                <Shadow Brush="{OnPlatform Android=Gray, iOS=Gray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                            </Border.Shadow>
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="2"></RoundRectangle>
+                                            </Border.StrokeShape>
+                                        </Border>
 
-                                            <StackLayout Orientation="Horizontal"  HorizontalOptions="End" Padding="0" Margin="10,0,0,0" Spacing="0">
-                                                <Image x:Name="imgTel">
-                                                    <Image.Source>
-                                                        <FontImageSource FontFamily="FontIconSolid" Color="#878686" Glyph="" Size="13"></FontImageSource>
-                                                    </Image.Source>
-                                                </Image>
-                                                <Label Text="{Binding Phone1}" 
+                                        <StackLayout Orientation="Horizontal"  HorizontalOptions="End" Padding="0" Margin="10,0,0,0" Spacing="0">
+                                            <Image x:Name="imgTel">
+                                                <Image.Source>
+                                                    <FontImageSource FontFamily="FontIconSolid" Color="#878686" Glyph="" Size="13"></FontImageSource>
+                                                </Image.Source>
+                                            </Image>
+                                            <Label Text="{Binding Phone1}" 
                                                        FontSize="12" TextColor="#333" 
                                                        WidthRequest="100" 
                                                        FontAttributes="Bold" 
                                                        HorizontalTextAlignment="Center"
                                                        VerticalTextAlignment="Center"></Label>
-                                            </StackLayout>
-
                                         </StackLayout>
-
-                                        <StackLayout Orientation="Horizontal" Spacing="10" Padding="10,0,0,0">
-                                            <Image>
-                                                <Image.Source>
-                                                    <FontImageSource FontFamily="FontIconSolid" Color="#debdff" Glyph="" Size="18"></FontImageSource>
-                                                </Image.Source>
-                                            </Image>
-                                            <Label Text="{Binding Address}" TextColor="#333" FontAttributes="Italic" VerticalTextAlignment="Center" FontSize="14"></Label>
-
-                                        </StackLayout>
-                                        <StackLayout.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CustomersViewModel}}, Path=SelecteCustomerDetailsCommand}" CommandParameter="{Binding}"></TapGestureRecognizer>
-                                        </StackLayout.GestureRecognizers>
 
                                     </StackLayout>
-                                </ViewCell>
+
+                                    <StackLayout Orientation="Horizontal" Spacing="10" Padding="10,0,0,0">
+                                        <Image>
+                                            <Image.Source>
+                                                <FontImageSource FontFamily="FontIconSolid" Color="#debdff" Glyph="" Size="18"></FontImageSource>
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Text="{Binding Address}" TextColor="#333" FontAttributes="Italic" VerticalTextAlignment="Center" FontSize="14"></Label>
+
+                                    </StackLayout>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CustomersViewModel}}, Path=SelecteCustomerDetailsCommand}" CommandParameter="{Binding}"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+
+                                </StackLayout>
                             </DataTemplate>
-                        </ListView.ItemTemplate>
-                        <ListView.Triggers>
-                            <DataTrigger TargetType="ListView" Binding="{Binding LstCustomers.Count}" Value="0">
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.Triggers>
+                            <DataTrigger TargetType="CollectionView" Binding="{Binding LstCustomers.Count}" Value="0">
                                 <Setter Property="IsVisible" Value="False"></Setter>
                             </DataTrigger>
-                        </ListView.Triggers>
-                    </ListView>
+                        </CollectionView.Triggers>
+                    </CollectionView>
 
                     <StackLayout.Triggers>
                         <DataTrigger TargetType="StackLayout" Binding="{Binding Source={x:Reference stkNoData}, Path=IsVisible}" Value="True">

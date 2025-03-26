@@ -46,8 +46,8 @@
                        Text="Search" 
                        TextColor="#b66dff"
                        FontSize="{OnPlatform Android=13,iOS=15}"
-                       Margin="{OnPlatform Android='0,0,20,0',iOS='0,40,20,0'}"
-                       VerticalTextAlignment="Center"
+                       Margin="{OnPlatform Android='0,0,20,0',iOS='0,0,20,0'}"
+                       VerticalTextAlignment="{OnPlatform Android=Center,iOS=Start}"
                        HorizontalOptions="End">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" NumberOfTapsRequired="1"></TapGestureRecognizer>
@@ -59,8 +59,8 @@
                        IsVisible="False"
                        TextColor="#b66dff"
                        FontSize="{OnPlatform Android=13,iOS=15}"
-                       Margin="{OnPlatform Android='0,0,20,0',iOS='0,40,20,0'}"
-                       VerticalTextAlignment="Center"
+                       Margin="{OnPlatform Android='0,0,20,0',iOS='0,0,20,0'}"
+                       VerticalTextAlignment="{OnPlatform Android=Center,iOS=Start}"
                        HorizontalOptions="End">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3"  NumberOfTapsRequired="1"></TapGestureRecognizer>
@@ -69,7 +69,7 @@
             </StackLayout>
 
 
-            <StackLayout x:Name="stkListOrCalAndWeekOrDays" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <StackLayout x:Name="stkListOrCalAndWeekOrDays" Orientation="Horizontal" Margin="{OnPlatform iOS='0,0,0,10'}" HorizontalOptions="FillAndExpand">
                 <StackLayout Orientation="Horizontal" Spacing="2" Padding="10,0,10,0" HorizontalOptions="FillAndExpand" Margin="0,0,20,0">
                     <Label Text="List" VerticalTextAlignment="Center" TextColor="#333"></Label>
                     <Switch x:Name="swchCalenderOrListView" Toggled="swchCalenderOrListView_Toggled"></Switch>
@@ -276,7 +276,7 @@
             </StackLayout>
 
             <!--List Jobs Result-->
-            <CollectionView x:Name="colJobs" Grid.Row="1" Grid.RowSpan="2" ItemsSource="{Binding CalendarDataToday}" VerticalOptions="StartAndExpand" Margin="10,20,10,0">
+            <CollectionView x:Name="colJobs" Grid.Row="1" Grid.RowSpan="2" VerticalScrollBarVisibility="Never" ItemsSource="{Binding CalendarDataToday}" VerticalOptions="StartAndExpand" Margin="10,20,10,0">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"></LinearItemsLayout>
                 </CollectionView.ItemsLayout>
@@ -339,7 +339,7 @@
 
                                 </StackLayout>
 
-                                <StackLayout IsVisible="False" HorizontalOptions="End" VerticalOptions="End"  WidthRequest="70" HeightRequest="32">
+                                <StackLayout IsVisible="False" HorizontalOptions="End" VerticalOptions="End"  WidthRequest="70" HeightRequest="{OnPlatform Android=32,iOS=40}">
                                     <Button Text="Start" 
                                             TextColor="White"
                                             BackgroundColor="#538dd4" 
@@ -347,7 +347,7 @@
                                             CornerRadius="13" 
                                             TextTransform="None"
                                             WidthRequest="70"
-                                            HeightRequest="32"
+                                            HeightRequest="{OnPlatform Android=32,iOS=40}"
                                             Command="{Binding Source={RelativeSource AncestorType={x:Type vm:SchedulesViewModel}}, Path=StartScheduleOutSideCommand}" CommandParameter="{Binding}"></Button>
                                     <StackLayout.Triggers>
                                         <DataTrigger TargetType="StackLayout" Binding="{Binding ShowCheckBtn}" Value="3">
@@ -368,7 +368,7 @@
                                     </StackLayout.Triggers>
                                 </StackLayout>
 
-                                <StackLayout IsVisible="False" HorizontalOptions="End" VerticalOptions="End"  WidthRequest="70" HeightRequest="32">
+                                <StackLayout IsVisible="False" HorizontalOptions="End" VerticalOptions="End"  WidthRequest="70" HeightRequest="{OnPlatform Android=32,iOS=40}">
                                     <Button Text="End" 
                                             TextColor="White"
                                             BackgroundColor="#538dd4" 
@@ -376,7 +376,7 @@
                                             CornerRadius="13" 
                                             TextTransform="None"
                                             WidthRequest="70"
-                                            HeightRequest="32"
+                                            HeightRequest="{OnPlatform Android=32,iOS=40}"
                                             Command="{Binding Source={RelativeSource AncestorType={x:Type vm:SchedulesViewModel}}, Path=EndScheduleOutSideCommand}" CommandParameter="{Binding}"></Button>
                                     <StackLayout.Triggers>
                                         <DataTrigger TargetType="StackLayout" Binding="{Binding ShowCheckBtn}" Value="3">
@@ -417,7 +417,7 @@
             </CollectionView>
 
             <!--List search Jobs-->
-            <CollectionView x:Name="colSearchJobs" IsVisible="False" Grid.Row="1" Grid.RowSpan="2" ItemsSource="{Binding LstSchedulesSearch}" VerticalOptions="Start" TranslationY="-50" Margin="10,0,10,0">
+            <CollectionView x:Name="colSearchJobs" IsVisible="False" Grid.Row="1" Grid.RowSpan="2" VerticalScrollBarVisibility="Never" ItemsSource="{Binding LstSchedulesSearch}" VerticalOptions="Start" TranslationY="-50" Margin="10,0,10,0">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"></LinearItemsLayout>
                 </CollectionView.ItemsLayout>
@@ -480,7 +480,7 @@
 
                                 </StackLayout>
 
-                                <StackLayout IsVisible="False" HorizontalOptions="End" VerticalOptions="End"  WidthRequest="70" HeightRequest="32">
+                                <StackLayout IsVisible="False" HorizontalOptions="End" VerticalOptions="End"  WidthRequest="70" HeightRequest="{OnPlatform Android=32,iOS=40}">
                                     <Button Text="Start" 
                                             TextColor="White"
                                             BackgroundColor="#538dd4" 
@@ -488,7 +488,7 @@
                                             CornerRadius="13" 
                                             TextTransform="None"
                                             WidthRequest="70"
-                                            HeightRequest="32"
+                                            HeightRequest="{OnPlatform Android=32,iOS=40}"
                                             Command="{Binding Source={RelativeSource AncestorType={x:Type vm:SchedulesViewModel}}, Path=StartScheduleOutSideCommand}" CommandParameter="{Binding}"></Button>
                                     <StackLayout.Triggers>
                                         <DataTrigger TargetType="StackLayout" Binding="{Binding ShowCheckBtn}" Value="3">
@@ -509,7 +509,7 @@
                                     </StackLayout.Triggers>
                                 </StackLayout>
 
-                                <StackLayout IsVisible="False" HorizontalOptions="End" VerticalOptions="End"  WidthRequest="70" HeightRequest="32">
+                                <StackLayout IsVisible="False" HorizontalOptions="End" VerticalOptions="End"  WidthRequest="70" HeightRequest="{OnPlatform Android=32,iOS=40}">
                                     <Button Text="End" 
                                             TextColor="White"
                                             BackgroundColor="#538dd4" 
@@ -517,7 +517,7 @@
                                             CornerRadius="13" 
                                             TextTransform="None"
                                             WidthRequest="70"
-                                            HeightRequest="32"
+                                            HeightRequest="{OnPlatform Android=32,iOS=40}"
                                             Command="{Binding Source={RelativeSource AncestorType={x:Type vm:SchedulesViewModel}}, Path=EndScheduleOutSideCommand}" CommandParameter="{Binding}"></Button>
                                     <StackLayout.Triggers>
                                         <DataTrigger TargetType="StackLayout" Binding="{Binding ShowCheckBtn}" Value="3">
@@ -580,7 +580,7 @@
                 </Image>
 
                 <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="{OnPlatform Android=100, iOS=25}" Stroke="LightGray" StrokeThickness="2"></RoundRectangle>
+                    <RoundRectangle CornerRadius="{OnPlatform Android=100, iOS=25}" Stroke="Transparent"></RoundRectangle>
                 </Border.StrokeShape>
                 <Border.Shadow>
                     <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
