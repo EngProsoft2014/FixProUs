@@ -876,8 +876,8 @@
                                                             </Border>
 
                                                             <Label Text="{Binding CreateDate,StringFormat='{0:MM-dd-yyyy}'}" 
-                                                           FontSize="12" 
-                                                           Margin="50,0,0,0"
+                                                           FontSize="12" TextColor="#333"
+                                                           Margin="20,0,0,0"
                                                            FontAttributes="Bold"
                                                            HorizontalOptions="End"
                                                            HorizontalTextAlignment="Center"

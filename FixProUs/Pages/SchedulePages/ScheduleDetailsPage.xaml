@@ -1848,16 +1848,16 @@
 
                             <StackLayout>
 
-                                <StackLayout Orientation="Horizontal" HeightRequest="60" Margin="10" HorizontalOptions="FillAndExpand">
-                                    <CollectionView x:Name="colPhotos" ItemsSource="{Binding LstATwoPictures}" WidthRequest="200">
+                                <StackLayout Orientation="Horizontal" HeightRequest="{OnPlatform Android=60,iOS=80}" Margin="10" HorizontalOptions="FillAndExpand">
+                                    <CollectionView x:Name="colPhotos" ItemsSource="{Binding LstATwoPictures}" HeightRequest="{OnPlatform iOS=70}" WidthRequest="200">
                                         <CollectionView.ItemsLayout>
                                             <GridItemsLayout Orientation="Horizontal" Span="1" HorizontalItemSpacing="20"></GridItemsLayout>
                                         </CollectionView.ItemsLayout>
                                         <CollectionView.ItemTemplate>
                                             <DataTemplate>
-                                                <Frame Padding="0" Margin="0" BackgroundColor="White" HasShadow="False" CornerRadius="10" BorderColor="Gray" HorizontalOptions="CenterAndExpand">
+                                                <Border Padding="0" Margin="0" BackgroundColor="White" Stroke="Gray" HorizontalOptions="CenterAndExpand">
                                                     <Image Source="{Binding FullFileName}"
-                                                                                  HeightRequest="60"
+                                                                                  HeightRequest="{OnPlatform Android=60,iOS=70}"
                                                                                   WidthRequest="80"
                                                                                   Aspect="Fill"
                                                                                   HorizontalOptions="FillAndExpand">
@@ -1865,7 +1865,10 @@
                                                             <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:SchedulesViewModel}}, Path=OpenFullScreenSchImageCommand}" CommandParameter="{Binding FullFileName}"></TapGestureRecognizer>
                                                         </Image.GestureRecognizers>
                                                     </Image>
-                                                </Frame>
+                                                    <Border.StrokeShape>
+                                                        <RoundRectangle CornerRadius="10"></RoundRectangle>
+                                                    </Border.StrokeShape>
+                                                </Border>
                                             </DataTemplate>
                                         </CollectionView.ItemTemplate>
                                     </CollectionView>
