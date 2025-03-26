@@ -751,7 +751,6 @@
 
                     <Frame x:Name="frmSignature" BorderColor="Gray" BackgroundColor="White" HasShadow="False" Margin="20,0,20,20">
                         <Image Source="{Binding OneEstimate.SignatureDrawView}" HeightRequest="130" Aspect="AspectFit" Margin="15">
-
                         </Image>
                         <Frame.Triggers>
                             <DataTrigger TargetType="Frame" Binding="{Binding OneEstimate.SignatureDraw}" Value="">
@@ -771,7 +770,7 @@
                                                IsMultiLineModeEnabled="True"
                                                BackgroundColor="AliceBlue"/>
 
-                            <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="FillAndExpand" Margin="0,5,0,0">
                                 <Button Text="Save" 
                                         BackgroundColor="#b66dff" 
                                         TextColor="White" 
@@ -803,8 +802,20 @@
             </ScrollView>
 
             <StackLayout x:Name="stkResponButtons" Orientation="Horizontal" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Padding="{OnPlatform Android=10,iOS='10,10,10,50'}">
-                <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="CenterAndExpand" TranslationX="20">
+                <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="FillAndExpand" TranslationX="20">
 
+                    <Button Text="Submit" 
+    HeightRequest="40"
+    BackgroundColor="#8f1fff"
+    FontAttributes="Bold"
+    FontSize="13" 
+    CornerRadius="10"
+    HorizontalOptions="FillAndExpand"
+    TextTransform="None"
+    TextColor="White"
+    Command="{Binding SubmitEstimateCommand}" CommandParameter="{Binding OneEstimate}">
+                    </Button>
+                    
                     <Button Text="Cancel"
                         HeightRequest="40"
                         BackgroundColor="White"
@@ -813,36 +824,26 @@
                         CornerRadius="10"
                         TextTransform="None"
                         TextColor="Gray"
-                        WidthRequest="{OnPlatform iOS=100}"
+                        HorizontalOptions="FillAndExpand"
                         BorderColor="Gray"
                         BorderWidth="1"
                         Clicked="Button_Clicked"></Button>
 
-                    <Button Text="Submit" 
-                        HeightRequest="40"
-                        BackgroundColor="#8f1fff"
-                        FontAttributes="Bold"
-                        FontSize="13" 
-                        CornerRadius="10"
-                        WidthRequest="{OnPlatform iOS=100}"
-                        TextTransform="None"
-                        TextColor="White"
-                        Command="{Binding SubmitEstimateCommand}" CommandParameter="{Binding OneEstimate}">
-                    </Button>
+                    <!--Delete-->
+                    <Image HorizontalOptions="End" Margin="0,0,20,0">
+                        <Image.Source>
+                            <FontImageSource FontFamily="FontIconSolid" Color="Gray" Glyph="" Size="25"></FontImageSource>
+                        </Image.Source>
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding DeleteEstimateCommand}" CommandParameter="{Binding OneEstimate.Id}"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
 
                 </StackLayout>
 
 
 
-                <!--Delete-->
-                <Image HorizontalOptions="End" Margin="0,0,20,0">
-                    <Image.Source>
-                        <FontImageSource FontFamily="FontIconSolid" Color="Gray" Glyph="" Size="20"></FontImageSource>
-                    </Image.Source>
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding DeleteEstimateCommand}" CommandParameter="{Binding OneEstimate.Id}"></TapGestureRecognizer>
-                    </Image.GestureRecognizers>
-                </Image>
+                
 
                 <StackLayout.Triggers>
 

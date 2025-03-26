@@ -152,7 +152,7 @@
                 </StackLayout>
 
 
-                <StackLayout x:Name="stkBtns" Orientation="Horizontal" Spacing="10" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Padding="{OnPlatform Android=10,iOS='10,10,10,50'}">
+                <StackLayout x:Name="stkBtns" Orientation="Horizontal" Spacing="20" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Padding="{OnPlatform Android=10,iOS='10,10,10,50'}">
 
                     <Button Text="OK"
                             BackgroundColor="#b66dff"
@@ -160,7 +160,7 @@
                             FontSize="14" 
                             CornerRadius="10"
                             HeightRequest="40"
-                            WidthRequest="{OnPlatform Android=80, iOS=100}"
+                            HorizontalOptions="FillAndExpand"
                             TextColor="White" 
                             x:Name="btnOk"
                             Command="{Binding ApplyServiceCommand}" CommandParameter="{Binding ServiceDetails}">
@@ -170,7 +170,7 @@
                             BackgroundColor="Transparent" 
                             FontAttributes="Bold" 
                             FontSize="14"
-                            WidthRequest="{OnPlatform Android=80, iOS=100}"
+                            HorizontalOptions="FillAndExpand"
                             CornerRadius="10"
                             HeightRequest="40"
                             BorderColor="#b66dff" 

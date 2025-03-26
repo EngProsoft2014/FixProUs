@@ -947,6 +947,7 @@
                                                     <TimePicker 
                                                         Time="{Binding TimeFrom}"
                                                         FontSize="13"
+                                                        TextColor="Black"
                                                         HorizontalOptions="FillAndExpand">
                                                     </TimePicker>
                                                 </StackLayout>
@@ -974,6 +975,7 @@
                                                     <TimePicker 
                                                          Time="{Binding TimeTo}"
                                                          FontSize="13"
+                                                         TextColor="Black"
                                                          HorizontalOptions="FillAndExpand">
                                                     </TimePicker>
                                                 </StackLayout>

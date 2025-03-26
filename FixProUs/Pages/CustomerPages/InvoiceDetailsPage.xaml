@@ -755,7 +755,18 @@
 
             <StackLayout x:Name="stkResponButtons" Orientation="Horizontal" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Padding="{OnPlatform Android=10,iOS='10,10,10,50'}">
 
-                <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="CenterAndExpand">
+                <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="FillAndExpand">
+
+                    <Button Text="Submit" 
+        HeightRequest="40"
+        BackgroundColor="#8f1fff"
+        FontAttributes="Bold"
+        HorizontalOptions="FillAndExpand"
+        FontSize="13" 
+        CornerRadius="10"
+        TextTransform="None"
+        TextColor="White"
+        Command="{Binding SubmitInvoiceCommand}" CommandParameter="{Binding OneInvoice}"></Button>
 
                     <Button Text="Cancel"
                             HeightRequest="40"
@@ -764,22 +775,11 @@
                             FontSize="13" 
                             CornerRadius="10"
                             TextTransform="None"
-                            WidthRequest="{OnPlatform iOS=100}"
+                            HorizontalOptions="FillAndExpand"
                             TextColor="Gray"
                             BorderColor="Gray"
                             BorderWidth="1"
                             Clicked="Button_Clicked"></Button>
-
-                    <Button Text="Submit" 
-                            HeightRequest="40"
-                            BackgroundColor="#8f1fff"
-                            FontAttributes="Bold"
-                            WidthRequest="{OnPlatform iOS=100}"
-                            FontSize="13" 
-                            CornerRadius="10"
-                            TextTransform="None"
-                            TextColor="White"
-                            Command="{Binding SubmitInvoiceCommand}" CommandParameter="{Binding OneInvoice}"></Button>
                 </StackLayout>
                 <StackLayout.Triggers>
                     <DataTrigger TargetType="StackLayout" Binding="{Binding EmployeePermission.UserRole}" Value="1">
@@ -808,7 +808,7 @@
                                Padding="5" 
                                VerticalOptions="End"
                                HorizontalOptions="End" 
-                               Margin="30,30,20,50">
+                               Margin="30,30,20,60">
                 <xct:Expander>
                     <xct:Expander.Header>
                         <Image Margin="8">

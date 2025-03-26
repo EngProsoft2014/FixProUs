@@ -401,8 +401,6 @@
                                 <RoundRectangle CornerRadius="0" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
                             </Border.StrokeShape>
                         </Border>
-
-
                     </StackLayout>
 
 
@@ -508,7 +506,7 @@
                                               IsMultiLineModeEnabled="True"
                                               BackgroundColor="AliceBlue"/>
 
-                            <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="FillAndExpand" Margin="0,5,0,0">
                                 <Button Text="Save" 
                                        BackgroundColor="#b66dff" 
                                        TextColor="White" 
@@ -531,7 +529,24 @@
         </ScrollView>
 
         <StackLayout x:Name="stkResponButtons" HorizontalOptions="FillAndExpand" VerticalOptions="End" Padding="{OnPlatform Android=10,iOS='10,10,10,50'}">
-            <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="CenterAndExpand">
+            <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="FillAndExpand">
+
+                <Button Text="Submit" 
+    HeightRequest="40"
+    BackgroundColor="#b66dff"
+    FontAttributes="Bold"
+    FontSize="13"
+    HorizontalOptions="FillAndExpand"
+    CornerRadius="10"
+    TextTransform="None"
+    TextColor="White"
+    Command="{Binding SubmitCustInvoiceOrEstimateCommand}" CommandParameter="{Binding CustomerDetails}">
+                    <Button.Triggers>
+                        <DataTrigger TargetType="Button" Binding="{Binding ShowEstimateConvertToInvoice}" Value="True">
+                            <Setter Property="IsVisible" Value="False"></Setter>
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
 
                 <Button Text="Cancel"
                     HeightRequest="40"
@@ -540,28 +555,11 @@
                     FontSize="13" 
                     CornerRadius="10"
                     TextTransform="None"
-                    WidthRequest="{OnPlatform iOS=100}"
+                    HorizontalOptions="FillAndExpand"
                     TextColor="Gray"
                     BorderColor="Gray"
                     BorderWidth="1"
                     Clicked="Button_Clicked"></Button>
-
-                <Button Text="Submit" 
-                    HeightRequest="40"
-                    BackgroundColor="#b66dff"
-                    FontAttributes="Bold"
-                    FontSize="13"
-                    WidthRequest="{OnPlatform iOS=100}"
-                    CornerRadius="10"
-                    TextTransform="None"
-                    TextColor="White"
-                    Command="{Binding SubmitCustInvoiceOrEstimateCommand}" CommandParameter="{Binding CustomerDetails}">
-                    <Button.Triggers>
-                        <DataTrigger TargetType="Button" Binding="{Binding ShowEstimateConvertToInvoice}" Value="True">
-                            <Setter Property="IsVisible" Value="False"></Setter>
-                        </DataTrigger>
-                    </Button.Triggers>
-                </Button>
             </StackLayout>
 
         </StackLayout>
