@@ -55,8 +55,8 @@ public partial class AddressPupop : Mopups.Pages.PopupPage
 
         var _request2 = new GoogleApi.Entities.Places.Details.Request.PlacesDetailsRequest
         {
-            //Key = "AIzaSyCAFJVJ3OVKxJHSKPBljAlHTah2QzWUcBY",
-            Key = Device.iOS == "iOS" ? "AIzaSyDY-9LWg_lY41hlxBA2-ngBydMGYaXxKA4" : Controls.StartData.Com_MainObj.AddressAutoCompleteKey,
+            Key = Controls.StartData.Com_MainObj.AddressAutoCompleteKey,
+            //Key = Device.iOS == "iOS" ? "AIzaSyDY-9LWg_lY41hlxBA2-ngBydMGYaXxKA4" : Controls.StartData.Com_MainObj.AddressAutoCompleteKey,
             PlaceId = Listed.PalceId,
             //Language = App.Lang == "ar" ? GoogleApi.Entities.Common.Enums.Language.English : GoogleApi.Entities.Common.Enums.Language.Arabic
         };
@@ -128,7 +128,7 @@ public partial class AddressPupop : Mopups.Pages.PopupPage
     {
         GoogleApi.Entities.Places.AutoComplete.Request.PlacesAutoCompleteRequest request = new GoogleApi.Entities.Places.AutoComplete.Request.PlacesAutoCompleteRequest();
         request.Input = search;
-        request.Key = "AIzaSyCAFJVJ3OVKxJHSKPBljAlHTah2QzWUcBY";
+        request.Key = Controls.StartData.Com_MainObj.AddressAutoCompleteKey;
 
         var response = await GoogleApi.GooglePlaces.AutoComplete.QueryAsync(request, null);
 

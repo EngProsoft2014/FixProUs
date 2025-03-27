@@ -36,8 +36,8 @@ public partial class SearchCustomerPopup : Mopups.Pages.PopupPage
 
         request.Language = GoogleApi.Entities.Common.Enums.Language.English;
 
-        //request.Key = "AIzaSyBrriO9GGKoeIAIiS3L8asTps80-sXzQgo";
-        request.Key = Device.iOS == "iOS" ? "AIzaSyDY-9LWg_lY41hlxBA2-ngBydMGYaXxKA4" : Controls.StartData.Com_MainObj.AddressAutoCompleteKey;
+        request.Key = Controls.StartData.Com_MainObj.AddressAutoCompleteKey;
+        //request.Key = Device.iOS == "iOS" ? "AIzaSyDY-9LWg_lY41hlxBA2-ngBydMGYaXxKA4" : Controls.StartData.Com_MainObj.AddressAutoCompleteKey;
 
         var response = await GoogleApi.GooglePlaces.AutoComplete.QueryAsync(request, null);
 
