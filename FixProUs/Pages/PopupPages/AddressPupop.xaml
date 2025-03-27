@@ -10,9 +10,10 @@
 
 
     <Border BackgroundColor="#FFFFFF" VerticalOptions="FillAndExpand">
-        <StackLayout>
-            <StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="20">
-                <Image HorizontalOptions="End" VerticalOptions="Center">
+        <StackLayout VerticalOptions="FillAndExpand">
+
+            <HorizontalStackLayout Padding="20">
+                <Image VerticalOptions="Center">
                     <Image.Source>
                         <FontImageSource FontFamily="FontIconSolid" Glyph="" Color="#b66dff"></FontImageSource>
                     </Image.Source>
@@ -20,11 +21,11 @@
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
                     </Image.GestureRecognizers>
                 </Image>
-            </StackLayout>
-
-            <StackLayout Padding="20,0,20,0">
+            </HorizontalStackLayout>
+            <StackLayout Padding="20,0,20,0" VerticalOptions="FillAndExpand">
                 <Entry x:Name="searchBar" Placeholder="Enter Address" TextColor="#333" FontFamily="AlmaraiRegular" Keyboard="Text" ClearButtonVisibility="WhileEditing" TextChanged="SearchBar_OnTextChanged"></Entry>
-                <ListView x:Name="countryListView" BackgroundColor="White" HorizontalOptions="FillAndExpand" IsVisible="False" CachingStrategy="RecycleElement" ItemTapped="ListView_OnItemTapped">
+                <ListView x:Name="countryListView" BackgroundColor="White" HorizontalOptions="FillAndExpand" IsVisible="False" 
+                          VerticalOptions="FillAndExpand" CachingStrategy="RecycleElement" ItemTapped="ListView_OnItemTapped">
                     <ListView.RowHeight>
                         70
                     </ListView.RowHeight>
@@ -166,9 +167,8 @@
                                 </StackLayout>
 
                                 <Button Text="Apply" 
-                                    WidthRequest="70" 
-                                    HeightRequest="45" 
-                                    HorizontalOptions="CenterAndExpand"
+                                    HeightRequest="45" Margin="0,20,0,0"
+                                    HorizontalOptions="FillAndExpand"
                                     VerticalOptions="EndAndExpand"
                                     TextColor="White"
                                     CornerRadius="10"

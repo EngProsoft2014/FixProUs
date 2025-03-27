@@ -124,7 +124,7 @@ namespace FixProUs.ViewModels
         EmployeeModel selectedEmployeeAddDate;
 
         [ObservableProperty]
-        ItemsServicesModel selectedService;
+        ItemsServicesModel selectedService = new ItemsServicesModel();
 
         [ObservableProperty]
         SchaduleDateModel oneScheduleDate;
@@ -435,7 +435,6 @@ namespace FixProUs.ViewModels
             LstInvoiceSchaduleDatesActual = new ObservableCollection<SchaduleDateModel>();
             LstInvoiceDates = new ObservableCollection<SchaduleDateModel>();
             LstEstimateDates = new ObservableCollection<SchaduleDateModel>();
-            
             //Schdule Date
             ScheduleDetails.OneScheduleDate = new SchaduleDateModel();
             OneScheduleDate = new SchaduleDateModel();
@@ -1743,7 +1742,7 @@ namespace FixProUs.ViewModels
                         //LstEmps.Clear();
                         //StrEmployees = "";
                         //StrEmployeesId = "";
-
+                        IsEnable = false;
                         if (Empolyees.Count != 0)
                         {
                             string str = "";
@@ -1771,6 +1770,7 @@ namespace FixProUs.ViewModels
                                 StrEmployeesId = strId.Remove(0, 1);
                             }
                         }
+                        IsEnable = true;
                     };
 
                     await MopupService.Instance.PushAsync(popupView);

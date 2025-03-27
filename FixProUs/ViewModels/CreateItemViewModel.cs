@@ -15,22 +15,22 @@ namespace FixProUs.ViewModels
         readonly Services.Data.ServicesService _service = new Services.Data.ServicesService();
 
         [ObservableProperty]
-        ItemsServicesModel itemDetails;
+        ItemsServicesModel itemDetails = new ItemsServicesModel();
 
         [ObservableProperty]
-        ItemsServicesCategoryModel oneItemsServicesCategory;
+        ItemsServicesCategoryModel oneItemsServicesCategory = new ItemsServicesCategoryModel();
 
         [ObservableProperty]
-        ItemsServicesSubCategoryModel oneItemsServicesSubCategory;
+        ItemsServicesSubCategoryModel oneItemsServicesSubCategory = new ItemsServicesSubCategoryModel();
 
         [ObservableProperty]
-        ItemsServicesTypes oneItemsServicesType;
+        ItemsServicesTypes oneItemsServicesType = new ItemsServicesTypes();
 
         [ObservableProperty]
-        ObservableCollection<ItemsServicesCategoryModel> lstItemsServicesCategories;
+        ObservableCollection<ItemsServicesCategoryModel> lstItemsServicesCategories = new ObservableCollection<ItemsServicesCategoryModel>();
 
         [ObservableProperty]
-        ObservableCollection<ItemsServicesSubCategoryModel> lstItemsServicesSubCategories;
+        ObservableCollection<ItemsServicesSubCategoryModel> lstItemsServicesSubCategories = new ObservableCollection<ItemsServicesSubCategoryModel>();
 
         [ObservableProperty]
         ObservableCollection<ItemsServicesTypes> lstItemsServicesTypes;
@@ -120,23 +120,23 @@ namespace FixProUs.ViewModels
                     {
                         await App.Current!.MainPage!.DisplayAlert("Alert", $"Please Complete This Field Required : Name.", "Ok");
                     }
-                    else if (OneItemsServicesType.Id == 0 || OneItemsServicesType == null)
+                    else if (OneItemsServicesType == null || OneItemsServicesType.Id == 0)
                     {
                         await App.Current!.MainPage!.DisplayAlert("Alert", $"Please Complete This Field Required : Type.", "Ok");
                     }
-                    else if (OneItemsServicesCategory.Id == 0 || OneItemsServicesCategory == null)
+                    else if (OneItemsServicesCategory == null || OneItemsServicesCategory.Id == 0 )
                     {
                         await App.Current!.MainPage!.DisplayAlert("Alert", $"Please Complete This Field Required : Category.", "Ok");
                     }
-                    else if (OneItemsServicesSubCategory.Id == 0 || OneItemsServicesSubCategory == null)
+                    else if (OneItemsServicesSubCategory == null || OneItemsServicesSubCategory.Id == 0)
                     {
                         await App.Current!.MainPage!.DisplayAlert("Alert", $"Please Complete This Field Required : Sub Category.", "Ok");
                     }
-                    else if (item.QTYTime == 0 || item.QTYTime == null)
+                    else if (item.QTYTime == null || item.QTYTime == 0)
                     {
                         await App.Current!.MainPage!.DisplayAlert("Alert", $"Please Complete This Field Required : QTY.", "Ok");
                     }
-                    else if (item.CostperUnit == 0 || item.CostperUnit == null)
+                    else if (item.CostperUnit == null || item.CostperUnit == 0)
                     {
                         await App.Current!.MainPage!.DisplayAlert("Alert", $"Please Complete This Field Required : Price.", "Ok");
                     }
