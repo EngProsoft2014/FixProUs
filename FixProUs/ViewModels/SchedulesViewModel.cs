@@ -716,6 +716,8 @@ namespace FixProUs.ViewModels
                 Paid = 0;
                 Net = Math.Round(((SumCost - DiscountVal) + TaxValue).Value, 2, MidpointRounding.ToEven);
                 TotalDue = Math.Round(((SumCost - DiscountVal) + TaxValue - Paid).Value, 2, MidpointRounding.ToEven);
+
+                LstItemsInvoice = LstItems;
             }
 
             if (CustModel.Id != 0 && SchModel.Id == 0)

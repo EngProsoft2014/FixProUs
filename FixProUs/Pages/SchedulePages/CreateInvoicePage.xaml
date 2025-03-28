@@ -380,7 +380,7 @@
                         <Line  X1="400" HorizontalOptions="CenterAndExpand" BackgroundColor="LightGray"></Line>
 
                         <ListView x:Name="lstItemsServices" SelectionMode="None"
-                              ItemsSource="{Binding LstItems}" 
+                              ItemsSource="{Binding LstItemsInvoice}" 
                               HasUnevenRows="True" BackgroundColor="White" 
                               SeparatorVisibility="None"
                               VerticalScrollBarVisibility="Never">
