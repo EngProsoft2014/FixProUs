@@ -46,103 +46,99 @@
 
         <StackLayout VerticalOptions="FillAndExpand">
 
-            <ListView x:Name="lstPictures" SelectionMode="None"
+            <CollectionView x:Name="lstPictures" SelectionMode="None"
                               ItemsSource="{Binding LstAllPictures}" 
-                              HasUnevenRows="True" BackgroundColor="White"
-                              SeparatorVisibility="None"
+                              BackgroundColor="White"
                               VerticalScrollBarVisibility="Never">
-                <ListView.ItemTemplate>
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <StackLayout HorizontalOptions="FillAndExpand">
-                                <StackLayout>
-                                    <StackLayout Orientation="Horizontal" Padding="20,0,20,0" HorizontalOptions="FillAndExpand">
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="20,0,20,0" HorizontalOptions="FillAndExpand">
 
-                                        <CheckBox IsChecked="{Binding ShowToCust}" Color="#b66dff" Margin="0,0,10,0">
-                                            <CheckBox.Behaviors>
-                                                <xct:EventToCommandBehavior EventName="CheckedChanged" 
+                                    <CheckBox IsChecked="{Binding ShowToCust}" Color="#b66dff" Margin="0,0,10,0">
+                                        <CheckBox.Behaviors>
+                                            <xct:EventToCommandBehavior EventName="CheckedChanged" 
                                                                             Command="{Binding Source={x:Reference lstPictures}, Path=BindingContext.OutScheduleImageCommand}" 
                                                                             CommandParameter="{Binding}" />
-                                            </CheckBox.Behaviors>
-                                        </CheckBox>
+                                        </CheckBox.Behaviors>
+                                    </CheckBox>
 
-                                        <!--Image-->
-                                        <StackLayout HorizontalOptions="Start" IsVisible="False">
-                                            <Border BackgroundColor="White" Padding="0" VerticalOptions="FillAndExpand">
-                                                <ff:CachedImage x:Name="PicSch" Source="{Binding FullFileName}" WidthRequest="130" HeightRequest="90" Aspect="Fill" LoadingPlaceholder="picture.png" ErrorPlaceholder="picture.png">
-                                                    <ff:CachedImage.GestureRecognizers>
-                                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:SchedulesViewModel}}, Path=OpenFullScreenSchImageCommand}" CommandParameter="{Binding FullFileName}"></TapGestureRecognizer>
-                                                    </ff:CachedImage.GestureRecognizers>
-                                                </ff:CachedImage>
+                                    <!--Image-->
+                                    <StackLayout HorizontalOptions="Start" IsVisible="False">
+                                        <Border BackgroundColor="White" Padding="0" VerticalOptions="FillAndExpand">
+                                            <ff:CachedImage x:Name="PicSch" Source="{Binding FullFileName}" WidthRequest="130" HeightRequest="90" Aspect="Fill" LoadingPlaceholder="picture.png" ErrorPlaceholder="picture.png">
+                                                <ff:CachedImage.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:SchedulesViewModel}}, Path=OpenFullScreenSchImageCommand}" CommandParameter="{Binding FullFileName}"></TapGestureRecognizer>
+                                                </ff:CachedImage.GestureRecognizers>
+                                            </ff:CachedImage>
 
-                                                <Border.StrokeShape>
-                                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
-                                                </Border.StrokeShape>
-                                                <Border.Shadow>
-                                                    <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                                </Border.Shadow>
-                                            </Border>
-                                            <StackLayout.Triggers>
-                                                <DataTrigger TargetType="StackLayout" Binding="{Binding Flag}" Value="1">
-                                                    <Setter Property="IsVisible" Value="True"></Setter>
-                                                </DataTrigger>
-                                            </StackLayout.Triggers>
-                                        </StackLayout>
-                                        <!--Image-->
-                                        <StackLayout HorizontalOptions="Start" IsVisible="False">
-                                            <Border BackgroundColor="White" Padding="0" VerticalOptions="FillAndExpand">
-                                                <ff:CachedImage x:Name="Pic2" Source="{Binding PictureSource}" WidthRequest="130" HeightRequest="90" Aspect="Fill" LoadingPlaceholder="picture.png" ErrorPlaceholder="picture.png">
-                                                    <ff:CachedImage.GestureRecognizers>
-                                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:SchedulesViewModel}}, Path=OpenFullScreenSchImageBeforeInsertCommand}" CommandParameter="{Binding PictureSource}"></TapGestureRecognizer>
-                                                    </ff:CachedImage.GestureRecognizers>
-                                                </ff:CachedImage>
-                                                <Border.StrokeShape>
-                                                    <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
-                                                </Border.StrokeShape>
-                                                <Border.Shadow>
-                                                    <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
-                                                </Border.Shadow>
-                                            </Border>
-                                            <StackLayout.Triggers>
-                                                <DataTrigger TargetType="StackLayout" Binding="{Binding Flag}" Value="0">
-                                                    <Setter Property="IsVisible" Value="True"></Setter>
-                                                </DataTrigger>
-                                            </StackLayout.Triggers>
-                                        </StackLayout>
-
-                                        <StackLayout VerticalOptions="Center">
-                                            <Label Text="{Binding ScheduleDate,StringFormat='{0:MM-dd-yyyy}'}" TextColor="#333"></Label>
-                                            <Label Text="{Binding CreateDate,StringFormat='{0:h:mm tt}'}" TextColor="#333"></Label>
-                                        </StackLayout>
-
-                                        <!--Image Delete-->
-                                        <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
-                                            <Image>
-                                                <Image.Source>
-                                                    <FontImageSource FontFamily="FontIconSolid" Color="DimGray" Glyph="" Size="30"></FontImageSource>
-                                                </Image.Source>
-                                            </Image>
-                                            <StackLayout.GestureRecognizers>
-                                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:SchedulesViewModel}}, Path=DeleteSchedulePhotoCommand}" CommandParameter="{Binding}"></TapGestureRecognizer>
-                                            </StackLayout.GestureRecognizers>
-                                        </StackLayout>
-
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                            </Border.StrokeShape>
+                                            <Border.Shadow>
+                                                <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                            </Border.Shadow>
+                                        </Border>
+                                        <StackLayout.Triggers>
+                                            <DataTrigger TargetType="StackLayout" Binding="{Binding Flag}" Value="1">
+                                                <Setter Property="IsVisible" Value="True"></Setter>
+                                            </DataTrigger>
+                                        </StackLayout.Triggers>
                                     </StackLayout>
-                                    <Line  X1="400" HorizontalOptions="CenterAndExpand" BackgroundColor="LightGray" Margin="0,10,0,10"></Line>
+                                    <!--Image-->
+                                    <StackLayout HorizontalOptions="Start" IsVisible="False">
+                                        <Border BackgroundColor="White" Padding="0" VerticalOptions="FillAndExpand">
+                                            <ff:CachedImage x:Name="Pic2" Source="{Binding PictureSource}" WidthRequest="130" HeightRequest="90" Aspect="Fill" LoadingPlaceholder="picture.png" ErrorPlaceholder="picture.png">
+                                                <ff:CachedImage.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:SchedulesViewModel}}, Path=OpenFullScreenSchImageBeforeInsertCommand}" CommandParameter="{Binding PictureSource}"></TapGestureRecognizer>
+                                                </ff:CachedImage.GestureRecognizers>
+                                            </ff:CachedImage>
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="10" Stroke="LightGray" StrokeThickness="1"></RoundRectangle>
+                                            </Border.StrokeShape>
+                                            <Border.Shadow>
+                                                <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
+                                            </Border.Shadow>
+                                        </Border>
+                                        <StackLayout.Triggers>
+                                            <DataTrigger TargetType="StackLayout" Binding="{Binding Flag}" Value="0">
+                                                <Setter Property="IsVisible" Value="True"></Setter>
+                                            </DataTrigger>
+                                        </StackLayout.Triggers>
+                                    </StackLayout>
+
+                                    <StackLayout VerticalOptions="Center" Margin="10,0,0,0">
+                                        <Label Text="{Binding ScheduleDate,StringFormat='{0:MM-dd-yyyy}'}" TextColor="#333"></Label>
+                                        <Label Text="{Binding CreateDate,StringFormat='{0:h:mm tt}'}" TextColor="#333"></Label>
+                                    </StackLayout>
+
+                                    <!--Image Delete-->
+                                    <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
+                                        <Image>
+                                            <Image.Source>
+                                                <FontImageSource FontFamily="FontIconSolid" Color="DimGray" Glyph="" Size="30"></FontImageSource>
+                                            </Image.Source>
+                                        </Image>
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:SchedulesViewModel}}, Path=DeleteSchedulePhotoCommand}" CommandParameter="{Binding}"></TapGestureRecognizer>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
 
                                 </StackLayout>
-                            </StackLayout>
+                                <Line  X1="400" HorizontalOptions="CenterAndExpand" BackgroundColor="LightGray" Margin="0,10,0,10"></Line>
 
-                        </ViewCell>
+                            </StackLayout>
+                        </StackLayout>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-                <ListView.Triggers>
-                    <DataTrigger TargetType="ListView" Binding="{Binding LstAllPictures.Count}" Value="0">
+                </CollectionView.ItemTemplate>
+                <CollectionView.Triggers>
+                    <DataTrigger TargetType="CollectionView" Binding="{Binding LstAllPictures.Count}" Value="0">
                         <Setter Property="IsVisible" Value="False"></Setter>
                         <Setter Property="HeightRequest" Value="0"></Setter>
                     </DataTrigger>
-                </ListView.Triggers>
-            </ListView>
+                </CollectionView.Triggers>
+            </CollectionView>
             <StackLayout.Triggers>
                 <DataTrigger TargetType="StackLayout" Binding="{Binding LstAllPictures.Count}" Value="0">
                     <Setter Property="IsVisible" Value="False"></Setter>
