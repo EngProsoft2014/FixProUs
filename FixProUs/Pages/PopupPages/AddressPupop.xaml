@@ -13,7 +13,7 @@
         <StackLayout VerticalOptions="FillAndExpand">
 
             <HorizontalStackLayout Padding="20">
-                <Image VerticalOptions="Center">
+                <Image x:Name="imgBack" VerticalOptions="Center">
                     <Image.Source>
                         <FontImageSource FontFamily="FontIconSolid" Glyph="" Color="#b66dff"></FontImageSource>
                     </Image.Source>
@@ -32,16 +32,16 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout Orientation="Horizontal" Spacing="5" Margin="0,15,0,10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal" Spacing="5" Padding="0,15,0,10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                     <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" VerticalOptions="CenterAndExpand">
                                         <Image.Source>
                                             <FontImageSource FontFamily="FontIconSolid" Glyph="" Size="20" Color="#b66dff"></FontImageSource>
                                         </Image.Source>
                                     </Image>
-                                    <StackLayout Grid.Column="1" Grid.RowSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="10">
+                                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="10">
                                         <StackLayout Spacing="0" VerticalOptions="FillAndExpand">
-                                            <Label Text="{Binding Country}" FontSize="16" FontFamily="AlmaraiRegular" TextColor="Black"/>
-                                            <Label Text="{Binding FullAddress}" FontSize="14" FontFamily="AlmaraiRegular" TextColor="#FF464859"/>
+                                            <Label Text="{Binding MainAddress}" FontSize="16" FontFamily="AlmaraiRegular" TextColor="Black"/>
+                                            <Label Text="{Binding SubAddress}" FontSize="14" FontFamily="AlmaraiRegular" TextColor="#FF464859"/>
                                         </StackLayout>
                                     </StackLayout>
                                 </StackLayout>

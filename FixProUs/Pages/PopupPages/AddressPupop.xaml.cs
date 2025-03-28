@@ -1,4 +1,4 @@
-using FixProUs.Models;
+﻿using FixProUs.Models;
 using Mopups.Services;
 
 namespace FixProUs.Pages.PopupPages;
@@ -16,6 +16,19 @@ public partial class AddressPupop : Mopups.Pages.PopupPage
     private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
     {
         await MopupService.Instance.PopAsync();
+    }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        FontImageSource fontImageSource = new FontImageSource
+        {
+            Glyph = "", // Unicode for FontAwesome trash icon
+            FontFamily = "FontIconSolid",
+            Color = Color.FromHex("#b66dff")
+        };
+
+        imgBack.Source = fontImageSource;
     }
 
     [Obsolete]
