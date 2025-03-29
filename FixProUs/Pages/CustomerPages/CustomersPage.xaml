@@ -123,15 +123,18 @@
 
                                     </StackLayout>
 
-                                    <StackLayout Orientation="Horizontal" Spacing="10" Padding="10,0,0,0">
-                                        <Image>
-                                            <Image.Source>
-                                                <FontImageSource FontFamily="FontIconSolid" Color="#debdff" Glyph="" Size="18"></FontImageSource>
-                                            </Image.Source>
-                                        </Image>
-                                        <Label Text="{Binding Address}" TextColor="#333" FontAttributes="Italic" VerticalTextAlignment="Center" FontSize="14"></Label>
+                                   
+                                    <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                                        <StackLayout Orientation="Horizontal" Spacing="10" Padding="10,0,0,0">
+                                            <Image>
+                                                <Image.Source>
+                                                    <FontImageSource FontFamily="FontIconSolid" Color="#debdff" Glyph="" Size="18"></FontImageSource>
+                                                </Image.Source>
+                                            </Image>
+                                            <Label Text="{Binding Address}" TextColor="#333" FontAttributes="Italic" VerticalTextAlignment="Center" FontSize="14"></Label>
 
-                                    </StackLayout>
+                                        </StackLayout>
+                                    </ScrollView>
                                     <StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CustomersViewModel}}, Path=SelecteCustomerDetailsCommand}" CommandParameter="{Binding}"></TapGestureRecognizer>
                                     </StackLayout.GestureRecognizers>

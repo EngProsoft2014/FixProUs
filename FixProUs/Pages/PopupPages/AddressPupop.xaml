@@ -24,7 +24,7 @@
             </HorizontalStackLayout>
             <StackLayout Padding="20,0,20,0" VerticalOptions="FillAndExpand">
                 <Entry x:Name="searchBar" Placeholder="Enter Address" TextColor="#333" FontFamily="AlmaraiRegular" Keyboard="Text" ClearButtonVisibility="WhileEditing" TextChanged="SearchBar_OnTextChanged"></Entry>
-                <ListView x:Name="countryListView" BackgroundColor="White" HorizontalOptions="FillAndExpand" IsVisible="False" 
+                <ListView x:Name="countryListView" BackgroundColor="White" HorizontalOptions="FillAndExpand" IsVisible="{OnPlatform Android=False,iOS=True}" 
                           VerticalOptions="FillAndExpand" CachingStrategy="RecycleElement" ItemTapped="ListView_OnItemTapped">
                     <ListView.RowHeight>
                         70
