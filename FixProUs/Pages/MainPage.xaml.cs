@@ -4,6 +4,7 @@ using FixPro.Services.Data;
 using FixProUs.Models;
 using FixProUs.ViewModels;
 using Microsoft.AspNetCore.SignalR.Client;
+using Mopups.PreBaked.Interfaces;
 using Newtonsoft.Json;
 using System.Reactive.Linq;
 
@@ -50,9 +51,16 @@ namespace FixProUs.Pages
             await StartGetLocation();
 
             //await Animation();
-            AccountImg.Source = !string.IsNullOrEmpty(Helpers.Settings.UserPrictureGet) ? Helpers.Settings.UserPrictureGet : "avatar.png";
+            //AccountImg.Source = !string.IsNullOrEmpty(Helpers.Settings.UserPrictureGet) ? Helpers.Settings.UserPrictureGet : "avatar.png";
 
-
+            try
+            {
+                AccountImg.Source = Preferences.Default.Get(Helpers.Settings.UserPricture, "avatar.png");
+            }
+            catch (Exception)
+            {
+                AccountImg.Source = "avatar.png";
+            }
             //await chatService.Connect();
             //BadgeNotifications.Num = Messages.Count;
         }

@@ -161,11 +161,20 @@ namespace FixProUs.ViewModels
             Login.UserName = Helpers.Settings.UserNameGet;
             Login.Phone1 = Helpers.Settings.PhoneGet;
 
-            if (Helpers.Settings.UserPrictureGet != "" && Helpers.Settings.UserPrictureGet != null && Helpers.Settings.UserPrictureGet != "https://fixpro.engprosoft.net/EmployeePic/")
+            //if (Helpers.Settings.UserPrictureGet != "" && Helpers.Settings.UserPrictureGet != null && Helpers.Settings.UserPrictureGet != "https://fixpro.engprosoft.net/EmployeePic/")
+            //{
+            //    AccountPhoto = Login.Picture = Helpers.Settings.UserPrictureGet;
+            //}
+            //else
+            //{
+            //    AccountPhoto = Login.Picture = "avatar.png";
+            //}
+
+            try
             {
-                AccountPhoto = Login.Picture = Helpers.Settings.UserPrictureGet;
+                AccountPhoto = Login.Picture = Preferences.Default.Get(Helpers.Settings.UserPricture, "avatar.png");
             }
-            else
+            catch (Exception)
             {
                 AccountPhoto = Login.Picture = "avatar.png";
             }

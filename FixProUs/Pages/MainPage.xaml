@@ -24,9 +24,9 @@
                 <!--Menu Header Details-->
                 <navigationdrawer:DrawerSettings.DrawerHeaderView>
 
-                    <StackLayout Spacing="10" VerticalOptions="FillAndExpand" Margin="{OnPlatform Android='0,10,0,20',iOS='0,10,0,20'}" BackgroundColor="White">
+                    <StackLayout Spacing="10" VerticalOptions="FillAndExpand" Margin="{OnPlatform Android='0,20,0,20',iOS='0,10,0,20'}" BackgroundColor="White">
 
-                        <Frame CornerRadius="{OnPlatform Android=100,iOS=50}" VerticalOptions="StartAndExpand" BackgroundColor="White" HasShadow="False" HorizontalOptions="CenterAndExpand" Padding="0" Margin="0" HeightRequest="80" WidthRequest="80">
+                        <Frame CornerRadius="{OnPlatform Android=100,iOS=40}" VerticalOptions="StartAndExpand" BackgroundColor="White" HasShadow="False" HorizontalOptions="CenterAndExpand" Padding="0" Margin="0" HeightRequest="80" WidthRequest="80">
                             <Image x:Name="AccountImg" Source="{Binding AccountPhoto}" Aspect="AspectFill">
 
                             </Image>

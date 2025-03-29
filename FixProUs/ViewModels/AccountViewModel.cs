@@ -64,23 +64,14 @@ namespace FixProUs.ViewModels
 
             try
             {
-                if (!string.IsNullOrEmpty(Settings.UserPrictureGet))
-                {
-                    AccountPhoto = Settings.UserPrictureGet;
-                    //var byteArray = new WebClient().DownloadData(Settings.UserPrictureGet);
-                    //AccountPhoto = ImageSource.FromStream(() => new MemoryStream(byteArray));
-                }
-                else
-                {
-                    AccountPhoto = "avatar.png";
-                }
+                AccountPhoto = Preferences.Default.Get(Settings.UserPricture, "avatar.png");
             }
             catch (Exception)
             {
                 AccountPhoto = "avatar.png";
             }
 
-            LoginModel.OldPicture = StaticMembers.OldProfileImageSt;
+            //LoginModel.OldPicture = StaticMembers.OldProfileImageSt;
         }
 
         //Get All Branches
@@ -183,13 +174,16 @@ namespace FixProUs.ViewModels
                                 //    return memoryStream;  
                                 //});
 
-                                var imageBytes = memoryStream.ToArray();
+                                //var imageBytes = memoryStream.ToArray();
 
-                                AccountPhoto = ImageSource.FromStream(() =>
-                                {
-                                    // Return a new MemoryStream each time, so it remains accessible across different UI contexts
-                                    return new MemoryStream(imageBytes);
-                                });
+                                //AccountPhoto = ImageSource.FromStream(() =>
+                                //{
+                                //    // Return a new MemoryStream each time, so it remains accessible across different UI contexts
+                                //    return new MemoryStream(imageBytes);
+                                //});
+
+                                // Display the selected photo in the Image control
+                                AccountPhoto = ImageSource.FromStream(() => new MemoryStream(memoryStream.ToArray()));
                             }
 
                             await App.Current!.MainPage!.Navigation.PushAsync(new AccountPage());
@@ -273,14 +267,15 @@ namespace FixProUs.ViewModels
                                 //{
                                 //    return memoryStream;
                                 //});
-                                
-                                var imageBytes = memoryStream.ToArray();
 
-                                AccountPhoto = ImageSource.FromStream(() =>
-                                {
-                                    // Return a new MemoryStream each time, so it remains accessible across different UI contexts
-                                    return new MemoryStream(imageBytes);
-                                });
+                                //var imageBytes = memoryStream.ToArray();
+
+                                //AccountPhoto = ImageSource.FromStream(() =>
+                                //{
+                                //    // Return a new MemoryStream each time, so it remains accessible across different UI contexts
+                                //    return new MemoryStream(imageBytes);
+                                //});
+                                AccountPhoto = ImageSource.FromStream(() => new MemoryStream(memoryStream.ToArray()));
                             }
                            
                             await App.Current!.MainPage!.Navigation.PushAsync(new AccountPage());

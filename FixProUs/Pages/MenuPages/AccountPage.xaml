@@ -16,8 +16,28 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <StackLayout>
+            <!--<StackLayout>
                 <Controls:ToolBar Title="Account" HasBackButton="True" Margin="0,0,20,20"></Controls:ToolBar>
+            </StackLayout>-->
+
+            <!--Toolbar-->
+            <StackLayout>
+
+                <StackLayout Orientation="Horizontal" Spacing="0" Margin="0,0,0,20" Padding="{OnPlatform iOS='20,0,20,10', Android='15,15,15,10'}" VerticalOptions="FillAndExpand">
+                    <Image x:Name="imgBack" HorizontalOptions="Start">
+                        <Image.Source>
+                            <FontImageSource FontFamily="FontIconSolid" Color="#878686" Glyph="" Size="20"></FontImageSource>
+                        </Image.Source>
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Label x:Name="lblTitle" Text="Account" HeightRequest="30"
+                      VerticalOptions="FillAndExpand" Style="{StaticResource lblHeaderText}"
+                      HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+
+                </StackLayout>
             </StackLayout>
 
             <ScrollView>
@@ -49,21 +69,15 @@
                                VerticalOptions="Start"
                                IsClippedToBounds="True">
 
-                            <StackLayout Padding="0" HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
-                                <StackLayout Orientation="Horizontal" Padding="0">
-                                    <Grid HorizontalOptions="CenterAndExpand">
 
-                                        <Frame CornerRadius="100" BackgroundColor="White" VerticalOptions="CenterAndExpand" HasShadow="False" HorizontalOptions="CenterAndExpand" Padding="0" Margin="0">
-                                            <ff:CachedImage x:Name="imgAccount" Source="{Binding AccountPhoto}" Aspect="AspectFill" LoadingPlaceholder="avatar.png" ErrorPlaceholder="avatar.png" HeightRequest="120" WidthRequest="120">
-                                                <ff:CachedImage.GestureRecognizers>
-                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
-                                                </ff:CachedImage.GestureRecognizers>
-                                            </ff:CachedImage>
-                                        </Frame>
+                            <Frame CornerRadius="{OnPlatform Android=100, iOS=50}" BackgroundColor="White" VerticalOptions="FillAndExpand" HasShadow="False" HorizontalOptions="FillAndExpand" Padding="0" Margin="0">
+                                <ff:CachedImage x:Name="imgAccount" Source="{Binding AccountPhoto}" Aspect="Fill" LoadingPlaceholder="avatar.png" ErrorPlaceholder="avatar.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                    <ff:CachedImage.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                                    </ff:CachedImage.GestureRecognizers>
+                                </ff:CachedImage>
+                            </Frame>
 
-                                    </Grid>
-                                </StackLayout>
-                            </StackLayout>
                         </Frame>
 
                     </Grid>
