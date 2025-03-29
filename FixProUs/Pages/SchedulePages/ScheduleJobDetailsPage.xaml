@@ -276,12 +276,13 @@
                         <StackLayout HorizontalOptions="FillAndExpand">
                             <Label Text="Job Title" FontSize="13" TextColor="#333" HorizontalOptions="Start" VerticalTextAlignment="Center"></Label>
                             <Border BackgroundColor="White" Padding="10,0,10,0" HeightRequest="40">
-                                <combobox:SfComboBox 
+                                <StackLayout>
+                                    <combobox:SfComboBox 
                                            ItemsSource="{Binding LstEmpCategory}"
                                            Placeholder="Job Title"
                                            SelectedItem="{Binding SelectedCateory,Mode=TwoWay}" 
                                            FontSize="13"
-                                    TextColor="#333"
+                                           TextColor="#333"
                                            SelectionChanged="SfComboBox_SelectionChanged"
                                            MaxDropDownHeight="200" 
                                            HeightRequest="40" 
@@ -290,7 +291,8 @@
                                            IsClearButtonVisible="False"
                                            DisplayMemberPath="CategoryName">
 
-                                </combobox:SfComboBox>
+                                    </combobox:SfComboBox>
+                                </StackLayout>
                                 <Border.Shadow>
                                     <Shadow Brush="{OnPlatform Android=Gray, iOS=LightGray}" Radius="{OnPlatform Android=5,iOS=3}"></Shadow>
                                 </Border.Shadow>

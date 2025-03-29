@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using FixProUs.Models;
+using Mopups.Services;
 using Syncfusion.Maui.DataSource.Extensions;
 using System;
 using System.Collections.Generic;
@@ -67,9 +68,14 @@ namespace FixProUs.ViewModels
         async Task SendMyWayTextMsg(string text)
         {
             string returnMsg = Controls.StartData.SendSMS(CustomerDetails.Phone1, text);
+            await MopupService.Instance.PopAsync();
             if (string.IsNullOrEmpty(returnMsg))
+            {             
+                await App.Current!.MainPage!.DisplayAlert("Alert", "Failed to send SMS to customer!", "Ok");     
+            }
+            else
             {
-                await App.Current!.MainPage!.DisplayAlert("Alert", "Failed to send SMS to customer!", "Ok");
+                await App.Current!.MainPage!.DisplayAlert("Alert", "Succes to send SMS to customer!", "Ok");
             }
         }
     }

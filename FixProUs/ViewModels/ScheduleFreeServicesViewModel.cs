@@ -76,16 +76,27 @@ namespace FixProUs.ViewModels
             IsEnable = false;
 
             //model.OneItemService = SelectedServiceCateory as ItemsServicesModel;
-            if (model.CategoryId != null)
+            if (model.CostperUnit <= 0 || model.CostperUnit == null)
             {
-                ServiceClose.Invoke(model);
-                await App.Current!.MainPage!.Navigation.PopAsync();
+                await App.Current!.MainPage!.DisplayAlert("Alert", "Please Complete Cost Field.", "Ok");
+            }
+            else if (model.QTYTime <= 0 || model.QTYTime == null)
+            {
+                await App.Current!.MainPage!.DisplayAlert("Alert", "Please Complete Qty Field.", "Ok");
             }
             else
             {
-                await App.Current!.MainPage!.DisplayAlert("Alert", "Please Complete All Fields.", "Ok");
+                if (model.CategoryId != null)
+                {
+                    ServiceClose.Invoke(model);
+                    await App.Current!.MainPage!.Navigation.PopAsync();
+                }
+                else
+                {
+                    await App.Current!.MainPage!.DisplayAlert("Alert", "This item don't have category.", "Ok");
+                }
             }
-            
+
             IsEnable = true;
         }
 

@@ -116,7 +116,6 @@
                      FontAttributes="Bold"
                      TextTransform="None"
                      TextColor="White"
-                     WidthRequest="80"
                      CornerRadius="10"
                      BackgroundColor="#b66dff"
                      Command="{Binding SendMyWayTextMsgCommand}" CommandParameter="{Binding MyWayTextMsg}"></Button>

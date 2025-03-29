@@ -267,7 +267,7 @@
                                            Placeholder="Job Title"
                                            SelectedItem="{Binding SelectedCateory,Mode=TwoWay}" 
                                            FontSize="13"
-                                    TextColor="#333"
+                                    TextColor="#333" PlaceholderColor="Gray"
                                            SelectionChanged="SfComboBox_SelectionChanged"
                                            MaxDropDownHeight="200" 
                                            HeightRequest="40" 
@@ -294,6 +294,7 @@
                                             <combobox:SfComboBox 
                                                ItemsSource="{Binding LstEmpInOneCategory}"
                                                Placeholder="Select Technicion"
+                                                PlaceholderColor="Gray"
                                                SelectedItem="{Binding SelectedEmployeeAddDate,Mode=TwoWay}" 
                                                FontSize="13"  
                                             TextColor="#333"

@@ -98,7 +98,7 @@
 
 
                             <!--Tracking-->
-                            <StackLayout Orientation="Horizontal" Padding="20,0,0,0" Spacing="10">
+                            <!--<StackLayout Orientation="Horizontal" Padding="20,0,0,0" Spacing="10">
                                 <Image>
                                     <Image.Source>
                                         <FontImageSource FontFamily="FontIconSolid" Color="#b66dff" Glyph="" Size="18"></FontImageSource>
@@ -117,7 +117,7 @@
                                         <Setter Property="Opacity" Value=".5"></Setter>
                                     </DataTrigger>
                                 </StackLayout.Triggers>
-                            </StackLayout>
+                            </StackLayout>-->
 
 
                             <Line  X1="400" HorizontalOptions="CenterAndExpand" BackgroundColor="LightGray" Margin="0,30,0,10"></Line>

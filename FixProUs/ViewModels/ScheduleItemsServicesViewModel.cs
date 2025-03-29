@@ -159,11 +159,11 @@ namespace FixProUs.ViewModels
             IsEnable = false;
 
             //model.OneItemService = SelectedServiceCateory as ItemsServicesModel;
-            if(model.CostperUnit <= 0)
+            if(model.CostperUnit <= 0 || model.CostperUnit == null)
             {
                 await App.Current!.MainPage!.DisplayAlert("Alert", "Please Complete Cost Field.", "Ok");
             }
-            else if (model.QTYTime <= 0)
+            else if (model.QTYTime <= 0 || model.QTYTime == null)
             {
                 await App.Current!.MainPage!.DisplayAlert("Alert", "Please Complete Qty Field.", "Ok");
             }
