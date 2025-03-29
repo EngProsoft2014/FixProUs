@@ -244,9 +244,10 @@ public partial class AddressPupop : Mopups.Pages.PopupPage
             countryListView.IsVisible = false;
         }
         else
-        {
+        {   
             stkManuallyAddress.IsVisible = false;
             searchBar.IsVisible = true;
+            countryListView.IsVisible = true;
         }
     }
 
