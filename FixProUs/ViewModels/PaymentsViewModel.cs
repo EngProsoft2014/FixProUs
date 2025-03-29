@@ -115,17 +115,30 @@ namespace FixProUs.ViewModels
                 }
                 else
                 {
-                    UserDialogs.Instance.ShowLoading();
-                    OnePayment.Type = 1;
-                    OnePayment.Method = 1; //Cash
 
-                    await InitiolizModel(model);
-                    UserDialogs.Instance.HideHud();
+                    if (OnePayment.Amount != null && (OnePayment.Amount <= 0 || OnePayment.Amount == null))
+                    {
+                        await App.Current!.MainPage!.DisplayAlert("Alert", "Please Complete Amount Field!!!", "OK");
+                    }
+                    else if (string.IsNullOrEmpty(SignatureImageByte64))
+                    {
+                        await App.Current!.MainPage!.DisplayAlert("Alert", "Please Complete Signature Field!!!", "OK");
+                    }
+                    else
+                    {
+
+                        OnePayment.Type = 1;
+                        OnePayment.Method = 1; //Cash
+                        UserDialogs.Instance.ShowLoading();
+                        await InitiolizModel(model);
+                        UserDialogs.Instance.HideHud();
+                    }
+
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                await App.Current!.MainPage!.DisplayAlert("Error", ex.Message, "OK");
+                await App.Current!.MainPage!.DisplayAlert("Error", "A problem has occurred. Please try again. !!!", "OK");
             }
             IsEnable = true;
         }
@@ -144,19 +157,44 @@ namespace FixProUs.ViewModels
                 }
                 else
                 {
-                    UserDialogs.Instance.ShowLoading();
                     OneInvoice = model;
-
-                    OnePayment.Type = 0;
-                    OnePayment.Method = 3; //Debit Card
-
-                    await PayViaStripe();
-                    UserDialogs.Instance.HideHud();
+                    if (string.IsNullOrEmpty(HolderName))
+                    {
+                        await App.Current!.MainPage!.DisplayAlert("Alert", "Please Complete Card Holder Name Field!!!", "OK");
+                    }
+                    else if (string.IsNullOrEmpty(CardNumber))
+                    {
+                        await App.Current!.MainPage!.DisplayAlert("Alert", "Please Complete Card Number Field!!!", "OK");
+                    }
+                    else if (string.IsNullOrEmpty(ExpirationDate))
+                    {
+                        await App.Current!.MainPage!.DisplayAlert("Alert", "Please Complete Card Expiration Date Field!!!", "OK");
+                    }
+                    else if (string.IsNullOrEmpty(Cvv))
+                    {
+                        await App.Current!.MainPage!.DisplayAlert("Alert", "Please Complete Card Cvv Field!!!", "OK");
+                    }
+                    else if (OnePayment.Amount != null && (OnePayment.Amount <= 0 || OnePayment.Amount == null))
+                    {
+                        await App.Current!.MainPage!.DisplayAlert("Alert", "Please Complete Amount Field!!!", "OK");
+                    }
+                    else if (string.IsNullOrEmpty(SignatureImageByte64))
+                    {
+                        await App.Current!.MainPage!.DisplayAlert("Alert", "Please Complete Signature Field!!!", "OK");
+                    }
+                    else
+                    {
+                        OnePayment.Type = 0;
+                        OnePayment.Method = 3; //Debit Card
+                        UserDialogs.Instance.ShowLoading();
+                        await PayViaStripe();
+                        UserDialogs.Instance.HideHud();
+                    }      
                 }
             }
             catch (Exception)
             {
-                await App.Current!.MainPage!.DisplayAlert("Error", "Please Complate All informations !!!", "OK");
+                await App.Current!.MainPage!.DisplayAlert("Error", "A problem has occurred. Please try again. !!!", "OK");
             }
 
             IsEnable= true;

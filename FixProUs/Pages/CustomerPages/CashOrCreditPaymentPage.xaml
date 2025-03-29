@@ -74,7 +74,7 @@
                         <Entry Text="{Binding CardNumber}"
                                  TextColor="Gray"
                                  Placeholder="Card Number"
-                                 FontSize="12"
+                                 FontSize="12" Keyboard="Numeric"
                                  HorizontalOptions="FillAndExpand"
                                  VerticalTextAlignment="Center">
                         </Entry>
@@ -113,7 +113,7 @@
                             <Entry Text="{Binding Cvv}"
                                      TextColor="Gray"
                                      Placeholder="Cvv"
-                                     FontSize="12"
+                                     FontSize="12" Keyboard="Numeric"
                                      HorizontalOptions="FillAndExpand"
                                      VerticalTextAlignment="Center">
                             </Entry>

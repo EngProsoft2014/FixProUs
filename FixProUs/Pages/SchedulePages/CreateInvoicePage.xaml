@@ -47,8 +47,8 @@
 
         <Grid VerticalOptions="FillAndExpand">
 
-            <ScrollView>
-                <StackLayout HorizontalOptions="FillAndExpand" Padding="0,5,0,50">
+            <ScrollView VerticalOptions="FillAndExpand">
+                <StackLayout HorizontalOptions="FillAndExpand" Padding="0,5,0,70">
                     <!--Customer Details-->
                     <StackLayout HorizontalOptions="CenterAndExpand" Spacing="2" Margin="0,5,0,20">
                         <Image>
