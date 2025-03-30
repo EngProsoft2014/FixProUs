@@ -44,9 +44,11 @@ namespace FixProUs.Helpers
         //public static readonly string ServerUrl = "https://projectservicesapi.engprosoft.com/";
         //public static readonly string ServerUrl = "https://FixProUsapi.engprosoft.net/";
 
-        public static string ServerUrl = "https://fixproapi.engprosoft.net/";
+        //public static string ServerUrl = "https://fixproapi.engprosoft.net/";
+        public static string ServerUrl = "https://api.fixprous.com/";
 
-        public static string ServerUrlStatic = "https://fixproapi.engprosoft.net/";
+        //public static string ServerUrlStatic = "https://fixproapi.engprosoft.net/";
+        public static string ServerUrlStatic = "https://api.fixprous.com/";
 
         //public static readonly string ServerUrl = "https://192.168.1.3:6464/";
 

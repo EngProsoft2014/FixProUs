@@ -23,7 +23,7 @@ namespace FixProUs
         public GetLocationService()
         {
             _hubConnection = new HubConnectionBuilder()
-               .WithUrl("https://fixproapi.engprosoft.net/ChatHub") // Update with your hub URL
+               .WithUrl("https://api.fixprous.com/ChatHub") // Update with your hub URL
                .WithAutomaticReconnect()
                .Build();
 
