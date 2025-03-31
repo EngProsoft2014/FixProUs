@@ -34,6 +34,8 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need access to your location to Track and assign jobs for you and improve your app experience.</string>-->
 
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Can we use your location when your app is being used?</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Can we use your location at all times?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
