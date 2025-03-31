@@ -127,7 +127,7 @@
                 </StackLayout.Triggers>
             </StackLayout>
 
-            <StackLayout IsVisible="False" Margin="0,100,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout IsVisible="False" Margin="0,200,0,300" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <Image Source="noresult.png" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ></Image>
                 <StackLayout.Triggers>
                     <DataTrigger TargetType="StackLayout" Binding="{Binding Messages.Count}" Value="0">
