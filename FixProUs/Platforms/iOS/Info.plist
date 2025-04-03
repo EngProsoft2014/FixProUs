@@ -26,21 +26,12 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/logoicon.appiconset</string>
-
-	<!--<key>NSLocationAlwaysUsageDescription</key>
-	<string>We need your location to track your movements in the app.</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>We need access to your location to Track and assign jobs for you.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need access to your location to Track and assign jobs for you and improve your app experience.</string>-->
-
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Can we use your location when your app is being used?</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Can we use your location at all times?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Can we use your location when your app is being used?</string>
-	
 	<key>NSCameraUsageDescription</key>
 	<string>We require access to your camera to allow you to capture photos for your profile or share them with customers within the app. For example, you can take a picture to upload as your profile image or take pictures of the problem after fixed to include it in the customer&apos;s invoice template</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
@@ -57,6 +48,8 @@
 	<key>OneSignal_suppress_launch_urls</key>
 	<true/>
 	<key>CFBundleVersion</key>
-	<string>1.0.0.2</string>
+	<string>1.0.0.4</string>
+	<key>CFBundleIdentifier</key>
+	<string></string>
 </dict>
 </plist>
