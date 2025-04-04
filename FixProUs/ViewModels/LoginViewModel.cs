@@ -35,7 +35,7 @@ namespace FixProUs.ViewModels
                     BrancheId = int.Parse(Helpers.Settings.BranchIdGet),
                     BranchName = Helpers.Settings.BranchNameGet,
                     CreateDate = Helpers.Settings.CreateDateGet == "" ? DateTime.Now : DateTime.Parse(Helpers.Settings.CreateDateGet),
-                    OneSignalPlayerId = Helpers.Settings.PlayerIdGet,
+                    OneSignalPlayerId = Preferences.Default.Get(Helpers.Settings.PlayerId, ""),
                 };
             }
             else
@@ -67,7 +67,7 @@ namespace FixProUs.ViewModels
                 {
 
                     //var MLogin = await ORep.GetAsync<EmployeeModel>("api/Login/GetLogin?" + "UserName=" + model.UserName + "&" + "Password=" + model.Password);
-                    var MLogin = await ORep.GetLoginAsync<EmployeeModel>("api/Login/GetLogin?" + "UserName=" + model.UserName + "&" + "Password=" + model.Password + "&" + "PlayerId=" + Helpers.Settings.PlayerIdGet);
+                    var MLogin = await ORep.GetLoginAsync<EmployeeModel>("api/Login/GetLogin?" + "UserName=" + model.UserName + "&" + "Password=" + model.Password + "&" + "PlayerId=" + Preferences.Default.Get(Helpers.Settings.PlayerId,""));
 
                     if (MLogin.EmployeeStatus?.Contains("Try Again") == true)//UserName Or Password is Wrong
                     {

@@ -47,8 +47,10 @@ namespace FixProUs.Pages
         {
             base.OnAppearing();
 
-            await SignalRservice();
-            await StartGetLocation();
+            //==========================================
+            //await SignalRservice();
+            //await StartGetLocation();
+            //==========================================
 
             //await Animation();
             //AccountImg.Source = !string.IsNullOrEmpty(Helpers.Settings.UserPrictureGet) ? Helpers.Settings.UserPrictureGet : "avatar.png";

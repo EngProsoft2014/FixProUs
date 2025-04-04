@@ -56,7 +56,7 @@ namespace FixProUs.Services.Data
                 {
                     if (Helpers.Settings.PhoneGet != "" && Helpers.Settings.PasswordGet != "")
                     {
-                        var loginModel = await ORep.GetLoginAsync<EmployeeModel>("api/Login/GetLogin?" + "UserName=" + Helpers.Settings.UserNameGet + "&" + "Password=" + Helpers.Settings.PasswordGet + "&" + "PlayerId=" + Helpers.Settings.PlayerIdGet);
+                        var loginModel = await ORep.GetLoginAsync<EmployeeModel>("api/Login/GetLogin?" + "UserName=" + Helpers.Settings.UserNameGet + "&" + "Password=" + Helpers.Settings.PasswordGet + "&" + "PlayerId=" + Preferences.Default.Get(Helpers.Settings.PlayerId, ""));
 
                         if (loginModel != null && !string.IsNullOrEmpty(loginModel.GernToken))
                         {
