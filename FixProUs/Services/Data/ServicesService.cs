@@ -7,6 +7,7 @@ using FixProUs.Models;
 using System.Threading.Tasks;
 using Akavache;
 using System.Reactive.Linq;
+using OneSignalSDK.DotNet;
 
 
 
@@ -56,7 +57,7 @@ namespace FixProUs.Services.Data
                 {
                     if (Helpers.Settings.PhoneGet != "" && Helpers.Settings.PasswordGet != "")
                     {
-                        var loginModel = await ORep.GetLoginAsync<EmployeeModel>("api/Login/GetLogin?" + "UserName=" + Helpers.Settings.UserNameGet + "&" + "Password=" + Helpers.Settings.PasswordGet + "&" + "PlayerId=" + Preferences.Default.Get(Helpers.Settings.PlayerId, ""));
+                        var loginModel = await ORep.GetLoginAsync<EmployeeModel>("api/Login/GetLogin?" + "UserName=" + Helpers.Settings.UserNameGet + "&" + "Password=" + Helpers.Settings.PasswordGet + "&" + "PlayerId=" + Preferences.Default.Get(Helpers.Settings.PlayerId, OneSignal.User.PushSubscription.Id));
 
                         if (loginModel != null && !string.IsNullOrEmpty(loginModel.GernToken))
                         {

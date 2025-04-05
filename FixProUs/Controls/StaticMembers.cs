@@ -1,4 +1,5 @@
 ﻿using Akavache;
+using CommunityToolkit.Maui.Core;
 using FFImageLoading.Work;
 using FixProUs.Helpers;
 using FixProUs.Models;
@@ -9,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Reactive.Linq;
 using System.Text;
+using Twilio.Rest.Microvisor.V1;
 
 
 namespace FixProUs.Controls
@@ -29,6 +31,9 @@ namespace FixProUs.Controls
         public static CallModel FilterCallModel { get; set; }
         public static int YesOrNoInternet { get; set; } = 0;
 
+        public static string SnackBarColor = "#b66dff";
+        public static string SnackBarTextColor = "#FFFFFF";
+
 
         public async static Task ClearAllData()
         {
@@ -38,6 +43,33 @@ namespace FixProUs.Controls
             await BlobCache.LocalMachine.InvalidateAll();
             await BlobCache.LocalMachine.Vacuum();
             await Application.Current!.MainPage!.Navigation.PushAsync(new LoginPage());
+        }
+
+
+        [Obsolete]
+        public static async void ShowSnackBar(string Message, string BKColor, string TextColor, Action action1)
+        {
+            CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+
+            var snackbarOptions = new SnackbarOptions
+            {
+
+                BackgroundColor = Color.FromHex(BKColor),
+                TextColor = Color.FromHex(TextColor),
+                ActionButtonTextColor = Color.FromHex(TextColor),
+                CornerRadius = new CornerRadius(10),
+                Font = Microsoft.Maui.Font.SystemFontOfSize(14),
+                ActionButtonFont = Microsoft.Maui.Font.SystemFontOfSize(14),
+
+            };
+            string text = Message;
+            string actionButtonText = "OK";
+            Action action = action1;
+            TimeSpan duration = TimeSpan.FromSeconds(3);
+
+            var snackbar = CommunityToolkit.Maui.Alerts.Snackbar.Make(text, action, actionButtonText, duration, snackbarOptions);
+
+            await snackbar.Show(cancellationTokenSource.Token);
         }
     }
 }

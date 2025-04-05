@@ -19,6 +19,7 @@ using Twilio.Types;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Mopups.PreBaked.Interfaces;
+using OneSignalSDK.DotNet;
 
 namespace FixProUs.Controls
 {
@@ -133,7 +134,7 @@ namespace FixProUs.Controls
                     //string UserToken = await _service.UserToken();
                     //string json = await Helpers.Utility.CallWebApi("api/Employee/GetLogin?" + "UserName=" + Helpers.Settings.UserName + "&" + "Password=" + Helpers.Settings.Password);
 
-                    var json = await ORep.GetLoginAsync<EmployeeModel>("api/Login/GetLogin?" + "UserName=" + Helpers.Settings.UserNameGet + "&" + "Password=" + Helpers.Settings.PasswordGet + "&" + "PlayerId=" + Helpers.Settings.PlayerIdGet);
+                    var json = await ORep.GetLoginAsync<EmployeeModel>("api/Login/GetLogin?" + "UserName=" + Helpers.Settings.UserNameGet + "&" + "Password=" + Helpers.Settings.PasswordGet + "&" + "PlayerId=" + Preferences.Default.Get(Helpers.Settings.PlayerId, OneSignal.User.PushSubscription.Id));
 
                     if (json != null)
                     {
