@@ -74,9 +74,9 @@
                 <Line  X1="400" HorizontalOptions="CenterAndExpand" BackgroundColor="LightGray" Margin="0,10,0,10"></Line>
 
 
-                <StackLayout Margin="0,0,0,20">
+                <StackLayout Margin="0,0,0,20" VerticalOptions="FillAndExpand">
 
-                    <CollectionView x:Name="lstCustomers" SelectionMode="None" 
+                    <CollectionView x:Name="lstCustomers" SelectionMode="None" VerticalOptions="FillAndExpand"
                           ItemsSource="{Binding LstCustomers}"  
                           BackgroundColor="White"
                           VerticalScrollBarVisibility="Never">
