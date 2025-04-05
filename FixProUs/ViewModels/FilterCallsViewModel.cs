@@ -3,18 +3,8 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Controls.UserDialogs.Maui;
 using FixProUs.Models;
-using FixProUs.ViewModels;
-using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 
 
 namespace FixProUs.ViewModels
@@ -175,6 +165,11 @@ namespace FixProUs.ViewModels
             {
                 model.StartDate = StartDate.ToString("MM-dd-yyyy");
                 model.EndDate = EndDate.ToString("MM-dd-yyyy");
+            }
+            else
+            {
+                model.StartDate = null;
+                model.EndDate = null;
             }
 
             Controls.StaticMembers.FilterCallModel = model;
