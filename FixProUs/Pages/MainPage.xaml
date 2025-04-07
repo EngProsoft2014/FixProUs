@@ -26,11 +26,18 @@
 
                     <StackLayout Spacing="10" VerticalOptions="FillAndExpand" Margin="{OnPlatform Android='0,20,0,20',iOS='0,10,0,20'}" BackgroundColor="White">
 
-                        <Frame CornerRadius="{OnPlatform Android=100,iOS=40}" VerticalOptions="StartAndExpand" BackgroundColor="White" HasShadow="False" HorizontalOptions="CenterAndExpand" Padding="0" Margin="0" HeightRequest="80" WidthRequest="80">
+                        <!--<Frame CornerRadius="{OnPlatform Android=100,iOS=40}" VerticalOptions="StartAndExpand" BackgroundColor="White" HasShadow="False" HorizontalOptions="CenterAndExpand" Padding="0" Margin="0" HeightRequest="80" WidthRequest="80">
                             <Image x:Name="AccountImg" Source="{Binding AccountPhoto}" Aspect="AspectFill">
 
                             </Image>
 
+                        </Frame>-->
+                        <Frame CornerRadius="{OnPlatform Android=100, iOS=50}" BackgroundColor="White" VerticalOptions="StartAndExpand" HasShadow="False" HorizontalOptions="CenterAndExpand" Padding="0" Margin="0" HeightRequest="80" WidthRequest="80">
+                            <ff:CachedImage x:Name="AccountImg" Source="{Binding AccountPhoto}" Aspect="Fill" LoadingPlaceholder="avatar.png" ErrorPlaceholder="avatar.png">
+                                <ff:CachedImage.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding OpenFullScreenPhotoCommand}" CommandParameter="{Binding AccountPhoto}"></TapGestureRecognizer>
+                                </ff:CachedImage.GestureRecognizers>
+                            </ff:CachedImage>
                         </Frame>
 
                         <StackLayout>

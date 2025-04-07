@@ -10,6 +10,7 @@ using Controls.UserDialogs.Maui;
 using Mopups.Services;
 using SkiaSharp;
 using FixProUs.Pages.MenuPages;
+using FixProUs.Pages;
 
 
 namespace FixProUs.ViewModels
@@ -31,7 +32,7 @@ namespace FixProUs.ViewModels
         ObservableCollection<BranchesModel> lstBranches;
 
         [ObservableProperty]
-        ImageSource accountPhoto;
+        string accountPhoto;
 
         GenericRepository ORep = new GenericRepository();
 
@@ -98,6 +99,7 @@ namespace FixProUs.ViewModels
             IsEnable = true;
         }
 
+
         [RelayCommand]
         void SelectBranch(BranchesModel model)
         {
@@ -105,6 +107,17 @@ namespace FixProUs.ViewModels
             OneBranches = model;
             Preferences.Default.Set(Settings.BranchId, model.Id.ToString());
             Preferences.Default.Set(Settings.BranchName, model.Name);
+            IsEnable = true;
+        }
+
+        [RelayCommand]
+        async void OpenFullScreenPhoto(string photo) 
+        {
+            IsEnable = false;
+            if (photo != Utility.PathServerProfileImages)
+            {
+                await App.Current!.MainPage!.Navigation.PushAsync(new FullScreenImagePage(photo));
+            }
             IsEnable = true;
         }
 
@@ -183,7 +196,8 @@ namespace FixProUs.ViewModels
                                 //});
 
                                 // Display the selected photo in the Image control
-                                AccountPhoto = ImageSource.FromStream(() => new MemoryStream(memoryStream.ToArray()));
+                                AccountPhoto = Postjson.Picture;
+                                //AccountPhoto = ImageSource.FromStream(() => new MemoryStream(memoryStream.ToArray()));
                             }
 
                             await App.Current!.MainPage!.Navigation.PushAsync(new AccountPage());
@@ -275,7 +289,8 @@ namespace FixProUs.ViewModels
                                 //    // Return a new MemoryStream each time, so it remains accessible across different UI contexts
                                 //    return new MemoryStream(imageBytes);
                                 //});
-                                AccountPhoto = ImageSource.FromStream(() => new MemoryStream(memoryStream.ToArray()));
+                                AccountPhoto = Postjson.Picture;
+                                //AccountPhoto = ImageSource.FromStream(() => new MemoryStream(memoryStream.ToArray()));
                             }
                            
                             await App.Current!.MainPage!.Navigation.PushAsync(new AccountPage());

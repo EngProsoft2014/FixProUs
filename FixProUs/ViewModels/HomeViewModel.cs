@@ -19,6 +19,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Controls.UserDialogs.Maui;
 using FixProUs.Pages;
+using FixProUs.Helpers;
 
 namespace FixProUs.ViewModels
 {
@@ -43,7 +44,7 @@ namespace FixProUs.ViewModels
         string userRole;
 
         [ObservableProperty]
-        ImageSource accountPhoto;
+        string accountPhoto;
 
         [ObservableProperty]
         string headerNotify;
@@ -209,6 +210,17 @@ namespace FixProUs.ViewModels
 
             }
 
+            IsEnable = true;
+        }
+
+        [RelayCommand]
+        async void OpenFullScreenPhoto(string photo)
+        {
+            IsEnable = false;
+            if (photo != Utility.PathServerProfileImages)
+            {
+                await App.Current!.MainPage!.Navigation.PushAsync(new FullScreenImagePage(photo));
+            }
             IsEnable = true;
         }
 

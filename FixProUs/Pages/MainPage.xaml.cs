@@ -55,14 +55,14 @@ namespace FixProUs.Pages
             //await Animation();
             //AccountImg.Source = !string.IsNullOrEmpty(Helpers.Settings.UserPrictureGet) ? Helpers.Settings.UserPrictureGet : "avatar.png";
 
-            try
-            {
-                AccountImg.Source = Preferences.Default.Get(Helpers.Settings.UserPricture, "avatar.png");
-            }
-            catch (Exception)
-            {
-                AccountImg.Source = "avatar.png";
-            }
+            //try
+            //{
+            //    AccountImg.Source = Preferences.Default.Get(Helpers.Settings.UserPricture, "avatar.png");
+            //}
+            //catch (Exception)
+            //{
+            //    AccountImg.Source = "avatar.png";
+            //}
             //await chatService.Connect();
             //BadgeNotifications.Num = Messages.Count;
         }
@@ -287,6 +287,7 @@ namespace FixProUs.Pages
 
             }
         }
+
     }
 
 }

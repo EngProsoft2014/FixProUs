@@ -73,7 +73,7 @@
                             <Frame CornerRadius="{OnPlatform Android=100, iOS=50}" BackgroundColor="White" VerticalOptions="FillAndExpand" HasShadow="False" HorizontalOptions="FillAndExpand" Padding="0" Margin="0">
                                 <ff:CachedImage x:Name="imgAccount" Source="{Binding AccountPhoto}" Aspect="Fill" LoadingPlaceholder="avatar.png" ErrorPlaceholder="avatar.png" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                                     <ff:CachedImage.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                                        <TapGestureRecognizer Command="{Binding OpenFullScreenPhotoCommand}" CommandParameter="{Binding AccountPhoto}"></TapGestureRecognizer>
                                     </ff:CachedImage.GestureRecognizers>
                                 </ff:CachedImage>
                             </Frame>
