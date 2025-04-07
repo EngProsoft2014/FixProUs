@@ -164,8 +164,8 @@ namespace FixProUs.ViewModels
 
                                 await BlobCache.LocalMachine.InsertObject(ServicesService.UserTokenServiceKey, MLogin.GernToken, DateTimeOffset.Now.AddHours(24));
 
-                                Preferences.Default.Set(Helpers.Settings.UserPricture, (Helpers.Utility.PathServerProfileImages + Helpers.Settings.AccountNameGet + "/" + MLogin.Picture));
-                                Helpers.Settings.UserPrictureGet = !string.IsNullOrEmpty(MLogin.Picture) ? (Helpers.Utility.PathServerProfileImages + Helpers.Settings.AccountNameGet + "/" + MLogin.Picture) : "";
+                                Preferences.Default.Set(Helpers.Settings.UserPricture, (Helpers.Utility.PathServerProfileImages + "/" + MLogin.Picture));
+                                Helpers.Settings.UserPrictureGet = !string.IsNullOrEmpty(MLogin.Picture) ? (Helpers.Utility.PathServerProfileImages + "/" + MLogin.Picture) : "";
 
                                 await App.Current!.MainPage!.Navigation.PushAsync(new MainPage());
 
